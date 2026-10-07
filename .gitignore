@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.db
+*.sqlite
+*.sqlite3
+data/**/*.csv
+data/**/*.json
+powerbi/*.pbix
+powerbi/*.pbit
+powerbi/*.pdf
+powerbi/screenshots/*
+!powerbi/screenshots/.gitkeep

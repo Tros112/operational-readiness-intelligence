@@ -1,0 +1,71 @@
+{
+  "checked_at_utc": "2026-10-07T20:55:32.808782+00:00",
+  "schedule_timezone": "America/Los_Angeles",
+  "operating_system": "Linux",
+  "python": {
+    "version": "3.12.14",
+    "executable": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3"
+  },
+  "sqlite_version": "3.53.1",
+  "packages": {
+    "PyYAML": "6.0.3",
+    "pandas": "2.2.3",
+    "numpy": "2.3.5",
+    "psycopg": null,
+    "psycopg2": null,
+    "pytest": null
+  },
+  "powerbi": {
+    "assistant_report_created": false,
+    "assistant_pbix_verified": false,
+    "user_windows_access": "pending confirmation",
+    "report_build_owner": "user on Windows"
+  },
+  "configuration": {
+    "status": "passed",
+    "as_of_date": "2026-10-07",
+    "unit_count": 6,
+    "personnel_target": 300,
+    "qualification_type_count": 8,
+    "case_target": 600,
+    "scenario_count": 4,
+    "administrative_window_start": "2026-07-10",
+    "horizon_end_dates": {
+      "30": "2026-11-06",
+      "60": "2026-12-06",
+      "90": "2027-01-05"
+    }
+  },
+  "schema": {
+    "status": "passed",
+    "table_names": [
+      "admin_cases",
+      "personnel",
+      "personnel_qualifications",
+      "qualification_types",
+      "unit_qualification_requirements",
+      "units"
+    ],
+    "foreign_keys_enabled": true,
+    "repeated_ddl": "passed",
+    "database": "empty in-memory scaffold only"
+  },
+  "git": {
+    "available": true,
+    "version": "git version 2.51.1",
+    "project_worktree": true
+  },
+  "postgresql": {
+    "executables": {
+      "psql": false,
+      "postgres": false,
+      "pg_ctl": false,
+      "pg_isready": false
+    },
+    "localhost_5432_accepting_connections": false,
+    "connection_environment_keys_present": [],
+    "authentication_verified": false,
+    "selected_project_engine": "sqlite"
+  },
+  "status": "passed"
+}

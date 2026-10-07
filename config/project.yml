@@ -1,0 +1,60 @@
+project_name: Operational Readiness Intelligence
+data_classification: synthetic_only
+timezone: America/Los_Angeles
+as_of_date: '2026-10-07'
+seed: 20261007
+database:
+  engine: sqlite
+  path: data/processed/readiness.sqlite3
+  powerbi_transport: sql_generated_csv
+scope:
+  unit_count: 6
+  personnel_count: 300
+  qualification_type_count: 8
+  admin_case_count: 600
+  admin_lookback_days: 90
+  outlook_days: [30, 60, 90]
+units:
+  - {unit_id: U01, unit_name: Unit A, personnel_count: 50, required_personnel_count: 40}
+  - {unit_id: U02, unit_name: Unit B, personnel_count: 50, required_personnel_count: 40}
+  - {unit_id: U03, unit_name: Unit C, personnel_count: 50, required_personnel_count: 50}
+  - {unit_id: U04, unit_name: Unit D, personnel_count: 50, required_personnel_count: 40}
+  - {unit_id: U05, unit_name: Unit E, personnel_count: 50, required_personnel_count: 40}
+  - {unit_id: U06, unit_name: Unit F, personnel_count: 50, required_personnel_count: 40}
+qualification_types:
+  - {qualification_id: Q01, qualification_name: Safety Awareness}
+  - {qualification_id: Q02, qualification_name: Equipment Operations}
+  - {qualification_id: Q03, qualification_name: Quality Review}
+  - {qualification_id: Q04, qualification_name: Records Processing}
+  - {qualification_id: Q05, qualification_name: Scheduling Support}
+  - {qualification_id: Q06, qualification_name: Inventory Handling}
+  - {qualification_id: Q07, qualification_name: Incident Documentation}
+  - {qualification_id: Q08, qualification_name: Team Coordination}
+background:
+  availability_probability: 0.90
+  non_shortfall_units_minimum: required_personnel_count
+  default_required_holder_count: 2
+  case_types: [onboarding, records_update, transfer, evaluation]
+  open_case_probability: 0.20
+  completed_case_correction_probability: 0.06
+scenarios:
+  staffing_shortfall:
+    unit_id: U03
+    available_personnel_count: 40
+    description: Force one fictional staffing shortfall; keep other units at least at their staffing requirement.
+  fragile_qualification:
+    unit_id: U02
+    qualification_id: Q03
+    required_holder_count: 1
+    valid_available_holder_count: 1
+    description: Force a current single-holder dependency without surplus coverage.
+  renewal_cluster:
+    unit_id: U04
+    qualification_id: Q04
+    expiration_offsets_days: [7, 10, 14, 20, 25, 30]
+    valid_available_holder_count: 6
+    description: Force six available holders with currently valid certificates expiring within 30 days.
+  discrepancy_hotspot:
+    unit_id: U06
+    completed_case_correction_probability: 0.30
+    description: Raise the simulated correction probability; report realized counts only after generation and validation.

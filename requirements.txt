@@ -1,0 +1,3 @@
+# Day 1 configuration checker uses PyYAML; sqlite3 is in Python's standard library.
+# Add pandas/NumPy when the Day 2 generator actually uses them.
+PyYAML==6.0.3
