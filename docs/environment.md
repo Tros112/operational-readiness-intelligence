@@ -34,3 +34,12 @@ python src/check_environment.py > docs/environment_inventory.json
 The checker reports connection-key presence only; it never prints connection strings, usernames, or passwords. It creates the schema in memory and does not produce operational data or a populated database. PostgreSQL port reachability would not prove authentication even if present.
 
 Windows confirmation is recorded in `docs/powerbi_access.json`, from the user's October 7, 14:16 America/Los_Angeles message. The checker reads this record so future inventory refreshes preserve the reported access status. This is user-reported evidence; the assistant has not opened or inspected a PBIX. No installation or further access check is required now.
+
+## User Windows Python check — October 7, 16:02 America/Los_Angeles
+
+Evidence: user-supplied terminal screenshots. These observations are separate from the assistant-machine inventory above and do not replace `docs/environment_inventory.json`.
+
+- Python reports **3.11.4**, meeting the project's Python 3.11+ requirement.
+- The extracted project is in the user's OneDrive **Day 2** folder; `Test-Path .\src\generate_data.py` returns `True`.
+- `.\.venv\Scripts\python.exe -m unittest discover -s tests -v` completes with **8 tests in 2.230s, OK**. No local test-run blocker is visible.
+- Windows package versions and the SQLite engine version were not separately reported. No Power BI report or PBIX inspection is implied by the Python result.

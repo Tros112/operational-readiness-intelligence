@@ -56,3 +56,13 @@ User reports Desktop **2.158.1177.0, 64-bit (September 2026)**; blank report ope
 **Current gate:** October 13 prototype; clean-data milestone complete. No prototype/MVP gate passed yet.
 
 **Resume package:** `Operational_Readiness_Intelligence_Day02.zip` includes current files, generated clean reference, and the local Git checkpoint `day02-clean-data`. No remote push.
+
+### 16:02 update — Windows reproduction confirmed
+
+The user's October 7 terminal screenshots show Python **3.11.4**, the extracted OneDrive **Day 2** project folder, and `Test-Path .\src\generate_data.py` returning `True`. The project virtual-environment executable then ran `-m unittest discover -s tests -v`: **8 tests in 2.230 seconds, OK**, with all eight named tests passing. Evidence is the user-supplied terminal screenshots; the assistant read the results but did not operate the Windows computer. The checks therefore pass in both the assistant's Linux environment and the user's Windows environment. Repeatability comparisons are within each environment; no cross-platform byte comparison is claimed.
+
+**Current blocker:** none for this local test run. Power BI access was already confirmed; an operational report and PBIX inspection remain later work. Actual focused hours and independent explanations remain unreported.
+
+**Next exact action:** open `docs/generator_walkthrough.md` alongside `src/generate_data.py` and explain why the simulated aggregate staffing ratio is 254/250 = 101.6% while Unit C is 40/50 = 80%, including whether another unit's surplus resolves Unit C's local gap. Record the user's explanation before calling ownership confirmed. The next implementation milestone remains Day 3 dirty-input validation, scheduled October 9 or earlier if directed.
+
+The Day 2 ZIP preserves the original `day02-clean-data` checkpoint. These subsequent verification notes are a documentation supplement; generation code, configuration, clean reference, milestone scope, and release dates are unchanged.
