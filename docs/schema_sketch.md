@@ -11,7 +11,7 @@ Day 1 · Single snapshot · All operational records are synthetic.
 | `unit_qualification_requirements` | One unit's requirement for one qualification | `(unit_id, qualification_id)` | References units and qualification_types; positive required holder count |
 | `admin_cases` | One administrative case | `case_id` | `unit_id` → units; optional completion date and completion-only correction outcome |
 
-Initial plan: 6 units; 300 personnel; 8 qualification types; all 6 × 8 = 48 unit/qualification requirements; variable certificate count; 600 cases. These are configured targets, not generated/loaded counts.
+Configured size: 6 units; 300 personnel; 8 qualification types; all 6 × 8 = 48 unit/qualification requirements; variable certificate count; 600 cases. Day 2 generated those counts with 265 certificate records. See `docs/data_dictionary.md` for actual source counts and field meanings. Persistent loading is still scheduled for Day 4.
 
 ## Join choices
 

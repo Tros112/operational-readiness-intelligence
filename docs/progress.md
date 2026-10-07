@@ -34,3 +34,25 @@
 ### 14:16 update — Power BI access confirmed
 
 User reports Desktop **2.158.1177.0, 64-bit (September 2026)**; blank report opens: yes; saved and reopened: yes; blocker: none. Evidence type: user report. Updated charter, environment inventory/checker, decisions, verification notes, build instructions, and checkpoint. Operational report and KPI verification remain scheduled. Next exact action stays Day 2's metric finalization and clean generator; no milestone or scope change.
+
+## October 7, 2026 — Phase 1, Day 2 (scheduled October 8; executed early)
+
+**Date / actual focused hours:** October 7 in America/Los_Angeles. User explicitly requested Day 2. Actual user-focused hours not reported; provisional capacity remains 2-hour weekdays and 3–4-hour weekend days. No time balance or release-date shift is inferred.
+
+**Today's objective:** finalize metric definitions and generate/check six clean reference tables with fixed seed and four documented scenarios. Stop at this milestone.
+
+**Completed artifacts and paths:** `src/generate_data.py`; updated `src/check_environment.py`, `config/project.yml`, and `requirements.txt`; finalized `docs/metric_contract.md`; `data/raw/clean/units.csv`, `personnel.csv`, `qualification_types.csv`, `personnel_qualifications.csv`, `unit_qualification_requirements.csv`, `admin_cases.csv`, and `generation_manifest.json`; `tests/test_generate_data.py`; `docs/data_dictionary.md`, `docs/generation_check.json`, `docs/verification_day02.md`, `docs/generator_walkthrough.md`, `docs/checkpoints/2026-10-07_day02.md`; updated README, charter, environment, decisions, data/test notes, and this log.
+
+**Verification and result:** generator exit 0; 8 tests passed; six CSVs and manifest byte-identical across two cold CLI processes; all table keys/FKs and strict schema compatible in memory; real calendar dates and case chronology; null outcomes preserved; all four scenarios verified; canonical CSV hashes match manifest. Rows: 6 units, 300 people, 8 qualifications, 265 certificates, 48 requirements, 600 cases. Evidence: `docs/verification_day02.md` and `docs/generation_check.json`.
+
+**What I can now explain independently:** still awaiting user answers. `docs/generator_walkthrough.md` explains seed versus scenario override, source grain and join multiplication, local versus aggregate staffing, expiration boundary/no-renewal rule, and why open outcomes are unknown. Generated explanations are not confirmation of independent understanding.
+
+**Blocked / incomplete:** no access blocker reported. Dirty-input validation/rejection handling, persistent loader/idempotence, analytical SQL/marts, operational Power BI report, and KPI reconciliation are unimplemented. Actual available hours/preview feedback and owner explanations remain unreported. No zero-holder requirement pair occurs in this reference; add a targeted analytical fixture later.
+
+**Scope decisions / assumptions:** Day 2 executed early under user instruction (D012). Analysis date stays October 7. Expiration inventory covers all valid certificates; available-holder projections remain separate (D014). Background parameters and explicit overrides are recorded in YAML; realized probabilities are not forced. No ML, extra source table, cloud, dbt, additional project, or release-date change.
+
+**Next session's first action:** Day 3, scheduled Friday October 9 or earlier if directed: read charter/latest progress/decisions; create `data/raw/dirty/` separately from clean inputs; define an injected-defect catalog; implement `src/validate_data.py` for keys, critical missing fields, FKs, and calendar/lifecycle dates; define reject/fail behavior and visible counts; prove every injected error is detected and accepted/rejected input counts reconcile. Do not mutate the clean reference or begin the persistent loader.
+
+**Current gate:** October 13 prototype; clean-data milestone complete. No prototype/MVP gate passed yet.
+
+**Resume package:** `Operational_Readiness_Intelligence_Day02.zip` includes current files, generated clean reference, and the local Git checkpoint `day02-clean-data`. No remote push.

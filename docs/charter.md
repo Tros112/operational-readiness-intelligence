@@ -1,6 +1,6 @@
 # Project charter
 
-Version 0.2 · Day 1, access confirmed · October 7, 2026 · Schedule timezone: America/Los_Angeles
+Version 0.3 · Day 2 completed early · October 7, 2026 · Schedule timezone: America/Los_Angeles
 
 Authority: the supplied `SkillBridge_Project_Execution_Plan(1).md`, preserved unchanged as `docs/source_execution_plan.md`, plus the user's execution-workspace instructions. The brainstorming chat owns portfolio priorities, career alignment, and major scope decisions. Its updates are available here only when the user brings them; record those decisions before implementing them.
 
@@ -35,6 +35,8 @@ HoH interviews: October 20–December 3, supplied by the user. Other calendar ev
 Actual available hours are unknown. Plan provisionally for **two focused hours on weekdays and three to four on weekend days**, approximately 30–34 hours from October 7–19 before events. This is a capacity assumption, not hours performed. Record actual user hours when reported. Interview activity takes precedence over build work.
 
 Day 1 setup completion: charter, metric outline, six-table schema sketch, access inventory, configuration/structure, and logs are present; the schema can be instantiated in memory; database fallback is recorded; Windows Power BI access is confirmed by the user. Independent explanations remain open as an ownership check. No release gate is passed by a blank report.
+
+Day 2 completion: at the user's request, the October 8 milestone was executed on October 7. Metric contract v1.0, clean generator, six CSVs/manifest, field dictionary, and eight passing checks are complete. Repeated independent runs match byte for byte, and all four planted scenarios are traceable. Release dates are unchanged. Dirty validation, persistent loading, analytical marts, and the operational report remain later milestones.
 
 MVP acceptance follows the source checklist: clean regeneration/load/export; visible critical-error handling and reconciliation; hand checks for duplicate certificates, expiration boundaries, and zero denominators; functional/filterable views; three to five evidenced simulated findings; honest README; demo backups; user explanation of grain, join, quality failure, and KPI.
 

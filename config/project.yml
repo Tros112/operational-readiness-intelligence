@@ -34,9 +34,18 @@ background:
   availability_probability: 0.90
   non_shortfall_units_minimum: required_personnel_count
   default_required_holder_count: 2
+  qualification_assignment_probability: 0.12
+  certificate_status_probabilities: {valid: 0.75, expired: 0.15, future_start: 0.10}
+  valid_certificate_age_days: [30, 365]
+  inactive_certificate_duration_days: [30, 365]
+  valid_certificate_remaining_days: [1, 180]
+  expired_days_ago: [0, 60]
+  future_start_days: [1, 30]
+  scenario_valid_from_days_ago: 30
   case_types: [onboarding, records_update, transfer, evaluation]
   open_case_probability: 0.20
   completed_case_correction_probability: 0.06
+  case_cycle_time_days: [0, 14]
 scenarios:
   staffing_shortfall:
     unit_id: U03
@@ -47,6 +56,7 @@ scenarios:
     qualification_id: Q03
     required_holder_count: 1
     valid_available_holder_count: 1
+    expiration_offset_days: 180
     description: Force a current single-holder dependency without surplus coverage.
   renewal_cluster:
     unit_id: U04

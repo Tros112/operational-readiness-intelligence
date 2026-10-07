@@ -1,8 +1,8 @@
-# Metric contract outline
+# Metric contract
 
-Version 0.1 · Day 1 outline; finalize on Day 2 before generating data.
+Version 1.0 · Finalized for Day 2 on October 7, 2026 (scheduled October 8; executed early at user request).
 
-All measures describe a **fictional simulation**. No measures have been calculated from project data yet. The definitions below govern the future SQL and Power BI implementations.
+All operational measures describe a **fictional simulation**. The definitions below govern generation checks and the future analytical SQL/Power BI implementation. Clean-reference verification does not complete the dashboard or metric-reconciliation gate.
 
 ## Shared date and eligibility rules
 
@@ -14,6 +14,10 @@ All measures describe a **fictional simulation**. No measures have been calculat
 - Cases opened after D are excluded. Cases with `closed_date IS NULL` or `closed_date > D` are open at D; future outcomes do not enter completion metrics. Clean generation will contain no future actual openings/completions.
 - Counts show zero when the eligible set is empty. Ratios and medians with no eligible denominator/observations show SQL NULL and Power BI blank / not applicable. Do not replace an undefined rate with zero.
 - Every export carries `as_of_date`. Filters must preserve the same numerator/denominator scope. Aggregate ratios from their counts, not from averages of percentages.
+- Raw CSVs keep the six-table source schema; the single analysis date is stored in configuration/manifest. Future dashboard exports include the date explicitly. A missing certificate record means no recorded qualification; it is not a missing-date value to impute.
+- Administrative cycle time uses calendar days, without a working-day adjustment. Its selected period applies to completion date, even if the case was opened earlier. The MVP's generated cases all open in the 90-day window, so older backlog is not represented.
+- Staffing gap is `max(required_personnel_count - available_personnel_count, 0)` at unit grain. Preserve unit gaps separately from the aggregate uncapped staffing ratio: surplus elsewhere cannot remove a unit's local shortfall.
+- Expiration inventory counts all currently valid certificates in the selected unit, including unavailable people; report availability separately when useful. Projected qualification coverage uses available holders only. Do not silently change the expiration denominator to available holders.
 
 ## Definitions
 
@@ -43,6 +47,17 @@ These are tiny teaching fixtures, **not results from the generated dataset**.
 
 Owner check pending: explain the staffing denominator, exclusive expiration boundary, and treatment of open cases in your own words. No independent understanding has yet been confirmed.
 
+## Derived output grains (planned)
+
+| Output | Grain | Rule |
+| --- | --- | --- |
+| Executive unit summary | One unit at D | Staffing totals and summed qualification slots share unit scope; sum count components across units |
+| Qualification detail | One unit/qualification at D | All 48 requirements retained, including zero holders; current holders, gaps, fragile flag, and projected horizons |
+| Expiration detail | One current valid person/qualification certificate at D | Distinct affected people must be recomputed for the selection, not summed across qualifications |
+| Process case detail | One case eligible as of D | Completion/age/calendar-period filters applied before rates or median |
+
+These are derived marts scheduled for later milestones. No extra operational source table is added. Source rows and dashboard tables must not be mixed in joins that multiply counts.
+
 ## Day 2 completion check
 
-Confirm these definitions and the export grains before writing the generator. Record any clarification in decisions. Later checks must reconcile the same eligible record sets and counts across SQL and Power BI, including filtered units and empty selections.
+Definitions and output grains are fixed above. Generator verification must check source grain, key/date integrity, and the documented scenarios. Later checks reconcile the same eligible record sets and counts across SQL and Power BI, including filtered units and empty selections. The owner's explanations remain pending; implementation definitions are not evidence of independent understanding.

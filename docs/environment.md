@@ -6,8 +6,8 @@ Observed October 7, 2026 in the assistant's execution workspace. Machine-readabl
 | --- | --- | --- |
 | Operating system | Linux, x86_64 | Build Python/SQL here; Desktop on user's Windows computer |
 | Python | 3.12.14 | Available; project requires 3.11+ |
-| pandas / NumPy | 2.2.3 / 2.3.5 installed | Available for Day 2; add to requirements when used by generator |
-| PyYAML | 6.0.3 installed | Used now to read/check configuration; pinned in requirements |
+| pandas / NumPy | 2.2.3 / 2.3.5 installed | Used by Day 2 tables/CSV and seeded generation; pinned in requirements |
+| PyYAML | 6.0.3 installed | Used by configuration checker and generator; pinned in requirements |
 | SQLite | Python sqlite3, engine 3.53.1; no CLI | Available; CLI unnecessary. STRICT schema requires SQLite 3.37+ |
 | Git | 2.51.1 installed | Local checkpoint; no intended remote supplied |
 | PostgreSQL | No psql/postgres/pg_ctl/pg_isready executable; localhost:5432 closed; no configured connection keys | Use charter-approved SQLite plus SQL-generated CSV fallback immediately; no installation session spent |

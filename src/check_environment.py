@@ -69,15 +69,44 @@ def check_config(config: dict) -> dict:
     cluster = scenarios["renewal_cluster"]
     require(len(cluster["expiration_offsets_days"]) == cluster["valid_available_holder_count"],
             "Renewal cluster count and offsets disagree")
-    require(all(0 < offset <= 30 for offset in cluster["expiration_offsets_days"]),
+    require(all(type(offset) is int and 0 < offset <= 30 for offset in cluster["expiration_offsets_days"]),
             "Renewal offsets must be within the inclusive 30-day window")
     for probability in (
         config["background"]["availability_probability"],
+        config["background"]["qualification_assignment_probability"],
         config["background"]["open_case_probability"],
         config["background"]["completed_case_correction_probability"],
         scenarios["discrepancy_hotspot"]["completed_case_correction_probability"],
     ):
         require(0 <= probability <= 1, "Probabilities must be in [0, 1]")
+    background = config["background"]
+    require(background["non_shortfall_units_minimum"] == "required_personnel_count",
+            "Non-shortfall availability policy must match the documented floor")
+    require((fragile["unit_id"], fragile["qualification_id"]) != (cluster["unit_id"], cluster["qualification_id"]),
+            "Qualification scenarios cannot overwrite the same group")
+    statuses = background["certificate_status_probabilities"]
+    require(set(statuses) == {"valid", "expired", "future_start"}, "Expected three certificate statuses")
+    require(all(0 <= p <= 1 for p in statuses.values()) and abs(sum(statuses.values()) - 1) < 1e-9,
+            "Certificate status probabilities must sum to one")
+    for name in ("valid_certificate_age_days", "inactive_certificate_duration_days", "valid_certificate_remaining_days",
+                 "expired_days_ago", "future_start_days", "case_cycle_time_days"):
+        bounds = background[name]
+        require(len(bounds) == 2 and all(type(n) is int for n in bounds), "Day ranges require two integers")
+        require(0 <= bounds[0] <= bounds[1], "Day ranges must be ordered and nonnegative")
+    require(background["valid_certificate_age_days"][0] > 0
+            and background["inactive_certificate_duration_days"][0] > 0
+            and background["valid_certificate_remaining_days"][0] > 0
+            and background["future_start_days"][0] > 0
+            and background["scenario_valid_from_days_ago"] > 0,
+            "Active/future certificate date ranges must preserve validity order")
+    require(background["default_required_holder_count"] > 0, "Qualification requirement must be positive")
+    require(len(background["case_types"]) > 0 and len(set(background["case_types"])) == len(background["case_types"]),
+            "Case types must be nonempty and unique")
+    require(fragile["expiration_offset_days"] > 0, "Fragile certificate must be currently valid")
+    for scenario in (fragile, cluster):
+        unit = next(row for row in units if row["unit_id"] == scenario["unit_id"])
+        require(scenario["valid_available_holder_count"] <= unit["required_personnel_count"],
+                "Scenario holders must fit within the unit's guaranteed available population")
     return {
         "status": "passed", "as_of_date": analysis_date.isoformat(),
         "unit_count": len(units), "personnel_target": scope["personnel_count"],

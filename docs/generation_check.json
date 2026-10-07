@@ -1,0 +1,174 @@
+{
+  "data_classification": "synthetic_only",
+  "as_of_date": "2026-10-07",
+  "execution_date": "2026-10-07",
+  "scheduled_milestone_date": "2026-10-08",
+  "verification": {
+    "test_count": 8,
+    "passed": 8,
+    "failed": 0,
+    "cold_cli_run_count": 2,
+    "six_csvs_and_manifest": "byte_identical",
+    "source_keys_and_foreign_keys": "passed",
+    "calendar_and_case_lifecycle": "passed",
+    "persistent_database_load": "not implemented",
+    "sql_powerbi_reconciliation": "not implemented"
+  },
+  "row_counts": {
+    "admin_cases": 600,
+    "personnel": 300,
+    "personnel_qualifications": 265,
+    "qualification_types": 8,
+    "unit_qualification_requirements": 48,
+    "units": 6
+  },
+  "staffing_audit": [
+    {
+      "unit_id": "U01",
+      "unit_name": "Unit A",
+      "available": 41,
+      "required": 40,
+      "coverage": 1.025
+    },
+    {
+      "unit_id": "U02",
+      "unit_name": "Unit B",
+      "available": 44,
+      "required": 40,
+      "coverage": 1.1
+    },
+    {
+      "unit_id": "U03",
+      "unit_name": "Unit C",
+      "available": 40,
+      "required": 50,
+      "coverage": 0.8
+    },
+    {
+      "unit_id": "U04",
+      "unit_name": "Unit D",
+      "available": 47,
+      "required": 40,
+      "coverage": 1.175
+    },
+    {
+      "unit_id": "U05",
+      "unit_name": "Unit E",
+      "available": 42,
+      "required": 40,
+      "coverage": 1.05
+    },
+    {
+      "unit_id": "U06",
+      "unit_name": "Unit F",
+      "available": 40,
+      "required": 40,
+      "coverage": 1.0
+    }
+  ],
+  "certificate_status_counts": {
+    "currently_valid_all_people": 193,
+    "currently_valid_available_people": 172,
+    "already_expired": 49,
+    "future_start": 23
+  },
+  "qualification_audit": {
+    "required_holder_slots": 95,
+    "current_gap_pairs": 7,
+    "zero_holder_pairs": 0
+  },
+  "scenario_evidence": {
+    "staffing_shortfall": {
+      "unit_id": "U03",
+      "unit_name": "Unit C",
+      "available": 40,
+      "required": 50,
+      "coverage": 0.8
+    },
+    "fragile_qualification": {
+      "unit_id": "U02",
+      "qualification_id": "Q03",
+      "required_holders": 1,
+      "valid_available_holders": 1,
+      "surplus": 0
+    },
+    "renewal_cluster": {
+      "unit_id": "U04",
+      "qualification_id": "Q04",
+      "required_holders": 2,
+      "valid_available_holders": 6,
+      "expiration_dates": [
+        "2026-10-14",
+        "2026-10-17",
+        "2026-10-21",
+        "2026-10-27",
+        "2026-11-01",
+        "2026-11-06"
+      ],
+      "expiring_by_day_30": 6,
+      "remaining_current_cohort_holders_at_day_30": 0
+    },
+    "discrepancy_hotspot": {
+      "unit_id": "U06",
+      "configured_probability": 0.3,
+      "observed_completed": 70,
+      "observed_corrections": 27,
+      "observed_rate": 0.38571428571428573,
+      "background_configured_probability": 0.06,
+      "other_units_completed": 372,
+      "other_units_corrections": 18,
+      "other_units_pooled_observed_rate": 0.04838709677419355
+    }
+  },
+  "process_audit": [
+    {
+      "unit_id": "U01",
+      "cases": 96,
+      "completed": 71,
+      "open": 25,
+      "corrections": 1,
+      "completed_case_rate": 0.014084507042253521
+    },
+    {
+      "unit_id": "U02",
+      "cases": 95,
+      "completed": 76,
+      "open": 19,
+      "corrections": 3,
+      "completed_case_rate": 0.039473684210526314
+    },
+    {
+      "unit_id": "U03",
+      "cases": 93,
+      "completed": 66,
+      "open": 27,
+      "corrections": 7,
+      "completed_case_rate": 0.10606060606060606
+    },
+    {
+      "unit_id": "U04",
+      "cases": 111,
+      "completed": 83,
+      "open": 28,
+      "corrections": 4,
+      "completed_case_rate": 0.04819277108433735
+    },
+    {
+      "unit_id": "U05",
+      "cases": 107,
+      "completed": 76,
+      "open": 31,
+      "corrections": 3,
+      "completed_case_rate": 0.039473684210526314
+    },
+    {
+      "unit_id": "U06",
+      "cases": 98,
+      "completed": 70,
+      "open": 28,
+      "corrections": 27,
+      "completed_case_rate": 0.38571428571428573
+    }
+  ],
+  "limits": "Generator audit of a planted synthetic simulation. No Navy readiness rule, causal result, trained model, persistent load, or Power BI KPI verification."
+}

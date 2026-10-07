@@ -1,6 +1,8 @@
 # Meaningful checks to add as implementation exists
 
-Day 1 has an environment/configuration/schema check and one-time in-memory constraint probes. The generator, validator, loader, analytical metrics, and Power BI report are not yet implemented.
+Day 2 implements `test_generate_data.py`: eight passing clean-reference checks for keys/FKs/schema compatibility, calendars/lifecycle, the four documented scenarios, independent-run reproducibility, null serialization, seed sensitivity, and invalid configuration. Run `python -m unittest discover -s tests -v` from the root. No extra test runner is required.
+
+The dirty-input validator, persistent loader, analytical marts, and operational Power BI report are not yet implemented. Later checks below remain pending when relevant; the generator tests do not complete them.
 
 Later checks must address actual failure risks:
 
