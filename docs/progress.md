@@ -66,3 +66,13 @@ The user's October 7 terminal screenshots show Python **3.11.4**, the extracted 
 **Next exact action:** open `docs/generator_walkthrough.md` alongside `src/generate_data.py` and explain why the simulated aggregate staffing ratio is 254/250 = 101.6% while Unit C is 40/50 = 80%, including whether another unit's surplus resolves Unit C's local gap. Record the user's explanation before calling ownership confirmed. The next implementation milestone remains Day 3 dirty-input validation, scheduled October 9 or earlier if directed.
 
 The Day 2 ZIP preserves the original `day02-clean-data` checkpoint. These subsequent verification notes are a documentation supplement; generation code, configuration, clean reference, milestone scope, and release dates are unchanged.
+
+### 16:28 update — VS Code environment resolved; generation confirmed
+
+At 16:18, a user screenshot showed VS Code running the global Python installation and failing to import pandas. This did not invalidate the earlier tests run through the project virtual environment. The 16:28 screenshots show the Day 2 folder open in VS Code, Python **3.11.4 (.venv)** selected, and `src/generate_data.py` successfully run with the project's `.venv` executable. The active generator file shows zero error/warning indicators.
+
+The generator reports **status generated**, **synthetic_only**, **as_of_date 2026-10-07**, and output in `data/raw/clean/`. All six reported row counts match the reference: units 6, personnel 300, qualification types 8, certificates 265, requirements 48, cases 600. Screenshot evidence confirms the standalone Windows run and counts; the Windows CSV bytes and manifest were not uploaded or compared with Linux outputs.
+
+**Verification / blocker:** standalone Windows generation succeeded, and the prior eight Windows tests passed. The observed VS Code interpreter blocker is resolved. No generation code, configuration, or scope change was needed.
+
+**Next exact action:** read `docs/generator_walkthrough.md` alongside `src/generate_data.py`, then explain the simulated aggregate staffing ratio of 101.6% versus Unit C's 80% and the local shortfall of 10. Independent understanding remains unconfirmed until the user explains it. Day 3 dirty-input validation remains the next implementation milestone; no loader, operational Power BI report, or release gate is claimed.

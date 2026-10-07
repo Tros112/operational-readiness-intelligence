@@ -35,6 +35,8 @@ All eight named tests report `ok`; the summary reads **Ran 8 tests in 2.230s** a
 
 ## Actual reference counts
 
+The user's 16:28 Windows screenshots also show a successful standalone `src/generate_data.py` run from VS Code using the project's `.venv` executable. The output reports `status: generated`, `data_classification: synthetic_only`, analysis date `2026-10-07`, and `data/raw/clean/` as the output folder. All six reported row counts match the following reference counts. The VS Code global-interpreter import failure seen at 16:18 is resolved by the selected project environment. Windows output hashes/bytes were not supplied; no cross-platform byte comparison is inferred from matching row counts.
+
 | Source | Rows |
 | --- | --- |
 | units | 6 |

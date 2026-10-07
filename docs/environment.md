@@ -43,3 +43,9 @@ Evidence: user-supplied terminal screenshots. These observations are separate fr
 - The extracted project is in the user's OneDrive **Day 2** folder; `Test-Path .\src\generate_data.py` returns `True`.
 - `.\.venv\Scripts\python.exe -m unittest discover -s tests -v` completes with **8 tests in 2.230s, OK**. No local test-run blocker is visible.
 - Windows package versions and the SQLite engine version were not separately reported. No Power BI report or PBIX inspection is implied by the Python result.
+
+## VS Code follow-up — October 7, 16:28 America/Los_Angeles
+
+The user initially opened an individual test file with VS Code's global Python selected; the 16:18 screenshot shows `ModuleNotFoundError: No module named 'pandas'`. The existing project `.venv` had already passed all eight tests. The 16:28 screenshots confirm the Day 2 folder open as the workspace, **Python 3.11.4 (.venv)** selected, and successful standalone generation of all six synthetic tables. The active generator file shows zero error/warning indicators. The observed editor interpreter issue is resolved; generation code and dependencies are unchanged.
+
+For this Windows workspace, open the Day 2 project folder and use **Python: Select Interpreter** to select `.venv/Scripts/python.exe`. The run command should use that executable. This project environment selection is separate from the system-wide `python` command. The terminal screenshots provide runtime evidence; the assistant did not operate VS Code on the user's computer.
