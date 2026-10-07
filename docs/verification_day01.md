@@ -20,7 +20,8 @@ Performed October 7, 2026. These checks verify a foundation only; they do not es
 | 30-day boundary | D + 30 = 2026-11-06 confirmed by calendar arithmetic; analytical eligibility SQL not yet implemented |
 | Required artifact paths | Present |
 | Source schedule preservation | Byte-identical to attachment |
-| No premature output claims | No operational CSVs, populated project database, or PBIX created |
+| No premature output claims | No operational CSVs, populated project database, or assistant-created/inspected PBIX |
+| Windows Desktop access, user-reported at 14:16 | 2.158.1177.0, 64-bit (September 2026); blank report opens, saved/reopened, no blocker |
 
 ## Known constraint limit
 
@@ -33,11 +34,12 @@ Tiny fixture rows existed only in an in-memory connection that was closed. They 
 
 ## Remaining checks
 
-- User Windows Power BI version and open/save/reopen confirmation.
 - User explanation of grain, denominator, expiration boundary, and open-case treatment.
 - Generator reproducibility and scenario realization (Day 2).
 - Injected-error detection, accepted/rejected reconciliation (Day 3).
 - Populated database and idempotent loader (Day 4).
 - Analytical SQL and dashboard reconciliation (Day 5 onward).
+
+Windows access is supported by the user's statement in `docs/powerbi_access.json`. It does not establish an operational report, working measures, SQL/Power BI reconciliation, or assistant PBIX inspection.
 
 Source schedule SHA-256: `0a4621f2a17e8d93285b3c2f46dc8313b050819ad509ea24303a68e776a0ffea`.

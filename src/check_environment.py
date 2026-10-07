@@ -146,20 +146,34 @@ def postgres_inventory() -> dict:
     }
 
 
+def powerbi_inventory() -> dict:
+    inventory = {
+        "assistant_report_created": False, "assistant_pbix_verified": False,
+        "user_windows_access": "pending confirmation", "report_build_owner": "user on Windows",
+    }
+    access_path = ROOT / "docs/powerbi_access.json"
+    if access_path.is_file():
+        confirmation = json.loads(access_path.read_text(encoding="utf-8"))
+        inventory["user_confirmation"] = confirmation
+        confirmed = all(confirmation.get(key) is True for key in (
+            "blank_report_opens", "saved_and_reopened"
+        )) and confirmation.get("blocker") is None
+        inventory["user_windows_access"] = "confirmed by user" if confirmed else "user reports an access issue"
+    return inventory
+
+
 def main() -> int:
     report = {
         "checked_at_utc": dt.datetime.now(dt.timezone.utc).isoformat(),
         "schedule_timezone": "America/Los_Angeles", "operating_system": platform.system(),
         "python": {"version": platform.python_version(), "executable": sys.executable},
         "sqlite_version": sqlite3.sqlite_version, "packages": package_versions(),
-        "powerbi": {"assistant_report_created": False, "assistant_pbix_verified": False,
-                    "user_windows_access": "pending confirmation",
-                    "report_build_owner": "user on Windows"},
     }
     try:
         require(sys.version_info >= (3, 11), "Python >= 3.11 is required")
         import yaml
 
+        report["powerbi"] = powerbi_inventory()
         config = yaml.safe_load((ROOT / "config/project.yml").read_text(encoding="utf-8"))
         report["configuration"] = check_config(config)
         report["schema"] = check_schema()

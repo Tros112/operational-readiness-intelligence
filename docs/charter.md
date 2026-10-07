@@ -1,6 +1,6 @@
 # Project charter
 
-Version 0.1 · Day 1 · October 7, 2026 · Schedule timezone: America/Los_Angeles
+Version 0.2 · Day 1, access confirmed · October 7, 2026 · Schedule timezone: America/Los_Angeles
 
 Authority: the supplied `SkillBridge_Project_Execution_Plan(1).md`, preserved unchanged as `docs/source_execution_plan.md`, plus the user's execution-workspace instructions. The brainstorming chat owns portfolio priorities, career alignment, and major scope decisions. Its updates are available here only when the user brings them; record those decisions before implementing them.
 
@@ -18,7 +18,7 @@ All operational records and findings are fictional/synthetic. Use invented IDs a
 
 Minimum scope: six units, 300 people, eight qualification types, one staffing snapshot on **2026-10-07**, 90-day certificate outlook, and 90 days of administrative cases. Routine Day 1 sizing: 600 cases. Six source tables only; their grains are in `docs/schema_sketch.md`.
 
-Python and SQL implement generation, validation, loading, and dashboard exports. SQLite with CSV is the documented fallback because PostgreSQL is unavailable in the execution environment. Power BI Desktop is built/inspected on the user's Windows computer. No PBIX currently exists in this workspace, and Windows access is pending user confirmation.
+Python and SQL implement generation, validation, loading, and dashboard exports. SQLite with CSV is the documented fallback because PostgreSQL is unavailable in the execution environment. Power BI Desktop is built/inspected on the user's Windows computer. On October 7, the user confirmed Desktop 2.158.1177.0, 64-bit (September 2026), blank-report open/save/reopen, and no blocker. No PBIX has been supplied to this workspace or inspected by the assistant.
 
 No ML, cloud, dbt, extra datasets/projects, deployment history, maintenance model, assignment optimization, or composite readiness score is in this MVP. Any predictive extension requires a written assessment of label validity, chronology, leakage, baseline value, and whether a SQL rule already solves it. Historical administrative cases support process trends only, not historical staffing/readiness claims.
 
@@ -34,7 +34,7 @@ HoH interviews: October 20–December 3, supplied by the user. Other calendar ev
 
 Actual available hours are unknown. Plan provisionally for **two focused hours on weekdays and three to four on weekend days**, approximately 30–34 hours from October 7–19 before events. This is a capacity assumption, not hours performed. Record actual user hours when reported. Interview activity takes precedence over build work.
 
-Day 1 completion: charter, metric outline, six-table schema sketch, access inventory, configuration/structure, and logs are present; the schema can be instantiated in memory; database fallback is recorded; Windows Power BI access has an actionable check. User confirmation of Power BI access and independent explanations remains open.
+Day 1 setup completion: charter, metric outline, six-table schema sketch, access inventory, configuration/structure, and logs are present; the schema can be instantiated in memory; database fallback is recorded; Windows Power BI access is confirmed by the user. Independent explanations remain open as an ownership check. No release gate is passed by a blank report.
 
 MVP acceptance follows the source checklist: clean regeneration/load/export; visible critical-error handling and reconciliation; hand checks for duplicate certificates, expiration boundaries, and zero denominators; functional/filterable views; three to five evidenced simulated findings; honest README; demo backups; user explanation of grain, join, quality failure, and KPI.
 

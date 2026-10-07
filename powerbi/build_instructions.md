@@ -1,8 +1,10 @@
 # Windows Power BI handoff
 
-**Current status, October 7:** Power BI Desktop cannot run in the assistant's Linux environment. The user's Windows installation/version and open/save access have not been confirmed. The assistant has not created, opened, or verified a PBIX. No SQL export exists yet.
+**Current status, October 7:** user confirms Windows Power BI Desktop **2.158.1177.0, 64-bit (September 2026)**; blank report opens, saved/reopened, no blocker. Evidence: `docs/powerbi_access.json`. Desktop cannot run in the assistant's Linux environment; the assistant has not created, opened, or verified a PBIX. No SQL export exists yet.
 
-## Perform now: Day 1 access check (5–10 minutes)
+## Completed: Day 1 access check (user-reported)
+
+The user completed this check on October 7. Retain these steps for reference; no repeat is needed unless access changes.
 
 1. On your Windows computer, open Start and launch **Power BI Desktop**. If absent, use Microsoft's [installation guide](https://learn.microsoft.com/en-us/power-bi/fundamentals/desktop-get-the-desktop): open the Power BI Desktop Microsoft Store page and select Install, or use the linked 64-bit installer. Use the standard Desktop application.
 2. Open a **blank report**. On the Help ribbon, select **About** and note the Version line.

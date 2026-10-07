@@ -1,0 +1,12 @@
+{
+  "evidence_type": "user_report",
+  "reported_at": "2026-10-07T14:16:28-07:00",
+  "desktop_version": "2.158.1177.0",
+  "architecture": "64-bit",
+  "release_label": "September 2026",
+  "blank_report_opens": true,
+  "saved_and_reopened": true,
+  "blocker": null,
+  "report_path": null,
+  "scope": "Windows Desktop access and blank-report persistence only; no operational report or KPI reconciliation verified."
+}
