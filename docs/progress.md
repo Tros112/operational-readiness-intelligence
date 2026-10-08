@@ -76,3 +76,13 @@ The generator reports **status generated**, **synthetic_only**, **as_of_date 202
 **Verification / blocker:** standalone Windows generation succeeded, and the prior eight Windows tests passed. The observed VS Code interpreter blocker is resolved. No generation code, configuration, or scope change was needed.
 
 **Next exact action:** read `docs/generator_walkthrough.md` alongside `src/generate_data.py`, then explain the simulated aggregate staffing ratio of 101.6% versus Unit C's 80% and the local shortfall of 10. Independent understanding remains unconfirmed until the user explains it. Day 3 dirty-input validation remains the next implementation milestone; no loader, operational Power BI report, or release gate is claimed.
+
+### 17:03 update — Power BI staffing review selected
+
+The user proposed creating table relationships in Power BI to inspect the questions. Prepared `powerbi/day02_staffing_review.md`: exact clean-CSV imports/types, one active Single units-to-personnel relationship, four DAX measures, a unit matrix/slicer, expected totals/filter checks, and a six-source relationship reference. Updated `powerbi/build_instructions.md` and recorded D016. This is a Day 2 learning preview; the production SQL export and reconciliation milestones and release dates are unchanged.
+
+**Verification:** independently recounted distinct available person IDs from the assistant's clean CSVs. Per-unit counts are A 41/40, B 44/40, C 40/50, D 47/40, E 42/40, F 40/40. Totals are 254/250 = 101.6%, with the sum of nonnegative unit gaps equal to 10. The prepared DAX has not been executed in Power BI; no learning PBIX, relationship, or report screenshot has been supplied or inspected. No additional generator test run was needed because source code/configuration are unchanged.
+
+**Ownership / blockers:** proposing a relationship model is a review approach, not confirmation of the metric explanation. Windows Desktop and Python access are working. Local report build, filter checks, and the owner's explanation are pending; actual focused hours remain unreported.
+
+**Next exact action:** in Windows Power BI, load `data/raw/clean/units.csv` and `personnel.csv` following the new guide, inspect/create the unit-ID 1:* Single relationship, then add the four measures and matrix. Return Model view and the unfiltered matrix, Unit C selected results, save/reopen status, and your explanation of aggregate coverage versus the local gap. After this Day 2 review, the next implementation milestone remains Day 3 dirty-input validation, scheduled October 9 or earlier if directed.

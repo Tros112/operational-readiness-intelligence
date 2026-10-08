@@ -17,6 +17,8 @@ This is an **access check**, not the October 13 prototype. A user-reported save 
 
 ## Day 6 local build: run only after verified SQL exports arrive
 
+**Day 2 learning preview:** at the user's October 7 request to inspect relationships in Power BI, `powerbi/day02_staffing_review.md` provides a two-table clean-reference staffing view, four prepared measures, expected per-unit/filtered totals, and the six-source relationship map. The user must build and verify this locally. It supports ownership review; the production SQL export/reconciliation sequence below and release dates are unchanged. No new PBIX is claimed as created or inspected by the assistant.
+
 The following is the **planned executive export contract**, not a claim the file has been produced or its calculations checked. On Day 5, compare actual export fields with this contract before proceeding.
 
 File: `data/processed/marts/unit_summary.csv`. Grain: **one row per unit at the fixed analysis date** (six rows before filtering).
