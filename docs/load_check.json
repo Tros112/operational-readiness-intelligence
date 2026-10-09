@@ -61,7 +61,7 @@
   "saved_database_matches_pre_dirty_attempt_sha256": true,
   "saved_database_sha256": "16d3119d57fd7ba6195fa372b9f970819a6397010162cab11119c2ce7014fe46",
   "publication": {
-    "status": "pending_verification",
+    "status": "implementation_verified",
     "scope": "code_tests_text_only",
     "excluded": [
       "screenshots_and_other_images",
@@ -70,6 +70,14 @@
       ".venv",
       "Power_BI_binaries"
     ],
-    "denied_screenshot_upload_retried": false
+    "denied_screenshot_upload_retried": false,
+    "implementation_commit_sha": "11697ebd20b3a03dd8b388334ec28a094ccd166c",
+    "parent_commit_sha": "828975fa65e66adb0c5d336fb4bca1a7493e4402",
+    "implementation_tree_sha": "7c077c62c154f26032ac7ba67404ee5a3cb6a694",
+    "changed_text_file_count": 19,
+    "published_blobs_match_local_checkpoint": true,
+    "existing_remote_history_preserved": true,
+    "previous_remote_assets_unchanged": true,
+    "private_local_history_branch": "execution/day04-local-history"
   }
 }

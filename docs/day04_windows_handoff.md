@@ -2,7 +2,7 @@
 
 Day 4 was implemented October 9, 2026, ahead of its October 10 schedule under the user's instruction to continue. All operational data and findings are simulated; readiness is a fictional proxy. The assistant's Linux checks pass. Your Windows Day 4 run and independent transaction explanation remain pending.
 
-Delivery gate: publication is pending in this draft. Start the update commands only after the assistant supplies the verified published commit SHA. An earlier successful push of Day 3 does not establish that Day 4 is available remotely.
+Published implementation checkpoint: **11697ebd20b3a03dd8b388334ec28a094ccd166c**, verified October 9. Later text-documentation commits can follow this checkpoint. The update commands are now actionable; the assistant's final message identifies the latest verified delivery SHA.
 
 ## 1. Update the folder you already use
 
@@ -21,6 +21,8 @@ Expected: your existing folder, branch `main`, and origin `https://github.com/Tr
 git pull --ff-only origin main
 if ($LASTEXITCODE -ne 0) { throw 'Git update stopped. Return the exact output; keep your local changes.' }
 git rev-parse HEAD
+git merge-base --is-ancestor 11697ebd20b3a03dd8b388334ec28a094ccd166c HEAD
+if ($LASTEXITCODE -ne 0) { throw 'This checkout does not yet contain the verified Day 4 implementation.' }
 
 Test-Path .\src\load_data.py
 Test-Path .\.venv\Scripts\python.exe
