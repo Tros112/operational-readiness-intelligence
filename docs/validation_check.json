@@ -1,0 +1,177 @@
+{
+  "data_classification": "synthetic_only",
+  "as_of_date": "2026-10-07",
+  "defect_count": 16,
+  "checks": [
+    {
+      "defect_id": "D01",
+      "table": "personnel_qualifications",
+      "record_numbers": [
+        2,
+        267
+      ],
+      "expected_code": "DUPLICATE_KEY",
+      "detected": true
+    },
+    {
+      "defect_id": "D02",
+      "table": "personnel",
+      "record_numbers": [
+        2
+      ],
+      "expected_code": "MISSING_REQUIRED",
+      "detected": true
+    },
+    {
+      "defect_id": "D03",
+      "table": "personnel_qualifications",
+      "record_numbers": [
+        3
+      ],
+      "expected_code": "MISSING_REQUIRED",
+      "detected": true
+    },
+    {
+      "defect_id": "D04",
+      "table": "personnel_qualifications",
+      "record_numbers": [
+        4
+      ],
+      "expected_code": "INVALID_DATE",
+      "detected": true
+    },
+    {
+      "defect_id": "D05",
+      "table": "personnel_qualifications",
+      "record_numbers": [
+        5
+      ],
+      "expected_code": "CERTIFICATE_DATE_ORDER",
+      "detected": true
+    },
+    {
+      "defect_id": "D06",
+      "table": "personnel_qualifications",
+      "record_numbers": [
+        6
+      ],
+      "expected_code": "FOREIGN_KEY",
+      "detected": true
+    },
+    {
+      "defect_id": "D07",
+      "table": "personnel",
+      "record_numbers": [
+        8
+      ],
+      "expected_code": "FOREIGN_KEY",
+      "detected": true
+    },
+    {
+      "defect_id": "D08",
+      "table": "personnel",
+      "record_numbers": [
+        3
+      ],
+      "expected_code": "INVALID_FLAG",
+      "detected": true
+    },
+    {
+      "defect_id": "D09",
+      "table": "admin_cases",
+      "record_numbers": [
+        5
+      ],
+      "expected_code": "MISSING_REQUIRED",
+      "detected": true
+    },
+    {
+      "defect_id": "D10",
+      "table": "admin_cases",
+      "record_numbers": [
+        3
+      ],
+      "expected_code": "CASE_DATE_ORDER",
+      "detected": true
+    },
+    {
+      "defect_id": "D11",
+      "table": "admin_cases",
+      "record_numbers": [
+        2
+      ],
+      "expected_code": "CASE_OUTCOME_STATE",
+      "detected": true
+    },
+    {
+      "defect_id": "D12",
+      "table": "admin_cases",
+      "record_numbers": [
+        4
+      ],
+      "expected_code": "CASE_OUTCOME_STATE",
+      "detected": true
+    },
+    {
+      "defect_id": "D13",
+      "table": "unit_qualification_requirements",
+      "record_numbers": [
+        2
+      ],
+      "expected_code": "NONPOSITIVE_COUNT",
+      "detected": true
+    },
+    {
+      "defect_id": "D14",
+      "table": "unit_qualification_requirements",
+      "record_numbers": [
+        3
+      ],
+      "expected_code": "INVALID_INTEGER",
+      "detected": true
+    },
+    {
+      "defect_id": "D15",
+      "table": "unit_qualification_requirements",
+      "record_numbers": [
+        4
+      ],
+      "expected_code": "FOREIGN_KEY",
+      "detected": true
+    },
+    {
+      "defect_id": "D16",
+      "table": "personnel",
+      "record_numbers": [
+        7,
+        302
+      ],
+      "expected_code": "DUPLICATE_KEY",
+      "detected": true
+    }
+  ],
+  "cascades": [
+    {
+      "expected_code": "REJECTED_PARENT",
+      "parent_person_id": "P0007",
+      "record_number": 9,
+      "table": "personnel_qualifications"
+    }
+  ],
+  "clean_totals": {
+    "accepted_rows": 1227,
+    "counts_reconciled": true,
+    "input_rows": 1227,
+    "rejected_rows": 0
+  },
+  "dirty_totals": {
+    "accepted_rows": 1210,
+    "counts_reconciled": true,
+    "input_rows": 1229,
+    "rejected_rows": 19
+  },
+  "clean_reference_unchanged": true,
+  "tests_passed": 22,
+  "test_environment": "Assistant Linux; Windows Day 3 reproduction pending",
+  "persistent_loader_implemented": false
+}

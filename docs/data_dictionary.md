@@ -63,6 +63,6 @@ Unit F's completed-case correction probability is 30%, compared with 6% elsewher
 
 ## Lineage and current limits
 
-`config/project.yml` → `src/generate_data.py` → six clean CSVs/manifest → Day 2 checks. Keys, relationships, date order, nullable serialization, scenarios, and repeatability passed. The memory-only schema probe is not a persistent loader. The clean-generator checks are not the forthcoming general dirty-input validator.
+`config/project.yml` → `src/generate_data.py` → six clean CSVs/manifest → generator checks. Day 3 adds `src/inject_defects.py` → separate dirty copy/catalog and `src/validate_data.py` → accepted records, quarantined raw cells/reasons, and a batch gate. Twenty-two tests pass on Linux; Windows Day 3 reproduction remains pending. Source column definitions and metric eligibility rules are unchanged. A memory-only schema probe is not a persistent loader.
 
-Dirty input must be a separate copy. Rejection handling, accepted/rejected reconciliation, persistent load, dashboard marts, and SQL/Power BI reconciliation remain later milestones. No real names, military IDs, or system extracts are used.
+The clean reference remains unchanged. Clean input passes with 1,227 accepted and no rejected rows. Dirty input reconciles 1,229 = 1,210 accepted + 19 rejected and is blocked; its accepted subset is diagnostic only. Rules/reasons: `docs/validation_rules.md`; exact injected records: `data/raw/dirty/defect_manifest.json`. Persistent loading, dashboard marts, and SQL/Power BI reconciliation remain later milestones. No real names, military IDs, or system extracts are used.

@@ -61,3 +61,7 @@ These are derived marts scheduled for later milestones. No extra operational sou
 ## Day 2 completion check
 
 Definitions and output grains are fixed above. Generator verification must check source grain, key/date integrity, and the documented scenarios. Later checks reconcile the same eligible record sets and counts across SQL and Power BI, including filtered units and empty selections. Aggregate versus local staffing ownership is confirmed; remaining explanations are pending. Implementation definitions alone are not evidence of independent understanding.
+
+## Day 3 integrity enforcement
+
+Implemented October 8 under the early Day 3 instruction. `docs/validation_rules.md` governs source acceptance and whole-batch blocking. Duplicate versions, invalid parents/children, missing critical values, invalid calendars/lifecycles, flags/counts, and missing requirement pairs block loading. Valid expired/future-start certificates and future case dates remain source records; the eligibility rules above still determine metric inclusion. Clean/dirty validation evidence is in `docs/verification_day03.md`. Metric definitions and output grains are unchanged; no analytical SQL/Power BI reconciliation is claimed by source validation.

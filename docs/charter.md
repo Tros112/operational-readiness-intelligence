@@ -1,6 +1,6 @@
 # Project charter
 
-Version 0.4 · Day 2 staffing review complete · October 8, 2026 · Schedule timezone: America/Los_Angeles
+Version 0.5 · Day 3 validation implemented · October 8, 2026 · Schedule timezone: America/Los_Angeles
 
 Authority: the supplied `SkillBridge_Project_Execution_Plan(1).md`, preserved unchanged as `docs/source_execution_plan.md`, plus the user's execution-workspace instructions. The brainstorming chat owns portfolio priorities, career alignment, and major scope decisions. Its updates are available here only when the user brings them; record those decisions before implementing them.
 
@@ -36,9 +36,11 @@ Actual available hours are unknown. Plan provisionally for **two focused hours o
 
 Day 1 setup completion: charter, metric outline, six-table schema sketch, access inventory, configuration/structure, and logs are present; the schema can be instantiated in memory; database fallback is recorded; Windows Power BI access is confirmed by the user. Independent explanations remain open as an ownership check. No release gate is passed by a blank report.
 
-Day 2 completion: at the user's request, the October 8 milestone was executed on October 7. Metric contract v1.0, clean generator, six CSVs/manifest, field dictionary, and eight passing checks are complete. Repeated independent runs match byte for byte, and all four planted scenarios are traceable. Release dates are unchanged. Dirty validation, persistent loading, analytical marts, and the operational report remain later milestones.
+Day 2 completion: at the user's request, the October 8 milestone was executed on October 7. Metric contract v1.0, clean generator, six CSVs/manifest, field dictionary, and eight passing checks are complete. Repeated independent runs match byte for byte, and all four planted scenarios are traceable. Release dates are unchanged. Day 3 validation is recorded below; persistent loading, analytical marts, and the production operational report remain later milestones.
 
-Day 2 learning follow-up completed October 8: screenshots show correct global staffing and Unit C slicer-selected results and the active 1:* Single units-to-personnel relationship. The user independently explained aggregate versus local staffing and reports the populated learning report saves/reopens. No actual PBIX or measure definitions have been inspected by the assistant. Broader filter/edge-case and SQL reconciliation remain later checks; this learning preview does not pass the prototype gate. Day 3 dirty-input validation is the next implementation milestone, with no access blocker reported.
+Day 2 learning follow-up completed October 8: screenshots show correct global staffing and Unit C slicer-selected results and the active 1:* Single units-to-personnel relationship. The user independently explained aggregate versus local staffing and reports the populated learning report saves/reopens. No actual PBIX or measure definitions have been inspected by the assistant. Broader filter/edge-case and SQL reconciliation remain later checks; this learning preview does not pass the prototype gate.
+
+Day 3 completion: the October 9 validation milestone was executed early on October 8 at the user's explicit request. Separate dirty input contains sixteen cataloged edits. Clean input passes with 1,227 accepted/0 rejected; dirty input reconciles 1,229 = 1,210 accepted + 19 rejected and is blocked from loading. Every intended defect/cascade is detected; all duplicate versions and invalid descendants are quarantined without filling critical values. Twenty-two tests pass on Linux; the clean reference is unchanged. Windows Day 3 reproduction and independent validation-policy explanation remain pending. No persistent loader exists yet; Day 4 is next.
 
 MVP acceptance follows the source checklist: clean regeneration/load/export; visible critical-error handling and reconciliation; hand checks for duplicate certificates, expiration boundaries, and zero denominators; functional/filterable views; three to five evidenced simulated findings; honest README; demo backups; user explanation of grain, join, quality failure, and KPI.
 
