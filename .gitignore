@@ -7,8 +7,12 @@ __pycache__/
 *.sqlite3
 data/**/*.csv
 data/**/*.json
-powerbi/*.pbix
-powerbi/*.pbit
+*.pbix
+*.pbit
 powerbi/*.pdf
 !powerbi/screenshots/.gitkeep
 .env
+# Local inspection evidence is retained without public release authorization.
+docs/evidence/day03_windows_validation_inspection.png
+docs/evidence/day03_windows_rejection_trace.png
+docs/evidence/day03_windows_validation_totals.png

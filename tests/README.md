@@ -2,7 +2,9 @@
 
 Day 2 implements `test_generate_data.py`: eight passing clean-reference checks for keys/FKs/schema compatibility, calendars/lifecycle, the four documented scenarios, independent-run reproducibility, null serialization, seed sensitivity, and invalid configuration. Run `python -m unittest discover -s tests -v` from the root. No extra test runner is required.
 
-Day 3 adds fourteen checks in `test_validate_data.py`, bringing the suite to **22 passing tests on Linux**. Every injected defect and dependent record is detected; counts, calendar/typed/lifecycle constraints, parent rejection, output hashes/raw values, malformed/missing files, source preservation, and failure replacing a prior success report are checked. Windows Day 3 reproduction remains pending. The accepted dirty subset's database check is memory-only; a persistent loader/reload, analytical marts, and SQL/Power BI reconciliation remain unimplemented. Later checks below still apply at their milestones.
+Day 3 adds fourteen checks in `test_validate_data.py`. Every injected defect and dependent record is detected; counts, calendar/typed/lifecycle constraints, parent rejection, output hashes/raw values, malformed/missing files, source preservation, and failure replacing a prior success report are checked. Windows Day 3 report evidence was inspected; its 22-test pass was user-reported after terminal output was cleared.
+
+Day 4 adds ten checks in `test_load_data.py`, bringing the suite to **32 passing tests on Linux**. Persistent counts/values/nulls, repeat identity, blocked dirty/stale/changed input, actual constraint-failure rollback, database constraints, and preservation of unrelated databases and protected local assets are checked. Failed CLI runs invalidate old success audits. Run generation first on a fresh checkout because the existing reference tests require the generated clean CSVs; an existing working folder can reuse them. Windows Day 4 reproduction remains pending. Analytical marts and SQL/Power BI reconciliation remain later work.
 
 Later checks must address actual failure risks:
 

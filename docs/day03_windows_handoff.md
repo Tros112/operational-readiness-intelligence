@@ -1,6 +1,6 @@
 # Day 3 Windows reproduction
 
-The assistant verified Day 3 on Linux. Your Windows Day 3 run remains pending. Power BI's populated staffing report was already saved/reopened by you; this session's local task is Python validation.
+The assistant verified Day 3 on Linux. On October 9, Windows screenshots confirmed both validation reports and the target rejections, and you reported 22 tests, OK after clearing the terminal. Core Day 3 reproduction and the duplicate-authority ownership check are complete with that evidence distinction. Power BI's populated staffing report was already saved/reopened by you; this handoff covers Python validation.
 
 ## 1. Extract and select the project
 
@@ -57,8 +57,64 @@ The dirty exit 1 is the expected quality-control behavior. Its accepted CSVs are
 
 ## 4. Inspect and return evidence
 
-Open `data/rejected/day03_dirty/rejected_rows.csv` and `validation_report.json`. Find D01's two certificate records using `data/raw/dirty/defect_manifest.json`; both have `DUPLICATE_KEY`. Find D07's person with `FOREIGN_KEY` and its certificate with `REJECTED_PARENT`.
+Open `data/rejected/day03_dirty/rejected_rows.csv`, its `validation_report.json`, and `data/raw/dirty/defect_manifest.json`. All these records and defects are synthetic. Match the following **table plus source record number**, rather than the line number in the rejection export:
 
-Return the clean/dirty totals and exit codes plus the test summary. Then explain in your own words why keeping the first duplicate certificate record would be an unsupported choice. This confirms local reproduction and helps establish interview ownership; those are not assumed from the assistant's test run.
+| Defect | Source table | Source record number | Key | Expected rejection |
+| --- | --- | --- | --- | --- |
+| D01 | personnel_qualifications | 2 and 267 | P0003 / Q04 | DUPLICATE_KEY on both records |
+| D07 | personnel | 8 | P0007 | FOREIGN_KEY: unit UX99 does not exist |
+| D07 dependent record | personnel_qualifications | 9 | P0007 / Q07 | REJECTED_PARENT: its personnel record failed validation |
+
+The source header is record 1. For example, certificate source record 2 appears on a different line in `rejected_rows.csv`; a personnel record numbered 2 is a separate record in a separate table.
+
+D01 is an **identical** duplicate: both certificates have valid_from `2026-02-08` and expiration_date `2026-10-25`. The current policy rejects all versions of a duplicate key, including identical copies. Do not describe this fixture as two conflicting expiration dates. Conflicting dates are covered separately by a validator test.
+
+For a readable view, run this in PowerShell from the working project root (the folder containing `src` and `config`):
+
+```powershell
+$oriRejected = Import-Csv .\data\rejected\day03_dirty\rejected_rows.csv
+
+$oriRejected |
+    Where-Object {
+        $_.table -eq 'personnel_qualifications' -and
+        $_.record_number -in @('2', '267')
+    } |
+    Format-Table table, record_number, key_json, reason_codes -AutoSize
+
+$oriRejected |
+    Where-Object {
+        ($_.table -eq 'personnel' -and $_.record_number -eq '8') -or
+        ($_.table -eq 'personnel_qualifications' -and $_.record_number -eq '9')
+    } |
+    Format-Table table, record_number, key_json, reason_codes -AutoSize
+```
+
+The dirty report's `MISSING_REQUIREMENT_PAIRS` error for U01/Q01, U01/Q02, and U01/Q03 is expected: D13-D15 invalidated those requirement records. The validator blocks the batch so those missing requirements cannot silently shrink a coverage denominator.
+
+Read the two report summaries:
+
+```powershell
+$oriClean = Get-Content .\data\processed\validation_clean\validation_report.json -Raw | ConvertFrom-Json
+$oriDirty = Get-Content .\data\rejected\day03_dirty\validation_report.json -Raw | ConvertFrom-Json
+
+$oriClean | Select-Object status, load_allowed, exit_code, input_directory
+$oriClean.totals
+$oriDirty | Select-Object status, load_allowed, exit_code, input_directory
+$oriDirty.totals
+```
+
+Return those summaries plus the terminal's existing **22 tests, OK** result and the command exit codes from action 3. The report input directories should identify your Windows project; an untouched packaged Linux report does not establish a Windows run. If a command has not been run locally, run just that missing command from action 3. Do not repeat successful tests solely to inspect these files.
+
+Then answer in your own words: **If duplicate certificate records disagreed on expiration date, why would keeping the first record be insufficient evidence for choosing the trustworthy date?** The supplied fixture and this guide do not establish your independent explanation; that remains pending until you answer.
+
+The October 8, 23:44 PDT screenshot confirms that you opened the rejection export, D01 manifest entry, and a dirty report containing a Windows input directory, expected missing pairs, and exit code 1. Totals, load_allowed, the clean report, and the test summary are outside the visible area; full Windows reproduction remains pending.
+
+### Completion update — October 9
+
+The later screenshots confirm D01's two DUPLICATE_KEY records, D07's FOREIGN_KEY personnel record and REJECTED_PARENT certificate, clean 1,227/1,227/0 with load_allowed true and report exit 0, and dirty 1,229/1,210/19 with load_allowed false and report exit 1. Both reports show reconciled counts and Windows input-directory prefixes.
+
+You also reported **22 tests, OK** after clearing the terminal result. This is accepted as user-reported test evidence; the assistant has not inspected its raw output, execution duration, interpreter, or test-command exit code. Successful tests do not need to be repeated to restore the cleared display.
+
+The duplicate-authority explanation has been supplied independently, with a clarification recorded in `docs/validator_walkthrough.md`. Action 4's core checks are complete. Other ownership prompts remain practice items. No infrastructure blocker is reported. Next implementation milestone: Day 4's atomic, repeatable SQLite load when requested; do not rerun setup or successful validation solely to close this checklist.
 
 If an actual command fails differently, return its exact text before editing clean records or quality rules. Next implementation milestone is Day 4's atomic, repeatable SQLite load; it is not implemented in this package.

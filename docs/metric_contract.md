@@ -65,3 +65,7 @@ Definitions and output grains are fixed above. Generator verification must check
 ## Day 3 integrity enforcement
 
 Implemented October 8 under the early Day 3 instruction. `docs/validation_rules.md` governs source acceptance and whole-batch blocking. Duplicate versions, invalid parents/children, missing critical values, invalid calendars/lifecycles, flags/counts, and missing requirement pairs block loading. Valid expired/future-start certificates and future case dates remain source records; the eligibility rules above still determine metric inclusion. Clean/dirty validation evidence is in `docs/verification_day03.md`. Metric definitions and output grains are unchanged; no analytical SQL/Power BI reconciliation is claimed by source validation.
+
+## Day 4 storage enforcement
+
+Implemented October 9 in the existing Git-connected project. `src/load_data.py` requires a passed, matching-date bundle, verifies source/export hashes and values, and replaces all six source tables within one SQLite transaction. Counts and every stored value reconcile to accepted input before commit. NULL open-case outcomes, expired certificates, and future-start certificates are retained; storage is not metric eligibility. Repeat/rollback evidence is in `docs/verification_day04.md`. No metric definition or derived output grain changed, and no analytical SQL/Power BI reconciliation is claimed by loading.

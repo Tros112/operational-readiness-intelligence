@@ -1,6 +1,6 @@
 # Operational Readiness Intelligence
 
-**Status: Day 3 validation implemented October 8, 2026, ahead of its October 9 schedule.** Six synthetic source tables have separate clean/dirty inputs and visible validation/rejection evidence. All 22 tests pass on Linux. Clean input passes (1,227 accepted / 0 rejected); all 16 injected defects are detected and dirty input is blocked (1,229 = 1,210 accepted + 19 rejected). Windows Day 3 reproduction remains pending. Persistent database loading, analytical SQL/marts, and the production operational Power BI report remain scheduled work. No PBIX has been created or inspected by the assistant.
+**Status: Day 4 persistent SQLite loading implemented October 9, 2026, ahead of its October 10 schedule.** Six synthetic source tables have separate clean/dirty validation evidence and an atomic, repeatable database load. All 32 tests pass on Linux. Clean input loads 1,227 records; a second run has identical contents. Dirty input is blocked (1,229 = 1,210 accepted + 19 rejected), and a failed reload preserves good data. Windows Day 3 reports were inspected and 22 tests, OK were user-reported; Windows Day 4 execution remains pending. Analytical SQL/marts and the production operational Power BI report remain scheduled work. No PBIX has been created or inspected by the assistant.
 
 Windows access is confirmed by the user: Desktop **2.158.1177.0, 64-bit (September 2026)**. Day 2 staffing screenshots show matching global/Unit C slicer results and the intended relationship; populated-report save/reopen is user-confirmed. Evidence: `docs/verification_day02.md`. Full SQL/Power BI reconciliation remains pending.
 
@@ -22,6 +22,8 @@ The brainstorming chat remains the master record for priorities and major scope 
 
 Read [charter](docs/charter.md), [progress](docs/progress.md), and [decisions](docs/decisions.md) before making changes. The attached schedule is preserved in [source_execution_plan.md](docs/source_execution_plan.md).
 
+Existing Windows checkout: keep the same Git-connected folder and use [day04_windows_handoff.md](docs/day04_windows_handoff.md) for `git pull --ff-only`, validation, loading, and local checks. Reuse `.venv` and keep your existing Power BI report local. Do not replace the folder with a daily archive.
+
 Use Python 3.11 or later from the project root:
 
 ```bash
@@ -30,13 +32,14 @@ python src/check_environment.py
 python src/generate_data.py
 python src/inject_defects.py
 python src/validate_data.py
+python src/load_data.py
 python src/validate_data.py --input-dir data/raw/dirty --output-dir data/rejected/day03_dirty
 python -m unittest discover -s tests -v
 ```
 
-The environment checker executes the schema in an empty in-memory database. The generator creates `data/raw/clean/`; the injector writes `data/raw/dirty/` separately. Clean validation exits 0; the intentional dirty validation exits **1**, blocks loading, and records raw rejected cells/reasons. Tests use memory-only schema probes; no persistent project database is created. Generated datasets/validation exports are excluded from Git and included in the Day 3 package. Windows steps: [day03_windows_handoff.md](docs/day03_windows_handoff.md).
+The environment checker executes the schema in memory. The generator creates `data/raw/clean/`; the injector writes `data/raw/dirty/` separately. Clean validation exits 0; the intentional dirty validation exits **1** and blocks loading. `load_data.py` verifies passed source/export hashes and values, then loads `data/processed/readiness.sqlite3` in one transaction. Repeating it replaces the same snapshot without duplicates. Its audit is `data/processed/load_report.json`. Generated datasets, audits, and databases are excluded from Git. Existing-folder Windows steps: [day04_windows_handoff.md](docs/day04_windows_handoff.md).
 
-Future scripts (`load_data.py`, `export_marts.py`) and `sql/analytics.sql` will be created at their milestones. Loading must require a passed validation report and matching accepted-file hashes. Accepted rows in a failed diagnostic bundle are not approved readiness inputs. The end-to-end pipeline is not complete.
+Future `export_marts.py` and `sql/analytics.sql` remain scheduled. Accepted rows in a failed diagnostic bundle are not approved readiness inputs. The pipeline currently reaches validated SQLite storage; analytical exports and report reconciliation remain incomplete.
 
 ## Clean reference and planted evidence
 
@@ -58,9 +61,11 @@ Verification: [verification_day02.md](docs/verification_day02.md). Field meaning
 | `src/generate_data.py` | Implemented fixed-seed clean generator with four explicit scenario overrides |
 | `src/inject_defects.py` | Sixteen deterministic defects in a separate source copy; exact catalog and hashes |
 | `src/validate_data.py` | Key/required/FK/date/type/lifecycle/completeness validation; explicit quarantine and whole-batch gate |
+| `src/load_data.py` | Passed-bundle checks; atomic six-table snapshot replacement; exact values/counts; failure rollback |
 | `tests/test_generate_data.py` | Eight clean-reference integration/reproducibility checks |
 | `tests/test_validate_data.py` | Fourteen quality, reconciliation, preservation, and failure checks |
-| `sql/schema.sql` | Executable SQLite schema scaffold; loader pending Day 4 |
+| `tests/test_load_data.py` | Ten persistence, repeatability, blocked-input, rollback, and asset-protection checks |
+| `sql/schema.sql` | Executable SQLite source-table constraints used by the loader |
 | `data/raw/`, `data/processed/`, `data/rejected/` | Clean/dirty inputs, passed clean records, and blocked dirty diagnostics |
 | `tests/` | Reserved for meaningful data and metric checks as those implementations exist |
 | `powerbi/build_instructions.md` | Completed Windows access check and report handoff for Day 6 |
@@ -68,6 +73,7 @@ Verification: [verification_day02.md](docs/verification_day02.md). Field meaning
 | `docs/schema_sketch.md`, `docs/data_dictionary.md` | Grain, joins, keys, and field meanings |
 | `docs/environment.md`, `docs/verification_day01.md` | Observed access and verified limits |
 | `docs/validation_rules.md`, `docs/defect_catalog.md`, `docs/verification_day03.md` | Rejection contract, injected errors, verified counts and limits |
+| `docs/verification_day04.md`, `docs/load_check.json`, `docs/loader_walkthrough.md` | Persistent-load evidence and transaction explanation |
 | `docs/progress.md`, `docs/decisions.md`, `docs/interview_feedback.md` | Daily state, decisions, and actual employer feedback |
 
 ## Limits and ownership

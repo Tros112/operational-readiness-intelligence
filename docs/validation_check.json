@@ -172,6 +172,79 @@
   },
   "clean_reference_unchanged": true,
   "tests_passed": 22,
-  "test_environment": "Assistant Linux; Windows Day 3 reproduction pending",
-  "persistent_loader_implemented": false
+  "test_environment": "Assistant Linux: 22 independently passed; Windows: 22 tests, OK, user-reported October 9",
+  "persistent_loader_implemented": false,
+  "windows_verification": {
+    "verified_on_local_date": "2026-10-09",
+    "timezone": "America/Los_Angeles",
+    "core_checks_complete": true,
+    "validation_evidence": "assistant_inspected_user_screenshots",
+    "report_evidence_path": "docs/evidence/day03_windows_validation_totals.png",
+    "rejection_evidence_path": "docs/evidence/day03_windows_rejection_trace.png",
+    "clean": {
+      "status": "passed",
+      "load_allowed": true,
+      "report_exit_code": 0,
+      "totals": {
+        "accepted_rows": 1227,
+        "counts_reconciled": true,
+        "input_rows": 1227,
+        "rejected_rows": 0
+      }
+    },
+    "dirty": {
+      "status": "validation_failed",
+      "load_allowed": false,
+      "report_exit_code": 1,
+      "totals": {
+        "accepted_rows": 1210,
+        "counts_reconciled": true,
+        "input_rows": 1229,
+        "rejected_rows": 19
+      }
+    },
+    "rejection_examples": [
+      {
+        "table": "personnel_qualifications",
+        "record_numbers": [
+          2,
+          267
+        ],
+        "person_id": "P0003",
+        "qualification_id": "Q04",
+        "reason": "DUPLICATE_KEY"
+      },
+      {
+        "table": "personnel",
+        "record_numbers": [
+          8
+        ],
+        "person_id": "P0007",
+        "reason": "FOREIGN_KEY"
+      },
+      {
+        "table": "personnel_qualifications",
+        "record_numbers": [
+          9
+        ],
+        "person_id": "P0007",
+        "qualification_id": "Q07",
+        "reason": "REJECTED_PARENT"
+      }
+    ],
+    "tests": {
+      "count": 22,
+      "result": "OK",
+      "evidence": "user_report",
+      "raw_output_retained": false,
+      "interpreter_inspected": false,
+      "process_exit_code_retained": false
+    },
+    "duplicate_authority_ownership": {
+      "core_explanation_independently_demonstrated": true,
+      "user_reasoning": "No external source of truth was supplied to establish authority for selecting a conflicting duplicate.",
+      "assistant_clarification": "Unresolved authority does not prove both records false or manipulated. D01 is an identical duplicate.",
+      "csv_database_enforcement_explanation": "assistant_provided; independent explanation not yet demonstrated"
+    }
+  }
 }

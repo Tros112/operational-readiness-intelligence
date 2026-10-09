@@ -1,5 +1,5 @@
--- Day 1 executable schema scaffold. SQLite >= 3.37 (STRICT tables).
--- Synthetic operational data only. No populated project database exists yet.
+-- Six source tables used by the Day 4 loader. SQLite >= 3.37 (STRICT tables).
+-- Synthetic operational data only; no analytical marts are defined here.
 -- Calendar validity is checked in Python before load; TEXT dates use ISO YYYY-MM-DD.
 -- The loader must enable foreign keys on every connection, outside a transaction.
 PRAGMA foreign_keys = ON;
