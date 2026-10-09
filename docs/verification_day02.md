@@ -61,7 +61,18 @@ Evidence: the user-supplied image, retained as `powerbi/screenshots/day02_staffi
 - The report displays the fixed October 7 snapshot date and labels staffing synthetic and readiness a fictional proxy.
 - The user independently explained that A/B/D/E surpluses of 1/4/7/2 push aggregate coverage over 100% while C's 10-person shortage remains. This specific ownership check is confirmed: 14 total surplus minus 10 local shortage leaves 4 net surplus.
 
-Model-view settings, actual measure definitions, slicer filtering/reset, and save/reopen of this populated report remain unconfirmed. The inspected values support the staffing review, not full SQL/dashboard reconciliation or a release gate.
+### 21:30 follow-up — core staffing review complete
+
+Three further attachments were successfully inspected and retained as evidence:
+
+| Check | Result / evidence |
+| --- | --- |
+| All-unit view | `powerbi/screenshots/day02_staffing_all_units.png`: all expected matrix rows and cards 254 / 250 / 101.6% / 10; no checked unit slicer boxes |
+| Unit C slicer | `powerbi/screenshots/day02_staffing_unit_c_slicer.png`: Unit C visibly selected; matrix and cards 40 / 50 / 80.0% / 10 |
+| Relationship | `powerbi/screenshots/day02_staffing_relationship.png`: units[unit_id] unique side (1), personnel[unit_id] many side (*), active Yes, Single filtering toward personnel |
+| Save/reopen | User reports that the populated report saves and reopens; no PBIX supplied or inspected by the assistant |
+
+The properties pane lists personnel first, so its many-to-one (*:1) display is equivalent to the intended units-to-personnel 1:* relationship. The all-unit and selected-unit states are evidenced; the screenshots do not establish the chronology of a separate clear/reset action. Additional unit/multiselect and edge cases remain part of later production reconciliation. Actual measure definitions have not been inspected. The supplied evidence completes the core Day 2 learning review, not full SQL/dashboard reconciliation or a release gate.
 
 ## Deliberate limits and later checks
 
@@ -72,4 +83,4 @@ Model-view settings, actual measure definitions, slicer filtering/reset, and sav
 - Dates/cases do not reconstruct historical staffing; no training/evaluation or empirical inference has been performed.
 - Aggregate versus local staffing is independently explained. Other ownership topics and actual user-focused hours remain unreported.
 
-Next exact local action: clear the selected matrix row, check global cards, select/clear Unit C in the slicer, inspect the active 1:* Single units-to-personnel relationship, and confirm save/reopen of the populated report. Next implementation milestone: create the separate dirty input copy and a defect catalog, implement validation, and prove each injected defect is detected with reconciled counts. Do not alter the clean reference to create defects.
+Next exact action: on Day 3, October 9, create the separate dirty input copy and a defect catalog, implement validation, and prove each injected defect is detected with reconciled counts. Do not alter the clean reference to create defects or begin the Day 4 loader.
