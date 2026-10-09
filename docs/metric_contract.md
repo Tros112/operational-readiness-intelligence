@@ -45,7 +45,7 @@ These are tiny teaching fixtures, **not results from the generated dataset**.
 4. Discrepancy: 2 corrections among 10 completed cases yields **20%**, regardless of 5 additional open cases. With zero completed cases, the rate is **not applicable**.
 5. Median: cycle times [1, 2, 10] have median **2 days**. Combining unit-level medians would lose case-level information.
 
-Owner check pending: explain the staffing denominator, exclusive expiration boundary, and treatment of open cases in your own words. No independent understanding has yet been confirmed.
+Ownership evidence, October 8: the user independently explained aggregate versus local staffing by identifying the 14-person combined surplus in A/B/D/E and the persistent 10-person shortfall in C. This specific explanation is confirmed. Staffing grain/join counting, the exclusive expiration boundary, and treatment of open cases remain to be explained independently.
 
 ## Derived output grains (planned)
 
@@ -60,4 +60,4 @@ These are derived marts scheduled for later milestones. No extra operational sou
 
 ## Day 2 completion check
 
-Definitions and output grains are fixed above. Generator verification must check source grain, key/date integrity, and the documented scenarios. Later checks reconcile the same eligible record sets and counts across SQL and Power BI, including filtered units and empty selections. The owner's explanations remain pending; implementation definitions are not evidence of independent understanding.
+Definitions and output grains are fixed above. Generator verification must check source grain, key/date integrity, and the documented scenarios. Later checks reconcile the same eligible record sets and counts across SQL and Power BI, including filtered units and empty selections. Aggregate versus local staffing ownership is confirmed; remaining explanations are pending. Implementation definitions alone are not evidence of independent understanding.

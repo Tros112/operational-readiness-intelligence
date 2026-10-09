@@ -86,3 +86,19 @@ The user proposed creating table relationships in Power BI to inspect the questi
 **Ownership / blockers:** proposing a relationship model is a review approach, not confirmation of the metric explanation. Windows Desktop and Python access are working. Local report build, filter checks, and the owner's explanation are pending; actual focused hours remain unreported.
 
 **Next exact action:** in Windows Power BI, load `data/raw/clean/units.csv` and `personnel.csv` following the new guide, inspect/create the unit-ID 1:* Single relationship, then add the four measures and matrix. Return Model view and the unfiltered matrix, Unit C selected results, save/reopen status, and your explanation of aggregate coverage versus the local gap. After this Day 2 review, the next implementation milestone remains Day 3 dirty-input validation, scheduled October 9 or earlier if directed.
+
+## October 8, 2026 — Phase 1, Day 2 staffing review follow-up
+
+**Date / actual focused hours:** October 8 in America/Los_Angeles. The metric snapshot remains October 7. Actual user-focused hours remain unreported; provisional capacity remains 2-hour weekdays and 3–4-hour weekend days.
+
+**Completed output:** inspected the user's Power BI staffing screenshot and recorded the user's independent explanation of aggregate versus local staffing. Evidence: `powerbi/screenshots/day02_staffing_review.png`. Updated `docs/verification_day02.md`, `docs/metric_contract.md`, `docs/generator_walkthrough.md`, `docs/checkpoints/2026-10-07_day02.md`, `powerbi/day02_staffing_review.md`, `powerbi/build_instructions.md`, and this log. No source code or metric definition changed.
+
+**Verification:** all six visible unit rows and the matrix grand total match the clean-reference expectations: A 41/40, B 44/40, C 40/50, D 47/40, E 42/40, F 40/40; total 254/250 = 101.6%, total local gap 10. The selected Unit C matrix row is consistent with cards showing 40, 50, 80.0%, and 10. The screenshot visibly labels the data synthetic and readiness a fictional proxy. The slicer checkboxes are empty, so this evidence establishes the selected matrix-row results, not a Unit C slicer test.
+
+**Ownership demonstrated:** the user correctly identified surpluses of 1, 4, 7, and 2 in A, B, D, and E, explaining why aggregate coverage exceeds 100% while Unit C's gap of 10 remains. Those surpluses sum to 14; subtracting C's deficit leaves a net surplus of 4. This confirms this specific staffing explanation. Source grain/join counting, relationship filter direction, certificate boundaries, and open-case outcomes have not yet been independently explained.
+
+**Blockers / remaining checks:** no access blocker reported. Model-view relationship settings, slicer filtering/reset, and save/reopen of this populated learning report remain unconfirmed. The assistant inspected an image, not the PBIX or live Desktop. SQL/Power BI reconciliation and the prototype gate remain incomplete. The original Day 2 ZIP remains a frozen checkpoint; these notes and the screenshot are subsequent supplements.
+
+**Next exact local action:** click blank report canvas to clear the selected matrix row; verify cards return to 254 / 250 / 101.6% / 10. Select Unit C using the slicer checkbox; verify matrix and cards show 40 / 50 / 80.0% / 10, then clear the slicer and verify totals return. Inspect Model view for active 1:* Single filtering from units to personnel; save/reopen `powerbi/Day02_Staffing_Review.pbix` and return the model screenshot and check results.
+
+**Next implementation milestone:** Day 3, Friday October 9 — create a separate dirty input copy and defect catalog, implement `src/validate_data.py` with explicit reject/fail behavior, and prove every injected defect is detected with reconciled input/accepted/rejected counts. Preserve the clean reference. No gate, release date, or scope change.

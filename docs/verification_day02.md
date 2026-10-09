@@ -52,13 +52,24 @@ Cases reconcile: 442 completed + 158 open = 600. Corrections: 27/70 completed in
 
 Staffing totals: 254 available / 250 required = 101.6%, while Unit C remains 40/50 with a local gap of 10. Qualification requirements total 95 slots; seven pairs are currently below their requirement. These are source audits, not exported/reconciled dashboard measures.
 
+## Power BI staffing screenshot — October 8, America/Los_Angeles
+
+Evidence: the user-supplied image, retained as `powerbi/screenshots/day02_staffing_review.png`. The assistant inspected the image, not the PBIX or live Desktop.
+
+- All six visible unit rows match the expected staffing counts, percentages, and gaps in `powerbi/day02_staffing_review.md`. The matrix total is 254 available / 250 required = 101.6%, with total local gap 10.
+- The Unit C matrix row is selected; the cards show 40 available, 50 required, 80.0% coverage, and gap 10. This is consistent with matrix selection filtering the cards. The unit slicer has no checked boxes; slicer behavior/reset is not demonstrated by this image.
+- The report displays the fixed October 7 snapshot date and labels staffing synthetic and readiness a fictional proxy.
+- The user independently explained that A/B/D/E surpluses of 1/4/7/2 push aggregate coverage over 100% while C's 10-person shortage remains. This specific ownership check is confirmed: 14 total surplus minus 10 local shortage leaves 4 net surplus.
+
+Model-view settings, actual measure definitions, slicer filtering/reset, and save/reopen of this populated report remain unconfirmed. The inspected values support the staffing review, not full SQL/dashboard reconciliation or a release gate.
+
 ## Deliberate limits and later checks
 
 - In-memory population verifies source compatibility; there is no persistent loader, load transaction/idempotence check, or operational database release yet.
 - This reference happens to have no zero-holder requirement pair. Day 5 must hand-check a small fixture to verify LEFT JOIN retains that pair. The metric contract already specifies the required behavior.
 - No dirty copy, defect injection, quarantine, rejection reconciliation, or general `validate_data.py` exists yet. Day 3 owns those checks.
-- No analytical marts, SQL/Power BI KPI reconciliation, operational report, or PBIX inspection has been completed. Power BI access is user-confirmed only.
+- No analytical marts, SQL/Power BI KPI reconciliation, production operational report, or PBIX inspection has been completed. Windows access is user-confirmed; the Day 2 learning report has the screenshot evidence recorded above.
 - Dates/cases do not reconstruct historical staffing; no training/evaluation or empirical inference has been performed.
-- Independent user explanations and actual user-focused hours remain unreported.
+- Aggregate versus local staffing is independently explained. Other ownership topics and actual user-focused hours remain unreported.
 
-Next exact action: review `docs/generator_walkthrough.md` and independently explain aggregate versus local staffing coverage. Next implementation milestone: create the separate dirty input copy and a defect catalog, implement validation, and prove each injected defect is detected with reconciled counts. Do not alter the clean reference to create defects.
+Next exact local action: clear the selected matrix row, check global cards, select/clear Unit C in the slicer, inspect the active 1:* Single units-to-personnel relationship, and confirm save/reopen of the populated report. Next implementation milestone: create the separate dirty input copy and a defect catalog, implement validation, and prove each injected defect is detected with reconciled counts. Do not alter the clean reference to create defects.

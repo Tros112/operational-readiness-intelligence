@@ -6,7 +6,7 @@ Day 2 · All examples and outcomes are simulated. Review this alongside `src/gen
 
 "I'm developing a reproducible synthetic operations dataset with six related tables. The current generator uses configuration for dates, sizes, and scenario assumptions. Eight checks verify keys, relationships, dates, scenarios, and identical output from separate runs. Dirty-input validation, dashboard marts, and the operational Power BI report are the next implementation stages."
 
-This describes the current implementation; it is not a claim of production experience. Describe your personal contribution and local checks according to what you actually reviewed, changed, or ran. Independent explanations are still pending.
+This describes the current implementation; it is not a claim of production experience. Describe your personal contribution and local checks according to what you actually reviewed, changed, or ran. On October 8, the user independently explained aggregate versus local staffing; other explanations remain pending.
 
 ## Follow the code
 
@@ -36,4 +36,4 @@ If one available person has three certificates, joining personnel to certificate
 - Why is an open case's correction flag blank instead of 0?
 - Which function applies a planted scenario, and which checks would catch a broken foreign key or duplicate key?
 
-Owner answers are still pending. No ML label or professional implementation claim follows from passing the generator checks.
+Ownership progress, October 8: the staffing explanation is confirmed. The user identified A/B/D/E surpluses of 1/4/7/2 and explained why overall coverage above 100% leaves Unit C's gap of 10 unmet. The certificate, open-case, code/validation, and grain/join explanations remain pending. No ML label or professional implementation claim follows from passing the generator checks.

@@ -1,6 +1,6 @@
 # Windows Power BI handoff
 
-**Current status, October 7:** user confirms Windows Power BI Desktop **2.158.1177.0, 64-bit (September 2026)**; blank report opens, saved/reopened, no blocker. Evidence: `docs/powerbi_access.json`. Desktop cannot run in the assistant's Linux environment; the assistant has not created, opened, or verified a PBIX. No SQL export exists yet.
+**Current status, October 8:** user confirms Windows Power BI Desktop **2.158.1177.0, 64-bit (September 2026)**; blank report opens, saved/reopened, no blocker. Access evidence: `docs/powerbi_access.json`. The Day 2 staffing screenshot matches expected matrix totals and selected Unit C cards; evidence is `powerbi/screenshots/day02_staffing_review.png`. Model settings, slicer/reset checks, and save/reopen of that populated report remain unconfirmed. Desktop cannot run in the assistant's Linux environment; the assistant has not created, opened, or verified a PBIX. No SQL export exists yet.
 
 ## Completed: Day 1 access check (user-reported)
 
@@ -17,7 +17,7 @@ This is an **access check**, not the October 13 prototype. A user-reported save 
 
 ## Day 6 local build: run only after verified SQL exports arrive
 
-**Day 2 learning preview:** at the user's October 7 request to inspect relationships in Power BI, `powerbi/day02_staffing_review.md` provides a two-table clean-reference staffing view, four prepared measures, expected per-unit/filtered totals, and the six-source relationship map. The user must build and verify this locally. It supports ownership review; the production SQL export/reconciliation sequence below and release dates are unchanged. No new PBIX is claimed as created or inspected by the assistant.
+**Day 2 learning preview:** at the user's October 7 request to inspect relationships in Power BI, `powerbi/day02_staffing_review.md` provides a two-table clean-reference staffing view, four prepared measures, expected per-unit/filtered totals, and the six-source relationship map. The October 8 screenshot and the user's explanation confirm the displayed staffing counts and aggregate-versus-local interpretation. Finish the remaining local relationship/slicer/save checks in that guide. The production SQL export/reconciliation sequence below and release dates are unchanged. No new PBIX is claimed as created or inspected by the assistant.
 
 The following is the **planned executive export contract**, not a claim the file has been produced or its calculations checked. On Day 5, compare actual export fields with this contract before proceeding.
 

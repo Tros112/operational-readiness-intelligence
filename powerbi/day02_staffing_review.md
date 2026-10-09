@@ -4,7 +4,7 @@ Prepared October 7, 2026, America/Los_Angeles. All operational records and expec
 
 Purpose: use the clean Day 2 reference to understand unit versus aggregate staffing and relationship filtering. Build one small staffing view. The production SQL exports, SQL/Power BI reconciliation, qualification/process views, and release gates remain on the existing schedule.
 
-Status: instructions and DAX are prepared; expected arithmetic was independently recomputed from the assistant's clean CSVs. The assistant cannot run Power BI Desktop here and has not created, opened, or verified this PBIX. The user must build and check it locally. Matching Windows generation counts do not establish report correctness.
+Status, October 8: the user's staffing screenshot matches all six expected matrix rows, grand totals, and selected Unit C cards. Aggregate versus local staffing has been independently explained. Model-view settings, measure definitions, slicer filtering/reset, and save/reopen of this populated report remain unconfirmed. The assistant inspected an image and has not created, opened, or verified the PBIX. Expected arithmetic was independently recomputed from the clean CSVs.
 
 ## 1. Import the two staffing tables
 
@@ -104,6 +104,8 @@ Expected results independently counted from the clean reference CSVs:
 | Unit F | 40 | 40 | 100.0% | 0 |
 | All units | 254 | 250 | 101.6% | 10 |
 
+Evidence received October 8: `powerbi/screenshots/day02_staffing_review.png` matches the rows and grand total above. Unit C is selected in the matrix, consistent with cards showing 40 / 50 / 80.0% / 10. The slicer checkboxes are empty. Clear the matrix selection by clicking blank canvas before checking global cards or testing the slicer. Model view, slicer reset, and populated-report save/reopen still need local confirmation.
+
 Completion checks:
 
 - With the slicer cleared: 254 available, 250 required, 101.6% coverage, total local gap 10.
@@ -116,7 +118,7 @@ If results differ, inspect query names/types, the relationship's active status a
 
 Save the actual report in your local project's `powerbi/Day02_Staffing_Review.pbix`. Provide a screenshot of Model view and the unfiltered matrix, plus the Unit C selected values. State whether you saved and reopened it. The assistant will record only evidence actually supplied; this learning preview alone does not pass the October 13 prototype gate.
 
-Ownership check: explain why the overall 101.6% can coexist with Unit C's 80%, why the summed gap remains 10, and what the relationship does when the Unit C slicer is selected. Your own explanation remains required even when the expected numbers appear.
+Ownership progress, October 8: aggregate versus local staffing is confirmed. The user correctly identified surpluses of 1/4/7/2 in A/B/D/E, explaining why aggregate coverage exceeds 100% while C's gap of 10 remains. Still explain what the relationship does when the Unit C slicer is selected; visible expected numbers alone do not confirm that separate topic.
 
 ## Reference: relationships for all six clean source tables
 
