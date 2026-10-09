@@ -215,7 +215,23 @@
     "sqlite": "3.53.1"
   },
   "windows_day05": {
-    "status": "pending",
-    "user_SQL_ownership": "pending"
+    "attachment_inspected": true,
+    "attachment_name": "image(20261009-131828).png",
+    "corrected_powershell_executed_by_assistant": false,
+    "current_file_manifest_hash_comparison_displayed": true,
+    "database_hash_comparison_displayed": true,
+    "displayed_repeat_true_is_valid": false,
+    "existing_project_root_observed": true,
+    "export_status_date_counts_exit_visible": false,
+    "first_manifest_files_object_unavailable": true,
+    "head_visible": false,
+    "repeat_comparison_errors": 3,
+    "repeat_verification": "pending_corrected_handoff",
+    "screenshot_published": false,
+    "status": "partial_evidence",
+    "submission_local_datetime": "2026-10-09T06:18:45-07:00",
+    "unit_c_visible": false,
+    "user_SQL_ownership": "pending",
+    "windows_42_test_result_visible": false
   }
 }

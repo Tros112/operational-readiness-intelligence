@@ -57,26 +57,61 @@ If blocked because source/validation/database contents differ, return the exact 
 
 ## 3. Prove the repeat and preserve the database
 
-```powershell
-.\.venv\Scripts\python.exe src\export_metrics.py
-if ($LASTEXITCODE -ne 0) { throw 'Repeat export did not pass. Return the output.' }
-$oriSecondExport = Get-Content .\data\processed\dashboard\export_manifest.json -Raw | ConvertFrom-Json
-$oriCsvNames = 'unit_summary.csv', 'qualification_detail.csv', 'expiration_detail.csv'
-$oriRepeatMatches = foreach ($oriCsvName in $oriCsvNames) {
-    $oriFirstExport.files.PSObject.Properties[$oriCsvName].Value.sha256 -eq $oriSecondExport.files.PSObject.Properties[$oriCsvName].Value.sha256
-}
-$oriRepeatOk = @($oriRepeatMatches | Where-Object { $_ -eq $false }).Count -eq 0
-$oriRepeatOk
-$oriDbBefore -eq (Get-FileHash .\data\processed\readiness.sqlite3 -Algorithm SHA256).Hash
+Run this whole block together in the same project root. It reads and checks the current passed manifest and files before capturing a baseline, so it does not depend on variables left from section 2 or a previous terminal session. Missing values, mismatches, and command errors stop the block. The local error preference ends with the block.
 
-$oriFileMatches = foreach ($oriCsvName in $oriCsvNames) {
-    $oriActualHash = (Get-FileHash (Join-Path .\data\processed\dashboard $oriCsvName) -Algorithm SHA256).Hash
-    $oriActualHash -eq $oriSecondExport.files.PSObject.Properties[$oriCsvName].Value.sha256
+```powershell
+& {
+    $ErrorActionPreference = 'Stop'
+    $oriCsvNames = @('unit_summary.csv', 'qualification_detail.csv', 'expiration_detail.csv')
+    $oriExpectedRows = @{'unit_summary.csv'=6; 'qualification_detail.csv'=48; 'expiration_detail.csv'=193}
+    $oriOutput = '.\data\processed\dashboard'
+
+    function Read-OriDay5Manifest {
+        $oriManifest = Get-Content (Join-Path $oriOutput 'export_manifest.json') -Raw | ConvertFrom-Json
+        if ($oriManifest.status -ne 'passed' -or $oriManifest.exports_ready -ne $true -or
+            $oriManifest.exit_code -ne 0 -or $oriManifest.as_of_date -ne '2026-10-07' -or
+            $oriManifest.data_classification -ne 'synthetic_only' -or $null -eq $oriManifest.files) {
+            throw 'The export manifest is missing or not passed/ready for October 7. Return its contents.'
+        }
+        foreach ($oriName in $oriCsvNames) {
+            $oriEntry = $oriManifest.files.PSObject.Properties[$oriName]
+            if ($null -eq $oriEntry -or $oriEntry.Value.rows -ne $oriExpectedRows[$oriName] -or
+                $oriEntry.Value.sha256 -notmatch '^[0-9a-fA-F]{64}$') {
+                throw "Missing or invalid manifest entry: $oriName"
+            }
+            $oriActual = (Get-FileHash (Join-Path $oriOutput $oriName) -Algorithm SHA256).Hash
+            if ($oriActual -ne $oriEntry.Value.sha256) { throw "File/manifest mismatch: $oriName" }
+        }
+        return $oriManifest
+    }
+
+    $oriFirstExport = Read-OriDay5Manifest
+    $oriDbBefore = (Get-FileHash .\data\processed\readiness.sqlite3 -Algorithm SHA256).Hash
+    .\.venv\Scripts\python.exe src\export_metrics.py
+    if ($LASTEXITCODE -ne 0) { throw 'Repeat export did not pass. Return the output.' }
+    $oriSecondExport = Read-OriDay5Manifest
+
+    $oriResults = @(foreach ($oriName in $oriCsvNames) {
+        [PSCustomObject]@{
+            File = $oriName
+            Rows = $oriSecondExport.files.PSObject.Properties[$oriName].Value.rows
+            Repeat = $oriFirstExport.files.PSObject.Properties[$oriName].Value.sha256 -eq $oriSecondExport.files.PSObject.Properties[$oriName].Value.sha256
+            ManifestMatches = $true
+        }
+    })
+    if ($oriResults.Count -ne 3 -or $oriResults.Repeat -contains $false) {
+        throw 'Repeat verification failed or is incomplete. Return the output.'
+    }
+    $oriDbPreserved = $oriDbBefore -eq (Get-FileHash .\data\processed\readiness.sqlite3 -Algorithm SHA256).Hash
+    if (-not $oriDbPreserved) { throw 'Database bytes changed. Return the output.' }
+    $oriResults | Format-Table -AutoSize
+    "Database preserved: $oriDbPreserved"
 }
-@($oriFileMatches | Where-Object { $_ -eq $false }).Count -eq 0
 ```
 
-Expected **True / True / True**: repeat CSV hashes, unchanged local database hash, and actual files matching the manifest. Do not compare the Windows database's physical SHA to Linux's; compare your own before/after hash. The logical data digest is expected to match `fc5ee84198bee07dcc0e90bcf4fcf1f242fd640eb08116ff3bdc6f55b8bf8a66`.
+Expected: exactly **three file rows**, counts **6 / 48 / 193**, every `Repeat` and `ManifestMatches` True, then **Database preserved: True**, with no errors. This supersedes the earlier comparison that depended on `$oriFirstExport` from section 2 and could return True after an empty comparison list. Do not count that earlier True as passing repeat evidence.
+
+Do not compare the Windows database's physical SHA to Linux's; compare your own before/after hash. The logical data digest is expected to match `fc5ee84198bee07dcc0e90bcf4fcf1f242fd640eb08116ff3bdc6f55b8bf8a66`. PowerShell's scoped stop-on-error behavior is documented by [Microsoft](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-5.1). The corrected block still needs your Windows execution evidence; no PowerShell runtime is installed in the assistant environment.
 
 The three CSV replacements are not one filesystem transaction. Only use a passed manifest with `exports_ready = true`, the expected date, and matching file hashes. If a run fails, leave Power BI unrefreshed and rerun successfully after resolving it. Old CSVs alone are not proof of a successful current export.
 
