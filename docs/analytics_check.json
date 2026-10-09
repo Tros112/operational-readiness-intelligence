@@ -1,0 +1,208 @@
+{
+  "as_of_date": "2026-10-07",
+  "clean_source_and_generator_manifest_hashes_unchanged": true,
+  "cross_query_reconciliation": "passed",
+  "data_classification": "synthetic_only",
+  "database_bytes_unchanged": true,
+  "database_matches_passed_source": true,
+  "database_sha256_after": "16d3119d57fd7ba6195fa372b9f970819a6397010162cab11119c2ce7014fe46",
+  "database_sha256_before": "16d3119d57fd7ba6195fa372b9f970819a6397010162cab11119c2ce7014fe46",
+  "dirty_export": {
+    "csv_files_created": 0,
+    "database_bytes_unchanged": true,
+    "exports_ready": false,
+    "process_exit": 1,
+    "status": "blocked"
+  },
+  "execution_date": "2026-10-09",
+  "export_process_exits": [
+    0,
+    0
+  ],
+  "exports": {
+    "expiration_detail.csv": {
+      "columns": [
+        "data_classification",
+        "as_of_date",
+        "unit_id",
+        "unit_name",
+        "person_id",
+        "qualification_id",
+        "qualification_name",
+        "is_available",
+        "valid_from",
+        "expiration_date",
+        "days_until_expiration",
+        "expires_within_30_days",
+        "expires_within_60_days",
+        "expires_within_90_days"
+      ],
+      "grain": [
+        "person_id",
+        "qualification_id",
+        "as_of_date"
+      ],
+      "rows": 193,
+      "sha256": "5367c6ca68941d00c1cb8742ef71942019b032347e65ee96396ea3a8099b2fbf"
+    },
+    "qualification_detail.csv": {
+      "columns": [
+        "data_classification",
+        "as_of_date",
+        "unit_id",
+        "unit_name",
+        "qualification_id",
+        "qualification_name",
+        "required_holder_count",
+        "valid_available_holder_count",
+        "capped_holder_count",
+        "current_gap",
+        "qualification_coverage_ratio",
+        "is_fragile",
+        "is_single_holder_dependency"
+      ],
+      "grain": [
+        "unit_id",
+        "qualification_id",
+        "as_of_date"
+      ],
+      "rows": 48,
+      "sha256": "aba22933aa7df389a023a52b210e44c686acabba11eacdd029edd250dfa2422f"
+    },
+    "unit_summary.csv": {
+      "columns": [
+        "data_classification",
+        "as_of_date",
+        "unit_id",
+        "unit_name",
+        "total_personnel_count",
+        "available_personnel_count",
+        "required_personnel_count",
+        "staffing_gap",
+        "staffing_coverage_ratio",
+        "required_holder_slots",
+        "capped_holder_slots",
+        "qualification_coverage_ratio",
+        "qualification_gap",
+        "qualification_pair_count",
+        "qualification_pairs_with_gap",
+        "fragile_qualification_pairs",
+        "single_holder_dependency_pairs",
+        "unit_attention_flag",
+        "certificates_expiring_30_days",
+        "people_affected_30_days",
+        "certificates_expiring_60_days",
+        "people_affected_60_days",
+        "certificates_expiring_90_days",
+        "people_affected_90_days"
+      ],
+      "grain": [
+        "unit_id",
+        "as_of_date"
+      ],
+      "rows": 6,
+      "sha256": "cc9df9cdbaa058ef571fe53308c05dc63e7da288899f2c3b2ca233ca2151daee"
+    }
+  },
+  "full_suite": {
+    "day05_tests": 10,
+    "process_exit": 0,
+    "seconds": 10.731,
+    "status": "OK",
+    "tests": 42
+  },
+  "global_components": {
+    "available_personnel_count": 254,
+    "capped_holder_slots": 88,
+    "qualification_coverage_ratio": 0.9263157894736842,
+    "qualification_gap": 7,
+    "required_holder_slots": 95,
+    "required_personnel_count": 250,
+    "staffing_coverage_ratio": 1.016,
+    "staffing_gap": 10
+  },
+  "hand_check_unit_c": {
+    "available_personnel_count": 40,
+    "capped_holder_slots": 15,
+    "qualification_coverage_ratio": 0.9375,
+    "qualification_gap": 1,
+    "required_holder_slots": 16,
+    "required_personnel_count": 50,
+    "staffing_coverage_ratio": 0.8,
+    "staffing_gap": 10
+  },
+  "inventory": {
+    "certificates_of_unavailable_people": 21,
+    "cumulative_expirations": {
+      "30": {
+        "certificates": 45,
+        "distinct_people": 41
+      },
+      "60": {
+        "certificates": 68,
+        "distinct_people": 62
+      },
+      "90": {
+        "certificates": 98,
+        "distinct_people": 84
+      }
+    },
+    "currently_valid_certificates": 193,
+    "distinct_people": 145
+  },
+  "logical_data_sha256": "fc5ee84198bee07dcc0e90bcf4fcf1f242fd640eb08116ff3bdc6f55b8bf8a66",
+  "milestone": "Day 5",
+  "pbix_created_or_inspected_by_assistant": false,
+  "phase": "Phase 1",
+  "powerbi_SQL_reconciliation": "pending",
+  "repeat_csv_hashes_identical": true,
+  "scheduled_date": "2026-10-11",
+  "scope_limits": [
+    "No no-renewal projection; Day 10",
+    "No process metrics; Day 9",
+    "No Power BI report build; Day 6",
+    "No release gate passed"
+  ],
+  "source_baseline": "docs/load_check.json",
+  "source_table_counts": {
+    "admin_cases": 600,
+    "personnel": 300,
+    "personnel_qualifications": 265,
+    "qualification_types": 8,
+    "unit_qualification_requirements": 48,
+    "units": 6
+  },
+  "sql_fixture_checks": {
+    "duplicate_staffing_and_holder_trap": "passed",
+    "expiration_exclusive_at_D": "passed",
+    "expiration_inclusive_at_30_60_90": "passed",
+    "interrupted_replacement_disables_manifest": "passed",
+    "unavailable_inventory_vs_holder_coverage": "passed",
+    "undefined_denominator_is_null": "passed",
+    "zero_holder_left_join": "passed"
+  },
+  "sql_sha256": {
+    "expiration_detail": "8c3545553ed8901075d100215c614544c4f8b6af22d1431307d290027370fee9",
+    "qualification_detail": "d70fedbe412ec5c678a36ae977a5abd80313859b758a9d157507199dd76f187a",
+    "unit_summary": "dd7b2293ce1239f1f27bda80edb4e57240a8d185e12c978e91de2fae19f9ddf3"
+  },
+  "unit_c_holders_q01_through_q08": [
+    5,
+    4,
+    7,
+    4,
+    3,
+    1,
+    4,
+    3
+  ],
+  "verification_environment": {
+    "platform": "Linux",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "windows_day05": {
+    "status": "pending",
+    "user_SQL_ownership": "pending"
+  }
+}

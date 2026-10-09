@@ -2,7 +2,7 @@
 
 Version 1.0 · Finalized for Day 2 on October 7, 2026 (scheduled October 8; executed early at user request).
 
-All operational measures describe a **fictional simulation**. The definitions below govern generation checks and the future analytical SQL/Power BI implementation. Clean-reference verification does not complete the dashboard or metric-reconciliation gate.
+All operational measures describe a **fictional simulation**. Definitions remain v1.0; Day 5 implemented current staffing/qualification/expiration SQL on October 9. Power BI reconciliation, process metrics, and projected horizons remain pending. Source/SQL verification does not complete the dashboard or release gate.
 
 ## Shared date and eligibility rules
 
@@ -14,7 +14,7 @@ All operational measures describe a **fictional simulation**. The definitions be
 - Cases opened after D are excluded. Cases with `closed_date IS NULL` or `closed_date > D` are open at D; future outcomes do not enter completion metrics. Clean generation will contain no future actual openings/completions.
 - Counts show zero when the eligible set is empty. Ratios and medians with no eligible denominator/observations show SQL NULL and Power BI blank / not applicable. Do not replace an undefined rate with zero.
 - Every export carries `as_of_date`. Filters must preserve the same numerator/denominator scope. Aggregate ratios from their counts, not from averages of percentages.
-- Raw CSVs keep the six-table source schema; the single analysis date is stored in configuration/manifest. Future dashboard exports include the date explicitly. A missing certificate record means no recorded qualification; it is not a missing-date value to impute.
+- Raw CSVs keep the six-table source schema; the single analysis date is stored in configuration/manifest. Implemented dashboard exports include the date and synthetic classification explicitly. A missing certificate record means no recorded qualification; it is not a missing-date value to impute.
 - Administrative cycle time uses calendar days, without a working-day adjustment. Its selected period applies to completion date, even if the case was opened earlier. The MVP's generated cases all open in the 90-day window, so older backlog is not represented.
 - Staffing gap is `max(required_personnel_count - available_personnel_count, 0)` at unit grain. Preserve unit gaps separately from the aggregate uncapped staffing ratio: surplus elsewhere cannot remove a unit's local shortfall.
 - Expiration inventory counts all currently valid certificates in the selected unit, including unavailable people; report availability separately when useful. Projected qualification coverage uses available holders only. Do not silently change the expiration denominator to available holders.
@@ -47,16 +47,16 @@ These are tiny teaching fixtures, **not results from the generated dataset**.
 
 Ownership evidence, October 8: the user independently explained aggregate versus local staffing by identifying the 14-person combined surplus in A/B/D/E and the persistent 10-person shortfall in C. This specific explanation is confirmed. Staffing grain/join counting, the exclusive expiration boundary, and treatment of open cases remain to be explained independently.
 
-## Derived output grains (planned)
+## Derived output grains and implementation status
 
 | Output | Grain | Rule |
 | --- | --- | --- |
-| Executive unit summary | One unit at D | Staffing totals and summed qualification slots share unit scope; sum count components across units |
-| Qualification detail | One unit/qualification at D | All 48 requirements retained, including zero holders; current holders, gaps, fragile flag, and projected horizons |
-| Expiration detail | One current valid person/qualification certificate at D | Distinct affected people must be recomputed for the selection, not summed across qualifications |
-| Process case detail | One case eligible as of D | Completion/age/calendar-period filters applied before rates or median |
+| Executive unit summary | One unit at D | Implemented Day 5: staffing totals, summed qualification slots, current gaps/fragility and cumulative unit expirations; sum count components across units |
+| Qualification detail | One unit/qualification at D | Implemented Day 5: all 48 requirements retained, current holders/gaps/fragility; projected horizons remain Day 10 |
+| Expiration detail | One current valid person/qualification certificate at D | Implemented Day 5: availability and cumulative flags; recompute distinct people for selections, do not sum across qualifications |
+| Process case detail | One case eligible as of D | Planned Day 9: completion/age/calendar-period filters before rates or median |
 
-These are derived marts scheduled for later milestones. No extra operational source table is added. Source rows and dashboard tables must not be mixed in joins that multiply counts.
+The first three CSVs are under `data/processed/dashboard/`; exact field names/types/grains are in `docs/export_dictionary.md`. No extra operational source table is added. Source rows and dashboard tables must not be mixed in joins that multiply counts.
 
 ## Day 2 completion check
 
@@ -69,3 +69,7 @@ Implemented October 8 under the early Day 3 instruction. `docs/validation_rules.
 ## Day 4 storage enforcement
 
 Implemented October 9 in the existing Git-connected project. `src/load_data.py` requires a passed, matching-date bundle, verifies source/export hashes and values, and replaces all six source tables within one SQLite transaction. Counts and every stored value reconcile to accepted input before commit. NULL open-case outcomes, expired certificates, and future-start certificates are retained; storage is not metric eligibility. Repeat/rollback evidence is in `docs/verification_day04.md`. No metric definition or derived output grain changed, and no analytical SQL/Power BI reconciliation is claimed by loading.
+
+## Day 5 analytical enforcement
+
+`src/export_metrics.py` verifies the passed source against the existing database in one read-only transaction, then runs the three SQL queries and reconciles their unique grains and cross-query components. All 42 Linux tests pass, including independent source calculations, duplicate/zero-holder fixtures, date boundaries and NULL behavior. The clean reference has no zero-holder pair; a separate SQL fixture verifies that failure risk without inventing a reference finding. A passed export manifest and matching CSV hashes are required before report use. Definitions are unchanged. Windows Day 5 and independent SQL ownership remain pending; current SQL/source reconciliation is verified, while Power BI reconciliation is not. Evidence: `docs/verification_day05.md`.
