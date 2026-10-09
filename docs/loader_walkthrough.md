@@ -30,6 +30,8 @@ The database transaction and final JSON write are separate filesystem operations
 
 ## Ownership check
 
-Explain why committing each table separately could leave a misleading mixture of old and new data after an error. Then distinguish three facts: matching row counts, matching record values, and successful foreign-key enforcement. The Day 3 duplicate-authority explanation is already confirmed; this transaction explanation remains pending.
+The transaction explanation was independently supplied October 9 at 04:38 PDT. The user identified the risk of mixing old/new data after an error and described how an incomplete personnel transfer could distort staffing coverage, gaps, or accounted personnel. This is a hypothetical illustration, not an implemented transfer history or observed project finding. The Day 3 duplicate-authority explanation is also confirmed; other future SQL/metric explanations remain separate ownership checks.
+
+Clarification supplied as guidance: child-first deletion and parent-first insertion satisfy foreign-key order. The single transaction makes the six-table replacement complete together or roll back together. Foreign keys can pass while tables still describe different snapshots; valid relationships alone do not establish snapshot consistency. This clarification is assistant guidance, not an additional independently demonstrated user explanation.
 
 Primary technical references: [Python 3.11 sqlite3](https://docs.python.org/3.11/library/sqlite3.html) and [SQLite transactions](https://www.sqlite.org/lang_transaction.html). The implementation checks are described in `docs/verification_day04.md`; they do not establish professional deployment experience.

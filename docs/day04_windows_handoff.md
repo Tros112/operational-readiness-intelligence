@@ -1,6 +1,6 @@
 # Day 4 — update and run in the existing Windows project
 
-Day 4 was implemented October 9, 2026, ahead of its October 10 schedule under the user's instruction to continue. All operational data and findings are simulated; readiness is a fictional proxy. The assistant's Linux checks pass. Your Windows Day 4 run and independent transaction explanation remain pending.
+Day 4 is complete October 9, 2026, ahead of its October 10 schedule. Linux and inspected Windows checks pass; at 04:38 PDT you confirmed the existing Power BI report still opens/functions and independently explained the risk of mixing old/new data if tables committed separately. All operational data and findings are simulated; readiness is a fictional proxy. This guide is retained for reproduction, not a request to repeat successful checks. See `docs/verification_day04.md` for evidence and limits.
 
 Published implementation checkpoint: **11697ebd20b3a03dd8b388334ec28a094ccd166c**, verified October 9. Later text-documentation commits can follow this checkpoint. The update commands are now actionable; the assistant's final message identifies the latest verified delivery SHA.
 
