@@ -2,7 +2,7 @@
 
 Day 5 implementation is verified on Linux on October 9, 2026, ahead of its October 11 schedule. **Windows Day 5 reproduction and your SQL explanation remain pending.** All operational results are simulated; readiness is a fictional proxy. Your Day 4 Windows checks and report availability are already confirmed. Reuse that same Git folder and `.venv`; no setup, regeneration, reload, or new dependency is required for a working Day 4 snapshot.
 
-The assistant's delivery message supplies the verified Day 5 commit SHA. This guide becomes actionable after publication verification. Local CSVs are created by the exporter, not included in the Git update. Your existing Power BI report stays in place; no new import or report build is part of this check.
+Published implementation checkpoint: **00adaafc54031521a14c438620cdaff9b81029fe**, independently verified October 9. This guide is now actionable. Later text-documentation commits can follow; the assistant's delivery message supplies the latest verified SHA. Local CSVs are created by the exporter, not included in the Git update. Your existing Power BI report stays in place; no new import or report build is part of this check.
 
 ## 1. Update the same checkout
 

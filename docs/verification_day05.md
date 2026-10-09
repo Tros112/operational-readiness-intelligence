@@ -47,3 +47,9 @@ CSV replacement is not a multi-file filesystem transaction. Only refresh/report 
 No actual Windows environment or PBIX was operated by the assistant. Power BI/SQL reconciliation, the executive-page build, process metrics, and the no-renewal scenario remain later milestones. No release gate, employer feedback, professional implementation experience, or predictive validity is inferred. Delivery is code/tests/text only; local datasets, databases, images, `.venv`, and Power BI binaries are excluded.
 
 **Next exact action:** update the same Windows checkout, run the exporter twice, confirm the manifest/counts/repeat and database preservation, run the 42-test suite, then explain why requirements use a LEFT JOIN and why certificate joins must not multiply staffing. Stop at that Day 5 check; Day 6 requires the next instruction.
+
+## Publication verified
+
+Day 5 implementation is published at **00adaafc54031521a14c438620cdaff9b81029fe**, directly following **aea3e86cd793bcb469f1620f2f96c7a43fad3156**. Tree **b070fa45abae543924e973e85d4a6ef7c5f9700d** matches the tested local tree. The GitHub API and native fetch independently confirm the commit; all 20 changed text-file blobs match local bytes, and pre-existing remote images are unchanged. No generated/local binary was published. Local images, clean sources, and database hashes remain unchanged. The original native Day 5 commit is preserved on private branch `execution/day05-local-history`; main tracks the published history. Existing Day 4 archive branches remain local. Do not push private branches or all branches.
+
+This publication record is a text-only supplement; it changes no code or metric. JSON parsing and Git whitespace checks suffice; successful tests/exports are not repeated. The Windows guide is actionable, with the latest documentation delivery SHA reported after verification. Windows Day 5 and independent SQL ownership remain pending.

@@ -155,6 +155,19 @@
   "pbix_created_or_inspected_by_assistant": false,
   "phase": "Phase 1",
   "powerbi_SQL_reconciliation": "pending",
+  "publication": {
+    "changed_text_paths": 20,
+    "denied_image_action_retried": false,
+    "direct_parent_sha": "aea3e86cd793bcb469f1620f2f96c7a43fad3156",
+    "existing_remote_history_preserved": true,
+    "generated_local_binary_files_published": false,
+    "github_api_and_native_fetch_verified": true,
+    "implementation_sha": "00adaafc54031521a14c438620cdaff9b81029fe",
+    "previous_remote_assets_unchanged": true,
+    "private_local_history_branch": "execution/day05-local-history",
+    "published_blobs_match_tested_files": true,
+    "tree_sha": "b070fa45abae543924e973e85d4a6ef7c5f9700d"
+  },
   "repeat_csv_hashes_identical": true,
   "scheduled_date": "2026-10-11",
   "scope_limits": [
