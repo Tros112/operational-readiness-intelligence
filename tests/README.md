@@ -6,7 +6,7 @@ Day 3 adds fourteen checks in `test_validate_data.py`. Every injected defect and
 
 Day 4 adds ten checks in `test_load_data.py`. Its **32-test suite passes on Linux and inspected Windows output**. Persistent counts/values/nulls, repeat identity, blocked dirty/stale/changed input, actual constraint-failure rollback, database constraints, and preservation of unrelated databases and protected local assets are checked. Failed CLI runs invalidate old success audits.
 
-Day 5 adds ten checks in `test_export_metrics.py`, bringing the suite to **42 passing tests on Linux** (10.731 seconds, exit 0). Windows Day 5 is pending. Tests cover:
+Day 5 adds ten checks in `test_export_metrics.py`, bringing that milestone's suite to **42 passing tests on Linux** (10.731 seconds, exit 0) and screenshot-verified Windows (23.494 seconds, exit 0). Tests cover:
 
 - Every current SQL metric versus independent Python calculations from source CSVs, with fixed Unit C/fragility/renewal-cluster hand checks.
 - Multiple certificates and intentional identical duplicates cannot inflate staffing, distinct holders, or certificate inventory; surplus remains capped per requirement pair.
@@ -15,6 +15,8 @@ Day 5 adds ten checks in `test_export_metrics.py`, bringing the suite to **42 pa
 - Zero denominators give NULL while empty counts give zero.
 - Repeated CLI exports produce identical unique-grain/classified/dated CSVs without changing database or source bytes.
 - Dirty, stale-date, changed-source/accepted, mismatched-database and missing-database attempts cannot authorize an export; prior passed manifests are invalidated.
+
+Day 6 adds seven checks in `test_powerbi_input.py`, bringing the current suite to **49 passing tests on Linux** (8.851 seconds, exit 0). Updated Windows tests are pending. They cover a no-write valid bundle, weighted multi-unit references/zero flags, altered CSV hashes, blocked/date/reconciliation metadata, missing files/entries, duplicate grains or wrong row dates even when hashes are updated, invalid counts/gaps, and a missing-manifest CLI rejection with no file creation. These tests execute Python; they do not execute DAX, M, or Power BI visuals. Desktop reconciliation and save/reopen remain user checks.
 - Protected folders/report-file fixtures remain untouched, and a simulated interrupted CSV replacement disables the manifest.
 
 The duplicate and zero-demand fixtures are isolated unconstrained in-memory databases used only to exercise defensive SQL. Production validation and schema constraints still reject those inputs. The generated reference currently has no zero-holder pair. Do not call a fixture result an observed reference finding.

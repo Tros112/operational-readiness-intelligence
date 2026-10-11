@@ -1,6 +1,6 @@
 # Day 5 verification
 
-Implemented October 9, 2026, Phase 1, at the user's request, ahead of the scheduled October 11 milestone. The metric date remains **2026-10-07**. Day 5 Linux implementation and its completion check pass; Windows reproduction and the user's SQL explanation remain pending. All operational results below are **simulated**; readiness is a fictional proxy, not an official Navy rule.
+Implemented October 9, 2026, Phase 1, at the user's request, ahead of the scheduled October 11 milestone. The metric date remains **2026-10-07**. Day 5 Linux implementation and Windows technical reproduction pass; the user's SQL explanation needs refinement as of October 11. All operational results below are **simulated**; readiness is a fictional proxy, not an official Navy rule.
 
 ## Concrete output and checks
 
@@ -40,13 +40,13 @@ The windows overlap. Do not add them. Distinct affected people must be recompute
 
 ## Remaining evidence and limits
 
-Windows Day 4 checks and report availability were already confirmed; do not repeat setup or create a daily project folder. Day 5 Windows export/test results and independent explanation of the joins are still pending. Follow `docs/day05_windows_handoff.md` using the existing `.venv` and project root. No additional dependency is needed.
+Windows Day 4 checks and report availability were already confirmed; do not repeat setup or create a daily project folder. Day 5 Windows export/repeat/hash, Unit C, and test results are confirmed by screenshots below. Independent explanation of the joins and fragility still needs refinement. No additional dependency or technical rerun is needed.
 
 CSV replacement is not a multi-file filesystem transaction. Only refresh/report from a manifest with `status = passed`, `exports_ready = true`, the expected date, and matching CSV hashes. A failed or interrupted run must be repaired and successfully rerun before refresh. A Power BI refresh guard remains part of its later build, not a feature claimed here.
 
 No actual Windows environment or PBIX was operated by the assistant. Power BI/SQL reconciliation, the executive-page build, process metrics, and the no-renewal scenario remain later milestones. No release gate, employer feedback, professional implementation experience, or predictive validity is inferred. Delivery is code/tests/text only; local datasets, databases, images, `.venv`, and Power BI binaries are excluded.
 
-**Next exact action:** update the same Windows checkout, run the exporter twice, confirm the manifest/counts/repeat and database preservation, run the 42-test suite, then explain why requirements use a LEFT JOIN and why certificate joins must not multiply staffing. Stop at that Day 5 check; Day 6 requires the next instruction.
+**Next exact action:** independently explain why zero-holder requirements must survive the join, why three valid certificates can multiply joined rows without duplicating the person source, and why Unit C/Q06 is unmet rather than fragile. Technical checks have passed; do not repeat them merely for the explanation. Stop at that Day 5 check; Day 6 requires the next instruction.
 
 ## Publication verified
 
@@ -63,3 +63,13 @@ The displayed repeat-check True is **not valid evidence**: the errors left an em
 Section 3 now reads/checks the baseline itself, validates both manifests and actual CSV hashes/counts, stops on errors in a local script-block scope, and requires three file results before displaying success. This is a documentation correction; SQL/Python code and data are unchanged. JSON parsing and Git whitespace checks pass; the prior Linux suite is not rerun for text-only changes. No PowerShell runtime is installed here, so corrected Windows execution remains pending. The attachment stays outside the repository and is not published.
 
 **Next exact action:** pull the text correction in the same Windows folder and run the entire corrected section 3 block. Expect three rows, counts 6/48/193, both flags True, and Database preserved: True, with no errors. Then continue section 4's Unit C/42-test check and section 5's independent SQL explanation. No regeneration/reload or new Power BI build is needed.
+
+## Windows technical verification complete; ownership refinement pending
+
+This section supersedes the earlier pending technical checks. The October 9 attachments `image(20261009-164823).png`, `image(20261009-182759).png`, and `image(20261009-182818).png` show the successful fast-forward to correction commit 646c885 and a passed/ready October 7 export with 6/48/193 rows. The earlier error screenshot does not establish repeat success. The corrected result in `image(20261009-183156).png` and `image(20261009-183334).png` does: exactly three expected file rows, every Repeat and ManifestMatches True, and Database preserved: True. Attachment filenames identify inspected evidence; images were not copied into this repository or published.
+
+October 11 attachment `image(20261011-175510).png` confirms Unit C staffing 40/50, gap 10, ratio 0.8; capped qualification slots 15/16, gap 1, ratio 0.9375. Q06 has one valid available holder, two required, capped count one, current gap one, and is_fragile zero. `image(20261011-175534).png` shows 42 tests in 23.494 seconds, OK, and process exit 0. The existing project root and main tracking origin/main remain visible. No actual PBIX or Windows files were operated by the assistant.
+
+At October 11, 11:05 PDT, the user supplied all three explanations. The headcount answer identifies inflation risk, but the other answers do not yet establish the SQL rules. LEFT JOIN preserves requirements with no matching holders; uniqueness comes from keys, grouping, and distinct counting. One person with three different valid certificates has three legitimate person/qualification pairs; joining those rows repeats the person without violating a source key. Staffing is aggregated from personnel before certificate joins. Fragility is defined by the contract as a positive requirement met exactly, without surplus. Q06's 1/2 coverage is already unmet; its fragile flag has no connection to SQL success or whether the unit can function. These metrics do not establish overall unit viability.
+
+Technical implementation and Windows reproduction are complete. SQL ownership remains **needs_refinement**, with no new code/data defect observed. The next action is a brief independent explanation of those distinctions. Day 6 and release gates remain unstarted/unpassed; no tests, exports, or database loads need repeating for this documentation update.

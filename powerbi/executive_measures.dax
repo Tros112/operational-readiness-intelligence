@@ -1,0 +1,24 @@
+// Create one measure at a time with Modeling > New measure.
+// Use unit_summary as the home table. ORI names preserve earlier learning measures.
+
+ORI Available Personnel = COALESCE(SUM(unit_summary[available_personnel_count]), 0)
+
+ORI Required Personnel = COALESCE(SUM(unit_summary[required_personnel_count]), 0)
+
+ORI Staffing Gap = COALESCE(SUM(unit_summary[staffing_gap]), 0)
+
+ORI Staffing Coverage = DIVIDE([ORI Available Personnel], [ORI Required Personnel])
+
+ORI Covered Qualification Slots = COALESCE(SUM(unit_summary[capped_holder_slots]), 0)
+
+ORI Required Qualification Slots = COALESCE(SUM(unit_summary[required_holder_slots]), 0)
+
+ORI Qualification Gap = COALESCE(SUM(unit_summary[qualification_gap]), 0)
+
+ORI Qualification Coverage = DIVIDE([ORI Covered Qualification Slots], [ORI Required Qualification Slots])
+
+ORI Units Needing Attention = COALESCE(SUM(unit_summary[unit_attention_flag]), 0)
+
+ORI Analysis Date = SELECTEDVALUE(unit_summary[as_of_date])
+
+ORI Qualification Pairs With Gap = COALESCE(SUM(unit_summary[qualification_pairs_with_gap]), 0)

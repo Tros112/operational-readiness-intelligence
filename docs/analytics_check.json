@@ -215,6 +215,72 @@
     "sqlite": "3.53.1"
   },
   "windows_day05": {
+    "status": "technical_verification_complete_ownership_needs_refinement",
+    "verification_completed_local_date": "2026-10-11",
+    "evidence_type": "assistant_inspected_windows_screenshots",
+    "attachment_names": [
+      "image(20261009-164823).png",
+      "image(20261009-182759).png",
+      "image(20261009-182818).png",
+      "image(20261009-183156).png",
+      "image(20261009-183334).png",
+      "image(20261011-175510).png",
+      "image(20261011-175534).png"
+    ],
+    "existing_project_root_observed": true,
+    "correction_fast_forward_to_short_sha": "646c885",
+    "export_status": "passed",
+    "exports_ready": true,
+    "export_report_exit_code": 0,
+    "as_of_date": "2026-10-07",
+    "cross_query_reconciliation": "passed",
+    "database_matches_passed_source": true,
+    "export_rows": {
+      "unit_summary.csv": 6,
+      "qualification_detail.csv": 48,
+      "expiration_detail.csv": 193
+    },
+    "repeat_verification": "passed_corrected_handoff",
+    "repeat_file_comparisons": 3,
+    "repeat_csv_hashes_identical": true,
+    "manifest_file_hashes_match": true,
+    "database_bytes_preserved": true,
+    "hand_check_unit_c": {
+      "available_personnel_count": 40,
+      "capped_holder_slots": 15,
+      "qualification_coverage_ratio": 0.9375,
+      "qualification_gap": 1,
+      "required_holder_slots": 16,
+      "required_personnel_count": 50,
+      "staffing_coverage_ratio": 0.8,
+      "staffing_gap": 10
+    },
+    "unit_c_q06": {
+      "valid_available_holder_count": 1,
+      "required_holder_count": 2,
+      "capped_holder_count": 1,
+      "current_gap": 1,
+      "is_fragile": 0
+    },
+    "full_suite": {
+      "tests": 42,
+      "status": "OK",
+      "process_exit": 0,
+      "seconds": 23.494
+    },
+    "user_SQL_ownership": "needs_refinement",
+    "ownership_review_local_datetime": "2026-10-11T11:05:46-07:00",
+    "ownership_review": {
+      "left_join": "Needs refinement: preserves unmatched requirements; does not enforce uniqueness.",
+      "staffing_grain": "Inflation risk identified; clarify legitimate different certificates versus duplicate source keys.",
+      "fragility": "Needs refinement: met coverage with no surplus; independent of query execution and unit viability."
+    },
+    "corrected_powershell_executed_by_assistant": false,
+    "windows_environment_operated_by_assistant": false,
+    "screenshots_copied_to_repo": false,
+    "screenshot_published": false
+  },
+  "windows_repeat_check_interruption": {
     "attachment_inspected": true,
     "attachment_name": "image(20261009-131828).png",
     "corrected_powershell_executed_by_assistant": false,

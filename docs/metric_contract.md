@@ -2,7 +2,7 @@
 
 Version 1.0 · Finalized for Day 2 on October 7, 2026 (scheduled October 8; executed early at user request).
 
-All operational measures describe a **fictional simulation**. Definitions remain v1.0; Day 5 implemented current staffing/qualification/expiration SQL on October 9. Power BI reconciliation, process metrics, and projected horizons remain pending. Source/SQL verification does not complete the dashboard or release gate.
+All operational measures describe a **fictional simulation**. Definitions remain v1.0; Day 5 implemented current staffing/qualification/expiration SQL on October 9 and Windows technical reproduction is confirmed. Day 6's executive-page handoff is prepared October 11; actual Power BI execution/reconciliation, process metrics, and projected horizons remain pending. Source/SQL verification does not complete the dashboard or release gate.
 
 ## Shared date and eligibility rules
 
@@ -72,4 +72,10 @@ Implemented October 9 in the existing Git-connected project. `src/load_data.py` 
 
 ## Day 5 analytical enforcement
 
-`src/export_metrics.py` verifies the passed source against the existing database in one read-only transaction, then runs the three SQL queries and reconciles their unique grains and cross-query components. All 42 Linux tests pass, including independent source calculations, duplicate/zero-holder fixtures, date boundaries and NULL behavior. The clean reference has no zero-holder pair; a separate SQL fixture verifies that failure risk without inventing a reference finding. A passed export manifest and matching CSV hashes are required before report use. Definitions are unchanged. Windows Day 5 and independent SQL ownership remain pending; current SQL/source reconciliation is verified, while Power BI reconciliation is not. Evidence: `docs/verification_day05.md`.
+`src/export_metrics.py` verifies the passed source against the existing database in one read-only transaction, then runs the three SQL queries and reconciles their unique grains and cross-query components. The Day 5 42-test suite passes on Linux and screenshot-verified Windows, including independent source calculations, duplicate/zero-holder fixtures, date boundaries and NULL behavior. The clean reference has no zero-holder pair; a separate SQL fixture verifies that failure risk without inventing a reference finding. A passed export manifest and matching CSV hashes are required before report use. Definitions are unchanged. Windows Day 5 technical verification is complete; independent SQL ownership needs refinement and is carried forward under the user's explicit Day 6 instruction. Current SQL/source reconciliation is verified, while Power BI reconciliation is not. Evidence: `docs/verification_day05.md`.
+
+## Day 6 report handoff
+
+The executive page uses one row per unit at the single fixed date. Prepared DAX divides sums of staffing/qualification components, sums per-unit staffing gaps, and counts current-gap flags by summing one 0/1 flag per unit. Empty count selections use zero; undefined rates/date selections use blank. The ORI-prefixed definitions are in `powerbi/executive_measures.dax`. The disconnected table and its unit-name slicer preserve the same numerator/denominator scope. Eleven prepared measures do not establish DAX runtime correctness until Desktop execution and selected/global/empty checks are returned.
+
+Before every import/refresh, `src/check_powerbi_input.py` checks the saved passed export manifest and all three CSV hashes/rows/grains without writing files. `powerbi/unit_summary.pq` separately gates manifest state, schema, six-row grain, types, classification, and fixed date. It does not hash files. Keep inputs stable between the preflight and refresh; this workflow is not a multi-file transaction. Runtime import/filter/save/reopen verification remains pending in `docs/verification_day06.md`. Metric definitions remain v1.0.

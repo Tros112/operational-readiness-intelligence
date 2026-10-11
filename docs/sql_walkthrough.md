@@ -65,6 +65,6 @@ Explain in your own words:
 1. What would an inner join to holders hide, and why does a zero-holder requirement still belong in the coverage denominator?
 2. Why does a person holding three certificates contribute one person to staffing? How do the separate CTE aggregates prevent inflated counts?
 
-Then trace Unit C's Q06 row and explain why it has a gap without a fragile flag. These explanations remain unconfirmed until you supply them; SQL tests and a generated walkthrough cannot substitute for your understanding.
+Then trace Unit C's Q06 row and explain why it has a gap without a fragile flag. The user submitted explanations October 11; these concepts still need refinement. At the user's explicit request, they are carried into Day 6 in `docs/sql_review_backlog.md` rather than blocking the executive-page build. SQL tests and a generated walkthrough cannot substitute for independent understanding.
 
 Primary technical references: [SQLite aggregate functions](https://www.sqlite.org/lang_aggfunc.html), [SQLite date functions](https://www.sqlite.org/lang_datefunc.html), and [SQLite read-only URI mode](https://www.sqlite.org/uri.html). The metric rules and dates are this project's contract, not SQLite policy.

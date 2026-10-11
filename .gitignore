@@ -16,3 +16,14 @@ powerbi/*.pdf
 docs/evidence/day03_windows_validation_inspection.png
 docs/evidence/day03_windows_rejection_trace.png
 docs/evidence/day03_windows_validation_totals.png
+# Keep newly captured report/evidence images local; existing tracked assets remain intact.
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.svg
+*.bmp
+*.tif
+*.tiff
+*.ico

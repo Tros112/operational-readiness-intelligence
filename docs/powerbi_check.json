@@ -1,0 +1,129 @@
+{
+  "as_of_date": "2026-10-07",
+  "data_classification": "synthetic_only",
+  "execution_local_date": "2026-10-11",
+  "input_check": {
+    "as_of_date": "2026-10-07",
+    "csv_hashes_match_manifest": true,
+    "data_classification": "synthetic_only",
+    "exit_code": 0,
+    "expected_selections": {
+      "All units": {
+        "available_personnel_count": 254,
+        "capped_holder_slots": 88,
+        "flagged_units": 4,
+        "qualification_coverage_ratio": 0.9263157894736842,
+        "qualification_gap": 7,
+        "qualification_pairs_with_gap": 7,
+        "required_holder_slots": 95,
+        "required_personnel_count": 250,
+        "staffing_coverage_ratio": 1.016,
+        "staffing_gap": 10,
+        "unit_count": 6
+      },
+      "Unit A": {
+        "available_personnel_count": 41,
+        "capped_holder_slots": 16,
+        "flagged_units": 0,
+        "qualification_coverage_ratio": 1.0,
+        "qualification_gap": 0,
+        "qualification_pairs_with_gap": 0,
+        "required_holder_slots": 16,
+        "required_personnel_count": 40,
+        "staffing_coverage_ratio": 1.025,
+        "staffing_gap": 0,
+        "unit_count": 1
+      },
+      "Unit C": {
+        "available_personnel_count": 40,
+        "capped_holder_slots": 15,
+        "flagged_units": 1,
+        "qualification_coverage_ratio": 0.9375,
+        "qualification_gap": 1,
+        "qualification_pairs_with_gap": 1,
+        "required_holder_slots": 16,
+        "required_personnel_count": 50,
+        "staffing_coverage_ratio": 0.8,
+        "staffing_gap": 10,
+        "unit_count": 1
+      },
+      "Units A and C": {
+        "available_personnel_count": 81,
+        "capped_holder_slots": 31,
+        "flagged_units": 1,
+        "qualification_coverage_ratio": 0.96875,
+        "qualification_gap": 1,
+        "qualification_pairs_with_gap": 1,
+        "required_holder_slots": 32,
+        "required_personnel_count": 90,
+        "staffing_coverage_ratio": 0.9,
+        "staffing_gap": 10,
+        "unit_count": 2
+      }
+    },
+    "file_writes": 0,
+    "files_checked": 3,
+    "output_grains_unique": true,
+    "powerbi_execution_verified": false,
+    "rows": {
+      "expiration_detail.csv": 193,
+      "qualification_detail.csv": 48,
+      "unit_summary.csv": 6
+    },
+    "status": "passed"
+  },
+  "milestone": "Day 6",
+  "pbix_created_opened_or_verified_by_assistant": false,
+  "powerbi_SQL_reconciliation": "pending",
+  "preparation_status": "verified_locally_desktop_build_pending",
+  "preservation": {
+    "all_hashes_unchanged": true,
+    "clean_sources_unchanged": true,
+    "database_unchanged": true,
+    "existing_files_compared": 19,
+    "existing_git_history_retained": true,
+    "existing_images_unchanged": true,
+    "export_bundle_unchanged": true,
+    "live_regeneration_or_reload": false,
+    "windows_assets_operated_by_assistant": false
+  },
+  "prototype_gate": "not_passed",
+  "publication": {
+    "excluded_assets": "images/generated data/databases/.venv/PBIX/PBIT/private history",
+    "status": "pending_text_only_delivery"
+  },
+  "python_suite": {
+    "environment": "Linux",
+    "new_checker_tests": 7,
+    "process_exit": 0,
+    "seconds": 8.851,
+    "status": "OK",
+    "tests": 49
+  },
+  "refresh_workflow": {
+    "atomic_filesystem_transaction": false,
+    "m_computes_sha256": false,
+    "m_gate": "manifest/schema/types/date/classification/six-unit grain",
+    "sha256_validation": "Python preflight immediately before every import/refresh"
+  },
+  "scheduled_date": "2026-10-12",
+  "static_asset_checks": {
+    "dax_runtime_execution": "pending",
+    "dax_source_columns_exist": true,
+    "m_column_count": 24,
+    "m_columns_match_export_manifest": true,
+    "m_runtime_execution": "pending",
+    "unique_ORI_measure_names": 11
+  },
+  "user_SQL_ownership": "needs_refinement_carried_forward_by_explicit_instruction",
+  "windows_day06": {
+    "executive_page": "pending",
+    "global_unit_C_unit_A_multi_unit_empty_filters": "pending",
+    "import_M": "pending",
+    "input_checker": "pending",
+    "measures_DAX": "pending",
+    "python_49_tests": "pending",
+    "save_reopen_and_original_report_preservation": "pending",
+    "status": "pending"
+  }
+}
