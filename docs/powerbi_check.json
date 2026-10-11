@@ -89,8 +89,18 @@
   },
   "prototype_gate": "not_passed",
   "publication": {
-    "excluded_assets": "images/generated data/databases/.venv/PBIX/PBIT/private history",
-    "status": "pending_text_only_delivery"
+    "changed_text_paths": 21,
+    "denied_screenshot_action_retried": false,
+    "direct_parent_sha": "646c88526c40b6e19e44d946432ee23bd132ac06",
+    "excluded_assets_published": false,
+    "existing_remote_history_preserved": true,
+    "github_api_and_native_fetch_verified": true,
+    "implementation_sha": "4d704ca3b6226c7250e916573c21cfe234b05ffc",
+    "notes_delivery": "Normal text-only record follows the verified implementation.",
+    "private_local_history_branch": "execution/day06-local-history",
+    "published_blobs_match_tested_files": true,
+    "status": "implementation_verified",
+    "tree_sha": "43e6ab3a3a2c9382a92202b19c24d6c3807948d0"
   },
   "python_suite": {
     "environment": "Linux",

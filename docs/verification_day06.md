@@ -38,6 +38,12 @@ Next: pull the verified text-only update into the existing Windows project, run 
 
 The user explicitly chose to continue while reviewing SQL basics. Carry forward zero-holder LEFT JOIN, person versus certificate grain, and unmet versus fragile coverage in `docs/sql_review_backlog.md`; do not claim independent mastery from the assistant's correction.
 
+## Publication verified
+
+Implementation commit **4d704ca3b6226c7250e916573c21cfe234b05ffc** directly follows **646c88526c40b6e19e44d946432ee23bd132ac06**. Its tree **43e6ab3a3a2c9382a92202b19c24d6c3807948d0** equals the locally tested checkpoint. GitHub API inspection and native fetch independently confirm the SHA; all 21 changed text-file blobs match, including the carried Day 5 Windows evidence. Existing remote history/assets and all 19 local baseline hashes are preserved. No image, generated dataset/database, environment, Power BI binary, or private history was published; the denied screenshot upload was not retried. Original local commits remain on private `execution/day06-local-history`; do not push archive branches or all branches.
+
+A normal text-only documentation delivery follows this implementation to record verification. No code changed after the 49-test pass; no successful tests/exports/loads were repeated for these notes. The final delivery SHA is supplied after verification. Windows Day 6 M/DAX/page/filter/save/tests remain pending.
+
 ## Primary references checked October 11
 
 Microsoft Learn: [measure creation](https://learn.microsoft.com/en-us/power-bi/transform-model/desktop-measures), [DIVIDE](https://learn.microsoft.com/en-us/dax/divide-function-dax), [COALESCE](https://learn.microsoft.com/en-us/dax/coalesce-function-dax), [SELECTEDVALUE](https://learn.microsoft.com/en-us/dax/selectedvalue-function-dax), [Text/CSV](https://learn.microsoft.com/en-us/power-query/connectors/text-csv), [column types](https://learn.microsoft.com/en-us/powerquery-m/table-transformcolumntypes), [error records](https://learn.microsoft.com/en-us/powerquery-m/error-record), and [visual interactions](https://learn.microsoft.com/en-us/power-bi/create-reports/service-reports-visual-interactions). The fixed date, metric rules, layout, and acceptance values are project decisions, not Microsoft policies.
