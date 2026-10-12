@@ -4,7 +4,7 @@ Started **October 11, 2026**, at your request, ahead of the October 12 schedule.
 
 Day 5 Windows technical verification is complete: the corrected repeat/hash check, database preservation, Unit C results, and 42 tests passed. Your SQL explanation remains a review item; your explicit Day 6 instruction allows the build to proceed. No technical rerun of Day 5 setup, generation, validation, or loading is required.
 
-The assistant prepares the import query, measures, layout, and expected values. **You run Power BI Desktop locally.** DAX, M, the actual page, its filter behavior, and save/reopen remain pending until your evidence arrives. These files are a build handoff, not a finished PBIX.
+The assistant prepares the import query, measures, layout, and expected values. **You run Power BI Desktop locally.** October 11 follow-up evidence verifies the displayed executive-page values/table/date and global/single/multiple/clear/empty filters, a passed input check, and 49 Windows tests. The user confirms reopening/all pages work and the combined A+C calculation. Final labels/interactions and working-file/import/preservation details remain open. Exact Desktop definitions and an actual PBIX file have not been inspected by the assistant. These files remain reusable build instructions; they do not contain a finished PBIX.
 
 ## 1. Update this same project and check the saved exports
 

@@ -73,9 +73,10 @@
     "status": "passed"
   },
   "milestone": "Day 6",
+  "milestone_status": "technical_tests_and_displayed_reconciliation_passed_final_visual_details_pending",
   "pbix_created_opened_or_verified_by_assistant": false,
-  "powerbi_SQL_reconciliation": "pending",
-  "preparation_status": "verified_locally_desktop_build_pending",
+  "powerbi_SQL_reconciliation": "all_required_displayed_executive_KPI_table_date_selection_checks_passed",
+  "preparation_status": "verified_locally_windows_displayed_reconciliation_passed_final_report_acceptance_pending",
   "preservation": {
     "all_hashes_unchanged": true,
     "clean_sources_unchanged": true,
@@ -118,22 +119,212 @@
   },
   "scheduled_date": "2026-10-12",
   "static_asset_checks": {
-    "dax_runtime_execution": "pending",
+    "dax_runtime_execution": "displayed_Desktop_results_verified_exact_definitions_uninspected",
     "dax_source_columns_exist": true,
     "m_column_count": 24,
     "m_columns_match_export_manifest": true,
-    "m_runtime_execution": "pending",
+    "m_runtime_execution": "six_row_Desktop_import_visible_exact_query_and_all_types_uninspected",
     "unique_ORI_measure_names": 11
   },
   "user_SQL_ownership": "needs_refinement_carried_forward_by_explicit_instruction",
+  "user_day6_ownership": "combined_components_arithmetic_confirmed_coverage_term_clarified",
   "windows_day06": {
-    "executive_page": "pending",
-    "global_unit_C_unit_A_multi_unit_empty_filters": "pending",
-    "import_M": "pending",
-    "input_checker": "pending",
-    "measures_DAX": "pending",
-    "python_49_tests": "pending",
-    "save_reopen_and_original_report_preservation": "pending",
-    "status": "pending"
+    "clear_empty_restoration_evidence": {
+      "analysis_date_blank": true,
+      "attachments": [
+        "image(20261012-031324).png",
+        "image(20261012-032142).png",
+        "image(20261012-032705).png"
+      ],
+      "both_coverage_cards_blank": true,
+      "clear_restores_global_KPIs_and_six_rows": true,
+      "date_without_time_verified": true,
+      "empty_page_filter_visible": "unit_name is No such unit",
+      "empty_table_data_rows": 0,
+      "exact_filter_removal_action_shown": false,
+      "five_displayed_count_cards_zero": true,
+      "next_action": "finish_labels_and_table_None_interactions_then_Windows_49_tests_working_report_save_reopen_and_ownership",
+      "observed_blank_card_display": "--",
+      "post_empty_global_KPIs_and_six_rows_restored": true,
+      "restored_date_display": "October 7, 2026",
+      "screenshots_copied_or_published": false,
+      "submission_local_datetime": "2026-10-11T20:27:16-07:00"
+    },
+    "combined_A_C_evidence": {
+      "analysis_date_matches_fixed_date": true,
+      "attachment": "image(20261012-030820).png",
+      "both_unit_checkboxes_selected": true,
+      "cards_and_table_match_SQL_at_displayed_precision": true,
+      "exact_formulas_and_unrounded_rates_inspected": false,
+      "next_action": "clear_slicer_restore_global_then_temporary_empty_page_filter_check",
+      "observed_cards": [
+        81,
+        90,
+        "90.0%",
+        10,
+        "96.88%",
+        1,
+        1
+      ],
+      "observed_date_display": "10/7/2026 12:00:00 AM",
+      "screenshots_copied_or_published": false,
+      "submission_local_datetime": "2026-10-11T20:08:27-07:00",
+      "table_pairs_with_gap_total": 1,
+      "table_rows": 2,
+      "table_units": [
+        "Unit A",
+        "Unit C"
+      ]
+    },
+    "combined_coverage_user_explanation": "correct_81_over_90_from_two_unit_components_term_coverage_clarified",
+    "date_only_format": "screenshot_verified_October_7_2026_without_time",
+    "date_table_filter_evidence": {
+      "UnitA_UnitC_slicer_selection_visible": true,
+      "UnitA_table_pairs_with_gap": 0,
+      "UnitC_table_pairs_with_gap": 1,
+      "all_displayed_unit_rows_and_totals_match_SQL": true,
+      "analysis_date_matches_fixed_date": true,
+      "attachments": [
+        "image(20261012-025301).png",
+        "image(20261012-025404).png",
+        "image(20261012-025424).png"
+      ],
+      "date_only_format_verified": false,
+      "global_table_columns": 8,
+      "global_table_rows": 6,
+      "next_action": "date_only_format_table_None_interactions_then_A_plus_C_weighted_selection_and_clear_restoration",
+      "observed_UnitA_cards": [
+        41,
+        40,
+        "102.5%",
+        0,
+        "100.00%",
+        0,
+        0
+      ],
+      "observed_UnitC_cards": [
+        40,
+        50,
+        "80.0%",
+        10,
+        "93.75%",
+        1,
+        1
+      ],
+      "observed_date_display_all_three": "10/7/2026 12:00:00 AM",
+      "observed_global_table_totals": [
+        254,
+        250,
+        "101.6%",
+        10,
+        "92.63%",
+        7,
+        7
+      ],
+      "reviewed_local_datetime": "2026-10-11T20:04:38-07:00",
+      "screenshots_copied_or_published": false,
+      "selected_cards_and_table_match_SQL": true,
+      "sorted_UnitA_to_F": true,
+      "table_to_card_None_configuration_verified": false
+    },
+    "earlier_pages_function": "user_confirmed",
+    "evidence": {
+      "all_24_imported_column_types_in_evidence": false,
+      "exact_M_DAX_definitions_in_evidence": false,
+      "next_action": "build_four_staffing_cards_expected_254_250_101_6_percent_gap_10",
+      "reviewed_local_datetime": "2026-10-11T12:25:42-07:00",
+      "screenshots_copied_or_published": false,
+      "source": "seven_user_screenshots_read_from_attached_scratch_copies",
+      "updated_windows_test_run_in_evidence": false,
+      "visible_measure_names": 11,
+      "visible_summary_units": 6
+    },
+    "executive_page": "KPI_table_date_filter_outputs_verified_labels_interactions_report_acceptance_pending",
+    "filter_check_status": {
+      "Unit_A": "screenshot_verified",
+      "Unit_C": "screenshot_verified",
+      "Units_A_and_C": "screenshot_verified",
+      "all_units": "screenshot_verified",
+      "clear_restores_global": "screenshot_verified",
+      "empty_counts_zero_rates_and_date_blank": "screenshot_verified",
+      "post_empty_restores_global": "screenshot_verified"
+    },
+    "final_labels_and_table_None_interactions": "pending",
+    "global_unit_C_unit_A_multi_unit_empty_filters": "screenshot_verified_all_required_display_checks",
+    "import_6_rows_24_columns_all_correct_types_confirmation": "pending",
+    "import_M": "six_row_summary_visible_exact_query_and_all_24_types_unverified",
+    "input_checker": "screenshot_verified_passed_exit_0_three_files_6_48_193_hashes_unique_zero_writes",
+    "latest_confirmation": {
+      "actual_PBIX_file_inspected": false,
+      "all_attachments_are_terminal_tests": true,
+      "arithmetic_confirmed": true,
+      "attachments": [
+        "image(20261012-040225).png",
+        "image(20261012-040257).png",
+        "image(20261012-040321).png"
+      ],
+      "final_page_labels_and_table_None_settings_in_evidence": false,
+      "next_action": "final_page_screenshot_and_working_path_import_original_preservation_table_click_confirmations_only",
+      "screenshots_copied_or_published": false,
+      "submission_local_datetime": "2026-10-11T21:18:05-07:00",
+      "terminology_refinement": "90 percent is staffing coverage; local staffing gap is 10",
+      "user_combined_calculation": "81/90 using 41/40 and 40/50",
+      "user_report": "PBIX reopens and all pages work correctly"
+    },
+    "measures_DAX": "eleven_measures_listed_seven_unfiltered_displays_match_exact_formulas_and_filter_checks_pending",
+    "model": "summary_disconnected_learning_units_personnel_relationship_visible",
+    "original_report_preservation_confirmation": "pending",
+    "python_49_tests": {
+      "evidence": "three_inspected_terminal_screenshots_040225_040257_040321",
+      "process_exit": 0,
+      "seconds": 25.374,
+      "status": "OK",
+      "tests": 49
+    },
+    "save_reopen": "user_confirmed_PBIX_reopens_all_pages_work_correctly",
+    "save_reopen_and_original_report_preservation": "reopening_all_pages_user_confirmed_original_file_confirmation_pending",
+    "staffing_card_evidence": {
+      "attachment": "image(20261012-021017).png",
+      "earlier_page_tabs_visible": [
+        "Executive Summary",
+        "Staffing Review"
+      ],
+      "exact_underlying_staffing_ratio_verified": false,
+      "expected_staffing_percentage_display": "101.6%",
+      "expected_staffing_ratio": 1.016,
+      "next_action": "format_staffing_coverage_percentage_1_decimal_then_add_qualification_cards_expected_92_63_percent_7_4",
+      "observed_available": 254,
+      "observed_local_gap": 10,
+      "observed_required": 250,
+      "observed_staffing_coverage_display": "1.02",
+      "original_file_or_save_reopen_verified": false,
+      "page_name": "Executive \u2014 simulated",
+      "percentage_format_verified": false,
+      "reviewed_local_datetime": "2026-10-11T19:10:21-07:00",
+      "screenshots_copied_or_published": false,
+      "three_count_results_match_SQL": true,
+      "unit_selection": "no_selected_unit_visible"
+    },
+    "status": "tests_and_reconciliation_passed_user_confirmed_reopening_final_page_details_pending",
+    "unfiltered_KPI_evidence": {
+      "all_seven_displayed_KPIs_match_SQL": true,
+      "attachment": "image(20261012-023640).png",
+      "exact_formulas_and_unrounded_rates_verified": false,
+      "next_action": "add_analysis_date_card_and_eight_column_unit_comparison_with_totals",
+      "observed_available": 254,
+      "observed_local_gap": 10,
+      "observed_missing_holder_slots": 7,
+      "observed_qualification_coverage_display": "92.63%",
+      "observed_required": 250,
+      "observed_staffing_coverage_display": "101.6%",
+      "observed_units_needing_attention": 4,
+      "required_percentage_display_precision_verified": true,
+      "reviewed_local_datetime": "2026-10-11T19:36:54-07:00",
+      "screenshots_copied_or_published": false,
+      "supersedes_prior_staffing_coverage_format_issue": true,
+      "unit_filter_behavior_verified": false,
+      "unit_selection": "no_selected_unit_visible"
+    },
+    "working_report_path": "not_reported"
   }
 }
