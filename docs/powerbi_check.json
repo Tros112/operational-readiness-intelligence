@@ -85,10 +85,13 @@
   "milestone_status": "complete",
   "next_milestone": {
     "day": 7,
+    "execution_local_date": "2026-10-12",
     "first_action": "prototype_review_and_30_to_60_second_walkthrough",
     "qualification_detail_day": 8,
     "scheduled_date": "2026-10-13",
-    "started": false
+    "started": true,
+    "status_record": "docs/prototype_check.json",
+    "user_instruction": "Proceed to Day 7"
   },
   "pbix_created_opened_or_verified_by_assistant": false,
   "powerbi_SQL_reconciliation": "all_required_displayed_executive_KPI_table_date_selection_checks_passed",

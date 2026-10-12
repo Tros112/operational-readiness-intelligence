@@ -1,0 +1,117 @@
+{
+  "Meet_and_Greet_attendance": "unreported_source_plan_lists_October13",
+  "actual_focused_hours": null,
+  "as_of_date": "2026-10-07",
+  "capability_states": {
+    "current_staffing_qualification_expiration_SQL_exports": "built_verified",
+    "deterministic_no_renewal_scenario": "planned_Day10",
+    "machine_learning": "outside_MVP",
+    "powerbi_executive_page": "built_displayed_checks_verified",
+    "process_metrics_and_view": "planned_Day9",
+    "qualification_expiration_visuals": "planned_Day8",
+    "short_prototype_explanation": "prepared_user_rehearsal_pending",
+    "synthetic_generation_validation_and_SQLite_loading": "built_technical_evidence_recorded"
+  },
+  "change_scope": {
+    "code_or_tests_changed": false,
+    "documentation_only": true,
+    "images_or_PBIX_copied_or_published": false,
+    "metric_definitions_changed": false,
+    "pipeline_runs_repeated": false,
+    "private_history_published": false,
+    "source_database_exports_changed": false
+  },
+  "checkpoint_report_state": "pending_gate_draft_not_a_passed_release_report",
+  "data_classification": "synthetic_only",
+  "employer_feedback": "none_reported",
+  "execution_local_date": "2026-10-12",
+  "milestone": "Day 7",
+  "milestone_status": "preparation_complete_user_rehearsal_pending",
+  "next_action": "user_optional_caption_polish_then_short_demo_and_own_explanation_with_timed_seconds",
+  "prepared_deliverables": [
+    "docs/day07_windows_handoff.md",
+    "docs/verification_day07.md",
+    "docs/prototype_check.json",
+    "docs/checkpoints/2026-10-12_day07.md"
+  ],
+  "prepared_demo": {
+    "metrics": {
+      "Unit_C": {
+        "available": 40,
+        "local_gap": 10,
+        "missing_slots": 1,
+        "qualification_coverage_display": "93.75%",
+        "required": 50,
+        "staffing_coverage_display": "80.0%",
+        "units_with_current_gaps": 1
+      },
+      "all_units": {
+        "available": 254,
+        "local_gap": 10,
+        "missing_slots": 7,
+        "qualification_coverage_display": "92.63%",
+        "required": 250,
+        "staffing_coverage_display": "101.6%",
+        "units_with_current_gaps": 4
+      }
+    },
+    "new_user_demo_observed": false,
+    "sequence": [
+      "all_units",
+      "Unit_C_slicer",
+      "clear_slicer"
+    ]
+  },
+  "prior_evidence": {
+    "SQL_export_rows": {
+      "expiration_detail.csv": 193,
+      "qualification_detail.csv": 48,
+      "unit_summary.csv": 6
+    },
+    "day6_status": "complete",
+    "import_types": "user_confirmed",
+    "powerbi_display_checks": "global_A_C_A_plus_C_clear_empty_restoration_date_table_and_table_row_behavior_passed",
+    "public_checkpoint": "b140445d614eb5fd8590bf0882a13920c0723eb2",
+    "python_tests": {
+      "linux": "OK_exit_0_8_851_seconds",
+      "rerun_for_Day7": false,
+      "tests": 49,
+      "windows": "screenshot_verified_OK_exit_0_25_374_seconds"
+    },
+    "save_reopen_and_earlier_pages": "user_confirmed",
+    "source_evidence": "docs/verification_day06.md",
+    "user_aggregate_local_and_A_C_arithmetic": "previously_confirmed"
+  },
+  "prototype_gate": {
+    "caption_polish_is_required": false,
+    "functioning_output_evidence": "passed_previously",
+    "remaining_required_evidence": "user_accurate_30_to_60_second_explanation_and_rehearsal",
+    "scheduled_local_date": "2026-10-13",
+    "status": "not_passed",
+    "user_understanding_inferred_from_sample": false
+  },
+  "readiness_classification": "fictional_proxy",
+  "sample_explanation": {
+    "actual_user_seconds": null,
+    "ownership_verified": false,
+    "source": "docs/day07_windows_handoff.md",
+    "target_seconds": [
+      30,
+      60
+    ],
+    "user_version_received": false,
+    "words": 101
+  },
+  "scheduled_local_date": "2026-10-13",
+  "stop_after_milestone": 7,
+  "timezone": "America/Los_Angeles",
+  "user_SQL_ownership": "needs_refinement_carried_forward",
+  "user_instruction_local_datetime": "2026-10-12T11:41:07-07:00",
+  "verification_limits": [
+    "assistant_has_not_operated_Windows_PowerBI",
+    "actual_PBIX_and_exact_installed_M_DAX_uninspected",
+    "new_caption_edits_not_observed",
+    "user_timed_explanation_not_received",
+    "working_report_basename_and_separate_original_file_proof_unreported_not_extra_gates"
+  ]
+}

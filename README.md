@@ -1,6 +1,6 @@
 # Operational Readiness Intelligence
 
-**Status: Day 6 complete, October 11, 2026.** The synthetic executive page’s KPI, comparison, analysis-date, slicer, clear, empty-filter, and table-row interaction results are verified from Windows screenshots. The final check shows Unit C highlighted in the table while the clear slicer and all-unit cards remain unchanged. The Python → SQLite → SQL-export pipeline is verified on Linux and Windows, with 6 unit rows, 48 qualification pairs, and 193 valid certificates at the fixed October 7 snapshot. The **49-test Python suite passes on Linux and screenshot-verified Windows** (Windows 25.374 seconds, exit 0); the Windows input checker also passed. The user confirms correct import types, PBIX reopening/all-page functionality, and the combined A+C calculation 81/90. The actual PBIX file and exact Desktop M/DAX definitions have not been inspected by the assistant. Evidence and limits are in [verification_day06.md](docs/verification_day06.md). Next is Day 7 prototype review and a 30–60 second walkthrough; the October 13 prototype gate remains open.
+**Status: Day 7 prototype preparation underway, October 12, 2026.** Day 6 is complete: Windows screenshots verify the executive KPI/table/date/filter results and corrected table-row interaction behavior; import types and PBIX reopening/all-page functionality are user-confirmed. The synthetic Python → SQLite → SQL-export pipeline produces 6 unit rows, 48 qualification pairs, and 193 current-certificate rows at the fixed October 7 snapshot. **49 Python tests pass on Linux and screenshot-verified Windows** (Windows 25.374 seconds, exit 0). The prototype’s functioning-output requirements are established. The remaining gate item is the user’s accurate 30–60 second explanation/rehearsal. Use [day07_windows_handoff.md](docs/day07_windows_handoff.md); status/evidence are in [verification_day07.md](docs/verification_day07.md) and [prototype_check.json](docs/prototype_check.json). The actual PBIX file and exact installed Desktop M/DAX definitions remain uninspected by the assistant. The October 13 prototype gate is pending; MVP and polish remain October 19 and 30.
 
 Windows access is confirmed by the user: Desktop **2.158.1177.0, 64-bit (September 2026)**. Day 2 staffing screenshots show matching global/Unit C slicer results and the intended relationship; populated-learning-report save/reopen is user-confirmed. Evidence: `docs/verification_day02.md`. Day 6 executive-page acceptance is complete; later detail pages and release gates remain separate milestones.
 
@@ -22,7 +22,7 @@ The brainstorming chat remains the master record for priorities and major scope 
 
 Read [charter](docs/charter.md), [progress](docs/progress.md), and [decisions](docs/decisions.md) before making changes. The attached schedule is preserved in [source_execution_plan.md](docs/source_execution_plan.md).
 
-Existing Windows checkout: keep the same Git-connected folder and use [day06_windows_handoff.md](docs/day06_windows_handoff.md) for `git pull --ff-only`, a read-only export check, and the executive page. Reuse `.venv`, the saved database/exports, and your existing local Power BI report. Save a working PBIX under an unused name before editing so the original remains intact. Do not replace the folder with a daily archive or regenerate working data just to update code.
+Existing Windows checkout: keep the same Git-connected folder and use [day07_windows_handoff.md](docs/day07_windows_handoff.md) for a short presentation polish and rehearsal. Reuse `.venv`, the saved database/exports, and your existing working Power BI report. Day 6’s completed import/build reference is [day06_windows_handoff.md](docs/day06_windows_handoff.md). Save report edits in the working PBIX and preserve the original learning report. A documentation update or caption change does not require regeneration, loading, refreshing, or repeated successful tests; run the input checker before any later import/refresh.
 
 Use Python 3.11 or later from the project root:
 
@@ -44,6 +44,18 @@ These commands show the full fresh-checkout order, not a request to repeat worki
 Current exports implement staffing, current qualification coverage/gaps/fragility, and cumulative expiration inventory. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Process metrics remain Day 9 and the deterministic no-renewal scenario Day 10. Day 6's accepted executive page uses only the unit summary. Qualification/expiration visuals are Day 8; those exports are not evidence of completed detail pages.
 
 ## Prototype concept
+
+| Capability | Current release state |
+| --- | --- |
+| Synthetic generation, validation, transactional SQLite loading | Built; Linux/Windows technical evidence recorded |
+| Staffing, current qualification, cumulative expiration SQL/CSV exports | Built; expected grains, counts, repeat and preservation checks passed |
+| Power BI executive page | Built; displayed metrics/filters/interactions verified; reopening user-confirmed |
+| 30–60 second prototype explanation | Prepared; user’s timed rehearsal and independent version pending |
+| Qualification/expiration detail visuals | Planned Day 8; SQL exports alone do not establish a finished view |
+| Administrative process metrics/view | Planned Day 9 |
+| Deterministic no-renewal qualification scenario | Planned Day 10 |
+| Machine learning | Outside this MVP |
+
 
 ```mermaid
 flowchart TD
@@ -99,6 +111,8 @@ Generator verification: [verification_day02.md](docs/verification_day02.md). Day
 | `docs/verification_day04.md`, `docs/load_check.json`, `docs/loader_walkthrough.md` | Persistent-load evidence and transaction explanation |
 | `docs/verification_day05.md`, `docs/analytics_check.json`, `docs/sql_walkthrough.md` | SQL/CSV evidence, selected-unit hand check, and explanation |
 | `docs/verification_day06.md`, `docs/powerbi_check.json`, `docs/sql_review_backlog.md` | Day 6 completion evidence, BI reconciliation and inspection limits, and carried SQL learning items |
+| `docs/day07_windows_handoff.md`, `docs/verification_day07.md`, `docs/prototype_check.json` | Caption guidance, demonstration/pitch preparation, and prototype gate awaiting the user’s rehearsal |
+| `docs/checkpoints/2026-10-12_day07.md` | Pending master-chat gate report; update from actual rehearsal evidence before claiming completion |
 | `docs/progress.md`, `docs/decisions.md`, `docs/interview_feedback.md` | Daily state, decisions, and actual employer feedback |
 
 ## Limits and ownership
