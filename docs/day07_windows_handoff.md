@@ -1,5 +1,7 @@
 # Day 7 — prepare and explain the prototype
 
+**Completed October 12 from the 13:31 PDT submission.** Final captions and displayed outputs are screenshot-confirmed; the user’s accurate explanation, including Unit D and the assignment limitation, is reviewed. Duration 01:00:39 is user-reported and interpreted as about one minute; the exact timer format/delivery was not independently inspected. The prototype gate passes with these evidence limits. This remains a reference guide; completed checks need no repetition. See `docs/verification_day07.md` and the finalized `docs/checkpoints/2026-10-12_day07.md`. Stop before Day 8.
+
 Started **October 12, 2026**, early at the user's request; the source schedule assigns Day 7 to **Tuesday, October 13**. The analysis date remains **2026-10-07**. Day 6 is complete. Today's output is a clear, demonstrable executive prototype and a practiced **30–60 second explanation**. Qualification/expiration visuals are Day 8, process metrics are Day 9, and the no-renewal scenario is Day 10.
 
 ## 1. Open the working report and tidy captions
@@ -42,13 +44,13 @@ Use the unit slicer to filter the page. The comparison table's row highlight lea
 
 ## 3. Rehearse the 30–60 second explanation
 
-This sample is a drafting aid; delivery time and independent explanation are not yet verified. Adapt it to your own words, speak it with a timer, and shorten it if you exceed 60 seconds.
+This sample was a drafting aid prepared before the user supplied their own version. The accepted explanation and reported timing are recorded in `docs/verification_day07.md`; this sample alone remains insufficient ownership evidence. Adapt it to your own words, speak it with a timer, and shorten it if you exceed 60 seconds.
 
 > I'm building Operational Readiness Intelligence, a portfolio prototype that helps an operations manager identify local staffing and qualification gaps. It uses synthetic data for six units at an October 7 snapshot. Python validates the records, SQL calculates metrics in SQLite, and Power BI shows the comparisons. Overall staffing coverage is 101.6%, but Unit C is ten people short, showing why aggregate surplus can hide a local gap. Qualification coverage is 92.63%, with seven missing holder slots. I can filter the executive page and reconcile its results to SQL. Readiness rules are fictional, and the qualification and process detail pages are planned.
 
 Your version should identify the audience/decision, describe the working pipeline, explain one displayed result, and state a material limitation. A limitation can be the synthetic single snapshot, fictional readiness rules, or the fact that holder-slot coverage does not establish simultaneous assignments. Preserve the distinction between built outputs and planned pages. An assistant-written script alone does not establish your understanding or rehearsal.
 
-Send your own spoken version in text and the approximate seconds from a timed rehearsal. A voice recording is optional. Report a demo blocker only if one appears; the prior successful save/reopen, filter, and test checks need no new evidence solely to rehearse. This is the remaining evidence for the accurate prototype explanation.
+This evidence step is complete: the user supplied their own explanation and a reported duration of about one minute. No voice recording or repeat of prior successful report/test checks is required. For later practice, use “required qualification holder slots” when describing Unit D’s 87.5% to make the counted quantity explicit.
 
 ## 4. Keep these follow-up facts available
 
@@ -65,6 +67,6 @@ The Day 5 LEFT JOIN/person-versus-certificate/fragility ownership review remains
 
 ## 5. Close the prototype gate and record actual feedback
 
-The functioning-output criteria are already supported by Day 6 evidence. The gate stays **pending** until your short explanation/rehearsal is reviewed. If it passes, record the exact evidence and produce the master-chat checkpoint from the source template. Stop at Day 7; starting Day 8 requires the next instruction.
+The functioning-output criteria are supported by Day 6 evidence. The short explanation and user-reported rehearsal were reviewed October 12, and the **prototype gate passed**. The finalized source-template master-chat checkpoint records what is verified, what is user-reported, and what remains planned. Stop at Day 7; starting Day 8 requires the next instruction.
 
 The source plan lists a Meet & Greet on October 13. Follow your actual event schedule; attendance, employer conversations, and outcomes have not been reported. After any conversation, capture the employer/role, actual question or need, evidence shown, weak explanation, and a specific follow-up in `docs/interview_feedback.md`. The technical prototype gate and event attendance are separate facts; neither implies the other.

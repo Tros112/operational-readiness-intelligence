@@ -1,6 +1,6 @@
 # Operational Readiness Intelligence
 
-**Status: Day 7 prototype preparation underway, October 12, 2026.** Day 6 is complete: Windows screenshots verify the executive KPI/table/date/filter results and corrected table-row interaction behavior; import types and PBIX reopening/all-page functionality are user-confirmed. The synthetic Python → SQLite → SQL-export pipeline produces 6 unit rows, 48 qualification pairs, and 193 current-certificate rows at the fixed October 7 snapshot. **49 Python tests pass on Linux and screenshot-verified Windows** (Windows 25.374 seconds, exit 0). The prototype’s functioning-output requirements are established. The remaining gate item is the user’s accurate 30–60 second explanation/rehearsal. Use [day07_windows_handoff.md](docs/day07_windows_handoff.md); status/evidence are in [verification_day07.md](docs/verification_day07.md) and [prototype_check.json](docs/prototype_check.json). The actual PBIX file and exact installed Desktop M/DAX definitions remain uninspected by the assistant. The October 13 prototype gate is pending; MVP and polish remain October 19 and 30.
+**Status: Day 7 complete; the prototype gate passed October 12, 2026, ahead of the October 13 target.** The synthetic executive page’s output/filter/date/interaction checks are verified, final captions are screenshot-confirmed, and the user’s accurate explanation is reviewed with a reported duration interpreted as about one minute. The Python → SQLite → SQL-export pipeline produces 6 unit rows, 48 qualification pairs, and 193 current-certificate rows at the fixed October 7 snapshot. **49 Python tests pass on Linux and screenshot-verified Windows** (Windows 25.374 seconds, exit 0); no code changed for this gate review. The actual PBIX file and exact installed Desktop M/DAX remain uninspected by the assistant. Evidence is in [verification_day07.md](docs/verification_day07.md) and [prototype_check.json](docs/prototype_check.json); the [master-chat checkpoint](docs/checkpoints/2026-10-12_day07.md) records the passed gate and remaining limits. Qualification/expiration visuals are next in Day 8; the interview-ready MVP and polish remain October 19 and 30.
 
 Windows access is confirmed by the user: Desktop **2.158.1177.0, 64-bit (September 2026)**. Day 2 staffing screenshots show matching global/Unit C slicer results and the intended relationship; populated-learning-report save/reopen is user-confirmed. Evidence: `docs/verification_day02.md`. Day 6 executive-page acceptance is complete; later detail pages and release gates remain separate milestones.
 
@@ -22,7 +22,7 @@ The brainstorming chat remains the master record for priorities and major scope 
 
 Read [charter](docs/charter.md), [progress](docs/progress.md), and [decisions](docs/decisions.md) before making changes. The attached schedule is preserved in [source_execution_plan.md](docs/source_execution_plan.md).
 
-Existing Windows checkout: keep the same Git-connected folder and use [day07_windows_handoff.md](docs/day07_windows_handoff.md) for a short presentation polish and rehearsal. Reuse `.venv`, the saved database/exports, and your existing working Power BI report. Day 6’s completed import/build reference is [day06_windows_handoff.md](docs/day06_windows_handoff.md). Save report edits in the working PBIX and preserve the original learning report. A documentation update or caption change does not require regeneration, loading, refreshing, or repeated successful tests; run the input checker before any later import/refresh.
+Existing Windows checkout: retain the same Git-connected folder, `.venv`, saved data/exports, and working report. Day 7’s completed presentation reference is [day07_windows_handoff.md](docs/day07_windows_handoff.md); Day 6’s import/build reference is [day06_windows_handoff.md](docs/day06_windows_handoff.md). Preserve the original learning report and save edits in the working PBIX. Stop at Day 7 until the next milestone instruction. Run the input checker before any later import/refresh; documentation updates need no regeneration, loading, or repeat of successful tests.
 
 Use Python 3.11 or later from the project root:
 
@@ -50,7 +50,7 @@ Current exports implement staffing, current qualification coverage/gaps/fragilit
 | Synthetic generation, validation, transactional SQLite loading | Built; Linux/Windows technical evidence recorded |
 | Staffing, current qualification, cumulative expiration SQL/CSV exports | Built; expected grains, counts, repeat and preservation checks passed |
 | Power BI executive page | Built; displayed metrics/filters/interactions verified; reopening user-confirmed |
-| 30–60 second prototype explanation | Prepared; user’s timed rehearsal and independent version pending |
+| Short prototype explanation | User-provided version reviewed; rehearsal duration user-reported at about one minute |
 | Qualification/expiration detail visuals | Planned Day 8; SQL exports alone do not establish a finished view |
 | Administrative process metrics/view | Planned Day 9 |
 | Deterministic no-renewal qualification scenario | Planned Day 10 |
@@ -111,8 +111,8 @@ Generator verification: [verification_day02.md](docs/verification_day02.md). Day
 | `docs/verification_day04.md`, `docs/load_check.json`, `docs/loader_walkthrough.md` | Persistent-load evidence and transaction explanation |
 | `docs/verification_day05.md`, `docs/analytics_check.json`, `docs/sql_walkthrough.md` | SQL/CSV evidence, selected-unit hand check, and explanation |
 | `docs/verification_day06.md`, `docs/powerbi_check.json`, `docs/sql_review_backlog.md` | Day 6 completion evidence, BI reconciliation and inspection limits, and carried SQL learning items |
-| `docs/day07_windows_handoff.md`, `docs/verification_day07.md`, `docs/prototype_check.json` | Caption guidance, demonstration/pitch preparation, and prototype gate awaiting the user’s rehearsal |
-| `docs/checkpoints/2026-10-12_day07.md` | Pending master-chat gate report; update from actual rehearsal evidence before claiming completion |
+| `docs/day07_windows_handoff.md`, `docs/verification_day07.md`, `docs/prototype_check.json` | Completed caption/demo guidance, reviewed user explanation, and passed prototype gate with evidence limits |
+| `docs/checkpoints/2026-10-12_day07.md` | Passed prototype-gate report using actual screenshot/text evidence and user-reported timing |
 | `docs/progress.md`, `docs/decisions.md`, `docs/interview_feedback.md` | Daily state, decisions, and actual employer feedback |
 
 ## Limits and ownership
