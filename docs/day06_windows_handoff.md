@@ -1,5 +1,7 @@
 # Day 6 — build the executive Power BI page
 
+**Completed October 11, 22:10 PDT.** Screenshots reconcile the required executive outputs, filters, date, synthetic labels, and corrected table-row behavior. The input checker and 49 Windows tests pass; import types and report reopening/all-page functionality are user-confirmed. Keep this guide as the build/refresh reference; completed checks need no repetition. Evidence and inspection limits are in `docs/verification_day06.md`. Next is Day 7 prototype review and a 30–60 second walkthrough, not a new detail page.
+
 Started **October 11, 2026**, at your request, ahead of the October 12 schedule. Use the existing Git project, `.venv`, database, exports, and Power BI learning report. The metric date remains **October 7**. All operational values are **synthetic**; readiness is a fictional proxy.
 
 Day 5 Windows technical verification is complete: the corrected repeat/hash check, database preservation, Unit C results, and 42 tests passed. Your SQL explanation remains a review item; your explicit Day 6 instruction allows the build to proceed. No technical rerun of Day 5 setup, generation, validation, or loading is required.
@@ -112,7 +114,18 @@ The comparison table uses:
 
 Rename table headers for readability without renaming source columns. Sort Unit A through F. Enable the totals row; measures recalculate ratios from total components, rather than averaging the displayed percentages. You can temporarily add covered/required qualification-slot measures to see their components during reconciliation.
 
-Configure the slicer as a list with checkboxes, **Single select off**. If available, turn **Multi-select with CTRL off** so two checkbox selections are easy to test. Select the slicer, use **Format → Edit interactions**, and confirm it filters every card and the table. For the table's interactions, choose **None** on the cards and slicer so clicking a table row cannot silently change the KPI cards. The slicer remains the filter control for this page. Microsoft documents these [interaction controls](https://learn.microsoft.com/en-us/power-bi/create-reports/service-reports-visual-interactions).
+Configure the slicer as a list with checkboxes, **Single select off**. If available, turn **Multi-select with CTRL off** so two checkbox selections are easy to test. Select the slicer, use **Format → Edit interactions**, and confirm it filters every card and the table. The slicer remains the filter control for this page.
+
+Disable the comparison table's effect on the KPI cards using this exact direction:
+
+1. Select the comparison **table visual**, using its border. The selected visual is the source of the interactions you are changing.
+2. Open **Format in the top ribbon → Edit interactions**.
+3. Interaction icons appear over the other visuals. On each of the **eight cards**, including the date, choose **None** (the circle with a slash). Hover to confirm the tooltip says None.
+4. Choose **None** over the unit slicer as well.
+5. Exit Edit interactions. With the unit slicer clear, click the Unit C row in the table. The seven KPI cards should remain at their global values and the date should stay October 7. The selected row can remain highlighted.
+6. Save the working report after the change. If a card still changes, select the table again and check that specific card's None icon.
+
+These controls change the effect of the **selected source visual** on each target. Table-to-card None is separate from slicer-to-card Filter. Microsoft documents these [interaction controls](https://learn.microsoft.com/en-us/power-bi/create-reports/service-reports-visual-interactions).
 
 The current-gap flag is exactly: staffing gap > 0 OR at least one qualification pair has a gap. It does not include upcoming expirations or fragile-but-met coverage. Unit B can have a fragile qualification while its current-gap flag is zero. Later pages handle those separate questions.
 
@@ -176,4 +189,4 @@ Any exact error or blocker:
 
 For today's explanation, describe why the all-unit staffing gap can remain 10 when staffing coverage exceeds 100%, and what the Unit A + C calculation demonstrates. Your earlier aggregate/local explanation is already established; build on it. The SQL LEFT JOIN/grain/fragility review remains a carried learning item, not falsely marked mastered.
 
-Stop at Day 6. Qualification and expiration detail pages are later milestones. A verified executive page will support the October 13 prototype gate; the gate is not passed by this handoff or by screenshots that have not yet been reviewed.
+Stop at Day 6 completion. Day 7 reviews/polishes the prototype and rehearses a 30–60 second explanation. Qualification and expiration detail visuals are Day 8. The verified executive page supports the October 13 prototype gate; that separate review and the user’s accurate walkthrough remain open.

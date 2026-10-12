@@ -2,6 +2,8 @@
 
 Started **October 11, 2026**, at the user's explicit request, ahead of the October 12 schedule. Metric date **2026-10-07**, synthetic data, fictional readiness proxies, and release gates are unchanged. Day 5 Windows technical verification is complete; its independent SQL explanation remains a review item at the user's request to proceed.
 
+**Day 6 complete, October 11, 22:10 PDT.** The final screenshot verifies the table-row interaction fix. Required executive outputs, filters, date, and synthetic labels pass; input/test evidence and user-confirmed import types/reopening are recorded below. Historical pending statements describe their respective review times and are superseded by this completion record. Day 7 prototype review/rehearsal and release gates remain open.
+
 ## Prepared implementation
 
 | File | Purpose | Verification boundary |
@@ -10,10 +12,10 @@ Started **October 11, 2026**, at the user's explicit request, ahead of the Octob
 | `tests/test_powerbi_input.py` | Seven meaningful success/failure/preservation checks | Does not execute DAX or M |
 | `powerbi/unit_summary.pq` | Import gate, explicit types, six-unit single-date unique grain | Six-row Desktop import visible; exact query/all types uninspected |
 | `powerbi/executive_measures.dax` | Eleven distinct ORI measures; summed components, local gaps, blank undefined rates | Displayed KPI/table/filter results verified; exact Desktop definitions uninspected |
-| `docs/day06_windows_handoff.md` | Existing-folder update, report preservation, import/build/filter/save checks | Displayed reconciliation passes; final report acceptance pending |
+| `docs/day06_windows_handoff.md` | Existing-folder update, report preservation, import/build/filter/save checks | Day 6 accepted from displayed evidence and user confirmations; actual PBIX file uninspected |
 | `docs/powerbi_check.json` | Local preparation evidence and expected simulated comparisons | Expected values do not establish observed BI results |
 
-The first page uses only the disconnected `unit_summary` table. Source-table learning measures/relationships stay intact; ORI measure names avoid collisions. The working PBIX is saved under an unused name so the original learning report remains intact. No PBIX, screenshot, cloud dashboard, or detail page has been created/operated by the assistant.
+The first page uses only the disconnected `unit_summary` table. Source-table learning measures/relationships stay intact; ORI measure names avoid collisions. The handoff directs saving the working PBIX under an unused name to preserve the original learning report. No PBIX, screenshot, cloud dashboard, or detail page has been created/operated by the assistant.
 
 The Python checker verifies all three exported file hashes, manifest readiness/date/classification/reconciliation, exact file membership, headers/counts/unique grains, and summary count/gap/flag consistency. It writes no files. The M query separately blocks a bad manifest, wrong schema/types/date/classification/count/grain. **It does not calculate SHA-256.** Every import/refresh requires the Python hash check immediately beforehand and stable input files until refresh. This is a two-step workflow, not an atomic file transaction or a claim that Power BI runs the Python checker automatically. Existing cached BI values can remain visible after a failed refresh.
 
@@ -32,9 +34,9 @@ An empty filter should yield zero count measures, blank coverage measures, and a
 
 Local verification: **49 tests, OK, process exit 0**, 8.851 seconds on Linux. The live read-only check returns passed/exit 0, three matching-hash files with 6/48/193 rows and unique grains. Static review verifies the M schema matches all 24 exported columns, all eleven ORI measure names are unique, and every DAX source-column reference exists. This is not an M/DAX parser or runtime check. All 19 baseline files retain identical SHA-256 values, including the database, clean sources/manifest, dashboard exports/manifest, and existing local images. No live regeneration/reload was performed. JSON parsing and Git whitespace checks are complete for the prepared text artifacts. Details: `docs/powerbi_check.json`.
 
-October 11 screenshots establish Windows input/import/model setup, displayed global/table/date/single/multiple/clear/empty/restoration results, and all 49 Windows tests. The user confirms reopening/all pages work and correctly calculates combined A+C coverage. Final page labels/interaction configuration, working path, import/type confirmation, and original-file preservation remain open. Exact M/DAX definitions/all types and unrounded rates are not inferred from displayed outputs. The assistant has not created, opened, or verified an actual PBIX file. No prototype/MVP release gate has passed.
+October 11 screenshots establish Windows input/import/model setup, displayed global/table/date/single/multiple/clear/empty/restoration results, all 49 Windows tests, the final header/synthetic subtitle/footer, and the corrected table-row behavior. The user confirms reopening/all pages work, correct import types, and the combined A+C calculation, and supplies the existing powerbi directory. These satisfy Day 6 acceptance. Exact M/DAX definitions, direct inspection of all imported types, and unrounded rates are not inferred from displayed outputs or user confirmation. The assistant has not created, opened, or verified an actual PBIX file. No prototype/MVP release gate has passed.
 
-Next: return the final page and remaining working-path/import/preservation/table-interaction confirmations. The tests, displayed filters, reopening confirmation, and combined calculation do not need repetition. No generation, validation, SQLite reload, installation, daily folder, or repeated input check is needed solely to use visuals on already imported data; run the checker again before any later import/refresh.
+Stop at Day 6 completion. Next is Day 7 prototype review and a 30–60 second walkthrough. Tests, prior filters, reopening, and combined calculation do not need repetition. The full report basename and separate physical original-file preservation confirmation remain unreported metadata; earlier-page functionality is user-confirmed. Caption refinement can be prototype polish. No implementation or data changed for this interaction fix; run the input checker again before any later import/refresh.
 
 The user explicitly chose to continue while reviewing SQL basics. Carry forward zero-holder LEFT JOIN, person versus certificate grain, and unmet versus fragile coverage in `docs/sql_review_backlog.md`; do not claim independent mastery from the assistant's correction.
 
@@ -105,6 +107,20 @@ Three terminal attachments 040225 / 040257 / 040321 show all **49 Windows tests 
 The user confirms the PBIX reopens and all pages work. Reopening/earlier-page functionality is user-confirmed, not actual file inspection or original-file byte preservation. The user supplies the correct A+C calculation, 81/90 from the two units' components. The assistant clarifies the term coverage versus gap; arithmetic/component ownership is confirmed. The prior Day 5 SQL review remains open.
 
 Final page labels/footer and table None settings are not visible in these terminal images. Request the final page and working path/original preservation/import types/table-click confirmation only; do not repeat completed tests, filters, reopening, or explanations. Day 6 final acceptance and release gates remain open pending that evidence.
+
+## Final page and table cross-filtering reviewed October 11, 21:52 PDT
+
+The 044257 screenshot verifies the header, synthetic subtitle/footer, date-only display, and matching global cards/table. The user confirms import types and supplies the continuing report directory; no full report basename is supplied. Screenshots 045153 / 045210 and the user's statement show selected C/E table rows filtering the cards while no slicer unit is checked. The selected unit's metrics are correct, but the interaction violates the intended single slicer-control behavior.
+
+The handoff now states the source/target direction and top-ribbon controls explicitly. Select the table first, set None over each card/date/slicer, exit, test a table-row click with a clear slicer, and save. The selected row may stay highlighted while global cards remain unchanged. Day 6 remains open for this focused behavior check. Existing test/filter/reopen/arithmetic evidence remains valid. These new screenshots remain outside Git; the correction is a local text checkpoint after verified public bee9d15.
+
+## Table-row fix and Day 6 completion reviewed October 11, 22:10 PDT
+
+Attachment image(20261012-051051).png shows Unit C highlighted in the comparison table with no slicer unit checked. The cards remain **254 available, 250 required, 101.6% staffing coverage, local gap 10, 92.63% qualification coverage, 7 missing slots, and 4 units with current gaps**. The date stays **October 7, 2026**. All six comparison rows/global totals, the synthetic header/subtitle/footer, and earlier learning-page tabs remain visible. The focused table-row behavior passes. The screenshot establishes the resulting behavior; it does not expose every saved interaction setting or a post-fix reopening. No screenshot was copied or published.
+
+The functioning executive page, inspected screenshot, SQL-reconciled filters, and honest README meet the source plan’s Day 6 criteria. Prior 49-test Linux/Windows results, input checker, user-confirmed import types, reopening/all-page functionality, and combined-component calculation remain valid; no reruns are required. Exact installed Desktop definitions, actual PBIX-file inspection, the report basename, and separate physical original-file preservation proof remain evidence limits. They do not introduce further completion gates. Retain the original-report preservation instruction and save the working report after edits. The Day 5 SQL ownership review and minor card-caption polish are carried forward. Day 7 and release gates have not started/passed.
+
+This closure and the preceding interaction-control correction are documentation-only work under the standing text-only publication scope. Code, tests, metric definitions, input data, and excluded assets are unchanged. Publication is reported only after the remote parent/tree/path/blob checks succeed; private native history stays local.
 
 ## Primary references checked October 11
 

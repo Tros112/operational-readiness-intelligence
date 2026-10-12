@@ -1,5 +1,14 @@
 {
   "as_of_date": "2026-10-07",
+  "completion_evidence_limits": [
+    "actual_PBIX_file_and_exact_installed_Desktop_definitions_uninspected",
+    "types_user_confirmed_not_directly_inspected_column_by_column",
+    "working_report_basename_unreported",
+    "separate_physical_original_file_preservation_confirmation_unreported",
+    "post_fix_reopening_not_shown"
+  ],
+  "completion_limits_are_additional_acceptance_gates": false,
+  "completion_local_datetime": "2026-10-11T22:10:58-07:00",
   "data_classification": "synthetic_only",
   "execution_local_date": "2026-10-11",
   "input_check": {
@@ -73,10 +82,17 @@
     "status": "passed"
   },
   "milestone": "Day 6",
-  "milestone_status": "technical_tests_and_displayed_reconciliation_passed_final_visual_details_pending",
+  "milestone_status": "complete",
+  "next_milestone": {
+    "day": 7,
+    "first_action": "prototype_review_and_30_to_60_second_walkthrough",
+    "qualification_detail_day": 8,
+    "scheduled_date": "2026-10-13",
+    "started": false
+  },
   "pbix_created_opened_or_verified_by_assistant": false,
   "powerbi_SQL_reconciliation": "all_required_displayed_executive_KPI_table_date_selection_checks_passed",
-  "preparation_status": "verified_locally_windows_displayed_reconciliation_passed_final_report_acceptance_pending",
+  "preparation_status": "verified_locally_day6_accepted_from_windows_screenshots_and_user_confirmations",
   "preservation": {
     "all_hashes_unchanged": true,
     "clean_sources_unchanged": true,
@@ -123,7 +139,7 @@
     "dax_source_columns_exist": true,
     "m_column_count": 24,
     "m_columns_match_export_manifest": true,
-    "m_runtime_execution": "six_row_Desktop_import_visible_exact_query_and_all_types_uninspected",
+    "m_runtime_execution": "six_row_Desktop_import_visible_types_user_confirmed_exact_query_and_direct_all_type_inspection_unestablished",
     "unique_ORI_measure_names": 11
   },
   "user_SQL_ownership": "needs_refinement_carried_forward_by_explicit_instruction",
@@ -239,7 +255,7 @@
       "visible_measure_names": 11,
       "visible_summary_units": 6
     },
-    "executive_page": "KPI_table_date_filter_outputs_verified_labels_interactions_report_acceptance_pending",
+    "executive_page": "accepted_required_displayed_outputs_filters_date_synthetic_labels_and_table_row_behavior_passed",
     "filter_check_status": {
       "Unit_A": "screenshot_verified",
       "Unit_C": "screenshot_verified",
@@ -247,33 +263,44 @@
       "all_units": "screenshot_verified",
       "clear_restores_global": "screenshot_verified",
       "empty_counts_zero_rates_and_date_blank": "screenshot_verified",
-      "post_empty_restores_global": "screenshot_verified"
+      "post_empty_restores_global": "screenshot_verified",
+      "table_row_does_not_change_global_cards_with_clear_slicer": "screenshot_verified"
     },
-    "final_labels_and_table_None_interactions": "pending",
+    "final_header_synthetic_subtitle_footer": "screenshot_verified",
+    "final_labels_and_table_None_interactions": "header_subtitle_footer_and_table_row_behavior_verified_caption_polish_deferred",
     "global_unit_C_unit_A_multi_unit_empty_filters": "screenshot_verified_all_required_display_checks",
-    "import_6_rows_24_columns_all_correct_types_confirmation": "pending",
-    "import_M": "six_row_summary_visible_exact_query_and_all_24_types_unverified",
+    "import_6_rows_24_columns_all_correct_types_confirmation": "user_reports_import_types_correct_six_rows_observed_24_column_schema_verified_in_preparation",
+    "import_M": "six_row_summary_visible_types_user_confirmed_exact_query_and_direct_all_24_type_inspection_unestablished",
     "input_checker": "screenshot_verified_passed_exit_0_three_files_6_48_193_hashes_unique_zero_writes",
     "latest_confirmation": {
       "actual_PBIX_file_inspected": false,
-      "all_attachments_are_terminal_tests": true,
-      "arithmetic_confirmed": true,
-      "attachments": [
-        "image(20261012-040225).png",
-        "image(20261012-040257).png",
-        "image(20261012-040321).png"
+      "all_seven_cards_remain_global": true,
+      "analysis_date_display": "October 7, 2026",
+      "attachment": "image(20261012-051051).png",
+      "comparison_data_rows": 6,
+      "earlier_page_tabs_visible": true,
+      "every_saved_interaction_setting_inspected": false,
+      "focused_table_row_behavior": "passed",
+      "header_synthetic_subtitle_footer_visible": true,
+      "next_action": "stop_at_Day6_completion_Day7_prototype_review_and_walkthrough_on_next_user_instruction",
+      "no_slicer_unit_checked": true,
+      "observed_cards": [
+        254,
+        250,
+        "101.6%",
+        10,
+        "92.63%",
+        7,
+        4
       ],
-      "final_page_labels_and_table_None_settings_in_evidence": false,
-      "next_action": "final_page_screenshot_and_working_path_import_original_preservation_table_click_confirmations_only",
+      "post_fix_reopening_shown": false,
       "screenshots_copied_or_published": false,
-      "submission_local_datetime": "2026-10-11T21:18:05-07:00",
-      "terminology_refinement": "90 percent is staffing coverage; local staffing gap is 10",
-      "user_combined_calculation": "81/90 using 41/40 and 40/50",
-      "user_report": "PBIX reopens and all pages work correctly"
+      "selected_table_row": "Unit C",
+      "submission_local_datetime": "2026-10-11T22:10:58-07:00"
     },
-    "measures_DAX": "eleven_measures_listed_seven_unfiltered_displays_match_exact_formulas_and_filter_checks_pending",
+    "measures_DAX": "eleven_measures_listed_required_KPI_table_filter_outputs_verified_exact_installed_definitions_uninspected",
     "model": "summary_disconnected_learning_units_personnel_relationship_visible",
-    "original_report_preservation_confirmation": "pending",
+    "original_report_preservation_confirmation": "physical_original_file_not_separately_confirmed_earlier_pages_user_confirmed_functional",
     "python_49_tests": {
       "evidence": "three_inspected_terminal_screenshots_040225_040257_040321",
       "process_exit": 0,
@@ -282,7 +309,7 @@
       "tests": 49
     },
     "save_reopen": "user_confirmed_PBIX_reopens_all_pages_work_correctly",
-    "save_reopen_and_original_report_preservation": "reopening_all_pages_user_confirmed_original_file_confirmation_pending",
+    "save_reopen_and_original_report_preservation": "prior_reopening_all_pages_user_confirmed_physical_original_file_proof_unreported",
     "staffing_card_evidence": {
       "attachment": "image(20261012-021017).png",
       "earlier_page_tabs_visible": [
@@ -305,7 +332,89 @@
       "three_count_results_match_SQL": true,
       "unit_selection": "no_selected_unit_visible"
     },
-    "status": "tests_and_reconciliation_passed_user_confirmed_reopening_final_page_details_pending",
+    "status": "day6_complete",
+    "table_row_interaction_fix": {
+      "actual_PBIX_file_inspected": false,
+      "all_seven_cards_remain_global": true,
+      "analysis_date_display": "October 7, 2026",
+      "attachment": "image(20261012-051051).png",
+      "comparison_data_rows": 6,
+      "earlier_page_tabs_visible": true,
+      "every_saved_interaction_setting_inspected": false,
+      "focused_table_row_behavior": "passed",
+      "header_synthetic_subtitle_footer_visible": true,
+      "next_action": "stop_at_Day6_completion_Day7_prototype_review_and_walkthrough_on_next_user_instruction",
+      "no_slicer_unit_checked": true,
+      "observed_cards": [
+        254,
+        250,
+        "101.6%",
+        10,
+        "92.63%",
+        7,
+        4
+      ],
+      "post_fix_reopening_shown": false,
+      "screenshots_copied_or_published": false,
+      "selected_table_row": "Unit C",
+      "submission_local_datetime": "2026-10-11T22:10:58-07:00"
+    },
+    "table_row_interaction_issue": {
+      "attachments": [
+        "image(20261012-044257).png",
+        "image(20261012-045153).png",
+        "image(20261012-045210).png"
+      ],
+      "diagnosis": "table_crossfiltering_enabled",
+      "focused_check": "clear_slicer_click_table_UnitC_row_global_cards_remain_254_250_101_6_percent_10_92_63_percent_7_4",
+      "header_subtitle_footer_visible": true,
+      "no_slicer_unit_checked_in_row_click_images": true,
+      "observed_C_cards": [
+        40,
+        50,
+        "80.0%",
+        10,
+        "93.75%",
+        1,
+        1
+      ],
+      "observed_E_cards": [
+        42,
+        40,
+        "105.0%",
+        0,
+        "87.50%",
+        2,
+        1
+      ],
+      "required_fix": "select_table_source_visual_top_ribbon_Format_Edit_interactions_None_over_eight_cards_and_slicer",
+      "resolution": "superseded_by_passed_table_row_interaction_fix_at_22_10_PDT",
+      "screenshots_copied_or_published": false,
+      "selected_table_rows": [
+        "Unit C",
+        "Unit E"
+      ],
+      "submission_local_datetime": "2026-10-11T21:52:15-07:00",
+      "user_reports_import_types_correct": true,
+      "user_reports_table_row_clicks_change_cards": true
+    },
+    "tests_reopen_ownership_confirmation": {
+      "actual_PBIX_file_inspected": false,
+      "all_attachments_are_terminal_tests": true,
+      "arithmetic_confirmed": true,
+      "attachments": [
+        "image(20261012-040225).png",
+        "image(20261012-040257).png",
+        "image(20261012-040321).png"
+      ],
+      "final_page_labels_and_table_None_settings_in_evidence": false,
+      "next_action": "final_page_screenshot_and_working_path_import_original_preservation_table_click_confirmations_only",
+      "screenshots_copied_or_published": false,
+      "submission_local_datetime": "2026-10-11T21:18:05-07:00",
+      "terminology_refinement": "90 percent is staffing coverage; local staffing gap is 10",
+      "user_combined_calculation": "81/90 using 41/40 and 40/50",
+      "user_report": "PBIX reopens and all pages work correctly"
+    },
     "unfiltered_KPI_evidence": {
       "all_seven_displayed_KPIs_match_SQL": true,
       "attachment": "image(20261012-023640).png",
@@ -325,6 +434,16 @@
       "unit_filter_behavior_verified": false,
       "unit_selection": "no_selected_unit_visible"
     },
-    "working_report_path": "not_reported"
+    "working_report_path": "user_provided_existing_project_powerbi_directory_report_basename_unreported"
+  },
+  "windows_verification_publication": {
+    "API_and_native_fetch_verified": true,
+    "all_blobs_match_local": true,
+    "excluded_assets_published": false,
+    "parent": "5e8e66d06b8f7e33512dab56a8c14f5a9c00bebc",
+    "private_native_history_branch": "execution/day06-windows-evidence",
+    "sha": "bee9d158d47284da237ade5a3a3879b4c5346250",
+    "text_paths": 8,
+    "tree": "ee0e89ada73314f5c49a043a3116a7402ec11d25"
   }
 }

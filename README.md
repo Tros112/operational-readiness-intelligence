@@ -1,8 +1,8 @@
 # Operational Readiness Intelligence
 
-**Status: Day 6 executive-page KPI, table, date, and filter checks verified from Windows screenshots October 11, 2026.** The Python → SQLite → SQL-export pipeline is verified on Linux and Windows, with 6 unit rows, 48 qualification pairs, and 193 valid certificates at the fixed October 7 snapshot. The current **49-test Python suite passes on Linux and screenshot-verified Windows** (Windows 25.374 seconds, exit 0). The Windows input checker passed. Report screenshots reconcile global, Unit A, Unit C, combined A+C, cleared, and empty-filter results, including zero counts and blank undefined rates/date. The user confirms the PBIX reopens and all pages work, and correctly calculates combined A+C coverage from 81/90. **Final page labels/interactions and working-file/import/preservation details still need confirmation.** The actual PBIX file and exact Desktop M/DAX definitions have not been inspected by the assistant. Use [day06_windows_handoff.md](docs/day06_windows_handoff.md); evidence and limits are in [verification_day06.md](docs/verification_day06.md).
+**Status: Day 6 complete, October 11, 2026.** The synthetic executive page’s KPI, comparison, analysis-date, slicer, clear, empty-filter, and table-row interaction results are verified from Windows screenshots. The final check shows Unit C highlighted in the table while the clear slicer and all-unit cards remain unchanged. The Python → SQLite → SQL-export pipeline is verified on Linux and Windows, with 6 unit rows, 48 qualification pairs, and 193 valid certificates at the fixed October 7 snapshot. The **49-test Python suite passes on Linux and screenshot-verified Windows** (Windows 25.374 seconds, exit 0); the Windows input checker also passed. The user confirms correct import types, PBIX reopening/all-page functionality, and the combined A+C calculation 81/90. The actual PBIX file and exact Desktop M/DAX definitions have not been inspected by the assistant. Evidence and limits are in [verification_day06.md](docs/verification_day06.md). Next is Day 7 prototype review and a 30–60 second walkthrough; the October 13 prototype gate remains open.
 
-Windows access is confirmed by the user: Desktop **2.158.1177.0, 64-bit (September 2026)**. Day 2 staffing screenshots show matching global/Unit C slicer results and the intended relationship; populated-learning-report save/reopen is user-confirmed. Evidence: `docs/verification_day02.md`. Day 6 executive-page displayed reconciliation now passes; later detail pages and final working-report acceptance remain separate checks.
+Windows access is confirmed by the user: Desktop **2.158.1177.0, 64-bit (September 2026)**. Day 2 staffing screenshots show matching global/Unit C slicer results and the intended relationship; populated-learning-report save/reopen is user-confirmed. Evidence: `docs/verification_day02.md`. Day 6 executive-page acceptance is complete; later detail pages and release gates remain separate milestones.
 
 This portfolio project supports a fictional operations manager deciding where to review staffing, qualification renewals, backup coverage, and administrative processes. All operational data and findings will be **simulated**. Readiness measures are fictional proxies; they are not official Navy rules or statements about deployability.
 
@@ -41,7 +41,7 @@ python -m unittest discover -s tests -v
 
 These commands show the full fresh-checkout order, not a request to repeat working setup. The environment checker executes the schema in memory. The generator creates `data/raw/clean/`; the injector writes `data/raw/dirty/` separately. Clean validation exits 0; intentional dirty validation exits **1** and blocks loading. `load_data.py` verifies passed source/export hashes and values, then loads `data/processed/readiness.sqlite3` in one transaction. Repeating it replaces the same snapshot without duplicates. Its audit is `data/processed/load_report.json`. `export_metrics.py` re-verifies the passed source/database, executes three queries in one read transaction, and writes `data/processed/dashboard/`. Only use its CSVs when `export_manifest.json` is passed, exports_ready is true, the date is correct, and hashes match. Generated datasets, audits, and databases are excluded from Git.
 
-Current exports implement staffing, current qualification coverage/gaps/fragility, and cumulative expiration inventory. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Process metrics remain Day 9 and the deterministic no-renewal scenario Day 10. Day 6's executive page uses only the unit summary; displayed KPI/table/filter reconciliation is verified, while final report acceptance remains open.
+Current exports implement staffing, current qualification coverage/gaps/fragility, and cumulative expiration inventory. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Process metrics remain Day 9 and the deterministic no-renewal scenario Day 10. Day 6's accepted executive page uses only the unit summary. Qualification/expiration visuals are Day 8; those exports are not evidence of completed detail pages.
 
 ## Prototype concept
 
@@ -53,10 +53,10 @@ flowchart TD
     D --> E["SQL metrics and CSV exports"]
     E --> F{"Passed manifest and matching files?"}
     F -->|No| G["Stop import or refresh"]
-    F -->|Yes| H["Power BI executive page: local build pending"]
+    F -->|Yes| H["Power BI executive page: displayed checks passed"]
 ```
 
-The intended page helps a fictional manager compare local staffing gaps and qualification coverage. Staffing and qualification slots are separate measures. Its first reconciliation includes global, Unit C, zero-gap Unit A, and weighted Unit A + C selections. The inputs are verified; the final diagram node is still a pending Desktop build, not a released prototype.
+The page helps a fictional manager compare local staffing gaps and qualification coverage. Staffing and qualification slots are separate measures. Screenshots reconcile global, Unit C, zero-gap Unit A, and weighted Unit A + C selections, clear/empty behavior, and the table-row interaction fix. This executive page supports the scheduled prototype review; the release gate also requires the user’s accurate walkthrough.
 
 ## Clean reference and planted evidence
 
@@ -67,7 +67,7 @@ All counts here are **simulated source audits**. CSV rows: 6 units, 300 people, 
 - Unit D/Q04: six available holders all expiring within 30 days, including the November 6 endpoint. Recalculating the no-renewal gap remains Day 10.
 - Unit F: 27 corrections / 70 completed cases (38.6%), from a configured 30% probability; elsewhere 18/372 (4.8%) from 6%. The rates were not forced to match the probabilities.
 
-Generator verification: [verification_day02.md](docs/verification_day02.md). Day 5 SQL now reconciles global staffing **254/250 = 101.6%**, summed unit staffing gaps **10**, and qualification coverage **88/95 = 92.63%**, with **7 missing holder slots**. The 30-day inventory has **45 certificates affecting 41 distinct people**; cumulative windows overlap. These are simulated audits, not real-world findings or completed SQL/Power BI reconciliation. Source fields: [data_dictionary.md](docs/data_dictionary.md); export fields: [export_dictionary.md](docs/export_dictionary.md); calculation trace: [sql_walkthrough.md](docs/sql_walkthrough.md).
+Generator verification: [verification_day02.md](docs/verification_day02.md). Day 5 SQL now reconciles global staffing **254/250 = 101.6%**, summed unit staffing gaps **10**, and qualification coverage **88/95 = 92.63%**, with **7 missing holder slots**. The 30-day inventory has **45 certificates affecting 41 distinct people**; cumulative windows overlap. Day 6 executive screenshots reconcile the displayed staffing/qualification results; expiration detail visuals remain planned. These are simulated audits, not real-world findings. Source fields: [data_dictionary.md](docs/data_dictionary.md); export fields: [export_dictionary.md](docs/export_dictionary.md); calculation trace: [sql_walkthrough.md](docs/sql_walkthrough.md).
 
 ## Where the work lives
 
@@ -91,14 +91,14 @@ Generator verification: [verification_day02.md](docs/verification_day02.md). Day
 | `data/raw/`, `data/processed/`, `data/rejected/` | Clean/dirty inputs, passed clean records, and blocked dirty diagnostics |
 | `tests/` | Reserved for meaningful data and metric checks as those implementations exist |
 | `powerbi/build_instructions.md`, `docs/day06_windows_handoff.md` | Existing-folder executive-page import/build/filter/save steps |
-| `powerbi/unit_summary.pq`, `powerbi/executive_measures.dax` | Prepared gated M query and eleven ORI measures; Desktop execution pending |
+| `powerbi/unit_summary.pq`, `powerbi/executive_measures.dax` | Gated M query and eleven ORI measures; displayed Desktop outputs verified, exact installed definitions uninspected |
 | `docs/metric_contract.md` | Finalized v1.0 definitions, output grains, boundaries, and worked examples |
 | `docs/schema_sketch.md`, `docs/data_dictionary.md` | Grain, joins, keys, and field meanings |
 | `docs/environment.md`, `docs/verification_day01.md` | Observed access and verified limits |
 | `docs/validation_rules.md`, `docs/defect_catalog.md`, `docs/verification_day03.md` | Rejection contract, injected errors, verified counts and limits |
 | `docs/verification_day04.md`, `docs/load_check.json`, `docs/loader_walkthrough.md` | Persistent-load evidence and transaction explanation |
 | `docs/verification_day05.md`, `docs/analytics_check.json`, `docs/sql_walkthrough.md` | SQL/CSV evidence, selected-unit hand check, and explanation |
-| `docs/verification_day06.md`, `docs/powerbi_check.json`, `docs/sql_review_backlog.md` | Preparation evidence, expected BI values, pending runtime checks, and carried SQL learning items |
+| `docs/verification_day06.md`, `docs/powerbi_check.json`, `docs/sql_review_backlog.md` | Day 6 completion evidence, BI reconciliation and inspection limits, and carried SQL learning items |
 | `docs/progress.md`, `docs/decisions.md`, `docs/interview_feedback.md` | Daily state, decisions, and actual employer feedback |
 
 ## Limits and ownership
