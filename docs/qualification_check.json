@@ -1,0 +1,237 @@
+{
+  "milestone": "Day 8",
+  "execution_local_date": "2026-10-13",
+  "scheduled_local_date": "2026-10-14",
+  "timezone": "America/Los_Angeles",
+  "user_instruction_local_datetime": "2026-10-13T06:50:55-07:00",
+  "as_of_date": "2026-10-07",
+  "data_classification": "synthetic_only",
+  "readiness_classification": "fictional_proxy",
+  "milestone_status": "assets_prepared_static_checks_passed_Windows_Desktop_runtime_pending",
+  "selected_local_execution_environment": "unavailable",
+  "base_public_commit": "9fdd5a39c7f4065c446303f20e5e1da74b37572f",
+  "base_tree": "73e2c7b67c89c0eeee2f7169949c72c29f8a21be",
+  "assets": [
+    "powerbi/qualification_detail.pq",
+    "powerbi/qualification_filter.pq",
+    "powerbi/expiration_detail.pq",
+    "powerbi/qualification_measures.dax"
+  ],
+  "imports": {
+    "qualification_detail": {
+      "rows": 48,
+      "columns": 13,
+      "grain": [
+        "unit_id",
+        "qualification_id",
+        "as_of_date"
+      ]
+    },
+    "qualification_filter": {
+      "rows": 8,
+      "columns": 2,
+      "grain": [
+        "qualification_id"
+      ],
+      "source": "derived_from_qualification_detail"
+    },
+    "expiration_detail": {
+      "rows": 193,
+      "columns": 14,
+      "grain": [
+        "person_id",
+        "qualification_id",
+        "as_of_date"
+      ]
+    }
+  },
+  "model": {
+    "unit_lookup": "unit_summary",
+    "qualification_lookup": "qualification_filter",
+    "relationships": [
+      [
+        "unit_summary.unit_id",
+        "qualification_detail.unit_id",
+        "1:*",
+        "Single",
+        "active"
+      ],
+      [
+        "unit_summary.unit_id",
+        "expiration_detail.unit_id",
+        "1:*",
+        "Single",
+        "active"
+      ],
+      [
+        "qualification_filter.qualification_id",
+        "qualification_detail.qualification_id",
+        "1:*",
+        "Single",
+        "active"
+      ],
+      [
+        "qualification_filter.qualification_id",
+        "expiration_detail.qualification_id",
+        "1:*",
+        "Single",
+        "active"
+      ]
+    ],
+    "fact_to_fact_relationship": false,
+    "original_learning_model_changed": false,
+    "Desktop_relationships_inspected": false
+  },
+  "static_checks": {
+    "measure_names_unique": true,
+    "measure_count": 16,
+    "DAX_column_references_exist": true,
+    "M_schemas_match_approved_exports": true,
+    "integer_validation_precedes_Int64": true,
+    "JavaScript_reference_examples": [
+      {
+        "name": "capped weighted slots",
+        "passed": true
+      },
+      {
+        "name": "unmet vs fragile",
+        "passed": true
+      },
+      {
+        "name": "met surplus",
+        "passed": true
+      },
+      {
+        "name": "undefined demand",
+        "passed": true
+      },
+      {
+        "name": "inclusive cumulative boundaries",
+        "passed": true
+      },
+      {
+        "name": "unavailable retained",
+        "passed": true
+      },
+      {
+        "name": "distinct union and empty",
+        "passed": true
+      }
+    ],
+    "M_DAX_or_PowerShell_executed": false
+  },
+  "known_prior_SQL_references": {
+    "global": {
+      "required_slots": 95,
+      "covered_slots": 88,
+      "coverage_display": "92.63%",
+      "missing_slots": 7,
+      "gap_pairs": 7,
+      "fragile_total": "derive_from_approved_CSV_not_recorded_in_prior_audit"
+    },
+    "current_inventory": {
+      "certificates": 193,
+      "distinct_people": 145,
+      "unavailable_certificates": 21
+    },
+    "windows": {
+      "30": {
+        "certificates": 45,
+        "people": 41,
+        "cutoff": "2026-11-06"
+      },
+      "60": {
+        "certificates": 68,
+        "people": 62,
+        "cutoff": "2026-12-06"
+      },
+      "90": {
+        "certificates": 98,
+        "people": 84,
+        "cutoff": "2027-01-05"
+      }
+    },
+    "C_Q06": {
+      "required": 2,
+      "holders": 1,
+      "covered": 1,
+      "gap": 1,
+      "fragile": 0,
+      "single_holder": 0
+    },
+    "B_Q03": {
+      "required": 1,
+      "holders": 1,
+      "covered": 1,
+      "gap": 0,
+      "fragile": 1,
+      "single_holder": 1
+    },
+    "D_Q04": {
+      "required": 2,
+      "holders": 6,
+      "covered": 2,
+      "gap": 0,
+      "fragile": 0,
+      "certificate_rows": 6,
+      "distinct_people": 6,
+      "offsets": [
+        7,
+        10,
+        14,
+        20,
+        25,
+        30
+      ],
+      "each_cumulative_window_certificates": 6,
+      "each_cumulative_window_people": 6
+    }
+  },
+  "reference_data_accessed_this_session": false,
+  "prior_python_suite": {
+    "tests": 49,
+    "linux": "previously_passed",
+    "windows": "previously_screenshot_verified_passed",
+    "rerun_this_session": false,
+    "executes_new_M_DAX": false
+  },
+  "runtime": {
+    "PowerShell_reference": "prepared_not_executed",
+    "M": "not_executed",
+    "DAX": "not_executed",
+    "PowerBI_page": "not_created_or_inspected",
+    "Windows_preflight": "pending",
+    "save_reopen_prior_page_regression": "pending"
+  },
+  "refresh_gate": {
+    "Python_SHA256_preflight_required": true,
+    "M_computes_hashes": false,
+    "keep_files_stable_between_steps": true,
+    "atomic_file_transaction": false
+  },
+  "unchanged_scope": {
+    "Python_SQL_and_test_definitions": true,
+    "operational_source_count": 6,
+    "metric_contract": "v1.0",
+    "data_or_database_regenerated_or_reloaded": false,
+    "images_PBIX_private_history_published": false
+  },
+  "prototype_gate": "passed_Day7",
+  "MVP_gate": "not_passed",
+  "polish_gate": "not_passed",
+  "SQL_ownership": "specific_join_grain_fragility_review_carried",
+  "actual_hours": null,
+  "event_employer_feedback": "unreported",
+  "verification_method": "GitHub_pinned_read_and_API_blob_tree_parent_ref_checks_no_native_fetch",
+  "next_action": "Windows_pull_preflight_imports_and_four_relationships_then_first_model_review",
+  "stop_after_milestone": 8,
+  "prepublication_checks": {
+    "baseline_Git_blob_hashes_recomputed": 18,
+    "prepared_files_hashed": 17,
+    "JSON_parse": true,
+    "whitespace": true,
+    "relative_file_links": true,
+    "no_unapproved_file_extensions": true,
+    "M_DAX_Python_PowerShell_executed": false
+  }
+}

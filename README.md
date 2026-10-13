@@ -1,6 +1,6 @@
 # Operational Readiness Intelligence
 
-**Status: Day 7 complete; the prototype gate passed October 12, 2026, ahead of the October 13 target.** The synthetic executive page’s output/filter/date/interaction checks are verified, final captions are screenshot-confirmed, and the user’s accurate explanation is reviewed with a reported duration interpreted as about one minute. The Python → SQLite → SQL-export pipeline produces 6 unit rows, 48 qualification pairs, and 193 current-certificate rows at the fixed October 7 snapshot. **49 Python tests pass on Linux and screenshot-verified Windows** (Windows 25.374 seconds, exit 0); no code changed for this gate review. The actual PBIX file and exact installed Desktop M/DAX remain uninspected by the assistant. Evidence is in [verification_day07.md](docs/verification_day07.md) and [prototype_check.json](docs/prototype_check.json); the [master-chat checkpoint](docs/checkpoints/2026-10-12_day07.md) records the passed gate and remaining limits. Qualification/expiration visuals are next in Day 8; the interview-ready MVP and polish remain October 19 and 30.
+**Status: Day 8 qualification/expiration assets prepared October 13, 2026; Windows/Desktop build pending.** The prototype gate passed October 12. The new page adds current qualification gaps/fragility and cumulative certificate/distinct-person reporting from the existing October 7 synthetic exports. Three import queries, sixteen ORI Q measures, model instructions, and a read-only reconciliation reference are in [day08_windows_handoff.md](docs/day08_windows_handoff.md). The local execution environment is unavailable; new M/DAX/PowerShell have not run here. Prior **49 Python tests pass on Linux and screenshot-verified Windows**; Python/SQL/test definitions are unchanged, and those tests do not execute the new report assets. Evidence/limits: [verification_day08.md](docs/verification_day08.md), [qualification_check.json](docs/qualification_check.json). The actual PBIX and exact installed definitions remain uninspected by the assistant. MVP and polish remain October 19 and 30.
 
 Windows access is confirmed by the user: Desktop **2.158.1177.0, 64-bit (September 2026)**. Day 2 staffing screenshots show matching global/Unit C slicer results and the intended relationship; populated-learning-report save/reopen is user-confirmed. Evidence: `docs/verification_day02.md`. Day 6 executive-page acceptance is complete; later detail pages and release gates remain separate milestones.
 
@@ -22,7 +22,7 @@ The brainstorming chat remains the master record for priorities and major scope 
 
 Read [charter](docs/charter.md), [progress](docs/progress.md), and [decisions](docs/decisions.md) before making changes. The attached schedule is preserved in [source_execution_plan.md](docs/source_execution_plan.md).
 
-Existing Windows checkout: retain the same Git-connected folder, `.venv`, saved data/exports, and working report. Day 7’s completed presentation reference is [day07_windows_handoff.md](docs/day07_windows_handoff.md); Day 6’s import/build reference is [day06_windows_handoff.md](docs/day06_windows_handoff.md). Preserve the original learning report and save edits in the working PBIX. Stop at Day 7 until the next milestone instruction. Run the input checker before any later import/refresh; documentation updates need no regeneration, loading, or repeat of successful tests.
+Existing Windows checkout: retain the same Git-connected folder, interpreter, saved database/exports, and working report. Use [day08_windows_handoff.md](docs/day08_windows_handoff.md); first update and run the existing read-only input checker, then import and inspect the new model. Preserve earlier pages/measures and the original learning report. No regeneration, reload, installation, or full repeat of successful Python tests is needed for this report-only change. Run the checker immediately before every import/refresh and keep inputs stable.
 
 Use Python 3.11 or later from the project root:
 
@@ -41,7 +41,7 @@ python -m unittest discover -s tests -v
 
 These commands show the full fresh-checkout order, not a request to repeat working setup. The environment checker executes the schema in memory. The generator creates `data/raw/clean/`; the injector writes `data/raw/dirty/` separately. Clean validation exits 0; intentional dirty validation exits **1** and blocks loading. `load_data.py` verifies passed source/export hashes and values, then loads `data/processed/readiness.sqlite3` in one transaction. Repeating it replaces the same snapshot without duplicates. Its audit is `data/processed/load_report.json`. `export_metrics.py` re-verifies the passed source/database, executes three queries in one read transaction, and writes `data/processed/dashboard/`. Only use its CSVs when `export_manifest.json` is passed, exports_ready is true, the date is correct, and hashes match. Generated datasets, audits, and databases are excluded from Git.
 
-Current exports implement staffing, current qualification coverage/gaps/fragility, and cumulative expiration inventory. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Process metrics remain Day 9 and the deterministic no-renewal scenario Day 10. Day 6's accepted executive page uses only the unit summary. Qualification/expiration visuals are Day 8; those exports are not evidence of completed detail pages.
+Current exports implement staffing, current qualification coverage/gaps/fragility, and cumulative expiration inventory. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Process metrics remain Day 9 and the deterministic no-renewal scenario Day 10. Day 6's accepted executive page uses only the unit summary. Qualification/expiration visuals are now prepared in Day 8 and remain unverified in Desktop; exports and static report definitions alone do not establish a completed page.
 
 ## Prototype concept
 
@@ -51,7 +51,7 @@ Current exports implement staffing, current qualification coverage/gaps/fragilit
 | Staffing, current qualification, cumulative expiration SQL/CSV exports | Built; expected grains, counts, repeat and preservation checks passed |
 | Power BI executive page | Built; displayed metrics/filters/interactions verified; reopening user-confirmed |
 | Short prototype explanation | User-provided version reviewed; rehearsal duration user-reported at about one minute |
-| Qualification/expiration detail visuals | Planned Day 8; SQL exports alone do not establish a finished view |
+| Qualification/expiration detail visuals | Day 8 queries/measures/model prepared; Desktop execution and reconciliation pending |
 | Administrative process metrics/view | Planned Day 9 |
 | Deterministic no-renewal qualification scenario | Planned Day 10 |
 | Machine learning | Outside this MVP |
@@ -113,6 +113,8 @@ Generator verification: [verification_day02.md](docs/verification_day02.md). Day
 | `docs/verification_day06.md`, `docs/powerbi_check.json`, `docs/sql_review_backlog.md` | Day 6 completion evidence, BI reconciliation and inspection limits, and carried SQL learning items |
 | `docs/day07_windows_handoff.md`, `docs/verification_day07.md`, `docs/prototype_check.json` | Completed caption/demo guidance, reviewed user explanation, and passed prototype gate with evidence limits |
 | `docs/checkpoints/2026-10-12_day07.md` | Passed prototype-gate report using actual screenshot/text evidence and user-reported timing |
+| `powerbi/qualification_detail.pq`, `qualification_filter.pq`, `expiration_detail.pq`, `qualification_measures.dax` | Day 8 gated imports, shared qualification lookup, and sixteen scoped measures; runtime pending |
+| `docs/day08_windows_handoff.md`, `day08_reconciliation.md`, `verification_day08.md`, `qualification_check.json` | Model/page instructions, read-only CSV references, static checks, and honest pending Desktop status |
 | `docs/progress.md`, `docs/decisions.md`, `docs/interview_feedback.md` | Daily state, decisions, and actual employer feedback |
 
 ## Limits and ownership

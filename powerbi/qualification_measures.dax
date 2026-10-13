@@ -1,0 +1,54 @@
+// Create ONE measure at a time; use qualification_detail as the home table.
+// ORI Q names keep executive/learning measures intact. Shared filters reach both detail tables.
+// Expiration inventory includes unavailable people. Counts are zero on an empty selection;
+// undefined coverage and selected analysis date are blank. Horizons are cumulative at October 7.
+
+ORI Q Required Slots = COALESCE(SUM(qualification_detail[required_holder_count]), 0)
+
+ORI Q Covered Slots = COALESCE(SUM(qualification_detail[capped_holder_count]), 0)
+
+ORI Q Coverage = DIVIDE([ORI Q Covered Slots], [ORI Q Required Slots])
+
+ORI Q Missing Slots = COALESCE(SUM(qualification_detail[current_gap]), 0)
+
+ORI Q Pairs With Gaps = COALESCE(COUNTROWS(FILTER(qualification_detail, qualification_detail[current_gap] > 0)), 0)
+
+ORI Q Fragile Pairs = COALESCE(SUM(qualification_detail[is_fragile]), 0)
+
+ORI Q Single Holder Pairs = COALESCE(SUM(qualification_detail[is_single_holder_dependency]), 0)
+
+ORI Q Valid Certificates = COALESCE(COUNTROWS(expiration_detail), 0)
+
+ORI Q Inventory People = COALESCE(DISTINCTCOUNT(expiration_detail[person_id]), 0)
+
+ORI Q Certificates 30 Days = COALESCE(SUM(expiration_detail[expires_within_30_days]), 0)
+
+ORI Q People 30 Days = COALESCE(
+    CALCULATE(
+        DISTINCTCOUNT(expiration_detail[person_id]),
+        KEEPFILTERS(expiration_detail[expires_within_30_days] = 1)
+    ),
+    0
+)
+
+ORI Q Certificates 60 Days = COALESCE(SUM(expiration_detail[expires_within_60_days]), 0)
+
+ORI Q People 60 Days = COALESCE(
+    CALCULATE(
+        DISTINCTCOUNT(expiration_detail[person_id]),
+        KEEPFILTERS(expiration_detail[expires_within_60_days] = 1)
+    ),
+    0
+)
+
+ORI Q Certificates 90 Days = COALESCE(SUM(expiration_detail[expires_within_90_days]), 0)
+
+ORI Q People 90 Days = COALESCE(
+    CALCULATE(
+        DISTINCTCOUNT(expiration_detail[person_id]),
+        KEEPFILTERS(expiration_detail[expires_within_90_days] = 1)
+    ),
+    0
+)
+
+ORI Q Analysis Date = SELECTEDVALUE(qualification_detail[as_of_date])

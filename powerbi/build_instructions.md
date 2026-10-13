@@ -1,36 +1,27 @@
 # Power BI build index
 
-**Current status, October 11, 2026 — Day 6:** the user requested the executive page. Day 5 Windows technical reproduction is complete; SQL ownership review is carried forward. The assistant prepared the import query, eleven ORI measures, input check, and page/reconciliation steps. Actual Desktop import, DAX/M execution, filters, and report save/reopen remain pending. No PBIX has been created or inspected by the assistant.
+**Current status, October 13, 2026 — Day 8:** the executive prototype gate passed October 12. Qualification/expiration import queries, measures, model and page/reconciliation instructions are prepared. The local execution environment is unavailable, and the new M/DAX/PowerShell/Desktop build remains pending. Prior 49-test Python evidence stays recorded; no Python/SQL/test change is made. The assistant has not operated or inspected an actual PBIX.
 
-## Continue in the existing project
+## Continue in the same Windows project
 
-Use [day06_windows_handoff.md](../docs/day06_windows_handoff.md) as the complete guide. Its first action pulls into the same Windows checkout and checks all three saved CSV hashes with the existing interpreter. It does not regenerate/reload data or replace the environment.
+Use [day08_windows_handoff.md](../docs/day08_windows_handoff.md). Retain the existing interpreter, exports/database, working PBIX, and original learning report.
 
-1. Run `src/check_powerbi_input.py` before import/refresh.
-2. Open the existing learning report and save a working copy under an unused filename.
-3. Add a new Executive — simulated page. Keep earlier pages/measures/relationships intact.
-4. Import the disconnected `unit_summary` table with [unit_summary.pq](unit_summary.pq), changing only the local ProjectRoot value in Power Query.
-5. Create the eleven ORI-prefixed measures one at a time from [executive_measures.dax](executive_measures.dax).
-6. Build the cards, unit-name slicer, and comparison table; verify global, Unit C, Unit A, multi-unit, clear-filter, and empty-filter behavior.
-7. Save/reopen and return evidence. No Power BI cloud publishing is part of this milestone.
+1. Pull the verified update and run `src/check_powerbi_input.py` before import/refresh.
+2. Add `qualification_detail` (48 rows/13 columns), `qualification_filter` (8/2), and `expiration_detail` (193/14) using their same-named .pq files.
+3. Configure the four active 1:* Single relationships in the guide. Unit and qualification lookup selections reach both detail tables; the facts are not joined together.
+4. Create sixteen ORI Q measures from [qualification_measures.dax](qualification_measures.dax), one at a time.
+5. Build **Qualification — simulated**, then reconcile current slots/gaps/fragility, distinct inventory people, and overlapping 30/60/90 windows.
+6. Check selected units/qualifications, clear/empty behavior, the November 6 endpoint, and report save/reopen including prior pages. Return evidence before claiming Day 8 complete.
 
-The M query gates manifest state, schema, types, fixed date, and unique six-row grain. It does not calculate SHA-256: the Python prerequisite checks all three file hashes before every refresh. Keep files stable between the check and refresh. A failed refresh can leave cached prior BI values visible, which does not establish a successful new refresh.
+The M imports check approved manifest/schema/types/date/grains and values. Python preflight supplies file hashes; keep inputs stable between it and import/refresh. Failed refreshes can leave cached values visible.
 
-## Reference values — synthetic, not observed BI results
+## Completed and preserved references
 
-| Selection | Available / required | Staffing coverage | Local staffing gap | Qualification coverage | Missing slots | Units with gaps |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| All units | 254 / 250 | 101.6% | 10 | 92.63% | 7 | 4 |
-| Unit C | 40 / 50 | 80.0% | 10 | 93.75% | 1 | 1 |
-| Unit A | 41 / 40 | 102.5% | 0 | 100.00% | 0 | 0 |
-| Unit A + C | 81 / 90 | 90.0% | 10 | 96.88% | 1 | 1 |
+- [day06_windows_handoff.md](../docs/day06_windows_handoff.md), [unit_summary.pq](unit_summary.pq), and [executive_measures.dax](executive_measures.dax): accepted executive page at October 7; original ORI definitions stay intact.
+- [day07_windows_handoff.md](../docs/day07_windows_handoff.md), [verification_day07.md](../docs/verification_day07.md), and [prototype checkpoint](../docs/checkpoints/2026-10-12_day07.md): accepted short explanation and prototype gate.
+- [day02_staffing_review.md](day02_staffing_review.md): original learning report/relationship reference.
+- [day08_reconciliation.md](../docs/day08_reconciliation.md): known SQL counts and a read-only selected-CSV reference.
+- [export_dictionary.md](../docs/export_dictionary.md): unchanged input schemas, types, and grains.
+- [sql_review_backlog.md](../docs/sql_review_backlog.md): carried independent join/grain/fragility learning items.
 
-Metric date: October 7, 2026. The unit flag is a fictional current-gap proxy; it does not include fragile-but-met coverage or upcoming expirations. Coverage does not establish simultaneous assignment capacity.
-
-## Preserved access and learning evidence
-
-Power BI Desktop 2.158.1177.0, 64-bit (September 2026), is user-confirmed. Day 1 blank-report access/save/reopen was confirmed October 7. Day 2 staffing screenshots and user explanation showed the expected global and Unit C results and active Single units-to-personnel relationship; report save/reopen was user-confirmed. The user confirmed that learning report still worked at Day 4 closure.
-
-The original learning guide remains [day02_staffing_review.md](day02_staffing_review.md). Day 6's new measures and slicer use `unit_summary`; the old source-table slicer should not be reused on the disconnected executive page. No assistant inspection of the actual PBIX is inferred from screenshots or reported availability.
-
-Current preparation evidence and pending items: [verification_day06.md](../docs/verification_day06.md). Definition/reference fields: [export_dictionary.md](../docs/export_dictionary.md). Carried ownership review: [sql_review_backlog.md](../docs/sql_review_backlog.md).
+Day 8 reuses the six-row unit_summary as the unit lookup for new facts; it remains independent of the older raw units/personnel learning model. Use qualification_filter for the new qualification slicer and ORI Q formulas for qualification-specific calculations. Fixed date and fictional readiness rules stay unchanged. No Power BI cloud publishing, process view, or no-renewal scenario is included in this milestone.
