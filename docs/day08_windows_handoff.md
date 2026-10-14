@@ -81,6 +81,8 @@ Save the working report and return the corrected Manage relationships view. Also
 
 **21:13 PDT update:** both intended unit_summary links are now active and both qualification links remain correct. The old expiration-to-units and expiration-to-personnel links are gone. One extra link remains: qualification_detail[unit_id] to old units[unit_id], the fifth row in image(20261014-041036).png. Delete only that connection; keep personnel[unit_id] to units[unit_id]. This leaves five active 1:* Single relationships. Imported counts/types still need confirmation; the screenshots show no query row/column counts or selected column types. The passed checker does not need repeating for this edit.
 
+**21:29 PDT update — relationships and import counts accepted:** the newest relationship view has exactly five active 1:* Single links: the required four lookup links plus the original learning link. All extra links are gone. The user confirms all import counts, supported by screenshots showing 48 qualification rows, eight lookup entries/two columns, and 193 expiration rows. No further relationship-only screenshot or repeated checker is needed. Selected-column type metadata is not visible; retain the section 2 type check while creating the measures. The next action is section 4, then build the page and review its unfiltered coverage/inventory/date/windows. Day 8 is not complete from model/count evidence alone.
+
 ## 4. Create sixteen ORI Q measures
 
 Use **Modeling → New measure**, with `qualification_detail` as the home table. Copy one complete definition at a time from `powerbi/qualification_measures.dax`. Home table is organization; each formula reads its appropriate fact table.

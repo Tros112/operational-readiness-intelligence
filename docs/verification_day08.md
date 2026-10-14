@@ -2,7 +2,7 @@
 
 Started **October 13, 2026**, under the user's explicit instruction, early relative to October 14. The October 7 synthetic snapshot, fictional readiness proxies, six operational sources, SQLite/CSV strategy, audience, and release dates are unchanged. The Day 7 prototype gate remains passed; MVP/polish remain open.
 
-**Current status: Windows input check passed; model correction, import count/type confirmation, and page verification pending.** The local execution environment was unavailable during preparation. At that stage no native command/file-system execution, current local dataset/hash check, Python/SQL/PowerShell run, M/DAX compilation, or actual PBIX operation was claimed. Read the immutable public baseline **9fdd5a39c7f4065c446303f20e5e1da74b37572f** through the connected GitHub interface. Root AGENTS is the only instruction file in that tree. Native execution returned for the follow-up below; this does not change the historical preparation boundary.
+**Current status: Windows input check, relationships, and import counts accepted; measures/page verification pending.** The local execution environment was unavailable during preparation. At that stage no native command/file-system execution, current local dataset/hash check, Python/SQL/PowerShell run, M/DAX compilation, or actual PBIX operation was claimed. Read the immutable public baseline **9fdd5a39c7f4065c446303f20e5e1da74b37572f** through the connected GitHub interface. Root AGENTS is the only instruction file in that tree. Native execution returned for the follow-up below; this does not change the historical preparation boundary.
 
 ## Prepared files and model
 
@@ -61,3 +61,16 @@ The handoff now names the three connections to delete and two to activate. Next 
 Read image(20261014-041036).png and image(20261014-041325).png directly from the supplied scratch paths; neither image was copied or published. Manage relationships lists six active 1:* Single relationships. Both unit_summary links and both qualification_filter links match the required four-link model. The original units-to-personnel link remains. The prior expiration-to-units and expiration-to-personnel links are absent. One unintended active qualification_detail[unit_id]-to-units[unit_id] link remains; delete only that fifth listed row. No cause for the configuration is inferred, and an extra relationship alone is not evidence of duplicated source rows or inflated displayed counts.
 
 The model checkpoint stays open pending that last removal and imported count/type confirmation. Neither image establishes import counts/types, exact M/DAX definitions, page metrics, save/reopen, or new ownership. The prior passed input check is accepted without a rerun. No pipeline/tests or operational data reads/writes are needed for these documentation and relationship instructions. Existing metric definitions, prototype acceptance, carried SQL review, and later release gates are unchanged.
+
+## October 13, 21:29 PDT relationships and import counts accepted
+
+Inspected four new images directly from scratch without copying or publishing them:
+
+- image(20261014-042424).png shows exactly five active 1:* Single relationships: both unit_summary-to-detail links, both qualification_filter-to-detail links, and the original units-to-personnel link. The last unintended link is gone. The model relationship check passes.
+- image(20261014-042636).png shows qualification_detail with 48 rows.
+- image(20261014-042700).png shows qualification_filter with eight entries Q01-Q08 and its two expected ID/name columns.
+- image(20261014-042731).png shows expiration_detail with 193 rows and visible synthetic_only, October 7 date, text IDs/names, dates, numeric availability/day-offset/window entries. This is visible data/formatting, not selected-column type metadata or verification of every row.
+
+The user explicitly states “All import counts are accurate.” In the context of the requested 48/13, 8/2, and 193/14 checks, accept those imported row/column counts as user-confirmed, with the visible row/lookup evidence above. Do not convert a count-only confirmation into an independent type inspection or exact M-source verification. Continue with the existing type check during measure creation; no additional relationship-only screenshot or repeated checker is needed.
+
+The prior checker pass remains accepted. No new DAX/page results, filter/boundary/empty check, save/reopen, independent ownership explanation, focused hours, or event feedback is supplied. Next create the sixteen ORI Q measures and the Qualification — simulated page, then review unfiltered current coverage/inventory/date/windows against the prior SQL references before selected cases. Global fragile-pair totals still come from the approved CSV reference, not an invented expected number. No code/data/metric change or pipeline/test rerun; Day 8 and later release gates remain open.
