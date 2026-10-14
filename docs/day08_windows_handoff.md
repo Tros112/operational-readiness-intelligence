@@ -79,6 +79,8 @@ Keep both active qualification_filter links and the original active units-to-per
 
 Save the working report and return the corrected Manage relationships view. Also confirm the imports are 48 rows/13 columns, 8/2, and 193/14, with the types specified in section 2; the checker reports CSV counts, not imported model counts. Do not repeat the input checker solely for relationship edits. Continue to section 4 after this model checkpoint passes.
 
+**21:13 PDT update:** both intended unit_summary links are now active and both qualification links remain correct. The old expiration-to-units and expiration-to-personnel links are gone. One extra link remains: qualification_detail[unit_id] to old units[unit_id], the fifth row in image(20261014-041036).png. Delete only that connection; keep personnel[unit_id] to units[unit_id]. This leaves five active 1:* Single relationships. Imported counts/types still need confirmation; the screenshots show no query row/column counts or selected column types. The passed checker does not need repeating for this edit.
+
 ## 4. Create sixteen ORI Q measures
 
 Use **Modeling → New measure**, with `qualification_detail` as the home table. Copy one complete definition at a time from `powerbi/qualification_measures.dax`. Home table is organization; each formula reads its appropriate fact table.

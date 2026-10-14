@@ -82,7 +82,9 @@
     "original_learning_model_changed": false,
     "Desktop_relationships_inspected": true,
     "Desktop_relationships_accepted": false,
-    "relationship_list_describes": "required_target_not_observed_current_state"
+    "relationship_list_describes": "required_target_not_observed_current_state",
+    "four_required_relationships_active_and_correct": true,
+    "unintended_relationships_remaining": 1
   },
   "static_checks": {
     "measure_names_unique": true,
@@ -224,8 +226,8 @@
   "SQL_ownership": "specific_join_grain_fragility_review_carried",
   "actual_hours": null,
   "event_employer_feedback": "unreported",
-  "verification_method": "preparation_GitHub_API_checks_followup_native_fetch_fast_forward_and_three_scratch_screenshot_reads",
-  "next_action": "delete_three_unintended_new_links_activate_two_unit_summary_links_then_relationship_view_and_import_count_type_confirmation",
+  "verification_method": "preparation_GitHub_API_checks_followup_native_fetch_and_five_scratch_screenshot_reads",
+  "next_action": "delete_remaining_qualification_detail_to_old_units_link_confirm_imported_counts_types_then_ORI_Q_measures_and_page",
   "stop_after_milestone": 8,
   "screenshot_followup": {
     "user_submission_local_datetime": "2026-10-13T20:54:16-07:00",
@@ -254,14 +256,54 @@
     "all_eight_observed_relationships_cardinality": "1:*",
     "all_eight_observed_relationships_direction": "Single_from_one_to_many",
     "observed_relationships": [
-      ["personnel.person_id", "expiration_detail.person_id", "inactive", "delete"],
-      ["qualification_filter.qualification_id", "expiration_detail.qualification_id", "active", "keep"],
-      ["units.unit_id", "expiration_detail.unit_id", "active", "delete"],
-      ["unit_summary.unit_id", "expiration_detail.unit_id", "inactive", "activate"],
-      ["units.unit_id", "personnel.unit_id", "active", "keep_original_learning_link"],
-      ["qualification_filter.qualification_id", "qualification_detail.qualification_id", "active", "keep"],
-      ["units.unit_id", "qualification_detail.unit_id", "active", "delete"],
-      ["unit_summary.unit_id", "qualification_detail.unit_id", "inactive", "activate"]
+      [
+        "personnel.person_id",
+        "expiration_detail.person_id",
+        "inactive",
+        "delete"
+      ],
+      [
+        "qualification_filter.qualification_id",
+        "expiration_detail.qualification_id",
+        "active",
+        "keep"
+      ],
+      [
+        "units.unit_id",
+        "expiration_detail.unit_id",
+        "active",
+        "delete"
+      ],
+      [
+        "unit_summary.unit_id",
+        "expiration_detail.unit_id",
+        "inactive",
+        "activate"
+      ],
+      [
+        "units.unit_id",
+        "personnel.unit_id",
+        "active",
+        "keep_original_learning_link"
+      ],
+      [
+        "qualification_filter.qualification_id",
+        "qualification_detail.qualification_id",
+        "active",
+        "keep"
+      ],
+      [
+        "units.unit_id",
+        "qualification_detail.unit_id",
+        "active",
+        "delete"
+      ],
+      [
+        "unit_summary.unit_id",
+        "qualification_detail.unit_id",
+        "inactive",
+        "activate"
+      ]
     ],
     "new_ownership_explanation_observed": false,
     "new_page_results_observed": false,
@@ -280,5 +322,66 @@
     "relative_file_links": true,
     "no_unapproved_file_extensions": true,
     "M_DAX_Python_PowerShell_executed": false
+  },
+  "latest_relationship_review": {
+    "user_submission_local_datetime": "2026-10-13T21:13:51-07:00",
+    "image_names": [
+      "image(20261014-041036).png",
+      "image(20261014-041325).png"
+    ],
+    "images_copied_or_published": false,
+    "relationship_count": 6,
+    "all_active": true,
+    "all_cardinality": "1:*",
+    "all_direction": "Single_from_one_to_many",
+    "four_required_links_correct": true,
+    "original_learning_link_preserved": true,
+    "unintended_link_to_delete": [
+      "units.unit_id",
+      "qualification_detail.unit_id"
+    ],
+    "list_position_one_based": 5,
+    "expected_relationship_count_after_correction": 5,
+    "imported_counts_and_types_confirmed": false,
+    "page_results_or_ownership_newly_observed": false,
+    "pipeline_or_tests_rerun": false,
+    "observed_relationships": [
+      [
+        "qualification_filter.qualification_id",
+        "expiration_detail.qualification_id",
+        "active",
+        "keep"
+      ],
+      [
+        "unit_summary.unit_id",
+        "expiration_detail.unit_id",
+        "active",
+        "keep"
+      ],
+      [
+        "units.unit_id",
+        "personnel.unit_id",
+        "active",
+        "keep_original_learning_link"
+      ],
+      [
+        "qualification_filter.qualification_id",
+        "qualification_detail.qualification_id",
+        "active",
+        "keep"
+      ],
+      [
+        "units.unit_id",
+        "qualification_detail.unit_id",
+        "active",
+        "delete"
+      ],
+      [
+        "unit_summary.unit_id",
+        "qualification_detail.unit_id",
+        "active",
+        "keep"
+      ]
+    ]
   }
 }
