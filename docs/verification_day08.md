@@ -1,8 +1,8 @@
-# Day 8 qualification/expiration preparation
+# Day 8 qualification/expiration verification
 
 Started **October 13, 2026**, under the user's explicit instruction, early relative to October 14. The October 7 synthetic snapshot, fictional readiness proxies, six operational sources, SQLite/CSV strategy, audience, and release dates are unchanged. The Day 7 prototype gate remains passed; MVP/polish remain open.
 
-**Status: prepared and statically reviewed; Windows/Desktop runtime pending.** The local execution environment is unavailable. No native command/file-system execution, current local dataset/hash check, Python/SQL/PowerShell run, M/DAX compilation, or actual PBIX operation is claimed. Read the immutable public baseline **9fdd5a39c7f4065c446303f20e5e1da74b37572f** through the connected GitHub interface. Root AGENTS is the only instruction file in that tree.
+**Current status: Windows input check passed; model correction, import count/type confirmation, and page verification pending.** The local execution environment was unavailable during preparation. At that stage no native command/file-system execution, current local dataset/hash check, Python/SQL/PowerShell run, M/DAX compilation, or actual PBIX operation was claimed. Read the immutable public baseline **9fdd5a39c7f4065c446303f20e5e1da74b37572f** through the connected GitHub interface. Root AGENTS is the only instruction file in that tree. Native execution returned for the follow-up below; this does not change the historical preparation boundary.
 
 ## Prepared files and model
 
@@ -39,3 +39,19 @@ Prepared code/text publication is within the user's standing scope. Build a norm
 First user review: passed input checker, imported 48/13 and 193/14 facts plus 8/2 lookup, correct types/date/classification, and four active Single relationships. Then inspect page measures and shared slicer scopes against the read-only reference, selected B/C/D cases, multiple qualifications/units, boundary counts, clear/empty behavior, and report save/reopen including earlier pages. Exact Desktop definitions and actual PBIX internals remain uninspected until evidence establishes them.
 
 Keep distinct-person/overlapping-window and unmet/fragile ownership explanations specific. Carried zero-holder join/person-certificate grain review is not marked mastered by generated code or reference checks. Workshop/event attendance, employer feedback, and actual hours remain unreported. Stop at Day 8 acceptance; process metrics/view are Day 9 and the no-renewal gap is Day 10.
+
+## October 13, 20:54 PDT screenshot follow-up
+
+Successfully read all three supplied scratch images without copying or publishing them:
+
+- image(20261014-034237).png: Manage relationships, eight relationships with cardinality/direction/status visible.
+- image(20261014-034351).png: Model view with the same new tables and active/inactive paths.
+- image(20261014-034917).png: checker output ending status passed, files_checked 3, unique grains true, rows 6/48/193, file_writes 0, and powerbi_execution_verified false. It returns to the existing Windows project prompt. Individual hashes and explicit exit code are outside the crop.
+
+Both qualification_filter-to-detail links are active 1:* Single and match the intended model. Both unit_summary-to-detail links exist as inactive 1:* Single. Unintended active links connect each detail to old units; an extra inactive link joins expiration_detail[person_id] to personnel[person_id]. Keep the original active units-to-personnel relationship. The model checkpoint therefore **does not pass yet**: the intended unit_summary slicer has no active path to the two new facts.
+
+The three new tables are visible; their imported row/column counts, types, actual M source, and new DAX measures are not shown. Accept the passed checker without treating source CSV counts as imported counts. No new page, filter reconciliation, ownership explanation, or save/reopen result is established.
+
+Native fetch and fast-forward aligned clean local main with prepared public commit 45397ca736b3e83a2091b7b0dc44750148cc17f7 (parent 9fdd5a39c7f4065c446303f20e5e1da74b37572f, tree 5c55fd84cf3847211e99c217303d8889a25f3d9a). This follow-up reads project text and images only; no current operational data read, regeneration, pipeline/test execution, M/DAX/PowerShell execution, or PBIX operation is claimed. Prior successful tests remain prior evidence.
+
+The handoff now names the three connections to delete and two to activate. Next obtain the corrected Manage relationships view and a one-line import count/type confirmation; do not repeat the input checker for relationship-only edits. Then proceed to measures/page/reconciliation. Day 8 and the MVP/polish gates remain open; the accepted prototype gate and specific SQL ownership backlog are unchanged.

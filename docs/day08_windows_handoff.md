@@ -2,7 +2,7 @@
 
 Started **October 13, 2026**, early at the user's instruction; source schedule: **October 14**. Metric date stays **2026-10-07**. The prototype gate passed Day 7. Today's page answers which current qualification pairs have shortages or no backup and whose current certificates expire within 30/60/90 days.
 
-The local execution environment is unavailable for this session. The assistant prepares the import/measure/model assets from the saved repository and prior verification; **M, DAX, PowerShell, and the new page have not been executed here**. Day 8 stays open until Windows/Desktop evidence arrives. Existing Python/SQL and their 49-test suite are unchanged; their prior passes do not test these new report definitions.
+The local execution environment was unavailable during preparation and returned for screenshot review. **The assistant has not executed M/DAX/PowerShell or operated the PBIX.** October 13 follow-up screenshots establish a passed Windows input check and visible imported tables; model corrections, import count/type confirmation, and page verification remain open. Existing Python/SQL and their 49-test suite are unchanged; their prior passes do not test these new report definitions.
 
 ## 1. Update and check the existing saved exports
 
@@ -62,6 +62,22 @@ flowchart TD
 ```
 
 **First review point:** return the input-check status/exit, three import counts/types, and a readable Model view screenshot showing these four relationships. This is enough to review the model before creating the new measures. It does not require repeating the accepted executive tests.
+
+### October 13 review: correct the extra relationships
+
+The supplied checker output reports passed, 6/48/193 rows, unique grains, three files checked, and zero writes. That check is accepted; an explicit process exit is outside the crop. The relationship images show two correct qualification links, two inactive intended unit links, and three unintended links to the old learning tables. In Manage relationships:
+
+| Existing connection, shown from the many side | Action |
+| --- | --- |
+| expiration_detail[person_id] — personnel[person_id], inactive | Delete |
+| expiration_detail[unit_id] — units[unit_id], active | Delete |
+| qualification_detail[unit_id] — units[unit_id], active | Delete |
+| expiration_detail[unit_id] — unit_summary[unit_id], inactive | Edit: activate; retain 1:* Single from unit_summary |
+| qualification_detail[unit_id] — unit_summary[unit_id], inactive | Edit: activate; retain 1:* Single from unit_summary |
+
+Keep both active qualification_filter links and the original active units-to-personnel link. The result is five relationships in this report: the four intended new relationships above plus that original learning relationship. An inactive unit_summary link cannot carry the new unit slicer's filter to the details. No Both direction or replacement learning relationship is needed.
+
+Save the working report and return the corrected Manage relationships view. Also confirm the imports are 48 rows/13 columns, 8/2, and 193/14, with the types specified in section 2; the checker reports CSV counts, not imported model counts. Do not repeat the input checker solely for relationship edits. Continue to section 4 after this model checkpoint passes.
 
 ## 4. Create sixteen ORI Q measures
 

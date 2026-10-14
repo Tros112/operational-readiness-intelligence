@@ -7,8 +7,8 @@
   "as_of_date": "2026-10-07",
   "data_classification": "synthetic_only",
   "readiness_classification": "fictional_proxy",
-  "milestone_status": "assets_prepared_static_checks_passed_Windows_Desktop_runtime_pending",
-  "selected_local_execution_environment": "unavailable",
+  "milestone_status": "Windows_preflight_passed_model_correction_import_confirmation_and_page_verification_pending",
+  "selected_local_execution_environment": "available_on_screenshot_followup_unavailable_during_preparation",
   "base_public_commit": "9fdd5a39c7f4065c446303f20e5e1da74b37572f",
   "base_tree": "73e2c7b67c89c0eeee2f7169949c72c29f8a21be",
   "assets": [
@@ -80,7 +80,9 @@
     ],
     "fact_to_fact_relationship": false,
     "original_learning_model_changed": false,
-    "Desktop_relationships_inspected": false
+    "Desktop_relationships_inspected": true,
+    "Desktop_relationships_accepted": false,
+    "relationship_list_describes": "required_target_not_observed_current_state"
   },
   "static_checks": {
     "measure_names_unique": true,
@@ -197,10 +199,10 @@
   },
   "runtime": {
     "PowerShell_reference": "prepared_not_executed",
-    "M": "not_executed",
+    "M": "new_tables_visible_actual_M_definitions_import_counts_and_types_not_inspected",
     "DAX": "not_executed",
     "PowerBI_page": "not_created_or_inspected",
-    "Windows_preflight": "pending",
+    "Windows_preflight": "passed_screenshot_6_48_193_unique_grains_three_files_zero_writes_explicit_exit_outside_crop",
     "save_reopen_prior_page_regression": "pending"
   },
   "refresh_gate": {
@@ -222,9 +224,54 @@
   "SQL_ownership": "specific_join_grain_fragility_review_carried",
   "actual_hours": null,
   "event_employer_feedback": "unreported",
-  "verification_method": "GitHub_pinned_read_and_API_blob_tree_parent_ref_checks_no_native_fetch",
-  "next_action": "Windows_pull_preflight_imports_and_four_relationships_then_first_model_review",
+  "verification_method": "preparation_GitHub_API_checks_followup_native_fetch_fast_forward_and_three_scratch_screenshot_reads",
+  "next_action": "delete_three_unintended_new_links_activate_two_unit_summary_links_then_relationship_view_and_import_count_type_confirmation",
   "stop_after_milestone": 8,
+  "screenshot_followup": {
+    "user_submission_local_datetime": "2026-10-13T20:54:16-07:00",
+    "image_names": [
+      "image(20261014-034237).png",
+      "image(20261014-034351).png",
+      "image(20261014-034917).png"
+    ],
+    "images_copied_or_published": false,
+    "Windows_preflight_observed": {
+      "status": "passed",
+      "files_checked": 3,
+      "output_grains_unique": true,
+      "rows": {
+        "unit_summary.csv": 6,
+        "qualification_detail.csv": 48,
+        "expiration_detail.csv": 193
+      },
+      "file_writes": 0,
+      "powerbi_execution_verified": false,
+      "explicit_exit_code_visible": false,
+      "individual_hashes_visible": false
+    },
+    "three_new_tables_visible": true,
+    "imported_counts_and_types_confirmed": false,
+    "all_eight_observed_relationships_cardinality": "1:*",
+    "all_eight_observed_relationships_direction": "Single_from_one_to_many",
+    "observed_relationships": [
+      ["personnel.person_id", "expiration_detail.person_id", "inactive", "delete"],
+      ["qualification_filter.qualification_id", "expiration_detail.qualification_id", "active", "keep"],
+      ["units.unit_id", "expiration_detail.unit_id", "active", "delete"],
+      ["unit_summary.unit_id", "expiration_detail.unit_id", "inactive", "activate"],
+      ["units.unit_id", "personnel.unit_id", "active", "keep_original_learning_link"],
+      ["qualification_filter.qualification_id", "qualification_detail.qualification_id", "active", "keep"],
+      ["units.unit_id", "qualification_detail.unit_id", "active", "delete"],
+      ["unit_summary.unit_id", "qualification_detail.unit_id", "inactive", "activate"]
+    ],
+    "new_ownership_explanation_observed": false,
+    "new_page_results_observed": false,
+    "pipeline_or_tests_rerun": false,
+    "prepared_assets_native_fetch_fast_forward": {
+      "commit": "45397ca736b3e83a2091b7b0dc44750148cc17f7",
+      "parent": "9fdd5a39c7f4065c446303f20e5e1da74b37572f",
+      "tree": "5c55fd84cf3847211e99c217303d8889a25f3d9a"
+    }
+  },
   "prepublication_checks": {
     "baseline_Git_blob_hashes_recomputed": 18,
     "prepared_files_hashed": 17,
