@@ -2,7 +2,7 @@
 
 Started **October 13, 2026**, early at the user's instruction; source schedule: **October 14**. Metric date stays **2026-10-07**. The prototype gate passed Day 7. Today's page answers which current qualification pairs have shortages or no backup and whose current certificates expire within 30/60/90 days.
 
-The local execution environment was unavailable during preparation and returned for screenshot review. **The assistant has not executed M/DAX/PowerShell or operated the PBIX.** October 13 follow-up screenshots establish a passed Windows input check and visible imported tables; model corrections, import count/type confirmation, and page verification remain open. Existing Python/SQL and their 49-test suite are unchanged; their prior passes do not test these new report definitions.
+The local execution environment was unavailable during preparation and returned for screenshot review. **The assistant has not executed M/DAX/PowerShell or operated the PBIX.** October 13 evidence establishes a passed Windows input check, correct relationships, and confirmed imported counts. October 14 global-page coverage/inventory/date/window displays reconcile. Certificate detail and filtered/completion checks remain open; exact type metadata and installed definitions remain uninspected. Existing Python/SQL and their 49-test suite are unchanged; their prior passes do not test these new report definitions.
 
 ## 1. Update and check the existing saved exports
 
@@ -134,6 +134,10 @@ Use readable headers. Disable this table's totals row so raw holder counts are n
 Certificate table: `expiration_detail[unit_name]`, `qualification_id`, `person_id`, `expiration_date`, `days_until_expiration`, `is_available`. Availability 1 means available, 0 unavailable. Keep both in the inventory. The two lower tables can scroll; extra charts or a page redesign are not required.
 
 Both slicers allow multiple selections and should filter every new card/table. Keep them page-local; leave Sync slicers off. Use the same source/target interaction controls as Day 6: select each table as the source, top-ribbon **Format → Edit interactions**, and choose None over cards, slicers, and other tables. Then select each slicer as the source and confirm Filter on cards/tables. Exit Edit interactions and save the working report.
+
+**October 14, 20:48 PDT update:** the global coverage/gap/fragility/inventory/date/window displays all reconcile, including fragile pairs 6 confirmed against the existing manifest-matching CSV. Do not repeat accepted global checks solely to rebuild evidence. The current screenshot has the qualification requirements table; a certificate-level table is not visible. Give these two tables separate titles, add the six-field certificate table above, and keep requirement-table totals off.
+
+Next select only **Unit D and Q04**. Expected coverage 100.00%, missing slots/pairs 0/0, fragile pairs 0, required holders 2/current eligible holders 6, current certificates/people 6/6, and each cumulative window 6/6. The certificate rows have days 7, 10, 14, 20, 25, 30; November 6 is the inclusive day-30 endpoint. Keep the analysis date October 7. Return this filtered page with both slicer selections and the certificate-detail table visible, then continue section 6's remaining cases. This is the existing staged reconciliation, not Day 8 completion from global numbers alone.
 
 ## 6. Reconcile, save, and explain
 

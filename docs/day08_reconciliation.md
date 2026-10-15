@@ -1,18 +1,18 @@
 # Day 8 — qualification and expiration reconciliation
 
-All references describe the synthetic **2026-10-07** snapshot. Previous SQL evidence is in `docs/analytics_check.json` and `docs/verification_day05.md`. The Desktop results are pending until inspected.
+All references describe the synthetic **2026-10-07** snapshot. Previous SQL evidence is in `docs/analytics_check.json` and `docs/verification_day05.md`. The October 14 unfiltered Desktop displays reconcile; filtered and completion checks remain pending until inspected.
 
 ## Known reference values
 
 | Selection | Required slots | Covered slots | Coverage | Missing slots | Qualification pairs with gaps | Fragile / single-holder |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| All units and qualifications | 95 | 88 | 92.63% | 7 | 7 | Get exact totals from the read-only reference below |
+| All units and qualifications | 95 | 88 | 92.63% | 7 | 7 | 6 / 1; derived from manifest-matching CSV on October 14 |
 | Unit C, all qualifications | 16 | 15 | 93.75% | 1 | 1 | Get exact totals from the reference |
 | Unit C / Q06 | 2 | 1 | 50.00% | 1 | 1 | 0 / 0 |
 | Unit B / Q03 | 1 | 1 | 100.00% | 0 | 0 | 1 / 1 |
 | Unit D / Q04 | 2 | 2 | 100.00% | 0 | 0 | 0 / 0; six eligible holders, capped at two |
 
-The source audit does not record the all-unit fragile-pair total. Derive it from the approved CSV instead of inventing a number. The live reference has no zero-holder pair; the prior SQL fixture separately verifies that requirements survive with zero holders.
+The earlier source audit did not record the all-unit fragile total. The October 14 read-only CSV check now establishes six fragile pairs (A/Q01, A/Q08, B/Q03, B/Q07, D/Q07, F/Q07), one single-holder pair (B/Q03), and a matching global Desktop fragile card of 6. The live reference has no zero-holder pair; the prior SQL fixture separately verifies that requirements survive with zero holders.
 
 | Inventory selection / cumulative cutoff | Certificate rows | Distinct people |
 | --- | ---: | ---: |
@@ -21,6 +21,13 @@ The source audit does not record the all-unit fragile-pair total. Derive it from
 | Within 60 days, through December 6, 2026 | 68 | 62 |
 | Within 90 days, through January 5, 2027 | 98 | 84 |
 | Unit D / Q04: all current, and each 30/60/90 window | 6 | 6 |
+| Unit C / Q06: all current, and each 30/60/90 window | 2 | 2 |
+| Unit B / Q03: all current | 1 | 1 |
+| Unit B / Q03: each 30/60/90 window | 0 | 0 |
+| Units A+C / Q01+Q02: all current | 18 | 17 |
+| Units A+C / Q01+Q02: 30 / 60 / 90 window | 4 / 6 / 9 | 4 / 6 / 9 |
+
+The added selected inventory values were calculated October 14 from the existing detail CSVs after matching their SHA-256 values, 48/193 rows, fixed date, and synthetic classification to the passed manifest. No files were changed or pipeline/test suite rerun. They are reference expectations, not observed filtered Power BI results. The global page screenshot matches the global rows above.
 
 The current inventory includes **21 certificate rows held by unavailable people**. Keep them in expiration counts. Unit D/Q04's six rows have offsets **7, 10, 14, 20, 25, 30**; the certificate expiring November 6 is included at day 30. Their current coverage is met with surplus, so they are not fragile today. No future gap is calculated here; the no-renewal scenario remains Day 10.
 
