@@ -2,7 +2,7 @@
 
 Started **October 13, 2026**, early at the user's instruction; source schedule: **October 14**. Metric date stays **2026-10-07**. The prototype gate passed Day 7. Today's page answers which current qualification pairs have shortages or no backup and whose current certificates expire within 30/60/90 days.
 
-The local execution environment was unavailable during preparation and returned for screenshot review. **The assistant has not executed M/DAX/PowerShell or operated the PBIX.** October 13 evidence establishes a passed Windows input check, correct relationships, and confirmed imported counts. October 14 global-page coverage/inventory/date/window displays reconcile. October 15 D/Q04 certificate detail, capped coverage, shared selection, and inclusive day 30 reconcile. Date-column/totals cleanup and remaining filtered/completion checks remain open; exact type metadata and installed definitions remain uninspected. Existing Python/SQL and their 49-test suite are unchanged; their prior passes do not test these new report definitions.
+The local execution environment was unavailable during preparation and returned for screenshot review. **The assistant has not executed M/DAX/PowerShell or operated the PBIX.** October 13 evidence establishes a passed Windows input check, correct relationships, and confirmed imported counts. October 14 global-page coverage/inventory/date/window displays reconcile. October 15 D/Q04 certificate detail, capped coverage, shared selection, and inclusive day 30 reconcile. The later C/Q06, B/Q03, and plain-date/no-total cleanup checks also reconcile. Multiple/clear/empty/interactions, save/reopen, and remaining ownership checks remain open; exact type metadata and installed definitions remain uninspected. Existing Python/SQL and their 49-test suite are unchanged; their prior passes do not test these new report definitions.
 
 ## 1. Update and check the existing saved exports
 
@@ -153,6 +153,10 @@ Next clear the previous selections and inspect these two cases separately:
 | Each 30/60/90 window: certificates / people | 2 / 2 | 0 / 0 |
 
 Keep both availability states in the inventory. Return the two filtered results and a short explanation of why C's inventory count can exceed its eligible-holder count; generated reference values alone do not establish ownership. Then complete the remaining cases below. Plain-date field guidance: [Microsoft auto date/time documentation](https://learn.microsoft.com/en-gb/power-bi/transform-model/desktop-auto-date-time).
+
+**October 15, 21:06 PDT update — C/Q06, B/Q03, and cleanup accepted:** all displayed results in the comparison above match the references. Plain certificate dates and hidden totals are visible. No repeat of these accepted single cases is needed. The user's availability interpretation needs one temporal correction: is_available is current eligibility at October 7, not ability to renew after expiration. Both C certificates are valid at D; the unavailable holder is excluded from coverage already at D. Inventory retains both. Future renewal ability/intent is not established for either person.
+
+Next select **Units A+C and qualifications Q01+Q02** together. Expect required/covered 8/8, coverage 100%, missing slots/pairs 0/0, fragile pairs 1, current certificates/people 18/17, and windows 4/4, 6/6, 9/9. Date remains October 7. Then complete the remaining checklist below; no additional single-case gate is needed.
 
 ## 6. Reconcile, save, and explain
 
