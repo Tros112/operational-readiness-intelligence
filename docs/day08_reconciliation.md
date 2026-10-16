@@ -1,6 +1,6 @@
 # Day 8 — qualification and expiration reconciliation
 
-All references describe the synthetic **2026-10-07** snapshot. Previous SQL evidence is in `docs/analytics_check.json` and `docs/verification_day05.md`. The October 14 unfiltered Desktop displays reconcile; filtered and completion checks remain pending until inspected.
+All references describe the synthetic **2026-10-07** snapshot. Previous SQL evidence is in `docs/analytics_check.json` and `docs/verification_day05.md`. The October 14 unfiltered and October 15 D/Q04 Desktop displays reconcile, including the inclusive day-30 endpoint. Other selected and completion checks remain pending until inspected.
 
 ## Known reference values
 
@@ -123,3 +123,5 @@ The last case should have zero counts and a blank coverage value. If console wid
 Only repeat a completed check if a subsequent change or failure affects it. Empty-selection and selected-qualification behavior are new Day 8 checks, not reruns of the accepted executive-page arithmetic.
 
 For ownership, explain why 45 expiring certificates affect 41 people, why a 1/2 pair is unmet while a 1/1 pair is fragile, and why the three cumulative windows cannot be added. The separate zero-holder join / person-versus-certificate row-grain review remains carried until independently explained.
+
+October 15 D/Q04 screenshot acceptance: both slicers select only D/Q04; required/eligible 2/6, coverage 100%, zero gaps/fragility, current and all-window certificates/people 6/6, fixed October 7 date, and all six certificate rows at days 7/10/14/20/25/30 are visible. November 6/day 30 is included. Date hierarchy and certificate-table totals need display cleanup; they do not change this numeric reconciliation. C/Q06, B/Q03, multiple/clear/empty/interactions, save/reopen, and ownership remain pending.

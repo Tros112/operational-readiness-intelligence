@@ -7,7 +7,7 @@
   "as_of_date": "2026-10-07",
   "data_classification": "synthetic_only",
   "readiness_classification": "fictional_proxy",
-  "milestone_status": "global_report_displays_reconciled_certificate_detail_filtered_and_completion_checks_pending",
+  "milestone_status": "global_and_D_Q04_selected_detail_inclusive_day30_passed_remaining_cases_display_cleanup_and_completion_pending",
   "selected_local_execution_environment": "available_on_screenshot_followup_unavailable_during_preparation",
   "base_public_commit": "9fdd5a39c7f4065c446303f20e5e1da74b37572f",
   "base_tree": "73e2c7b67c89c0eeee2f7169949c72c29f8a21be",
@@ -203,7 +203,7 @@
     "PowerShell_reference": "prepared_not_executed",
     "M": "loaded_tables_and_row_totals_visible_imported_counts_user_confirmed_exact_M_and_type_metadata_uninspected",
     "DAX": "global_report_outputs_observed_and_reconciled_exact_installed_definitions_uninspected",
-    "PowerBI_page": "unfiltered_page_screenshot_inspected_global_cards_date_windows_passed_requirements_table_visible_certificate_detail_not_visible",
+    "PowerBI_page": "global_and_D_Q04_selected_cards_requirements_six_certificates_and_inclusive_day30_reconciled_remaining_cases_and_completion_pending",
     "Windows_preflight": "passed_screenshot_6_48_193_unique_grains_three_files_zero_writes_explicit_exit_outside_crop",
     "save_reopen_prior_page_regression": "pending"
   },
@@ -226,8 +226,8 @@
   "SQL_ownership": "specific_join_grain_fragility_review_carried",
   "actual_hours": null,
   "event_employer_feedback": "unreported",
-  "verification_method": "prior_GitHub_and_native_receipts_ten_scratch_images_user_import_confirmation_and_read_only_manifest_matching_detail_CSV_reference",
-  "next_action": "add_separate_certificate_detail_table_then_Unit_D_Q04_selected_capping_inventory_and_inclusive_day30_review",
+  "verification_method": "prior_GitHub_native_receipts_eleven_scratch_images_user_count_confirmation_prior_manifest_matching_CSV_references_and_Microsoft_date_field_guidance",
+  "next_action": "show_plain_certificate_date_hide_certificate_totals_then_C_Q06_and_B_Q03_filtered_scope_and_fragility_checks",
   "stop_after_milestone": 8,
   "screenshot_followup": {
     "user_submission_local_datetime": "2026-10-13T20:54:16-07:00",
@@ -429,7 +429,7 @@
     "new_page_results_or_ownership_observed": false,
     "pipeline_or_tests_rerun": false
   },
-  "last_review_local_date": "2026-10-14",
+  "last_review_local_date": "2026-10-15",
   "latest_global_page_review": {
     "user_submission_local_datetime": "2026-10-14T20:48:25-07:00",
     "image_name": "image(20261015-034810).png",
@@ -562,5 +562,73 @@
     "selected_PowerBI_results_established": false,
     "pipeline_checker_exporter_or_test_suite_rerun": false,
     "historical_preparation_data_access_claim_superseded_only_for_this_followup": true
+  },
+  "latest_D_Q04_review": {
+    "user_submission_local_datetime": "2026-10-15T20:42:33-07:00",
+    "image_name": "image(20261016-034226).png",
+    "image_copied_or_published": false,
+    "visible_selected_unit": "Unit D",
+    "visible_selected_qualification": "Q04",
+    "displayed_values": {
+      "required_holders": 2,
+      "eligible_holders": 6,
+      "coverage": "100.00%",
+      "missing_slots": 0,
+      "gap_pairs": 0,
+      "fragile_pairs": 0,
+      "single_holder_flag": 0,
+      "current_certificates": 6,
+      "current_people": 6,
+      "analysis_date": "2026-10-07",
+      "30": {
+        "certificates": 6,
+        "people": 6
+      },
+      "60": {
+        "certificates": 6,
+        "people": 6
+      },
+      "90": {
+        "certificates": 6,
+        "people": 6
+      }
+    },
+    "separate_certificate_table_visible": true,
+    "distinct_person_ID_rows_visible": 6,
+    "visible_availability_flags": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "visible_day_offsets": [
+      7,
+      10,
+      14,
+      20,
+      25,
+      30
+    ],
+    "dates_reconstructed_from_visible_hierarchy": [
+      "2026-10-14",
+      "2026-10-17",
+      "2026-10-21",
+      "2026-10-27",
+      "2026-11-01",
+      "2026-11-06"
+    ],
+    "requirements_total_row_visible": false,
+    "selected_displayed_scope_capping_inventory_and_day30": "passed",
+    "date_display": "hierarchy_Year_Quarter_Month_Day_switch_visual_to_plain_date",
+    "certificate_total_day_offsets_displayed": 106,
+    "certificate_table_totals": "disable_for_record_level_inventory",
+    "exact_installed_formulas_or_interaction_settings_inspected": false,
+    "other_cases_clear_empty_interactions_verified": false,
+    "save_reopen_or_new_ownership_observed": false,
+    "reference_data_reread_this_followup": false,
+    "pipeline_checker_exporter_or_test_suite_rerun": false,
+    "assistant_operated_M_DAX_PowerShell_PBIX": false
   }
 }
