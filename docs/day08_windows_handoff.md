@@ -2,7 +2,7 @@
 
 Started **October 13, 2026**, early at the user's instruction; source schedule: **October 14**. Metric date stays **2026-10-07**. The prototype gate passed Day 7. Today's page answers which current qualification pairs have shortages or no backup and whose current certificates expire within 30/60/90 days.
 
-The local execution environment was unavailable during preparation and returned for screenshot review. **The assistant has not executed M/DAX/PowerShell or operated the PBIX.** October 13 evidence establishes a passed Windows input check, correct relationships, and confirmed imported counts. October 14 global-page coverage/inventory/date/window displays reconcile. October 15 D/Q04 certificate detail, capped coverage, shared selection, and inclusive day 30 reconcile. The later C/Q06, B/Q03, and plain-date/no-total cleanup checks also reconcile. Multiple/clear/empty/interactions, save/reopen, and remaining ownership checks remain open; exact type metadata and installed definitions remain uninspected. Existing Python/SQL and their 49-test suite are unchanged; their prior passes do not test these new report definitions.
+The local execution environment was unavailable during preparation and returned for screenshot review. **The assistant has not executed M/DAX/PowerShell or operated the PBIX.** October 13 evidence establishes a passed Windows input check, correct relationships, and confirmed imported counts. October 14 global-page coverage/inventory/date/window displays reconcile. October 15 D/Q04 certificate detail, capped coverage, shared selection, and inclusive day 30 reconcile. The later C/Q06, B/Q03, and plain-date/no-total cleanup checks also reconcile. The combined A+C/Q01+Q02 selection also reconciles. Clear/empty/interactions, save/reopen, and remaining ownership checks remain open; exact type metadata and installed definitions remain uninspected. Existing Python/SQL and their 49-test suite are unchanged; their prior passes do not test these new report definitions.
 
 ## 1. Update and check the existing saved exports
 
@@ -158,9 +158,18 @@ Keep both availability states in the inventory. Return the two filtered results 
 
 Next select **Units A+C and qualifications Q01+Q02** together. Expect required/covered 8/8, coverage 100%, missing slots/pairs 0/0, fragile pairs 1, current certificates/people 18/17, and windows 4/4, 6/6, 9/9. Date remains October 7. Then complete the remaining checklist below; no additional single-case gate is needed.
 
+**October 15, 21:17 PDT update — combined selection accepted:** both unit and qualification multi-selections are visible and all expected cards/table/windows match: 100%, gaps/pairs 0/0, fragile 1, certificates/people 18/17, windows 4/4, 6/6, 9/9, date October 7. All four requirement rows reconcile. Do not repeat accepted global/single/multiple cases solely for evidence; finish the remaining checks below.
+
 ## 6. Reconcile, save, and explain
 
-Use `docs/day08_reconciliation.md` for known results and the read-only CSV reference block. Check global, C/Q06, B/Q03, D/Q04 (including its day-30 endpoint), a multiple-unit/multiple-qualification selection, cleared restoration, and one empty page filter. Reference counts are CSV-derived expectations; reviewed Desktop evidence establishes actual report results.
+Use `docs/day08_reconciliation.md` for references and the accepted/pending checklist. Global, the three focused cases, inclusive day 30, combined selection, and display cleanup have passed. Only these report checks remain:
+
+1. Clear both slicers and confirm global restoration: coverage 92.63%, missing/pairs 7/7, fragile 6, certificates/people 193/145, windows 45/41, 68/62, 98/84, date October 7.
+2. With slicers clear, select a row in each detail table separately. Cards and the other table must retain global scope using the intended None interactions. Each slicer should still filter all new cards/tables.
+3. Temporarily apply a page filter on qualification_filter[qualification_id] equal to NO_SUCH_QUALIFICATION. Count cards and window counts are zero, coverage/date blank, both detail tables have no rows. Remove the temporary filter and restore global.
+4. Save/reopen the working report and confirm new qualification plus earlier executive/learning pages function. No new report basename or original-file proof is required.
+
+Return the clear/empty results and interaction/reopen confirmation. Include three brief own explanations: why 18 certificates can represent 17 people; why C/Q06 is undercovered while B/Q03 is fragile (current availability at D, not renewal prospects); why cumulative windows overlap. Keep the specific SQL review backlog separate from these observed BI concepts.
 
 Save/reopen the working report and confirm its new and previous pages still work. Return the all-unit page, relevant filtered/boundary result, counts/reference output, and any exact error. Do not supply a new filename or original-file proof solely to satisfy this milestone; keep the existing preservation instruction. The existing Python suite remains 49 tests because no Python/SQL/test definition changes; it does not execute M/DAX, so an unnecessary full rerun does not verify this new page.
 

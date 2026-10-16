@@ -1,6 +1,6 @@
 # Day 8 — qualification and expiration reconciliation
 
-All references describe the synthetic **2026-10-07** snapshot. Previous SQL evidence is in `docs/analytics_check.json` and `docs/verification_day05.md`. The October 14 unfiltered and October 15 D/Q04, C/Q06, and B/Q03 Desktop displays reconcile, including the inclusive day-30 endpoint and current-availability scope. Multiple/clear/empty/interactions and completion checks remain pending until inspected.
+All references describe the synthetic **2026-10-07** snapshot. Previous SQL evidence is in `docs/analytics_check.json` and `docs/verification_day05.md`. The October 14 unfiltered and October 15 D/Q04, C/Q06, and B/Q03 Desktop displays reconcile, including the inclusive day-30 endpoint and current-availability scope. The combined A+C/Q01+Q02 displays also reconcile; clear/empty/interactions and completion checks remain pending until inspected.
 
 ## Known reference values
 
@@ -113,12 +113,12 @@ The last case should have zero counts and a blank coverage value. If console wid
 
 ## Desktop completion checks
 
-1. Compare the unfiltered coverage/gaps/fragility and inventory counts with the two reference tables.
-2. Select C/Q06 and B/Q03 using the two dimension slicers. Verify the different gap/fragility states and compare their inventory windows with the reference.
-3. Select D/Q04. The pair has six available holders against two required, 100% capped coverage, no current gap, and no fragility. Inventory and each cumulative window contain six certificates affecting six people. Confirm the November 6 / day-30 row remains included.
-4. Select A+C and Q01+Q02 together. Compare all counts with the reference; distinct people must be recalculated for the union of selected qualifications.
-5. Clear both slicers and restore global totals. Temporarily apply a page filter on `qualification_filter[qualification_id]` equal to `NO_SUCH_QUALIFICATION`. All new count measures should be zero; coverage and `ORI Q Analysis Date` should be blank. Both detail tables have no data rows. Remove the filter and restore the page.
-6. Check that selecting a table row leaves cards unchanged when the slicers are clear, using the intended None interactions. Save the working report, reopen it, and confirm the new page and the prior executive/learning pages function.
+1. **Passed:** unfiltered coverage/gaps/fragility and inventory counts match the two reference tables.
+2. **Passed:** C/Q06 and B/Q03 dimension-slicer selections match their different gap/fragility states and inventory/window references.
+3. **Passed:** D/Q04 selection. The pair has six available holders against two required, 100% capped coverage, no current gap, and no fragility. Inventory and each cumulative window contain six certificates affecting six people. Confirm the November 6 / day-30 row remains included.
+4. **Passed:** A+C and Q01+Q02 together match the reference, including 18 certificates/17 people and 4/4, 6/6, 9/9 windows for the selected union.
+5. **Pending:** clear both slicers and restore global totals. Temporarily apply a page filter on `qualification_filter[qualification_id]` equal to `NO_SUCH_QUALIFICATION`. All new count measures should be zero; coverage and `ORI Q Analysis Date` should be blank. Both detail tables have no data rows. Remove the filter and restore the page.
+6. **Pending:** check that selecting a table row leaves cards unchanged when the slicers are clear, using the intended None interactions. Save the working report, reopen it, and confirm the new page and the prior executive/learning pages function.
 
 Only repeat a completed check if a subsequent change or failure affects it. Empty-selection and selected-qualification behavior are new Day 8 checks, not reruns of the accepted executive-page arithmetic.
 
@@ -127,3 +127,5 @@ For ownership, explain why 45 expiring certificates affect 41 people, why a 1/2 
 October 15 D/Q04 screenshot acceptance: both slicers select only D/Q04; required/eligible 2/6, coverage 100%, zero gaps/fragility, current and all-window certificates/people 6/6, fixed October 7 date, and all six certificate rows at days 7/10/14/20/25/30 are visible. November 6/day 30 is included. Date hierarchy and certificate-table totals need display cleanup; they do not change this numeric reconciliation. C/Q06, B/Q03, multiple/clear/empty/interactions, save/reopen, and ownership remain pending.
 
 Later October 15 C/Q06 and B/Q03 screenshots match their reference rows, current inventory, and all windows; date/table-total cleanup is visible. C shows two valid certificates but only one currently available eligible holder, so coverage is already 50% at D. B is met exactly and fragile, with its lone current certificate outside 90 days. is_available refers to current snapshot coverage, not future renewal prospects. Multiple/clear/empty/interactions, save/reopen, and remaining ownership checks stay open.
+
+October 15, 21:17 PDT combined selection passes: A+C/Q01+Q02 visible, required/capped 8/8, coverage 100%, gaps/pairs 0/0, fragile one, certificates/people 18/17, windows 4/4, 6/6, 9/9, fixed October 7 date. Remaining clear/empty/interactions, save/reopen, and own explanations are not established by that screenshot.
