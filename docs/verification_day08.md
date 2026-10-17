@@ -140,3 +140,19 @@ All three own answers are correct: one person may hold multiple certificates; C/
 The full empty case is still unobserved. Handoff now gives exact UI steps: shared qualification_filter[qualification_id] → Filters on this page → Advanced filtering → is → NO_SUCH_QUALIFICATION → Apply filter. Expected count cards and six window counts are zero, coverage/date blank, and both detail tables have no data rows. The measure-only window table may retain one zero row. Removing the temporary filter/restoring global and saving/reopening old/new pages remain unverified. Primary Microsoft interaction/page-filter/show-hide-filter documentation was consulted for UI guidance, not as evidence of project outputs.
 
 Only documentation/audit status changes. No current operational data/DB reread/write, pipeline/checker/exporter/test rerun, assistant M/DAX/PowerShell/PBIX execution, metric/model/scope change, actual focused hours, event/employer feedback, Day 8 closure, or later release-gate pass is claimed.
+
+## October 17, 11:28 PDT completion acceptance
+
+All four supplied images were read successfully from scratch; none was copied or published:
+
+| Evidence | Observed result | Acceptance |
+| --- | --- | --- |
+| image(20261017-181712).png | Advanced page filter qualification_id is NO_SUCH_QUALIFICATION. Five count cards and six window counts are zero. Coverage/date show blank dashes. Both detail tables contain headers but no data rows; the measure-only window row remains. | Full empty scope passed |
+| image(20261017-181744).png | Filters on this page is empty. Global 92.63%, missing/pairs 7/7, fragile 6, 193 certificates/145 people, windows 45/41, 68/62, 98/84, and October 7 date restored. Both detail tables populated. | Temporary filter removal/restoration passed |
+| image(20261017-182617).png | A/Q02 requirements row highlighted with slicers clear; all cards/windows/date remain global and certificate table still displays multiple qualification pairs. | Requirements table-selection test passed |
+| image(20261017-182629).png | A/Q01 certificate at day 171 highlighted with slicers clear; all cards/windows/date remain global and requirements table still displays multiple pairs. | Certificate table-selection test passed |
+| User statement | "PBIX reopens and functions correctly" in response to the requested save/reopen and new/prior-page check. | User-confirmed reopening/function accepted |
+
+The interaction outcomes supersede the earlier failed row-selection tests. The actual None controls and reopened PBIX were not operated by the assistant; the observed behavior and user confirmation satisfy the handoff without additional screenshot/filename/definition proof. Previously accepted slicer selections, numeric/boundary references, cleanup, and own explanations remain valid.
+
+Day 8 is complete. Close the remaining checklist/audit states and save the completion checkpoint. Only text/audit documentation changes; no new tests or operational pipeline runs, data/DB access, or Python/SQL/M/DAX/model/metric/scope changes were needed. Existing 49-test evidence remains prior evidence. Actual hours and event/employer feedback are unreported. Specific LEFT JOIN and staffing join-multiplication learning items remain carried without another Day 8 quiz. Stop before Day 9; the prototype remains passed while MVP and polish remain open.

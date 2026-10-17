@@ -7,7 +7,7 @@
   "as_of_date": "2026-10-07",
   "data_classification": "synthetic_only",
   "readiness_classification": "fictional_proxy",
-  "milestone_status": "displayed_cases_clear_global_and_three_explanations_passed_table_interaction_repair_empty_restore_reopen_pending",
+  "milestone_status": "complete_from_reconciled_Desktop_evidence_own_explanations_and_user_reopen_confirmation",
   "selected_local_execution_environment": "available_on_screenshot_followup_unavailable_during_preparation",
   "base_public_commit": "9fdd5a39c7f4065c446303f20e5e1da74b37572f",
   "base_tree": "73e2c7b67c89c0eeee2f7169949c72c29f8a21be",
@@ -202,10 +202,10 @@
   "runtime": {
     "PowerShell_reference": "prepared_not_executed",
     "M": "loaded_tables_and_row_totals_visible_imported_counts_user_confirmed_exact_M_and_type_metadata_uninspected",
-    "DAX": "global_report_outputs_observed_and_reconciled_exact_installed_definitions_uninspected",
-    "PowerBI_page": "accepted_global_single_combined_and_clear_outputs_both_source_table_interactions_need_None_repair_empty_restore_reopen_pending",
+    "DAX": "global_single_combined_boundary_empty_and_restored_outputs_observed_and_reconciled_exact_installed_definitions_uninspected",
+    "PowerBI_page": "accepted_global_single_combined_day30_clear_empty_restore_and_both_detail_table_selection_results",
     "Windows_preflight": "passed_screenshot_6_48_193_unique_grains_three_files_zero_writes_explicit_exit_outside_crop",
-    "save_reopen_prior_page_regression": "pending"
+    "save_reopen_prior_page_regression": "passed_user_confirmation_PBIX_reopens_and_functions_correctly_in_requested_new_and_prior_page_context"
   },
   "refresh_gate": {
     "Python_SHA256_preflight_required": true,
@@ -227,7 +227,7 @@
   "actual_hours": null,
   "event_employer_feedback": "unreported",
   "verification_method": "prior_receipts_scratch_images_user_confirmations_own_explanations_saved_CSV_references_and_primary_Microsoft_UI_documentation",
-  "next_action": "repair_both_source_table_None_interactions_keep_slicer_Filter_then_shared_lookup_advanced_empty_page_filter_remove_restore_save_reopen",
+  "next_action": "stop_after_Day8_on_user_instruction_commence_Day9_process_SQL_exports_and_PowerBI_view_with_completed_and_open_case_denominators",
   "stop_after_milestone": 8,
   "screenshot_followup": {
     "user_submission_local_datetime": "2026-10-13T20:54:16-07:00",
@@ -783,10 +783,10 @@
   },
   "remaining_completion_checks": {
     "clear_global_restoration": "passed_displayed_global_values_in_third_Oct17_image",
-    "both_table_interaction_tests": "observed_not_passing_both_tables_filter_cards_repair_None_and_retest",
-    "full_shared_lookup_empty_scope": "pending",
-    "temporary_filter_removed_and_global_restored": "pending",
-    "save_reopen_new_and_prior_pages": "pending",
+    "both_table_interaction_tests": "passed_both_selected_detail_rows_leave_global_cards_windows_date_and_other_table_unchanged",
+    "full_shared_lookup_empty_scope": "passed_impossible_page_filter_zero_counts_blank_coverage_and_date_both_detail_tables_no_rows",
+    "temporary_filter_removed_and_global_restored": "passed_page_filter_area_empty_global_values_restored",
+    "save_reopen_new_and_prior_pages": "passed_user_confirmation_in_context_of_requested_new_and_prior_page_check",
     "three_own_explanations": "passed_user_Oct17_own_answers"
   },
   "latest_interaction_clear_and_ownership_review": {
@@ -866,5 +866,106 @@
     "pipeline_checker_exporter_or_test_suite_rerun": false,
     "assistant_operated_M_DAX_PowerShell_PBIX": false,
     "metric_model_or_scope_changed": false
+  },
+  "completion_local_date": "2026-10-17",
+  "completion_submission_local_datetime": "2026-10-17T11:28:14-07:00",
+  "remaining_Day8_gaps": [],
+  "Day9_status": "planned_not_started",
+  "latest_completion_review": {
+    "user_submission_local_datetime": "2026-10-17T11:28:14-07:00",
+    "image_names": [
+      "image(20261017-181712).png",
+      "image(20261017-181744).png",
+      "image(20261017-182617).png",
+      "image(20261017-182629).png"
+    ],
+    "images_read_from_scratch": true,
+    "images_copied_or_published": false,
+    "empty_result": {
+      "image_name": "image(20261017-181712).png",
+      "page_filter_field": "qualification_filter.qualification_id",
+      "filter_type": "Advanced",
+      "operator": "is",
+      "value": "NO_SUCH_QUALIFICATION",
+      "count_cards": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "window_counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "coverage_and_analysis_date": "blank_displayed_as_dashes",
+      "requirements_data_rows": 0,
+      "certificate_data_rows": 0,
+      "window_measure_row_retained": true,
+      "result": "passed"
+    },
+    "restoration": {
+      "image_name": "image(20261017-181744).png",
+      "page_filter_area_empty": true,
+      "visible_slicer_selections": false,
+      "coverage": "92.63%",
+      "gap_pairs": 7,
+      "missing_slots": 7,
+      "fragile_pairs": 6,
+      "current_certificates": 193,
+      "current_people": 145,
+      "window_certificates_people": [
+        [
+          45,
+          41
+        ],
+        [
+          68,
+          62
+        ],
+        [
+          98,
+          84
+        ]
+      ],
+      "analysis_date": "2026-10-07",
+      "both_detail_tables_populated": true,
+      "result": "passed"
+    },
+    "requirements_table_selection": {
+      "image_name": "image(20261017-182617).png",
+      "selected_pair": "A/Q02",
+      "visible_slicer_selections": false,
+      "cards_windows_and_date_remain_global": true,
+      "certificate_table_retains_multiple_pairs": true,
+      "result": "passed"
+    },
+    "certificate_table_selection": {
+      "image_name": "image(20261017-182629).png",
+      "selected_unit_qualification": "A/Q01",
+      "selected_certificate_day_offset": 171,
+      "visible_slicer_selections": false,
+      "cards_windows_and_date_remain_global": true,
+      "requirements_table_retains_multiple_pairs": true,
+      "result": "passed"
+    },
+    "user_reopen_confirmation": "PBIX reopens and functions correctly",
+    "reopen_evidence_type": "user_reported_accepted_in_context_of_requested_new_and_prior_page_check",
+    "exact_interaction_controls_or_reopened_PBIX_operated_by_assistant": false,
+    "previous_failed_table_tests_superseded": true,
+    "three_own_explanations": "previous_Oct17_answers_remain_accepted_no_repeat_quiz",
+    "completion": "Day8_passed",
+    "prior_python_tests": 49,
+    "new_pipeline_or_test_run": false,
+    "current_operational_data_DB_reread_or_write": false,
+    "metric_model_scope_or_Python_SQL_M_DAX_changed": false,
+    "actual_hours": null,
+    "event_employer_feedback": "unreported",
+    "MVP_or_polish_passed": false,
+    "Day9_or_Day10_started": false
   }
 }

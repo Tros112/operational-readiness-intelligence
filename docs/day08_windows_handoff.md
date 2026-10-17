@@ -2,7 +2,7 @@
 
 Started **October 13, 2026**, early at the user's instruction; source schedule: **October 14**. Metric date stays **2026-10-07**. The prototype gate passed Day 7. Today's page answers which current qualification pairs have shortages or no backup and whose current certificates expire within 30/60/90 days.
 
-The local execution environment was unavailable during preparation and returned for screenshot review. **The assistant has not executed M/DAX/PowerShell or operated the PBIX.** October 13 evidence establishes a passed Windows input check, correct relationships, and confirmed imported counts. October 14 global-page coverage/inventory/date/window displays reconcile. October 15 D/Q04 certificate detail, capped coverage, shared selection, and inclusive day 30 reconcile. The later C/Q06, B/Q03, and plain-date/no-total cleanup checks also reconcile. The combined A+C/Q01+Q02 selection also reconciles. Clear/empty/interactions, save/reopen, and remaining ownership checks remain open; exact type metadata and installed definitions remain uninspected. Existing Python/SQL and their 49-test suite are unchanged; their prior passes do not test these new report definitions.
+**Day 8 complete October 17, 2026.** Accepted evidence covers the input/model/count setup; global, single, combined, inclusive-boundary, cleared, and empty outputs; filter removal/restoration; both table-selection tests; three own explanations; and the user's PBIX reopening/function confirmation. The local execution environment returned after preparation, but **the assistant has not executed M/DAX/PowerShell or operated the PBIX**. Exact installed definitions/type metadata remain uninspected. Existing Python/SQL and their 49-test suite are unchanged; prior test passes cover those components rather than Desktop. See `docs/checkpoints/2026-10-17_day08.md` for the completion record. Instructions below remain a build/retest reference; no repetition of passed cases is required.
 
 ## 1. Update and check the existing saved exports
 
@@ -162,13 +162,15 @@ Next select **Units A+C and qualifications Q01+Q02** together. Expect required/c
 
 ## 6. Reconcile, save, and explain
 
-Use `docs/day08_reconciliation.md` for references and the accepted/pending checklist. Global, the three focused cases, inclusive day 30, combined selection, and display cleanup have passed. The October 17 third image also passes cleared global restoration: coverage 92.63%, missing/pairs 7/7, fragile 6, certificates/people 193/145, windows 45/41, 68/62, 98/84, date October 7.
+Use `docs/day08_reconciliation.md` for references and the completed checklist. Global, the three focused cases, inclusive day 30, combined selection, and display cleanup have passed. The October 17 third image also passes cleared global restoration: coverage 92.63%, missing/pairs 7/7, fragile 6, certificates/people 193/145, windows 45/41, 68/62, 98/84, date October 7.
+
+**11:28 PDT completion update:** the new four images pass the full empty scope, removal of the temporary page filter/global restoration, and both table-selection tests. Requirements A/Q02 and a certificate outside 90 days can each be selected while all global cards/windows/date and the other table retain their scope. The user confirms: "PBIX reopens and functions correctly." Accept this in the context of the requested new/prior-page check. All Day 8 completion checks pass; the earlier interaction failure below is historical troubleshooting context.
 
 The user's three explanations now pass: a person may hold multiple certificates; C/Q06 has fewer eligible holders than required while B/Q03 meets positive demand exactly; cumulative windows overlap and must not be added. No repeat of these questions is needed. The earlier availability clarification still applies: it describes current eligibility at October 7 and does not establish renewal prospects. Remaining LEFT JOIN/join-multiplication learning is tracked separately in `docs/sql_review_backlog.md`.
 
 ### Repair both detail-table interactions
 
-The first two October 17 images show row selections changing the cards. This is Power BI's default visual interaction and does not establish a measure defect. Configure the new page separately from the executive page:
+The earlier October 17, 10:52 PDT images show row selections changing the cards. This is Power BI's default visual interaction and does not establish a measure defect. Configure the new page separately from the executive page:
 
 1. Clear both slicers and selected table rows. Select the **Current requirements inventory** table as the source visual.
 2. Use the **top ribbon Format → Edit interactions**, rather than the Format visual pane.
@@ -188,17 +190,17 @@ An unchecked slicer restores all values. An empty result instead requires a cond
 5. Check every new count card and all six cumulative-window counts: **0**. Coverage and analysis date are **blank**. Both detail tables have **no data rows**; the measure-only cumulative table may retain one zero-valued row.
 6. Remove this temporary page-filter card, clear selected rows/slicers, and confirm global restoration again. Save the report in this restored state.
 
-Save/reopen the working report and confirm its new qualification and earlier executive/learning pages function. Return the empty result with the applied page-filter condition visible, both table-interaction outcomes, and the reopen confirmation. No new report basename or original-file proof is required. Do not repeat accepted arithmetic cases solely for evidence or rerun the unchanged 49-test Python suite for report interaction edits.
+The empty result, filter removal/restoration, both table interactions, and reopening check are now accepted from the October 17 11:28 PDT submission. Keep the report saved in its restored state. No further Day 8 screenshot, filename, original-file proof, quiz, or unchanged Python-suite rerun is required.
 
-Microsoft references: [visual interactions](https://learn.microsoft.com/en-us/power-bi/create-reports/service-reports-visual-interactions), [page filters](https://learn.microsoft.com/en-us/power-bi/create-reports/power-bi-report-add-filter?tabs=powerbi-desktop), and [show/hide Filters](https://learn.microsoft.com/en-us/power-bi/create-reports/power-bi-report-filter?tabs=powerbi-desktop). The expected zero/blank outputs follow this project's measures and contract; these remaining Desktop results have not yet been observed.
+Microsoft references: [visual interactions](https://learn.microsoft.com/en-us/power-bi/create-reports/service-reports-visual-interactions), [page filters](https://learn.microsoft.com/en-us/power-bi/create-reports/power-bi-report-add-filter?tabs=powerbi-desktop), and [show/hide Filters](https://learn.microsoft.com/en-us/power-bi/create-reports/power-bi-report-filter?tabs=powerbi-desktop). These support UI guidance. The project outputs are established by the recorded screenshots and reconciliation, with reopening established by user confirmation.
 
 ## 7. Project résumé wording and event feedback
 
-An evidence-backed **project-section** bullet already supported by the accepted prototype is:
+An evidence-backed **project-section** bullet supported by the completed executive and qualification pages is:
 
-> Built a synthetic operational analytics prototype with Python, SQL/SQLite, and Power BI; validated record quality and reconciled staffing and qualification metrics across six units, backed by 49 automated Python checks.
+> Built a synthetic six-unit analytics prototype with Python, SQL/SQLite, and Power BI to compare staffing, qualification gaps, fragile coverage, and distinct people affected by certificate expirations; backed the data pipeline with 49 automated Python checks.
 
-This describes a portfolio project, not professional deployment or real operational impact. Add qualification/expiration-page claims only after this page is verified. The source plan lists a Prep & Resume Workshop for October 14; follow your actual calendar and record actual attendance/employer feedback if supplied. No attendance, conversations, hours, or outcome is assumed.
+This describes the verified portfolio project; it establishes no professional deployment or real operational impact. The source plan lists a Prep & Resume Workshop for October 14; follow your actual calendar and record actual attendance/employer feedback if supplied. No attendance, conversations, hours, or outcome is assumed.
 
 Stop at Day 8 completion. Process metrics/view remain Day 9; the no-renewal calculation remains Day 10. Prototype status stays passed, while the October 19 MVP and October 30 polish gates remain open.
 
