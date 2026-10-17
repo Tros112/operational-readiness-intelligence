@@ -1,6 +1,6 @@
 # Operational Readiness Intelligence
 
-**Status: Day 8 in progress October 15, 2026. Global, D/Q04, C/Q06, B/Q03, and combined A+C/Q01+Q02 report results reconcile.** Clear/empty behavior, table interactions, save/reopen, and remaining user explanations are pending. The prototype gate passed October 12; MVP and polish remain October 19 and 30.
+**Status: Day 8 in progress October 17, 2026. Global, D/Q04, C/Q06, B/Q03, combined A+C/Q01+Q02, and cleared global results reconcile.** The user's certificate/person, unmet/fragile, and cumulative-window explanations pass. Both detail tables still filter the cards when selected; interaction repair, the full empty-result test, and save/reopen remain pending. The prototype gate passed October 12; MVP and polish remain October 19 and 30.
 
 The qualification/expiration page uses the existing **October 7 synthetic snapshot**, accepted imports/model, and ORI Q measures. Verified displays include global coverage **92.63%**, seven missing slots/seven gap pairs, six fragile pairs, **193 certificates/145 people**, and cumulative certificate/people windows **45/41, 68/62, 98/84**. Selected checks distinguish shortages, met-but-fragile coverage, capped surplus, unavailable inventory, and the inclusive day-30 endpoint. The combined selection recalculates **18 certificates/17 people**, with windows **4/4, 6/6, 9/9**. Both detail tables, single expiration dates, synthetic labels, and limitation footer are visible.
 

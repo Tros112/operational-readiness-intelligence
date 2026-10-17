@@ -162,18 +162,35 @@ Next select **Units A+C and qualifications Q01+Q02** together. Expect required/c
 
 ## 6. Reconcile, save, and explain
 
-Use `docs/day08_reconciliation.md` for references and the accepted/pending checklist. Global, the three focused cases, inclusive day 30, combined selection, and display cleanup have passed. Only these report checks remain:
+Use `docs/day08_reconciliation.md` for references and the accepted/pending checklist. Global, the three focused cases, inclusive day 30, combined selection, and display cleanup have passed. The October 17 third image also passes cleared global restoration: coverage 92.63%, missing/pairs 7/7, fragile 6, certificates/people 193/145, windows 45/41, 68/62, 98/84, date October 7.
 
-1. Clear both slicers and confirm global restoration: coverage 92.63%, missing/pairs 7/7, fragile 6, certificates/people 193/145, windows 45/41, 68/62, 98/84, date October 7.
-2. With slicers clear, select a row in each detail table separately. Cards and the other table must retain global scope using the intended None interactions. Each slicer should still filter all new cards/tables.
-3. Temporarily apply a page filter on qualification_filter[qualification_id] equal to NO_SUCH_QUALIFICATION. Count cards and window counts are zero, coverage/date blank, both detail tables have no rows. Remove the temporary filter and restore global.
-4. Save/reopen the working report and confirm new qualification plus earlier executive/learning pages function. No new report basename or original-file proof is required.
+The user's three explanations now pass: a person may hold multiple certificates; C/Q06 has fewer eligible holders than required while B/Q03 meets positive demand exactly; cumulative windows overlap and must not be added. No repeat of these questions is needed. The earlier availability clarification still applies: it describes current eligibility at October 7 and does not establish renewal prospects. Remaining LEFT JOIN/join-multiplication learning is tracked separately in `docs/sql_review_backlog.md`.
 
-Return the clear/empty results and interaction/reopen confirmation. Include three brief own explanations: why 18 certificates can represent 17 people; why C/Q06 is undercovered while B/Q03 is fragile (current availability at D, not renewal prospects); why cumulative windows overlap. Keep the specific SQL review backlog separate from these observed BI concepts.
+### Repair both detail-table interactions
 
-Save/reopen the working report and confirm its new and previous pages still work. Return the all-unit page, relevant filtered/boundary result, counts/reference output, and any exact error. Do not supply a new filename or original-file proof solely to satisfy this milestone; keep the existing preservation instruction. The existing Python suite remains 49 tests because no Python/SQL/test definition changes; it does not execute M/DAX, so an unnecessary full rerun does not verify this new page.
+The first two October 17 images show row selections changing the cards. This is Power BI's default visual interaction and does not establish a measure defect. Configure the new page separately from the executive page:
 
-Explain why certificate count differs from distinct affected people, why unmet differs from fragile, and why cumulative windows overlap. The remaining SQL learning items are recorded separately; a generated answer alone does not prove ownership.
+1. Clear both slicers and selected table rows. Select the **Current requirements inventory** table as the source visual.
+2. Use the **top ribbon Format → Edit interactions**, rather than the Format visual pane.
+3. Over each card, the analysis date, cumulative-window table, other detail table, and both slicers, select **None** (circle with a slash). These controls specify the selected source table's effect on each target.
+4. Select **Current certificate inventory** as the source and repeat None on all other data visuals and slicers.
+5. Select each slicer as the source and retain **Filter** on all new cards/tables. Exit Edit interactions.
+6. With slicers clear, click a row in each detail table separately. Cards, windows, date, and the other table must remain at global scope. Check that the two slicers still filter the page, then clear selections.
+
+### Run the full empty-result test
+
+An unchecked slicer restores all values. An empty result instead requires a condition that matches no records. Use the shared qualification lookup so both detail facts receive the same empty scope:
+
+1. Stay on the qualification report page, with slicers and selected table rows clear. Open the **Filters** pane on the right; if hidden, use **View → Filters**.
+2. In the Data pane, expand **qualification_filter** and drag **qualification_id** into **Filters on this page → Add data fields here**. Do not put it under Filters on this visual or use a detail-table field.
+3. Expand the new filter card. Set **Filter type → Advanced filtering**.
+4. Under **Show items when the value**, choose **is**, type `NO_SUCH_QUALIFICATION` without quotes, then select **Apply filter**.
+5. Check every new count card and all six cumulative-window counts: **0**. Coverage and analysis date are **blank**. Both detail tables have **no data rows**; the measure-only cumulative table may retain one zero-valued row.
+6. Remove this temporary page-filter card, clear selected rows/slicers, and confirm global restoration again. Save the report in this restored state.
+
+Save/reopen the working report and confirm its new qualification and earlier executive/learning pages function. Return the empty result with the applied page-filter condition visible, both table-interaction outcomes, and the reopen confirmation. No new report basename or original-file proof is required. Do not repeat accepted arithmetic cases solely for evidence or rerun the unchanged 49-test Python suite for report interaction edits.
+
+Microsoft references: [visual interactions](https://learn.microsoft.com/en-us/power-bi/create-reports/service-reports-visual-interactions), [page filters](https://learn.microsoft.com/en-us/power-bi/create-reports/power-bi-report-add-filter?tabs=powerbi-desktop), and [show/hide Filters](https://learn.microsoft.com/en-us/power-bi/create-reports/power-bi-report-filter?tabs=powerbi-desktop). The expected zero/blank outputs follow this project's measures and contract; these remaining Desktop results have not yet been observed.
 
 ## 7. Project résumé wording and event feedback
 

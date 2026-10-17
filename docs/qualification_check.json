@@ -7,7 +7,7 @@
   "as_of_date": "2026-10-07",
   "data_classification": "synthetic_only",
   "readiness_classification": "fictional_proxy",
-  "milestone_status": "global_single_and_combined_cases_passed_clear_empty_interactions_reopen_and_own_explanations_pending",
+  "milestone_status": "displayed_cases_clear_global_and_three_explanations_passed_table_interaction_repair_empty_restore_reopen_pending",
   "selected_local_execution_environment": "available_on_screenshot_followup_unavailable_during_preparation",
   "base_public_commit": "9fdd5a39c7f4065c446303f20e5e1da74b37572f",
   "base_tree": "73e2c7b67c89c0eeee2f7169949c72c29f8a21be",
@@ -203,7 +203,7 @@
     "PowerShell_reference": "prepared_not_executed",
     "M": "loaded_tables_and_row_totals_visible_imported_counts_user_confirmed_exact_M_and_type_metadata_uninspected",
     "DAX": "global_report_outputs_observed_and_reconciled_exact_installed_definitions_uninspected",
-    "PowerBI_page": "global_three_single_cases_and_combined_A_C_Q01_Q02_displayed_results_reconciled_remaining_finish_checks_pending",
+    "PowerBI_page": "accepted_global_single_combined_and_clear_outputs_both_source_table_interactions_need_None_repair_empty_restore_reopen_pending",
     "Windows_preflight": "passed_screenshot_6_48_193_unique_grains_three_files_zero_writes_explicit_exit_outside_crop",
     "save_reopen_prior_page_regression": "pending"
   },
@@ -223,11 +223,11 @@
   "prototype_gate": "passed_Day7",
   "MVP_gate": "not_passed",
   "polish_gate": "not_passed",
-  "SQL_ownership": "specific_join_grain_fragility_review_carried_current_availability_vs_future_renewal_interpretation_needs_refinement",
+  "SQL_ownership": "project_unmet_vs_fragile_and_certificate_person_distinction_confirmed_LEFT_JOIN_and_SQL_join_multiplication_review_carried",
   "actual_hours": null,
   "event_employer_feedback": "unreported",
-  "verification_method": "prior_receipts_fifteen_scratch_images_user_count_confirmation_prior_CSV_references_and_contract_review",
-  "next_action": "clear_slicers_global_restore_both_table_interaction_tests_shared_lookup_empty_restore_save_reopen_and_three_own_explanations",
+  "verification_method": "prior_receipts_scratch_images_user_confirmations_own_explanations_saved_CSV_references_and_primary_Microsoft_UI_documentation",
+  "next_action": "repair_both_source_table_None_interactions_keep_slicer_Filter_then_shared_lookup_advanced_empty_page_filter_remove_restore_save_reopen",
   "stop_after_milestone": 8,
   "screenshot_followup": {
     "user_submission_local_datetime": "2026-10-13T20:54:16-07:00",
@@ -429,7 +429,7 @@
     "new_page_results_or_ownership_observed": false,
     "pipeline_or_tests_rerun": false
   },
-  "last_review_local_date": "2026-10-15",
+  "last_review_local_date": "2026-10-17",
   "latest_global_page_review": {
     "user_submission_local_datetime": "2026-10-14T20:48:25-07:00",
     "image_name": "image(20261015-034810).png",
@@ -782,12 +782,89 @@
     "assistant_operated_M_DAX_PowerShell_PBIX": false
   },
   "remaining_completion_checks": {
-    "clear_global_restoration": "pending",
-    "both_table_interaction_tests": "pending",
+    "clear_global_restoration": "passed_displayed_global_values_in_third_Oct17_image",
+    "both_table_interaction_tests": "observed_not_passing_both_tables_filter_cards_repair_None_and_retest",
     "full_shared_lookup_empty_scope": "pending",
     "temporary_filter_removed_and_global_restored": "pending",
     "save_reopen_new_and_prior_pages": "pending",
-    "three_own_explanations": "pending",
-    "current_availability_temporal_refinement": "awaiting_correct_own_evidence"
+    "three_own_explanations": "passed_user_Oct17_own_answers"
+  },
+  "latest_interaction_clear_and_ownership_review": {
+    "user_submission_local_datetime": "2026-10-17T10:52:39-07:00",
+    "image_names": [
+      "image(20261017-172426).png",
+      "image(20261017-172440).png",
+      "image(20261017-172513).png"
+    ],
+    "images_copied_or_published": false,
+    "first_image": {
+      "source_table": "qualification_requirements",
+      "selected_pair": "A/Q03",
+      "coverage": "100.00%",
+      "missing_slots": 0,
+      "gap_pairs": 0,
+      "fragile_pairs": 0,
+      "current_certificates": 193,
+      "current_people": 145,
+      "table_filters_qualification_cards": true
+    },
+    "second_image": {
+      "source_table": "certificate_inventory",
+      "selected_certificate_day_offset": 115,
+      "coverage": "92.63%",
+      "gap_pairs": 7,
+      "missing_slots": 7,
+      "fragile_pairs": 6,
+      "current_certificates": 1,
+      "current_people": 1,
+      "each_window_certificates": 0,
+      "each_window_people": 0,
+      "table_filters_inventory_cards": true
+    },
+    "third_image": {
+      "visible_slicer_selections": false,
+      "visible_selected_detail_row": false,
+      "coverage": "92.63%",
+      "gap_pairs": 7,
+      "missing_slots": 7,
+      "fragile_pairs": 6,
+      "current_certificates": 193,
+      "current_people": 145,
+      "windows_certificates_people": [
+        [
+          45,
+          41
+        ],
+        [
+          68,
+          62
+        ],
+        [
+          98,
+          84
+        ]
+      ],
+      "analysis_date": "2026-10-07",
+      "clear_global_restoration": "passed_at_displayed_precision"
+    },
+    "user_confirms_cards_change_with_table_selections": true,
+    "interaction_result": "repair_both_source_tables_to_None_preserve_slicer_Filter",
+    "empty_scope": "user_requests_help_no_observed_empty_result",
+    "empty_UI_handoff": "shared_lookup_qualification_filter_qualification_id_Filters_on_this_page_Advanced_is_NO_SUCH_QUALIFICATION_Apply_filter",
+    "own_explanations": {
+      "certificate_vs_person": "passed_multiple_certificates_per_person",
+      "unmet_vs_fragile": "passed_C_Q06_2_required_1_eligible_gap_B_Q03_1_required_1_eligible_no_surplus_fragile",
+      "cumulative_windows": "passed_30_day_included_in_90_day_do_not_add_windows"
+    },
+    "availability_temporal_scope": "prior_correction_retained_current_required_vs_eligible_reasoning_confirmed_no_independent_new_renewal_statement_no_added_quiz",
+    "remaining_SQL_review": [
+      "zero_holder_LEFT_JOIN",
+      "valid_certificate_join_row_multiplication_and_staffing_aggregation"
+    ],
+    "empty_restore_save_reopen_observed": false,
+    "current_operational_data_DB_reread_or_write": false,
+    "pipeline_checker_exporter_or_test_suite_rerun": false,
+    "assistant_operated_M_DAX_PowerShell_PBIX": false,
+    "metric_model_or_scope_changed": false
   }
 }
