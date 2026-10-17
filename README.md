@@ -1,14 +1,14 @@
 # Operational Readiness Intelligence
 
-**Status: Day 8 complete October 17, 2026.** The qualification/expiration page passes global, selected, cumulative-boundary, empty-result, restoration, and both table-selection checks. The user confirms the PBIX reopens and functions correctly and has explained certificate/person counts, unmet versus fragile coverage, and cumulative overlap. The prototype gate passed October 12; the October 19 MVP and October 30 polish gates remain open. The process view is next, in Day 9.
+**Status: Day 9 in progress October 17, 2026.** Process SQL/exports and refresh checks are implemented and verified on Linux; Windows reproduction and the Power BI process page are pending. Day 8 executive/qualification reporting is accepted. The prototype gate passed October 12; MVP and polish remain October 19/30 and are still open.
 
-The qualification/expiration page uses the existing **October 7 synthetic snapshot**, accepted imports/model, and ORI Q measures. Verified displays include global coverage **92.63%**, seven missing slots/seven gap pairs, six fragile pairs, **193 certificates/145 people**, and cumulative certificate/people windows **45/41, 68/62, 98/84**. Selected checks distinguish shortages, met-but-fragile coverage, capped surplus, unavailable inventory, and the inclusive day-30 endpoint. The combined selection recalculates **18 certificates/17 people**, with windows **4/4, 6/6, 9/9**. Both detail tables, single expiration dates, synthetic labels, and limitation footer are visible.
+The synthetic process reference has **600 opened cases, 442 completed, 45 corrections (10.18%), median completed cycle 7 days, and 158 open cases with median age 27 days**. Rates use completed outcomes; medians use selected case durations, and open outcomes remain unknown. Repeated process exports match while the database, source/accepted files, and existing dashboard bundle retain their hashes. **60 Python tests pass on Linux**; the prior 49-test Windows pass remains historical until the updated suite runs there. These tests do not execute M/DAX or Desktop.
 
-Build/reference instructions: [day08_windows_handoff.md](docs/day08_windows_handoff.md), [day08_reconciliation.md](docs/day08_reconciliation.md). Acceptance evidence: [verification_day08.md](docs/verification_day08.md), [qualification_check.json](docs/qualification_check.json), and the [Day 8 checkpoint](docs/checkpoints/2026-10-17_day08.md). Existing **49 Python tests passed on Linux and screenshot-verified Windows**; their scope is Python/SQL/preflight and they do not execute M/DAX. Day 8 acceptance combines user Desktop screenshots, reconciled references, own explanations, and reopening confirmation. Exact installed formulas and full type metadata remain uninspected; no new pipeline/test run was needed for this documentation review.
+Continue with [day09_windows_handoff.md](docs/day09_windows_handoff.md) and [day09_reconciliation.md](docs/day09_reconciliation.md). Implementation evidence: [verification_day09.md](docs/verification_day09.md), [process_check.json](docs/process_check.json), and the [Day 9 checkpoint](docs/checkpoints/2026-10-17_day09.md). The accepted [Day 8 checkpoint](docs/checkpoints/2026-10-17_day08.md) retains qualification/expiration evidence; earlier pages/measures are preserved. Exact installed report definitions and full type metadata remain uninspected.
 
 Windows access is confirmed by the user: Desktop **2.158.1177.0, 64-bit (September 2026)**. Day 2 staffing screenshots show matching global/Unit C slicer results and the intended relationship; populated-learning-report save/reopen is user-confirmed. Evidence: `docs/verification_day02.md`. Day 6 executive-page acceptance is complete; later detail pages and release gates remain separate milestones.
 
-This portfolio project supports a fictional operations manager deciding where to review staffing, qualification renewals, backup coverage, and administrative processes. All operational data and findings will be **simulated**. Readiness measures are fictional proxies; they are not official Navy rules or statements about deployability.
+This portfolio project supports a fictional operations manager deciding where to review staffing, qualification renewals, backup coverage, and administrative processes. All operational data and findings are **simulated**. Readiness measures are fictional proxies; they are not official Navy rules or statements about deployability.
 
 The project demonstrates Python, relational SQL, data quality, and Power BI explanation for analyst/BI interviews. It does not establish production implementation experience or real-world predictive validity.
 
@@ -26,7 +26,7 @@ The brainstorming chat remains the master record for priorities and major scope 
 
 Read [charter](docs/charter.md), [progress](docs/progress.md), and [decisions](docs/decisions.md) before making changes. The attached schedule is preserved in [source_execution_plan.md](docs/source_execution_plan.md).
 
-Existing Windows checkout: retain the same Git-connected folder, interpreter, saved database/exports, and working report. Use [day08_windows_handoff.md](docs/day08_windows_handoff.md); first update and run the existing read-only input checker, then import and inspect the new model. Preserve earlier pages/measures and the original learning report. No regeneration, reload, installation, or full repeat of successful Python tests is needed for this report-only change. Run the checker immediately before every import/refresh and keep inputs stable.
+Existing Windows checkout: retain the same Git-connected folder, interpreter, source/bundle/database, and working report. Use [day09_windows_handoff.md](docs/day09_windows_handoff.md): update, run the changed 60-test suite once, export/check the separate process bundle, then add two queries and two lookup links. Preserve earlier pages/measures and the original learning report. No regeneration, reload, or installation is needed. Run both input checkers immediately before importing/refreshing and keep files stable.
 
 Use Python 3.11 or later from the project root:
 
@@ -39,13 +39,15 @@ python src/validate_data.py
 python src/load_data.py
 python src/export_metrics.py
 python src/check_powerbi_input.py
+python src/export_process_metrics.py
+python src/check_process_input.py
 python src/validate_data.py --input-dir data/raw/dirty --output-dir data/rejected/day03_dirty
 python -m unittest discover -s tests -v
 ```
 
 These commands show the full fresh-checkout order, not a request to repeat working setup. The environment checker executes the schema in memory. The generator creates `data/raw/clean/`; the injector writes `data/raw/dirty/` separately. Clean validation exits 0; intentional dirty validation exits **1** and blocks loading. `load_data.py` verifies passed source/export hashes and values, then loads `data/processed/readiness.sqlite3` in one transaction. Repeating it replaces the same snapshot without duplicates. Its audit is `data/processed/load_report.json`. `export_metrics.py` re-verifies the passed source/database, executes three queries in one read transaction, and writes `data/processed/dashboard/`. Only use its CSVs when `export_manifest.json` is passed, exports_ready is true, the date is correct, and hashes match. Generated datasets, audits, and databases are excluded from Git.
 
-Current exports implement staffing, current qualification coverage/gaps/fragility, and cumulative expiration inventory. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Process metrics remain Day 9 and the deterministic no-renewal scenario Day 10. Day 6's accepted executive page uses only the unit summary. Qualification/expiration visuals are now prepared in Day 8 and remain unverified in Desktop; exports and static report definitions alone do not establish a completed page.
+Current exports implement staffing, current qualification coverage/gaps/fragility, cumulative expiration inventory, and process volume/completed outcomes/current backlog. Process outputs use a separate `data/processed/dashboard/process/` bundle and `process_export_manifest.json`; old dashboard files/manifest are unchanged. Both exporters reconcile the passed source against the read-only database. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Executive and qualification/expiration pages are accepted from user evidence; the process page is prepared and pending. The deterministic no-renewal scenario remains Day 10.
 
 ## Prototype concept
 
@@ -55,8 +57,8 @@ Current exports implement staffing, current qualification coverage/gaps/fragilit
 | Staffing, current qualification, cumulative expiration SQL/CSV exports | Built; expected grains, counts, repeat and preservation checks passed |
 | Power BI executive page | Built; displayed metrics/filters/interactions verified; reopening user-confirmed |
 | Short prototype explanation | User-provided version reviewed; rehearsal duration user-reported at about one minute |
-| Qualification/expiration detail visuals | Day 8 queries/measures/model prepared; Desktop execution and reconciliation pending |
-| Administrative process metrics/view | Planned Day 9 |
+| Qualification/expiration detail visuals | Day 8 complete; numeric, boundary, filter, empty, interaction, and user reopening evidence accepted |
+| Administrative process metrics/view | SQL/export/preflight verified on Linux; Windows and prepared process page pending |
 | Deterministic no-renewal qualification scenario | Planned Day 10 |
 | Machine learning | Outside this MVP |
 
@@ -69,7 +71,7 @@ flowchart TD
     D --> E["SQL metrics and CSV exports"]
     E --> F{"Passed manifest and matching files?"}
     F -->|No| G["Stop import or refresh"]
-    F -->|Yes| H["Power BI executive page: displayed checks passed"]
+    F -->|Yes| H["Power BI pages: executive and qualification accepted; process pending"]
 ```
 
 The page helps a fictional manager compare local staffing gaps and qualification coverage. Staffing and qualification slots are separate measures. Screenshots reconcile global, Unit C, zero-gap Unit A, and weighted Unit A + C selections, clear/empty behavior, and the table-row interaction fix. This executive page supports the scheduled prototype review; the release gate also requires the user’s accurate walkthrough.
@@ -83,7 +85,7 @@ All counts here are **simulated source audits**. CSV rows: 6 units, 300 people, 
 - Unit D/Q04: six available holders all expiring within 30 days, including the November 6 endpoint. Recalculating the no-renewal gap remains Day 10.
 - Unit F: 27 corrections / 70 completed cases (38.6%), from a configured 30% probability; elsewhere 18/372 (4.8%) from 6%. The rates were not forced to match the probabilities.
 
-Generator verification: [verification_day02.md](docs/verification_day02.md). Day 5 SQL now reconciles global staffing **254/250 = 101.6%**, summed unit staffing gaps **10**, and qualification coverage **88/95 = 92.63%**, with **7 missing holder slots**. The 30-day inventory has **45 certificates affecting 41 distinct people**; cumulative windows overlap. Day 6 executive screenshots reconcile the displayed staffing/qualification results; expiration detail visuals remain planned. These are simulated audits, not real-world findings. Source fields: [data_dictionary.md](docs/data_dictionary.md); export fields: [export_dictionary.md](docs/export_dictionary.md); calculation trace: [sql_walkthrough.md](docs/sql_walkthrough.md).
+Generator verification: [verification_day02.md](docs/verification_day02.md). Day 5 SQL now reconciles global staffing **254/250 = 101.6%**, summed unit staffing gaps **10**, and qualification coverage **88/95 = 92.63%**, with **7 missing holder slots**. The 30-day inventory has **45 certificates affecting 41 distinct people**; cumulative windows overlap. Day 6 executive screenshots reconcile the displayed staffing/qualification results; Day 8 qualification/expiration displayed checks are accepted. These are simulated audits, not real-world findings. Source fields: [data_dictionary.md](docs/data_dictionary.md); export fields: [export_dictionary.md](docs/export_dictionary.md); calculation trace: [sql_walkthrough.md](docs/sql_walkthrough.md).
 
 ## Where the work lives
 
@@ -97,11 +99,14 @@ Generator verification: [verification_day02.md](docs/verification_day02.md). Day
 | `src/load_data.py` | Passed-bundle checks; atomic six-table snapshot replacement; exact values/counts; failure rollback |
 | `src/export_metrics.py` | Read-only snapshot/source reconciliation, SQL execution, explicit-grain CSVs and refresh manifest |
 | `src/check_powerbi_input.py` | Read-only manifest/hash/row/grain prerequisite immediately before Power BI import/refresh |
+| `src/export_process_metrics.py`, `src/check_process_input.py` | Separate read-only process export and no-write hash/grain/lifecycle preflight |
 | `tests/test_generate_data.py` | Eight clean-reference integration/reproducibility checks |
 | `tests/test_validate_data.py` | Fourteen quality, reconciliation, preservation, and failure checks |
 | `tests/test_load_data.py` | Ten persistence, repeatability, blocked-input, rollback, and asset-protection checks |
 | `tests/test_export_metrics.py` | Ten independent metric, join/date, repeat, blocked-input, and export-failure checks |
 | `tests/test_powerbi_input.py` | Seven no-write refresh-prerequisite and failure checks; not DAX/M execution |
+| `tests/test_process_metrics.py` | Eleven process chronology, denominator, median, export-preservation, failure, and preflight checks |
+| `sql/process_case_detail.sql`, `sql/process_metrics.sql` | As-of case fact and selected case-level process counts/rates/medians |
 | `sql/schema.sql` | Executable SQLite source-table constraints used by the loader |
 | `sql/unit_summary.sql`, `sql/qualification_detail.sql`, `sql/expiration_detail.sql` | Staffing, current qualification coverage, and cumulative expiration queries |
 | `data/raw/`, `data/processed/`, `data/rejected/` | Clean/dirty inputs, passed clean records, and blocked dirty diagnostics |
@@ -117,8 +122,10 @@ Generator verification: [verification_day02.md](docs/verification_day02.md). Day
 | `docs/verification_day06.md`, `docs/powerbi_check.json`, `docs/sql_review_backlog.md` | Day 6 completion evidence, BI reconciliation and inspection limits, and carried SQL learning items |
 | `docs/day07_windows_handoff.md`, `docs/verification_day07.md`, `docs/prototype_check.json` | Completed caption/demo guidance, reviewed user explanation, and passed prototype gate with evidence limits |
 | `docs/checkpoints/2026-10-12_day07.md` | Passed prototype-gate report using actual screenshot/text evidence and user-reported timing |
-| `powerbi/qualification_detail.pq`, `qualification_filter.pq`, `expiration_detail.pq`, `qualification_measures.dax` | Day 8 gated imports, shared qualification lookup, and sixteen scoped measures; runtime pending |
-| `docs/day08_windows_handoff.md`, `day08_reconciliation.md`, `verification_day08.md`, `qualification_check.json` | Model/page instructions, read-only CSV references, static checks, and honest pending Desktop status |
+| `powerbi/qualification_detail.pq`, `qualification_filter.pq`, `expiration_detail.pq`, `qualification_measures.dax` | Day 8 gated imports, shared qualification lookup, and sixteen scoped measures; displayed outputs accepted |
+| `docs/day08_windows_handoff.md`, `day08_reconciliation.md`, `verification_day08.md`, `qualification_check.json` | Model/page instructions, read-only CSV references, accepted outputs and inspection limits |
+| `powerbi/process_case_detail.pq`, `process_filter.pq`, `process_measures.dax` | Prepared process import, derived type lookup, and ten ORI P measures; Desktop pending |
+| `docs/day09_windows_handoff.md`, `day09_reconciliation.md`, `verification_day09.md`, `process_check.json` | Process build steps, exact SQL references, executed evidence, and pending Windows/Desktop checks |
 | `docs/progress.md`, `docs/decisions.md`, `docs/interview_feedback.md` | Daily state, decisions, and actual employer feedback |
 
 ## Limits and ownership

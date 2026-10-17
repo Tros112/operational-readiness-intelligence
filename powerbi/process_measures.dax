@@ -1,0 +1,30 @@
+// Create ONE measure at a time, using process_case_detail as the home table.
+// Fixed July 10–October 7 completion/opening period; backlog is open at October 7.
+// MEDIAN ignores blank non-eligible durations. Never aggregate unit medians.
+
+ORI P Opened Cases = COALESCE(SUM(process_case_detail[opened_in_period]), 0)
+
+ORI P Completed Cases = COALESCE(SUM(process_case_detail[completed_in_period]), 0)
+
+ORI P Correction Cases = COALESCE(
+    CALCULATE(
+        COUNTROWS(process_case_detail),
+        KEEPFILTERS(process_case_detail[completed_in_period] = 1),
+        KEEPFILTERS(process_case_detail[correction_required] = 1)
+    ),
+    0
+)
+
+ORI P Discrepancy Rate = DIVIDE([ORI P Correction Cases], [ORI P Completed Cases])
+
+ORI P Median Cycle Days = MEDIAN(process_case_detail[completed_cycle_days])
+
+ORI P Open Cases = COALESCE(SUM(process_case_detail[open_at_as_of]), 0)
+
+ORI P Median Open Age Days = MEDIAN(process_case_detail[open_age_days])
+
+ORI P Oldest Open Age Days = MAX(process_case_detail[open_age_days])
+
+ORI P Analysis Date = SELECTEDVALUE(process_case_detail[as_of_date])
+
+ORI P Period Start = SELECTEDVALUE(process_case_detail[period_start])

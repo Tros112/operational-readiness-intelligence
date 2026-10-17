@@ -1,4 +1,4 @@
-# Day 5 dashboard export dictionary
+# Dashboard export dictionary — Day 5 and Day 9
 
 Implemented for the fixed **2026-10-07** snapshot. Every value is **simulated**; readiness is a fictional proxy. Source tables and fields remain unchanged. These three derived CSVs are generated locally under `data/processed/dashboard/`, with a successful `export_manifest.json` as the refresh precondition. No database connection driver or new Python dependency is required.
 
@@ -69,4 +69,34 @@ Count rows for certificates and distinct `person_id` for affected people after s
 
 The manifest requires `status = passed`, `exit_code = 0`, `exports_ready = true`, the expected fixed date, and matching hashes for the three CSVs. It also records source-table reconciliation and the logical data digest. A failed rerun disables the manifest; old CSVs alone are not refresh authorization. A power interruption can leave replacement incomplete, so rerun after resolving the error.
 
-Day 6/7 executive displayed reconciliation and prototype acceptance are verified from screenshots and user explanation; actual PBIX/installed definitions remain uninspected. Day 8 uses these existing detail exports through three new queries and shared unit/qualification filters in `docs/day08_windows_handoff.md`. Counts/grains/schemas are unchanged. Run `src/check_powerbi_input.py` before every import/refresh; M checks manifest/shape/date/types/grain/value consistency but does not hash. The new qualification/expiration page remains pending Desktop evidence; no process or no-renewal fields are added.
+Day 6/7 executive displayed reconciliation and prototype acceptance are verified from screenshots and user explanation; actual PBIX/installed definitions remain uninspected. Day 8 uses these existing detail exports through three new queries and shared unit/qualification filters in `docs/day08_windows_handoff.md`. Counts/grains/schemas are unchanged. Run `src/check_powerbi_input.py` before every import/refresh; M checks manifest/shape/date/types/grain/value consistency but does not hash. The qualification/expiration page is accepted from October 17 evidence. Its original CSV fields remain unchanged; process outputs use the separate bundle below, and no-renewal fields remain Day 10.
+
+## Day 9 separate process bundle
+
+`src/export_process_metrics.py` writes only `data/processed/dashboard/process/` by default. Its `process_export_manifest.json` has bundle_kind process, passed/ready/exit 0, fixed as_of_date and period_start, source/database and SQL reconciliation, two CSV hashes/schemas/grains, and global case-level metrics. It does not replace the original three CSVs or export_manifest.json. `src/check_process_input.py` verifies both process files, semantic lifecycle/duration rules, unit summaries, and global components with zero writes. M independently gates the pinned reference shape/types/date/grain/values; it does not hash.
+
+| CSV | Grain | Reference shape | Use |
+| --- | --- | --- | --- |
+| process_case_detail.csv | case_id, as_of_date | 600 rows / 16 columns | Power BI case fact; selected rates and medians recomputed from eligible rows |
+| process_unit_summary.csv | unit_id, as_of_date | 6 rows / 14 columns | SQL reconciliation reference only; preserves zero-case units; do not import or aggregate its medians |
+
+Case detail fields in exact order:
+
+| Field | Type / rule |
+| --- | --- |
+| data_classification | Text, synthetic_only |
+| as_of_date; period_start | Date, October 7 and July 10, 2026 |
+| case_id; unit_id; unit_name; case_type | Nonempty Text; unique case grain and matching unit label |
+| opened_date | Date, on/before D; older openings retained |
+| closed_date | Nullable Date; actual completion on/before D, otherwise blank, including source completions after D |
+| correction_required | Nullable Whole Number; known completed 0/1; open-at-D unknown stays blank |
+| status_at_as_of | Text, Completed or Open at D; independent of whether completion lies in the reporting window |
+| opened_in_period | Whole Number 0/1; opening in the inclusive 90-day period |
+| completed_in_period | Whole Number 0/1; completion in the same inclusive period |
+| open_at_as_of | Whole Number 0/1; no completion on/before D, regardless of opening-period membership |
+| completed_cycle_days | Nullable Whole Number; closed-opened calendar days only for eligible period completions; same-day 0 |
+| open_age_days | Nullable Whole Number; D-opened only for cases open at D; completed rows blank |
+
+The summary starts data_classification, as_of_date, period_start, unit_id, unit_name, followed by known_case_count, opened_case_count, completed_case_count, correction_case_count, discrepancy_rate, median_completed_cycle_days, open_case_count, median_open_age_days, max_open_age_days. Counts sum over disjoint units; known_case_count counts all cases opened by D and is a reconciliation field rather than the opening-volume denominator. Rates and medians must be recomputed from the case population for selections. The median can be fractional even though every case duration is an integer. Zero denominators/no observations are blank; counts are zero.
+
+Open outcomes are not no-correction outcomes. Older completed cases outside the completion period can retain known outcomes/status but have completed_in_period 0 and completed_cycle_days blank. Future source outcomes are masked at D. A single-date source snapshot plus administrative cases establishes process outcomes only; it does not reconstruct historical staffing/readiness.

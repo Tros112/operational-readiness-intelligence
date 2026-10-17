@@ -2,7 +2,7 @@
 
 Version 1.0 · Finalized for Day 2 on October 7, 2026 (scheduled October 8; executed early at user request).
 
-All operational measures describe a **fictional simulation**. Definitions remain v1.0; Day 5 implemented current staffing/qualification/expiration SQL on October 9 and Windows technical reproduction is confirmed. Day 6’s executive page is accepted October 11 from displayed reconciliation and user confirmations. Detail-page visuals, process metrics, projected horizons, and release gates remain later checks. Exact Desktop definitions and the actual PBIX file have not been inspected by the assistant.
+All operational measures describe a **fictional simulation**. Definitions remain v1.0; Day 5 implemented current staffing/qualification/expiration SQL on October 9 and Windows technical reproduction is confirmed. Day 6’s executive page is accepted October 11 from displayed reconciliation and user confirmations. Day 8 qualification/expiration reporting is accepted October 17. Day 9 process SQL/exports are implemented and verified; Windows/process-page evidence, projected horizons, and later release gates remain open. Exact Desktop definitions and the actual PBIX file have not been inspected by the assistant.
 
 ## Shared date and eligibility rules
 
@@ -54,7 +54,8 @@ Ownership evidence, October 8: the user independently explained aggregate versus
 | Executive unit summary | One unit at D | Implemented Day 5: staffing totals, summed qualification slots, current gaps/fragility and cumulative unit expirations; sum count components across units |
 | Qualification detail | One unit/qualification at D | Implemented Day 5: all 48 requirements retained, current holders/gaps/fragility; projected horizons remain Day 10 |
 | Expiration detail | One current valid person/qualification certificate at D | Implemented Day 5: availability and cumulative flags; recompute distinct people for selections, do not sum across qualifications |
-| Process case detail | One case eligible as of D | Planned Day 9: completion/age/calendar-period filters before rates or median |
+| Process case detail | One case opened on/before D | Implemented Day 9: dated completion/age/period flags and nullable case durations before rates/medians |
+| Process unit reference | One unit at D | Implemented Day 9: count components and case-level medians; SQL reference only, never aggregate unit medians for selections |
 
 The first three CSVs are under `data/processed/dashboard/`; exact field names/types/grains are in `docs/export_dictionary.md`. No extra operational source table is added. Source rows and dashboard tables must not be mixed in joins that multiply counts.
 
@@ -111,3 +112,11 @@ October 15 combined-selection screenshot: A+C and Q01+Q02 produce four required 
 October 17 review: cleared global displays match the accepted reference, and the user's three own explanations confirm certificate/person distinction, unmet versus fragile, and cumulative overlap. Both table row selections still narrow their own fact's cards; repair visual interactions rather than altering measures or relationships. The pending empty test must apply an impossible condition to the shared qualification lookup at page level, producing count zeros, blank coverage/date, and no detail rows. Filter removal/restoration and reopening remain pending. Definitions stay v1.0; no additional renewal-understanding gate or repeat quiz is introduced.
 
 October 17, 11:28 PDT completion: the impossible shared-qualification page filter visibly yields zero counts, blank coverage/date, and empty detail tables. Removing it restores the accepted global results. Each detail table's selected row now leaves global cards/windows/date and the other table unchanged; previous slicer-filter evidence remains accepted. The user confirms the PBIX reopens/functions correctly. Day 8 reporting acceptance is complete with definitions unchanged at v1.0. Process outcomes and open-case denominators remain Day 9; no no-renewal scenario is added here.
+
+## Day 9 process implementation and handoff
+
+Definitions remain v1.0. A separate process bundle uses the existing admin_cases and units records, verified against the passed six-table source/SQLite snapshot in a read-only transaction. Openings use opened_date within July 10–October 7; completed outcomes/cycle use closed_date in that inclusive period. Future openings are excluded. Future completions/outcomes are masked as unknown/open at D. Current backlog includes every known case open at D, including openings before the period; cycle and open age are separate calendar-day columns with same-day zero. No-completed rates and no-observation medians/ages remain NULL/blank; counts are zero.
+
+sql/process_metrics.sql ranks individual eligible durations and averages only the middle one/two values. Unit/type/multi selections use bound filters; no unweighted rate or unit-median aggregation is permitted. A zero-case unit still has its SQL summary row. Process case detail is one case/as_of_date (600/16 reference); process_unit_summary is one unit/as_of_date (6/14) and remains a reference rather than a report import. Ten ORI P measures operate on case flags/nullable durations. Only the existing shared unit lookup and a new derived case-type lookup filter this fact; no join to personnel/certificates or reverse/Both filter is added. The two M queries and page are prepared, not executed here.
+
+Linux verification: full 60-test suite passes, including eleven process failure-risk tests. Repeated process exports match; source/accepted/database/legacy-export bytes are preserved and both preflights pass. Reference global results are 600 opened, 442 completed, 45 corrections (10.18%), median cycle 7, open 158, median age 27, oldest 88. These are synthetic SQL/reference results, not observed process-page outputs. Windows reproduction, process visuals/filter/edge/interactions/reopen, and own denominator/median explanations remain pending. Day 8 acceptance is unchanged; no Day 10 scenario, definition change, or later gate pass.

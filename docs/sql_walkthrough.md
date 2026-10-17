@@ -68,3 +68,13 @@ Explain in your own words:
 Then trace Unit C's Q06 row and explain why it has a gap without a fragile flag. The user submitted explanations October 11; these concepts still need refinement. At the user's explicit request, they are carried into Day 6 in `docs/sql_review_backlog.md` rather than blocking the executive-page build. SQL tests and a generated walkthrough cannot substitute for independent understanding.
 
 Primary technical references: [SQLite aggregate functions](https://www.sqlite.org/lang_aggfunc.html), [SQLite date functions](https://www.sqlite.org/lang_datefunc.html), and [SQLite read-only URI mode](https://www.sqlite.org/uri.html). The metric rules and dates are this project's contract, not SQLite policy.
+
+## Day 9 process trace
+
+Start from admin_cases at one-case grain, joined only to the unique units key. The process fact exports cases opened on/before D. It computes separate opening-period, completion-period, and current-open flags; later completions/outcomes are masked as open/unknown. Calendar cycle is defined only for eligible completions; age only for current backlog, including older open cases. Do not join cases to personnel/certificates.
+
+sql/process_metrics.sql filters the same case scope with bound unit/type values, sums opening/completion/correction/open counts, and divides correction count by eligible completions. Ranked case durations select the middle observation(s) for actual cycle/age medians. Unit references are computed for every unit, including zero-case units; combined medians are recomputed from the selected cases, never the unit medians. Example: [0,1,2] and [100] produce combined 1.5 rather than median-of-medians 50.5.
+
+The reference's 45 corrections / 442 completions = 10.18%, not 45/600. The 158 open cases have unknown outcomes and belong in current backlog/age. Median completed cycle is 7 days; median current open age 27, oldest 88. Unit F's 27/70 = 38.57% and other units' 18/372 = 4.84% trace a deliberately planted simulation pattern, not a causal finding.
+
+The new read-only exporter verifies all six source tables, queries one snapshot, reconciles each field/count/median independently, stages two CSVs, and passes the separate manifest only after replacement. Any failed CLI rerun invalidates that gate. The new checker verifies hashes, unique grains, nullable lifecycle/derived fields, unit summaries and global components before refresh without writes. See Day 9 verification and handoff; Windows process reporting remains pending.
