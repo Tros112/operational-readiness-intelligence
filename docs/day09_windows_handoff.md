@@ -2,7 +2,7 @@
 
 Started October 17, 2026 at the user's instruction; original source schedule October 15. Day 8 is complete. Metric date stays **October 7**, and opening/completion period is **July 10–October 7 inclusive**. MVP and polish remain October 19/30, not yet passed.
 
-**October 19, 20:13 PDT review:** all Day 9 technical/report checks are accepted, including restoration, both selected-data-row interactions, and user-confirmed PBIX reopening/function. The completed-case denominator and Open-only blank-rate explanations are accepted. **Only the own combined-median explanation needs refinement. Continue at section 6.** The build/reproduction commands below remain references; no repeat screenshot, reopening, setup, or test is required. The assistant has not operated the PBIX or inspected every installed M/DAX definition. Preserve all previous assets; no installation/regeneration/reload or new pipeline/test run is needed for this review.
+**Day 9 complete — October 19, 20:28 PDT.** All technical/report checks and all three own process explanations are accepted. Windows/Linux 60-test results, repeat/preservation/preflight, imports/model, selected/edge/restoration/interaction results, and user-confirmed reopening remain the accepted evidence. See section 6 and the [completion checkpoint](checkpoints/2026-10-19_day09.md). The build commands below are reproduction references; no repeat setup, screenshot, reopening, test, or answer is required. The assistant has not operated the PBIX or inspected every installed definition. Stop before Day 10.
 
 ## 1. Update and run the changed suite once
 
@@ -149,10 +149,10 @@ Include brief own explanations of why the discrepancy denominator is completed c
 
 Stop after Day 9 completion. The no-renewal scenario is Day 10; ML/cloud/deployment remain outside this milestone. Primary references: [SQLite window functions](https://www.sqlite.org/windowfunctions.html), [SQLite read-only URI](https://sqlite.org/uri.html), [DAX MEDIAN and blank handling](https://learn.microsoft.com/en-us/dax/median-function-dax), and [KEEPFILTERS](https://learn.microsoft.com/en-us/dax/keepfilters-function-dax).
 
-## 6. Remaining completion checks
+## 6. Completion record
 
-Accepted from the 20:13 PDT submission: temporary-filter removal/global restoration; Unit C and C00004 selected rows leaving cards/date/other table global; user-confirmed PBIX reopening/function; and own completed-denominator/Open-only blank-rate reasoning. No repeat of those checks is needed.
+Day 9 is complete as of the October 19, 20:28 PDT submission. Accepted report evidence includes temporary-filter removal/global restoration, Unit C and C00004 selected rows leaving cards/date/other table global, and user-confirmed PBIX reopening/function in the requested new/prior-page context.
 
-**One remaining action:** explain in your own words why the combined median must be computed from eligible individual case durations rather than the unit medians. A unit median also respects the selected case-type filter; the issue is the loss of case counts/distributions when a whole unit is reduced to one value. For a small teaching example, unit A durations [1,2,3] and unit B [20] have medians 2 and 20. The four cases together have median 2.5, while the two unit medians have median 11. This is illustrative data, not an ORI finding.
+All three own explanations are accepted: discrepancy uses eligible completed cases, Open-only has an undefined rate because it has no eligible completions, and the combined median must be computed from individual eligible case durations because unit medians can distort it. The final answer supersedes the earlier case-type-scope explanation; no repeat question is needed.
 
-Everything in the Day 9 setup/numeric/edge/report checklist is accepted. No code/metric/data change or new test/checker/export run is indicated. Day 9 remains open only for that existing own explanation. The scheduled October 19 MVP gate is still open in [its status checkpoint](checkpoints/2026-10-19_mvp_status.md); no deadline/scope change or Day 10 work is inferred.
+No Day 9 completion item remains. Preserve the current report and earlier assets. On the user's instruction to commence Day 10, implement/reconcile the deterministic no-renewal qualification scenario under unchanged staffing/availability assumptions. The scheduled October 19 MVP gate remains open in [its status checkpoint](checkpoints/2026-10-19_mvp_status.md); Day 10 is not started and no deadline/scope change is inferred. Completion evidence is summarized in [the Day 9 checkpoint](checkpoints/2026-10-19_day09.md).

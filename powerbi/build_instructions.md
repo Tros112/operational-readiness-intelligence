@@ -1,12 +1,12 @@
 # Power BI build index
 
-**Current status, October 19, 2026 — Day 9:** all technical/report checks are accepted, including restoration, both table-row interactions, and user-confirmed reopening. Completed-denominator and blank-rate explanations are accepted; only the own combined-median explanation needs refinement. Executive/qualification pages and the prototype remain accepted; the scheduled MVP gate is open. The assistant has not operated an actual PBIX.
+**Current status, October 19, 2026 — Day 9 complete.** All technical/report checks and all three own process explanations are accepted, including restoration, both table-row interactions, and user-confirmed reopening. Executive/qualification pages and the prototype remain accepted; the scheduled MVP gate is open. The assistant has not operated an actual PBIX.
 
 ## Continue in the same Windows project
 
-Use [handoff section 6](../docs/day09_windows_handoff.md#6-remaining-completion-checks) and [reconciliation](../docs/day09_reconciliation.md). Preserve the current report/interpreter/data and all earlier pages/measures. Do not repeat passed setup, cases, or unchanged tests for evidence.
+See [the completion record](../docs/day09_windows_handoff.md#6-completion-record), [reconciliation](../docs/day09_reconciliation.md), and [Day 9 checkpoint](../docs/checkpoints/2026-10-19_day09.md). Preserve the current report/interpreter/data and all earlier pages/measures. No repeat setup, cases, tests, screenshots, reopening, or own explanations are required.
 
-Only the own combined-median explanation remains: explain why the selected total must use eligible individual case durations rather than unit medians. Both unit and total medians can respect the same case-type filter; summarizing a unit to one median loses individual case counts/distributions. No repeat screenshots, reopening, or first-two-answer checks are required.
+Stop at completed Day 9. On the user's instruction to commence Day 10, implement and reconcile the deterministic no-renewal qualification scenario. Day 10 has not started; no release-date or scope revision is made.
 
 Accepted assets remain [process_case_detail.pq](process_case_detail.pq), [process_filter.pq](process_filter.pq), and [process_measures.dax](process_measures.dax): 600/16 and 4/1 imports, ten measures, and two new active 1:* Single links preserving the earlier five. The SQL unit-median summary remains reference-only.
 

@@ -8,7 +8,7 @@
   "period_start": "2026-07-10",
   "data_classification": "synthetic_only",
   "readiness_classification": "fictional_proxy",
-  "milestone_status": "all_technical_report_checks_passed_denominator_and_blank_rate_explanations_accepted_own_combined_median_explanation_needs_refinement",
+  "milestone_status": "complete",
   "base_public_commit": "32c1535fa713ed4366f4d7cd05fdd997bc5a07d3",
   "assets": [
     "sql/process_case_detail.sql",
@@ -314,7 +314,7 @@
     "full_empty_and_restore": "passed_equivalent_status_is_empty_filter_then_user_confirmed_removal_and_visible_global_restoration",
     "both_table_interactions": "passed_Unit_C_and_C00004_selected_data_rows_leave_cards_date_other_table_global_with_user_confirmation",
     "save_reopen_prior_pages": "passed_user_confirmation_in_requested_new_prior_page_context",
-    "own_process_explanations": "completed_denominator_and_blank_rate_accepted_combined_median_needs_refinement"
+    "own_process_explanations": "passed_all_three_including_corrected_combined_case_median_explanation"
   },
   "previous_milestones": {
     "Day8": "complete",
@@ -334,12 +334,12 @@
   "specific_SQL_review": "LEFT_JOIN_and_staffing_join_multiplication_carried_separately",
   "actual_hours": null,
   "event_employer_feedback": "unreported",
-  "next_action": "restate_only_why_combined_median_uses_eligible_individual_case_durations_instead_of_unit_medians_no_repeat_technical_checks",
+  "next_action": "stop_at_completed_Day9_wait_for_user_to_commence_Day10_deterministic_no_renewal_qualification_scenario",
   "stop_after_milestone": 9,
   "images_or_report_binaries_published": false,
   "last_review_local_date": "2026-10-19",
-  "last_review_submission_local_datetime": "2026-10-19T20:13:13-07:00",
-  "last_review_base_public_commit": "5f4fc6e52b7330ba43c5a5c843dcc97a497dae99",
+  "last_review_submission_local_datetime": "2026-10-19T20:28:15-07:00",
+  "last_review_base_public_commit": "8a9f17da1348ee62d3610897ce86987904d7699a",
   "latest_setup_evidence_review": {
     "review_local_date": "2026-10-19",
     "evidence_original_local_date": "2026-10-17",
@@ -405,7 +405,7 @@
     "final_temporary_filter_removal_and_global_restore": "passed",
     "unit_comparison_and_case_table_row_tests": "passed",
     "save_reopen_new_and_prior_pages": "passed_user_confirmed",
-    "three_own_process_explanations": "two_accepted_only_combined_median_needs_refinement"
+    "three_own_process_explanations": "passed_all_three"
   },
   "MVP_status_at_scheduled_gate": {
     "date": "2026-10-19",
@@ -657,8 +657,7 @@
       "reason": "no eligible completed cases makes the denominator zero and the rate undefined"
     },
     "combined_median": {
-      "status": "own_explanation_needs_refinement",
-      "user_answer": "Selected case medians are specific to the case type, while the unit median cuts across all case types; different metrics",
+      "status": "accepted_after_own_correction",
       "refinement": "Unit medians can respect the same type filters but lose individual case counts/distributions. Pool eligible individual case durations and select the middle observation(s).",
       "illustrative_only_durations": [
         [
@@ -674,8 +673,24 @@
       "illustrative_median_of_unit_medians": 11,
       "actual_ORI_global_median": 7,
       "actual_ORI_median_of_six_displayed_unit_medians": 7.5,
-      "independent_corrected_explanation_supplied": false
+      "independent_corrected_explanation_supplied": true,
+      "initial_user_answer": "Selected case medians are specific to the case type, while the unit median cuts across all case types; different metrics",
+      "corrected_user_answer": "Taking the median of the unit medians can explode or implode the combined median, which is closer to the truth only when derived from the median of individual cases",
+      "accepted_meaning": "Unit medians can distort the combined median in either direction; use individual eligible selected case durations for the correct selected-scope result."
     },
     "new_quiz_or_repeat_accepted_questions_required": false
+  },
+  "completion_local_date": "2026-10-19",
+  "completion_submission_local_datetime": "2026-10-19T20:28:15-07:00",
+  "pending_completion_checks": [],
+  "completion_review": {
+    "status": "passed",
+    "all_technical_report_checks_previously_accepted": true,
+    "all_three_own_process_explanations_accepted": true,
+    "new_images_required": false,
+    "new_runtime_tests_or_pipeline_runs": false,
+    "assistant_operated_PBIX": false,
+    "source_code_metric_scope_or_date_changed": false,
+    "completion_checkpoint": "docs/checkpoints/2026-10-19_day09.md"
   }
 }
