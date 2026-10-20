@@ -1,0 +1,16 @@
+# October 19 MVP status checkpoint
+
+```text
+PROJECT CHECKPOINT — 2026-10-19
+Project / release state: Operational Readiness Intelligence; prototype passed, Day 8 complete, Day 9 core process reporting reconciled with four final completion groups pending. All operational data/findings are synthetic and readiness rules are fictional.
+Original gate / actual outcome: October 19 interview-ready MVP gate remains OPEN as of the 19:55 PDT submission review. No release pass, revised deadline, or scope change is inferred from the process screenshots. October 30 polish remains scheduled and unpassed.
+Built and verified: Six-source generation/validation, transactional SQLite load, staffing/qualification/expiration exports, accepted executive and qualification pages, separate process SQL/export/preflight, 60 Python tests on Linux and screenshot-verified Windows. Windows process repeat/hash and DB/prior-bundle preservation, 600/16 and 4/1 imports, seven intended active Single links, ten measures, global/unit/type/multi/Open-only/empty displays reconcile. Open outcomes remain unknown and undefined rates/medians stay blank.
+Evidence locations: docs/verification_day09.md, docs/process_check.json, docs/day09_reconciliation.md, docs/day09_windows_handoff.md section 6; prior acceptance in docs/checkpoints/2026-10-17_day08.md and docs/checkpoints/2026-10-12_day07.md. Earlier October 17 setup images were reviewed alongside nine October 19 attachments; images are not published.
+Hours used / remaining capacity: Actual focused hours and current remaining capacity are unreported; no estimate is presented as work performed.
+What I can demonstrate and explain: Displayed process results include 600 openings, 442 completions, 45 corrections (10.18%), cycle median 7 days, and 158 open cases with median age 27/oldest 88. Unit F and filtered unions reconcile, as do zero-completed and empty scopes. The user's prior staffing/qualification explanations are accepted; own process denominator/blank-rate/median explanations remain pending.
+Known limitations or failed checks: Final temporary-filter removal/global restore, both table data-row interactions, save/reopen prior/new pages, and own process explanations are unconfirmed. Full MVP release acceptance is not yet established. Exact installed report definitions and the actual PBIX were not inspected/operated by the assistant. Remaining LEFT JOIN/staffing row-multiplication learning is carried. No-renewal scenario remains Day 10 and has not started. Planted Unit F results establish no real-world cause or operational impact.
+Employer feedback that changes priorities: None reported. Event attendance and new employer requirements/outcomes are not inferred.
+Recommended next step: Finish the four existing Day 9 groups without repeating successful setup/tests/cases, then continue the original milestone sequence after Day 9 acceptance. Keep existing code, source/data/database, report pages, and history.
+Scope decision needed, if any: No change is made in this execution review. A release-date, priority, or MVP-scope revision belongs in the master chat and must be carried back before implementation.
+Next checkpoint: Day 9 completion follow-up, then the full MVP acceptance review when its remaining criteria are satisfied. October 30 polish date is unchanged.
+```

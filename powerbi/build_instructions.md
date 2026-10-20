@@ -1,16 +1,17 @@
 # Power BI build index
 
-**Current status, October 17, 2026 — Day 9:** executive/qualification pages and the prototype are accepted. Process SQL/export/preflight and the full 60-test Linux suite pass; Windows reproduction and the new process M/DAX/model/page are pending. The assistant has not operated an actual PBIX.
+**Current status, October 19, 2026 — Day 9:** Windows 60-test/export/preservation/preflight/import/model setup is accepted, and global/selected/Open-only/empty process displays reconcile. Final restoration, both table-row interactions, reopening and own process explanations remain pending. Executive/qualification pages and the prototype remain accepted; the scheduled MVP gate is open. The assistant has not operated an actual PBIX.
 
 ## Continue in the same Windows project
 
-Use [day09_windows_handoff.md](../docs/day09_windows_handoff.md) and [day09_reconciliation.md](../docs/day09_reconciliation.md). Retain the existing interpreter, source/bundle/database, working PBIX, and original learning report.
+Use [handoff section 6](../docs/day09_windows_handoff.md#6-remaining-completion-checks) and [reconciliation](../docs/day09_reconciliation.md). Preserve the current report/interpreter/data and all earlier pages/measures. Do not repeat passed setup, cases, or unchanged tests for evidence.
 
-1. Pull the verified update; run the changed 60-test suite and separate process repeat/preservation/preflight block in sections 1–2.
-2. Add [process_case_detail.pq](process_case_detail.pq) as process_case_detail (600/16) and [process_filter.pq](process_filter.pq) as process_filter (4/1). Do not import the SQL unit-median summary.
-3. Add two active 1:* Single links: unit_summary to process case detail on unit_id, and process_filter to case detail on case_type. Preserve the prior five links.
-4. Create ten ORI P measures from [process_measures.dax](process_measures.dax), one at a time. Counts/rates/medians use case rows; prior ORI/ORI Q measures remain unchanged.
-5. Build Process — simulated, then reconcile global/F/type/multi/clear, Open-only zero denominator, full empty scope, table selections, and save/reopen old/new pages. Return evidence before claiming Day 9 complete.
+1. Remove the temporary status page filter, clear slicers/selections, and restore global.
+2. Select an actual row in Unit Comparison, then an actual row in Case. Each leaves cards/date/other table at global scope; capture one result for each source table.
+3. Save/reopen and confirm Process and the prior pages function.
+4. Provide the three existing own process denominator/blank-rate/median explanations.
+
+Accepted assets remain [process_case_detail.pq](process_case_detail.pq), [process_filter.pq](process_filter.pq), and [process_measures.dax](process_measures.dax): 600/16 and 4/1 imports, ten measures, and two new active 1:* Single links preserving the earlier five. The SQL unit-median summary remains reference-only.
 
 Run both Python input checkers immediately before import/refresh; they verify hashes without writing. M checks shape/types/date/grain/lifecycle and does not hash. Keep files stable; a failed refresh can retain cached results. Slicers stay page-local/unsynced, lookup relationships Single, and table-source interactions None.
 

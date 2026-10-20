@@ -2,7 +2,7 @@
 
 Started October 17, 2026 at the user's instruction; original source schedule October 15. Day 8 is complete. Metric date stays **October 7**, and opening/completion period is **July 10–October 7 inclusive**. MVP and polish remain October 19/30, not yet passed.
 
-Python/SQL implementation is verified on Linux: **60 tests pass**, repeated process CSVs match, and the database/source/accepted files plus existing dashboard exports retain their hashes. **Windows reproduction and the process page remain pending.** The assistant has not executed M/DAX/PowerShell or operated a PBIX. This guide continues in the existing Git-connected project and interpreter; retain all earlier pages/measures, data, database, and the original learning report. No installation, regeneration, or database reload is needed.
+**October 19 review:** Linux and Windows 60-test results, repeat/hash/DB-prior-bundle preservation, process preflight, 600/16 and 4/1 imports, seven correct relationships, and ten measures are accepted. The process page's global, unit/type/multi, Open-only, and empty results reconcile. **Only final filter removal/global restoration, both table-row tests, save/reopen, and own process explanations remain. Continue at section 6.** The build/reproduction commands below remain references; do not repeat passed checks solely for evidence. The assistant has not operated the PBIX or inspected every installed M/DAX definition. Preserve all previous assets; no installation/regeneration/reload or new pipeline/test run is needed for this review.
 
 ## 1. Update and run the changed suite once
 
@@ -18,7 +18,7 @@ Open PowerShell in the existing project root containing `src`, `data`, and `powe
 }
 ```
 
-Expected: **Ran 60 tests / OK**. Eleven new tests exercise real process failure risks; the prior 49 Windows passes remain historical until this updated suite runs. Python tests do not execute Power BI.
+**Accepted:** the October 17 screenshot shows **Ran 60 tests in 44.115s / OK**, reviewed October 19. No separate exit-code line is visible. Eleven process checks supplement the earlier 49. These commands are a reproduction reference; no unchanged-suite rerun is requested. Python tests do not execute Power BI.
 
 ## 2. Export, repeat, preserve, and check
 
@@ -94,7 +94,7 @@ Run this self-contained block. It captures the first export before comparing the
 }
 ```
 
-Expected: both rows have Repeat/ManifestMatches True, both preservation lines True; process checker passed, files_checked 2, rows 600/6, file_writes 0. The original checker still reports three files/6/48/193. Return these results and the test summary at this first checkpoint. Do not import on an error or a non-passed manifest. Before every later refresh, run both checkers and keep files stable through refresh; a failed refresh may leave cached values visible.
+Expected: both rows have Repeat/ManifestMatches True, both preservation lines True; process checker passed, files_checked 2, rows 600/6, file_writes 0. The original checker still reports three files/6/48/193. The earlier October 17 evidence establishes this first checkpoint; no repeat submission is required for those passed results. Do not import on an error or a non-passed manifest. Before every later refresh, run both checkers and keep files stable through refresh; a failed refresh may leave cached values visible.
 
 ## 3. Import two queries and add two relationships
 
@@ -143,8 +143,17 @@ Footer: **Synthetic cases; corrections are a fictional discrepancy proxy. Open o
 
 Use `docs/day09_reconciliation.md`. Start with the unfiltered page: opened **600**, completed **442**, corrections **45**, rate **10.18%**, median cycle **7.0 days**, open **158**, median open age **27.0**, oldest **88**, analysis date October 7.
 
-Then check Unit F; a case-type selection; A+F with onboarding+transfer; clear restoration; a temporary Open-only page filter; a full empty scope; both table interactions; and save/reopen old/new pages. The guide supplies exact expected values. M/DAX/Desktop outputs remain pending until your evidence arrives; passing exports alone does not close Day 9.
+Global, F/non-F, evaluation/onboarding, A+F, A+F/onboarding+transfer, Open-only and empty outputs now reconcile. The actual empty test used status_at_as_of is empty, which is equivalent; six zero-count lookup-unit rows are expected. Passing these displayed cases does not establish the remaining restoration, data-row interaction, reopening, or own-explanation checks.
 
 Include brief own explanations of why the discrepancy denominator is completed cases, why an Open-only selection has a blank rate instead of 0%, and why the combined median uses case durations rather than unit medians. These are new process concepts; the accepted Day 8 questions do not need repeating. Add one verified process finding to your earlier short pitch after page acceptance; no new recording/timer requirement is introduced. Source-plan elevator-pitch attendance, actual hours, and employer feedback remain unreported unless supplied.
 
 Stop after Day 9 completion. The no-renewal scenario is Day 10; ML/cloud/deployment remain outside this milestone. Primary references: [SQLite window functions](https://www.sqlite.org/windowfunctions.html), [SQLite read-only URI](https://sqlite.org/uri.html), [DAX MEDIAN and blank handling](https://learn.microsoft.com/en-us/dax/median-function-dax), and [KEEPFILTERS](https://learn.microsoft.com/en-us/dax/keepfilters-function-dax).
+
+## 6. Remaining completion checks
+
+1. Remove the temporary **status_at_as_of** page-filter card. Clear both slicers and selected rows. Restore global: opened 600, completed 442, corrections 45, rate 10.18%, median cycle 7.0, open 158, median age 27.0, oldest 88, analysis date October 7.
+2. Select a **data row** in Unit Comparison, then separately a data row in Case, with slicers/temporary filters clear. In each test, cards/date and the other table must remain global. One screenshot for each selected source row can also establish the restoration. Selecting the visual's border is different from selecting a data row. If cards change, use the table-source None interactions in section 4 and retest only the affected check.
+3. Clear selections, save/reopen, and confirm Process plus Qualification, Executive, and earlier learning pages function. A concise user confirmation is sufficient; no new file basename or exact-definition gate is added.
+4. In your own words, explain why discrepancy uses completed cases, why Open-only gives a blank rate, and why a selected total median uses case durations rather than unit medians. No repeat of the accepted Day 8 questions is needed.
+
+Everything else in the Day 9 setup/numeric/edge checklist above is accepted. No code/metric/data change or new test/checker/export run is indicated. Day 9 remains open for these final items. The scheduled October 19 MVP gate is still open in [its status checkpoint](checkpoints/2026-10-19_mvp_status.md); no deadline/scope change or Day 10 work is inferred.

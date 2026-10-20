@@ -1,6 +1,6 @@
 # Day 9 process reconciliation
 
-These are **synthetic SQL/CSV reference results**, not observed Power BI outputs. Fixed D is October 7, 2026. The opening/completion period is July 10–October 7 inclusive. Backlog age covers all known cases open at D, including older backlog if supplied; the generated reference happens to open every case inside the period.
+These are **synthetic SQL/CSV reference results**. The October 19 screenshots reconcile the global, listed unit/type/multi, Open-only, and empty scopes at displayed precision; final restoration/interactions/reopening/own explanations remain pending. Fixed D is October 7, 2026. The opening/completion period is July 10–October 7 inclusive. Backlog age covers all known cases open at D, including older backlog if supplied; the generated reference happens to open every case inside the period.
 
 ## Reference selections
 
@@ -31,17 +31,17 @@ Analysis date is October 7 for all nonempty selections and blank for a fully emp
 
 The global median cycle time is **7.0**, even though the median of the six displayed unit medians is **7.5**. Recompute from the selected case durations. Similarly, the global rate is 45/442, not an unweighted average of unit rates. Unit F's 27/70 = 38.57% versus other units' 18/372 = 4.84% reflects the configured planted hotspot; it establishes no real-world cause or staff-performance finding.
 
-## Desktop completion checks — all pending
+## Desktop completion checks — October 19 review
 
-1. **Global:** eight metric cards, date, and unit comparison match the references. Counts use no display-unit abbreviation; rates use two decimals, medians one decimal. Raw case table uses single dates and no totals.
-2. **Shared slicers:** only Unit F gives the F row. Then clear Unit and select only evaluation to get its row. Select A+F and onboarding+transfer together for 86/57/14, 24.56%, cycle 7.0, open 29, median age 35.0, oldest 84. Clear both slicers and restore global.
-3. **Zero eligible completions with data still present:** temporarily drag process_case_detail[status_at_as_of] into Filters on this page. Basic filtering: select only Open. Expect 158 opened, completed/corrections 0/0, rate/cycle blank, open 158, median age 27.0, oldest 88, date October 7. Open case outcomes in the case table are blank, not a known no-correction 0. Remove this filter.
-4. **Full empty scope:** drag process_filter[case_type] into Filters on this page; Advanced filtering → is → NO_SUCH_PROCESS → Apply filter. All count cards zero; rate, all three duration/age cards, date, and period start blank. Case table has no data rows. The unit comparison may retain six zero-count rows because its labels come from the separate unit lookup; this is not a failure. Remove the filter and restore global.
-5. **Table interactions:** with slicers/temporary filters clear, select a row in each table separately. Cards/date and the other table stay global. Both slicers must continue filtering all new cards/tables.
-6. **Preservation/reopening:** save with temporary filters removed; reopen and confirm the process, qualification, executive, and earlier learning pages function. User confirmation is acceptable; no filename or exact-definition screenshot gate is added.
-7. **Own explanation:** why completed cases form the discrepancy denominator; why Open-only gives a blank rate; why selected-case medians cannot be replaced by unit medians. Add a verified process example to the existing short pitch without a new timing/recording requirement.
+1. **Passed — Global:** eight metric cards, date, and unit comparison match the references. Counts use no display-unit abbreviation; rates use two decimals, medians one decimal. Raw case table uses single dates and no totals.
+2. **Selected results passed; final restoration pending — Shared slicers:** only Unit F gives the F row. Then clear Unit and select only evaluation to get its row. Select A+F and onboarding+transfer together for 86/57/14, 24.56%, cycle 7.0, open 29, median age 35.0, oldest 84. Clear both slicers and restore global.
+3. **Passed — Zero eligible completions with data still present:** temporarily drag process_case_detail[status_at_as_of] into Filters on this page. Basic filtering: select only Open. Expect 158 opened, completed/corrections 0/0, rate/cycle blank, open 158, median age 27.0, oldest 88, date October 7. Open case outcomes in the case table are blank, not a known no-correction 0. Remove this filter.
+4. **Empty result passed; removal/restoration pending:** the actual page filter is process_case_detail[status_at_as_of] Advanced filtering → is empty. Both valid statuses are nonempty, so this is an equivalent fully empty fact scope; no repeat with NO_SUCH_PROCESS is required. All count cards are zero; rate, cycle, median/oldest age, and analysis date are blank. Case table has no rows. Six unit lookup rows retain zero counts, as expected. Remove this temporary filter and restore global.
+5. **Pending — Table interactions:** with slicers/temporary filters clear, select a row in each table separately. Cards/date and the other table stay global. Both slicers must continue filtering all new cards/tables.
+6. **Pending — Reopening:** save with temporary filters removed; reopen and confirm the process, qualification, executive, and earlier learning pages function. User confirmation is acceptable; no filename or exact-definition screenshot gate is added.
+7. **Pending — Own explanation:** why completed cases form the discrepancy denominator; why Open-only gives a blank rate; why selected-case medians cannot be replaced by unit medians. Add a verified process example to the existing short pitch without a new timing/recording requirement.
 
-First Windows checkpoint is the updated **60-test** summary plus passed two-file process preflight, 600/6 rows, two matching repeat hashes, and unchanged database/prior dashboard bundle. Detailed commands/model/build steps are in [day09_windows_handoff.md](day09_windows_handoff.md). No-repeat policy: rerun successful tests only after a relevant code/input change or failure; an unchanged Python suite does not test Desktop visual edits.
+The first Windows checkpoint is now **passed** from the earlier October 17 files reviewed October 19: 60 tests/OK (44.115s), two-file process preflight 600/6 with zero writes, matching repeat/manifest results, and DB/prior bundle preserved. The imports are 600/16 and 4/1; seven active 1:* Single links and ten ORI P measures are visible. No setup/test/export/checker rerun is needed solely for evidence. An active visual border is not a selected-data-row test. Only the four final groups remain: post-filter restoration, both table row tests, reopening, and own process explanations.
 
 ## Independent SQL boundary checks already passed on Linux
 

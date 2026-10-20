@@ -8,7 +8,7 @@
   "period_start": "2026-07-10",
   "data_classification": "synthetic_only",
   "readiness_classification": "fictional_proxy",
-  "milestone_status": "Python_SQL_exports_verified_Windows_reproduction_and_PowerBI_page_pending",
+  "milestone_status": "Windows_setup_and_core_Desktop_scopes_Open_only_empty_passed_final_restore_interactions_reopen_own_explanations_pending",
   "base_public_commit": "32c1535fa713ed4366f4d7cd05fdd997bc5a07d3",
   "assets": [
     "sql/process_case_detail.sql",
@@ -239,7 +239,13 @@
       "seconds": 17.102,
       "exit_code": 0
     },
-    "Windows_updated_60_tests": "pending",
+    "Windows_updated_60_tests": {
+      "status": "passed_screenshot",
+      "tests": 60,
+      "seconds": 44.115,
+      "image_name": "image(20261017-185858).png",
+      "explicit_process_exit_code_visible": false
+    },
     "Windows_prior_49_tests": "previously_screenshot_verified_passed",
     "executes_M_DAX_or_Desktop": false
   },
@@ -278,9 +284,9 @@
   },
   "runtime": {
     "Python_SQL_and_read_only_export": "executed_verified",
-    "PowerShell": "prepared_not_executed",
-    "M_DAX": "prepared_not_executed",
-    "PowerBI_page": "pending_user_Desktop_evidence",
+    "PowerShell": "Windows_repeat_preservation_and_process_preflight_results_observed_assistant_did_not_execute_PowerShell",
+    "M_DAX": "imports_types_relationships_measure_list_and_core_page_outputs_observed_exact_installed_definitions_uninspected",
+    "PowerBI_page": "global_F_other_units_two_types_unit_multi_combined_Open_only_and_empty_outputs_reconciled_final_finish_checks_pending",
     "save_reopen": "pending"
   },
   "static_assets_review": {
@@ -299,13 +305,13 @@
     "new_operational_outputs_excluded": true
   },
   "Windows_completion_checks": {
-    "updated_tests": "pending",
-    "repeat_hashes_and_preservation": "pending",
-    "preflight": "pending",
-    "imports_types_model": "pending",
-    "global_selected_multi_clear": "pending",
-    "open_only_denominator": "pending",
-    "full_empty_and_restore": "pending",
+    "updated_tests": "passed_60_tests_OK_44_115_seconds_in_Oct17_screenshot",
+    "repeat_hashes_and_preservation": "passed_two_nonempty_repeat_manifest_comparisons_and_DB_prior_bundle_preserved_True",
+    "preflight": "passed_process_checker_two_files_600_6_unique_semantics_and_zero_writes",
+    "imports_types_model": "passed_600_16_and_4_1_with_visible_type_icons_and_seven_active_1_many_Single_links",
+    "global_selected_multi_clear": "global_single_and_multi_passed_final_post_temporary_filter_restore_pending",
+    "open_only_denominator": "passed_158_open_0_completed_0_corrections_blank_rate_and_cycle",
+    "full_empty_and_restore": "empty_passed_equivalent_status_is_empty_filter_final_removal_and_restore_pending",
     "both_table_interactions": "pending",
     "save_reopen_prior_pages": "pending",
     "own_process_explanations": "pending"
@@ -328,7 +334,264 @@
   "specific_SQL_review": "LEFT_JOIN_and_staffing_join_multiplication_carried_separately",
   "actual_hours": null,
   "event_employer_feedback": "unreported",
-  "next_action": "Windows_handoff_sections_1_and_2_pull_60_tests_export_repeat_hash_preservation_both_preflights_then_return_first_checkpoint",
+  "next_action": "remove_status_page_filter_clear_slicers_restore_global_test_each_table_row_save_reopen_and_provide_three_own_process_explanations_no_setup_or_test_rerun",
   "stop_after_milestone": 9,
-  "images_or_report_binaries_published": false
+  "images_or_report_binaries_published": false,
+  "last_review_local_date": "2026-10-19",
+  "last_review_submission_local_datetime": "2026-10-19T19:55:30-07:00",
+  "last_review_base_public_commit": "db50e4a3d728835b9ce70607e632c3d08be0b87c",
+  "latest_setup_evidence_review": {
+    "review_local_date": "2026-10-19",
+    "evidence_original_local_date": "2026-10-17",
+    "earlier_image_names": [
+      "image(20261017-185858).png",
+      "image(20261017-185937).png",
+      "image(20261017-190522).png",
+      "image(20261017-190615).png",
+      "image(20261017-190632).png",
+      "image(20261017-190937).png",
+      "image(20261017-191035).png",
+      "image(20261017-191400).png"
+    ],
+    "evidence_recovered_from_earlier_user_files_without_requesting_repeat": true,
+    "images_copied_or_published_to_repository": false,
+    "tests_60_OK_seconds": 44.115,
+    "repeat_rows": [
+      {
+        "file": "process_case_detail.csv",
+        "rows": 600,
+        "Repeat": true,
+        "ManifestMatches": true
+      },
+      {
+        "file": "process_unit_summary.csv",
+        "rows": 6,
+        "Repeat": true,
+        "ManifestMatches": true
+      }
+    ],
+    "database_preserved": true,
+    "prior_dashboard_bundle_preserved": true,
+    "process_preflight_status": "passed",
+    "process_preflight_files": 2,
+    "process_preflight_file_writes": 0,
+    "case_import": {
+      "rows": 600,
+      "columns": 16,
+      "null_open_outcomes_and_durations_visible": true,
+      "date_text_whole_number_icons_visible": true
+    },
+    "type_import": {
+      "rows": 4,
+      "columns": 1,
+      "values": [
+        "evaluation",
+        "onboarding",
+        "records_update",
+        "transfer"
+      ]
+    },
+    "relationship_count": 7,
+    "all_active": true,
+    "all_cardinality": "1:*",
+    "all_direction": "Single_from_lookup_to_detail",
+    "prior_five_links_preserved": true,
+    "unintended_links_observed": false,
+    "ten_ORI_P_measure_names_and_calculator_icons_visible": true,
+    "exact_full_installed_M_DAX_inspected": false,
+    "assistant_executed_PowerShell_or_operated_PBIX": false
+  },
+  "latest_Desktop_review": {
+    "user_submission_local_datetime": "2026-10-19T19:55:30-07:00",
+    "images_read_directly_from_attached_scratch_copies": true,
+    "images_copied_or_published_to_repository": false,
+    "cases": [
+      {
+        "image_name": "image(20261020-024502).png",
+        "scope": "All",
+        "displayed_values": {
+          "completed_case_count": 442,
+          "correction_case_count": 45,
+          "max_open_age_days": 88,
+          "median_completed_cycle_days": 7,
+          "median_open_age_days": 27,
+          "open_case_count": 158,
+          "opened_case_count": 600,
+          "discrepancy_rate_display": "10.18%",
+          "analysis_date": "2026-10-07"
+        },
+        "reference_reconciliation": "passed_at_displayed_precision"
+      },
+      {
+        "image_name": "image(20261020-024626).png",
+        "scope": "Other units",
+        "displayed_values": {
+          "completed_case_count": 372,
+          "correction_case_count": 18,
+          "max_open_age_days": 88,
+          "median_completed_cycle_days": 7,
+          "median_open_age_days": 26,
+          "open_case_count": 130,
+          "opened_case_count": 502,
+          "discrepancy_rate_display": "4.84%",
+          "analysis_date": "2026-10-07"
+        },
+        "reference_reconciliation": "passed_at_displayed_precision"
+      },
+      {
+        "image_name": "image(20261020-024646).png",
+        "scope": "Unit F",
+        "displayed_values": {
+          "completed_case_count": 70,
+          "correction_case_count": 27,
+          "max_open_age_days": 87,
+          "median_completed_cycle_days": 7.5,
+          "median_open_age_days": 33,
+          "open_case_count": 28,
+          "opened_case_count": 98,
+          "discrepancy_rate_display": "38.57%",
+          "analysis_date": "2026-10-07"
+        },
+        "reference_reconciliation": "passed_at_displayed_precision"
+      },
+      {
+        "image_name": "image(20261020-024714).png",
+        "scope": "Type: evaluation",
+        "displayed_values": {
+          "completed_case_count": 109,
+          "correction_case_count": 11,
+          "max_open_age_days": 88,
+          "median_completed_cycle_days": 8,
+          "median_open_age_days": 38.5,
+          "open_case_count": 52,
+          "opened_case_count": 161,
+          "discrepancy_rate_display": "10.09%",
+          "analysis_date": "2026-10-07"
+        },
+        "reference_reconciliation": "passed_at_displayed_precision"
+      },
+      {
+        "image_name": "image(20261020-024749).png",
+        "scope": "Type: onboarding",
+        "displayed_values": {
+          "completed_case_count": 111,
+          "correction_case_count": 11,
+          "max_open_age_days": 87,
+          "median_completed_cycle_days": 7,
+          "median_open_age_days": 35,
+          "open_case_count": 37,
+          "opened_case_count": 148,
+          "discrepancy_rate_display": "9.91%",
+          "analysis_date": "2026-10-07"
+        },
+        "reference_reconciliation": "passed_at_displayed_precision"
+      },
+      {
+        "image_name": "image(20261020-024826).png",
+        "scope": "Units A and F",
+        "displayed_values": {
+          "completed_case_count": 141,
+          "correction_case_count": 28,
+          "max_open_age_days": 87,
+          "median_completed_cycle_days": 8,
+          "median_open_age_days": 35,
+          "open_case_count": 53,
+          "opened_case_count": 194,
+          "discrepancy_rate_display": "19.86%",
+          "analysis_date": "2026-10-07"
+        },
+        "reference_reconciliation": "passed_at_displayed_precision"
+      },
+      {
+        "image_name": "image(20261020-024906).png",
+        "scope": "Units A and F / onboarding+transfer",
+        "displayed_values": {
+          "opened_case_count": 86,
+          "completed_case_count": 57,
+          "correction_case_count": 14,
+          "median_completed_cycle_days": 7,
+          "open_case_count": 29,
+          "median_open_age_days": 35,
+          "max_open_age_days": 84,
+          "discrepancy_rate_display": "24.56%",
+          "analysis_date": "2026-10-07"
+        },
+        "reference_reconciliation": "passed_at_displayed_precision"
+      },
+      {
+        "image_name": "image(20261020-025243).png",
+        "scope": "Open only",
+        "displayed_values": {
+          "opened_case_count": 158,
+          "completed_case_count": 0,
+          "correction_case_count": 0,
+          "median_completed_cycle_days": null,
+          "open_case_count": 158,
+          "median_open_age_days": 27,
+          "max_open_age_days": 88,
+          "discrepancy_rate_display": "blank_dashes",
+          "analysis_date": "2026-10-07"
+        },
+        "reference_reconciliation": "passed_at_displayed_precision"
+      },
+      {
+        "image_name": "image(20261020-025342).png",
+        "scope": "Empty",
+        "displayed_values": {
+          "completed_case_count": 0,
+          "correction_case_count": 0,
+          "max_open_age_days": null,
+          "median_completed_cycle_days": null,
+          "median_open_age_days": null,
+          "open_case_count": 0,
+          "opened_case_count": 0,
+          "discrepancy_rate_display": "blank_dashes",
+          "analysis_date": "blank_dashes"
+        },
+        "reference_reconciliation": "passed_at_displayed_precision"
+      }
+    ],
+    "global_six_unit_rows_and_total_reconcile": true,
+    "visible_period_caption": "July 10–October 7, 2026; backlog open at October 7",
+    "synthetic_title_and_unknown_outcome_footer_visible": true,
+    "plain_dates_and_case_table_no_totals_visible": true,
+    "Open_only_filter": {
+      "field": "process_case_detail.status_at_as_of",
+      "type": "Basic",
+      "selected": "Open",
+      "unknown_outcome_and_cycle_cells_blank": true
+    },
+    "empty_filter": {
+      "field": "process_case_detail.status_at_as_of",
+      "type": "Advanced",
+      "operator": "is empty",
+      "equivalent_empty_scope_accepted": true,
+      "count_cards_zero": true,
+      "rate_cycle_age_date_cards_blank": true,
+      "case_table_no_data_rows": true,
+      "six_zero_count_unit_lookup_rows_expected": true,
+      "repeat_with_NO_SUCH_PROCESS_required": false
+    },
+    "post_empty_filter_removal_or_global_restoration_observed": false,
+    "data_row_selection_in_each_table_observed": false,
+    "selected_visual_border_is_not_row_selection_proof": true,
+    "save_reopen_or_own_process_explanations_supplied": false,
+    "new_operational_data_DB_access_or_write": false,
+    "new_test_pipeline_checker_or_export_run": false,
+    "assistant_operated_PowerBI": false,
+    "metric_code_scope_or_source_changed": false
+  },
+  "remaining_completion_checks": {
+    "final_temporary_filter_removal_and_global_restore": "pending",
+    "unit_comparison_and_case_table_row_tests": "pending",
+    "save_reopen_new_and_prior_pages": "pending",
+    "three_own_process_explanations": "pending"
+  },
+  "MVP_status_at_scheduled_gate": {
+    "date": "2026-10-19",
+    "status": "not_passed_as_of_this_review",
+    "release_date_or_scope_revised": false,
+    "full_release_acceptance_inferred_from_process_screenshots": false,
+    "checkpoint": "docs/checkpoints/2026-10-19_mvp_status.md"
+  }
 }

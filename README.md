@@ -1,10 +1,10 @@
 # Operational Readiness Intelligence
 
-**Status: Day 9 in progress October 17, 2026.** Process SQL/exports and refresh checks are implemented and verified on Linux; Windows reproduction and the Power BI process page are pending. Day 8 executive/qualification reporting is accepted. The prototype gate passed October 12; MVP and polish remain October 19/30 and are still open.
+**Status: Day 9 in progress October 19, 2026.** Windows tests/export/import/model evidence and process-page global, selected, Open-only, and empty results reconcile. Final filter restoration, table-row interactions, reopening, and own process explanations remain pending. Day 8 is complete; the prototype passed October 12. The October 19 MVP gate remains open, with no date/scope revision; polish remains October 30.
 
-The synthetic process reference has **600 opened cases, 442 completed, 45 corrections (10.18%), median completed cycle 7 days, and 158 open cases with median age 27 days**. Rates use completed outcomes; medians use selected case durations, and open outcomes remain unknown. Repeated process exports match while the database, source/accepted files, and existing dashboard bundle retain their hashes. **60 Python tests pass on Linux**; the prior 49-test Windows pass remains historical until the updated suite runs there. These tests do not execute M/DAX or Desktop.
+The synthetic process reference has **600 opened cases, 442 completed, 45 corrections (10.18%), median completed cycle 7 days, and 158 open cases with median age 27 days**. Rates use completed outcomes; medians use selected case durations, and open outcomes remain unknown. Repeated process exports match while the database, source/accepted files, and existing dashboard bundle retain their hashes. **60 Python tests pass on Linux and screenshot-verified Windows** (Windows: 44.115 seconds, OK). These tests do not execute M/DAX or Desktop.
 
-Continue with [day09_windows_handoff.md](docs/day09_windows_handoff.md) and [day09_reconciliation.md](docs/day09_reconciliation.md). Implementation evidence: [verification_day09.md](docs/verification_day09.md), [process_check.json](docs/process_check.json), and the [Day 9 checkpoint](docs/checkpoints/2026-10-17_day09.md). The accepted [Day 8 checkpoint](docs/checkpoints/2026-10-17_day08.md) retains qualification/expiration evidence; earlier pages/measures are preserved. Exact installed report definitions and full type metadata remain uninspected.
+Continue with [day09_windows_handoff.md](docs/day09_windows_handoff.md) and [day09_reconciliation.md](docs/day09_reconciliation.md). Implementation evidence: [verification_day09.md](docs/verification_day09.md), [process_check.json](docs/process_check.json), and the [October 19 MVP status checkpoint](docs/checkpoints/2026-10-19_mvp_status.md). The accepted [Day 8 checkpoint](docs/checkpoints/2026-10-17_day08.md) retains qualification/expiration evidence; earlier pages/measures are preserved. Exact installed report definitions and full type metadata remain uninspected.
 
 Windows access is confirmed by the user: Desktop **2.158.1177.0, 64-bit (September 2026)**. Day 2 staffing screenshots show matching global/Unit C slicer results and the intended relationship; populated-learning-report save/reopen is user-confirmed. Evidence: `docs/verification_day02.md`. Day 6 executive-page acceptance is complete; later detail pages and release gates remain separate milestones.
 
@@ -26,7 +26,7 @@ The brainstorming chat remains the master record for priorities and major scope 
 
 Read [charter](docs/charter.md), [progress](docs/progress.md), and [decisions](docs/decisions.md) before making changes. The attached schedule is preserved in [source_execution_plan.md](docs/source_execution_plan.md).
 
-Existing Windows checkout: retain the same Git-connected folder, interpreter, source/bundle/database, and working report. Use [day09_windows_handoff.md](docs/day09_windows_handoff.md): update, run the changed 60-test suite once, export/check the separate process bundle, then add two queries and two lookup links. Preserve earlier pages/measures and the original learning report. No regeneration, reload, or installation is needed. Run both input checkers immediately before importing/refreshing and keep files stable.
+Existing Windows checkout: the Day 9 tests, repeat/preservation/preflight, imports, relationships, and core page scopes are accepted. Continue at [handoff section 6](docs/day09_windows_handoff.md#6-remaining-completion-checks): remove the temporary filter/restore global, test both table-row interactions, save/reopen all pages, and supply the three own process explanations. No setup, test, export, or accepted-case repeat is required for this documentation-only review. Keep the existing interpreter, sources/database, report, and earlier pages/measures. Run both input checkers immediately before a later import/refresh and keep files stable.
 
 Use Python 3.11 or later from the project root:
 
@@ -47,7 +47,7 @@ python -m unittest discover -s tests -v
 
 These commands show the full fresh-checkout order, not a request to repeat working setup. The environment checker executes the schema in memory. The generator creates `data/raw/clean/`; the injector writes `data/raw/dirty/` separately. Clean validation exits 0; intentional dirty validation exits **1** and blocks loading. `load_data.py` verifies passed source/export hashes and values, then loads `data/processed/readiness.sqlite3` in one transaction. Repeating it replaces the same snapshot without duplicates. Its audit is `data/processed/load_report.json`. `export_metrics.py` re-verifies the passed source/database, executes three queries in one read transaction, and writes `data/processed/dashboard/`. Only use its CSVs when `export_manifest.json` is passed, exports_ready is true, the date is correct, and hashes match. Generated datasets, audits, and databases are excluded from Git.
 
-Current exports implement staffing, current qualification coverage/gaps/fragility, cumulative expiration inventory, and process volume/completed outcomes/current backlog. Process outputs use a separate `data/processed/dashboard/process/` bundle and `process_export_manifest.json`; old dashboard files/manifest are unchanged. Both exporters reconcile the passed source against the read-only database. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Executive and qualification/expiration pages are accepted from user evidence; the process page is prepared and pending. The deterministic no-renewal scenario remains Day 10.
+Current exports implement staffing, current qualification coverage/gaps/fragility, cumulative expiration inventory, and process volume/completed outcomes/current backlog. Process outputs use a separate `data/processed/dashboard/process/` bundle and `process_export_manifest.json`; old dashboard files/manifest are unchanged. Both exporters reconcile the passed source against the read-only database. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Executive and qualification/expiration pages are accepted from user evidence; core process-page results reconcile and final completion checks remain pending. The deterministic no-renewal scenario remains Day 10.
 
 ## Prototype concept
 
@@ -58,7 +58,7 @@ Current exports implement staffing, current qualification coverage/gaps/fragilit
 | Power BI executive page | Built; displayed metrics/filters/interactions verified; reopening user-confirmed |
 | Short prototype explanation | User-provided version reviewed; rehearsal duration user-reported at about one minute |
 | Qualification/expiration detail visuals | Day 8 complete; numeric, boundary, filter, empty, interaction, and user reopening evidence accepted |
-| Administrative process metrics/view | SQL/export/preflight verified on Linux; Windows and prepared process page pending |
+| Administrative process metrics/view | SQL/export/Windows setup and core displayed scopes accepted; final restore/interactions/reopen/explanations pending |
 | Deterministic no-renewal qualification scenario | Planned Day 10 |
 | Machine learning | Outside this MVP |
 
@@ -71,7 +71,7 @@ flowchart TD
     D --> E["SQL metrics and CSV exports"]
     E --> F{"Passed manifest and matching files?"}
     F -->|No| G["Stop import or refresh"]
-    F -->|Yes| H["Power BI pages: executive and qualification accepted; process pending"]
+    F -->|Yes| H["Power BI pages: executive and qualification accepted; process core results accepted"]
 ```
 
 The page helps a fictional manager compare local staffing gaps and qualification coverage. Staffing and qualification slots are separate measures. Screenshots reconcile global, Unit C, zero-gap Unit A, and weighted Unit A + C selections, clear/empty behavior, and the table-row interaction fix. This executive page supports the scheduled prototype review; the release gate also requires the user’s accurate walkthrough.
@@ -124,8 +124,8 @@ Generator verification: [verification_day02.md](docs/verification_day02.md). Day
 | `docs/checkpoints/2026-10-12_day07.md` | Passed prototype-gate report using actual screenshot/text evidence and user-reported timing |
 | `powerbi/qualification_detail.pq`, `qualification_filter.pq`, `expiration_detail.pq`, `qualification_measures.dax` | Day 8 gated imports, shared qualification lookup, and sixteen scoped measures; displayed outputs accepted |
 | `docs/day08_windows_handoff.md`, `day08_reconciliation.md`, `verification_day08.md`, `qualification_check.json` | Model/page instructions, read-only CSV references, accepted outputs and inspection limits |
-| `powerbi/process_case_detail.pq`, `process_filter.pq`, `process_measures.dax` | Prepared process import, derived type lookup, and ten ORI P measures; Desktop pending |
-| `docs/day09_windows_handoff.md`, `day09_reconciliation.md`, `verification_day09.md`, `process_check.json` | Process build steps, exact SQL references, executed evidence, and pending Windows/Desktop checks |
+| `powerbi/process_case_detail.pq`, `process_filter.pq`, `process_measures.dax` | 600-case import, four-type lookup, and ten ORI P measures; core Desktop results accepted |
+| `docs/day09_windows_handoff.md`, `day09_reconciliation.md`, `verification_day09.md`, `process_check.json` | Process build steps, exact SQL references, executed evidence, accepted Desktop scopes, and remaining completion checks |
 | `docs/progress.md`, `docs/decisions.md`, `docs/interview_feedback.md` | Daily state, decisions, and actual employer feedback |
 
 ## Limits and ownership
