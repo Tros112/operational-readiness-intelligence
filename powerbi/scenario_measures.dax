@@ -1,0 +1,38 @@
+// Create ONE measure at a time; home table qualification_scenario. Keep earlier measures.
+// Every numerical result requires exactly one scenario_horizon value.
+// With one horizon and no eligible rows: counts 0, ratios/dates blank.
+// With no/ambiguous horizon: measures blank; status requests one horizon.
+
+ORI S Required Slots = IF(HASONEVALUE(scenario_horizon[horizon_days]), COALESCE(SUM(qualification_scenario[required_holder_count]), 0))
+
+ORI S Current Covered Slots = IF(HASONEVALUE(scenario_horizon[horizon_days]), COALESCE(SUM(qualification_scenario[current_capped_holder_count]), 0))
+
+ORI S Projected Covered Slots = IF(HASONEVALUE(scenario_horizon[horizon_days]), COALESCE(SUM(qualification_scenario[projected_capped_holder_count]), 0))
+
+ORI S Current Coverage = DIVIDE([ORI S Current Covered Slots], [ORI S Required Slots])
+
+ORI S Projected Coverage = DIVIDE([ORI S Projected Covered Slots], [ORI S Required Slots])
+
+ORI S Current Missing Slots = IF(HASONEVALUE(scenario_horizon[horizon_days]), COALESCE(SUM(qualification_scenario[current_gap]), 0))
+
+ORI S Projected Missing Slots = IF(HASONEVALUE(scenario_horizon[horizon_days]), COALESCE(SUM(qualification_scenario[projected_gap]), 0))
+
+ORI S Additional Missing Slots = IF(HASONEVALUE(scenario_horizon[horizon_days]), COALESCE(SUM(qualification_scenario[additional_gap]), 0))
+
+ORI S Current Gap Pairs = IF(HASONEVALUE(scenario_horizon[horizon_days]), COALESCE(SUM(qualification_scenario[current_is_gap]), 0))
+
+ORI S Projected Gap Pairs = IF(HASONEVALUE(scenario_horizon[horizon_days]), COALESCE(SUM(qualification_scenario[projected_is_gap]), 0))
+
+ORI S New Gap Pairs = IF(HASONEVALUE(scenario_horizon[horizon_days]), COALESCE(SUM(qualification_scenario[is_new_gap]), 0))
+
+ORI S Projected Fragile Pairs = IF(HASONEVALUE(scenario_horizon[horizon_days]), COALESCE(SUM(qualification_scenario[projected_is_fragile]), 0))
+
+ORI S Eligible Holder Slots Lost = IF(HASONEVALUE(scenario_horizon[horizon_days]), COALESCE(SUM(qualification_scenario[eligible_holders_lost]), 0))
+
+ORI S Analysis Date = IF(HASONEVALUE(scenario_horizon[horizon_days]), SELECTEDVALUE(qualification_scenario[as_of_date]))
+
+ORI S Horizon Date = IF(HASONEVALUE(scenario_horizon[horizon_days]), SELECTEDVALUE(qualification_scenario[horizon_date]))
+
+ORI S Horizon Days = SELECTEDVALUE(scenario_horizon[horizon_days])
+
+ORI S Scenario Status = IF(HASONEVALUE(scenario_horizon[horizon_days]), "No renewals; staffing and availability fixed", "Select one horizon")

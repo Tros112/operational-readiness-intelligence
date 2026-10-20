@@ -2,7 +2,7 @@
 
 Version 1.0 · Finalized for Day 2 on October 7, 2026 (scheduled October 8; executed early at user request).
 
-All operational measures describe a **fictional simulation**. Definitions remain v1.0; Day 5 implemented current staffing/qualification/expiration SQL on October 9 and Windows technical reproduction is confirmed. Day 6’s executive page is accepted October 11 from displayed reconciliation and user confirmations. Day 8 qualification/expiration reporting is accepted October 17. Day 9 is complete October 19: technical/report checks and three own process explanations are accepted, with reopening user-confirmed. Projected horizons and later release gates remain open. Exact Desktop definitions and the actual PBIX file have not been inspected by the assistant.
+All operational measures describe a **fictional simulation**. Definitions remain v1.0; Day 5 implemented current staffing/qualification/expiration SQL on October 9 and Windows technical reproduction is confirmed. Day 6’s executive page is accepted October 11 from displayed reconciliation and user confirmations. Day 8 qualification/expiration reporting is accepted October 17. Day 9 is complete October 19: technical/report checks and three own process explanations are accepted, with reopening user-confirmed. Day 10 no-renewal SQL/exports are implemented and Linux-verified; new scenario Windows/Desktop/own-explanation acceptance and later release gates remain open. Exact Desktop definitions and the actual PBIX file have not been inspected by the assistant.
 
 ## Shared date and eligibility rules
 
@@ -52,10 +52,12 @@ Ownership evidence, October 8: the user independently explained aggregate versus
 | Output | Grain | Rule |
 | --- | --- | --- |
 | Executive unit summary | One unit at D | Implemented Day 5: staffing totals, summed qualification slots, current gaps/fragility and cumulative unit expirations; sum count components across units |
-| Qualification detail | One unit/qualification at D | Implemented Day 5: all 48 requirements retained, current holders/gaps/fragility; projected horizons remain Day 10 |
+| Qualification detail | One unit/qualification at D | Implemented Day 5: all 48 requirements retained, current holders/gaps/fragility; projected horizons use the separate Day 10 fact |
 | Expiration detail | One current valid person/qualification certificate at D | Implemented Day 5: availability and cumulative flags; recompute distinct people for selections, do not sum across qualifications |
 | Process case detail | One case opened on/before D | Implemented Day 9: dated completion/age/period flags and nullable case durations before rates/medians |
 | Process unit reference | One unit at D | Implemented Day 9: count components and case-level medians; SQL reference only, never aggregate unit medians for selections |
+| Qualification scenario detail | One unit/qualification/horizon at D | Implemented Day 10: current and surviving eligible holders, capped slots/gaps, additional gap and newly affected pairs; aggregate one horizon only |
+| Scenario unit reference | One unit/horizon at D | Implemented Day 10: summed pair components and weighted coverage; SQL reference only |
 
 The first three CSVs are under `data/processed/dashboard/`; exact field names/types/grains are in `docs/export_dictionary.md`. No extra operational source table is added. Source rows and dashboard tables must not be mixed in joins that multiply counts.
 
@@ -126,3 +128,17 @@ October 19 Day 9 displayed reconciliation: all nine global, selected-unit/type, 
 October 19, 20:13 PDT follow-up: restored global and both selected-table-row checks pass; filter removal and PBIX reopening/function are user-confirmed. All technical/report checks are accepted. The user's first two answers establish the eligible completed-case discrepancy denominator and undefined Open-only rate. Their third answer distinguishes case types rather than the aggregation problem. A unit median also respects type filters; reducing each unit to one value loses individual counts/distributions, so recompute from every eligible individual duration in the selected scope. Only this existing own explanation needs refinement. Definitions remain v1.0, and no metric/code/data change or new runtime check is indicated. Day 9/MVP stay open; Day 10 has not started.
 
 October 19, 20:28 PDT completion: the user's own correction identifies possible distortion in either direction from combining unit medians and the need to use individual case durations. Accept the remaining combined-median explanation. All Day 9 technical/report and own-explanation criteria pass, with v1.0 definitions unchanged. Day 9 completion does not pass the full MVP gate or start Day 10. No code/data/metric change or new runtime check is needed.
+
+## Day 10 deterministic no-renewal implementation
+
+Definitions remain v1.0. Freeze the cohort satisfying availability = 1 and valid_from <= D < expiration_date. At each N in 30/60/90, retain only that cohort's certificates with expiration_date > D + N; expiration on the horizon date is already invalid. No future-start activations, renewals, new qualifications, transfers, staffing/availability/demand changes are assumed. Distinct people are counted within each required unit/qualification, including zero-holder requirements via LEFT JOIN. Qualification slots across pairs can involve the same person.
+
+Recalculate projected capped holders and gaps with the same current rules. Additional gap = projected gap - current gap. A newly affected pair has current gap = 0 and projected gap > 0; a worsening existing gap is not a new pair. Eligible holder slots lost = current eligible holders - surviving holders per pair; surplus losses need not create missing required slots. Current staffing and the executive current-attention rule remain unchanged.
+
+Each of the 48 pairs has three scenario rows (144/25); the unit reference has 18/24. Requirements/current components repeat across alternative horizons, so totals must use exactly one horizon. The new lookup is single-select with 30 days as the saved default. Numerical/date measures are blank with no/ambiguous horizon. With one valid horizon and no matching pairs, counts are zero and coverage/date blank. Raw pair rows use a valid-horizon visual filter. These guards define a valid comparison scope, not a change to the empty-set metric rule.
+
+The exporter reuses six-table source/DB verification within one read-only transaction and reconciles every field with independent source-date/set calculations. It stages two new CSVs under a separate manifest; original and process bundles remain unchanged. Preflight verifies hashes, full grids, constant current baseline, non-increasing holders, arithmetic/flags/ratios and unit/global agreement without writes. M checks the current baseline against the accepted qualification detail; SHA-256 remains Python's prerequisite before refresh.
+
+No empirical future-renewal label or trained target is available or needed. Chronology is fixed at D; future-start certificates and hypothetical future outcomes cannot enter the current cohort. The current capped-coverage/gap baseline provides the comparison, and SQL directly answers the conditional rule. There is no learned prediction or historical readiness inference. Availability does not establish renewal ability/intent, and holder-slot coverage does not establish simultaneous assignments.
+
+Linux evidence: 72 tests/OK, repeat CSVs identical, all three preflights passed and 48 prior data files preserved. Global current 88/95 with gap 7 becomes projected 81/95, 78/95 and 67/95, gaps 14/17/28, at the three horizons. Windows reproduction, scenario report and own scenario explanations remain pending in scenario_check.json; exact M/DAX/Desktop execution is not inferred. No metric/source/scope/date change or Day 11 work.

@@ -1,4 +1,4 @@
-# Dashboard export dictionary — Day 5 and Day 9
+# Dashboard export dictionary — Days 5, 9 and 10
 
 Implemented for the fixed **2026-10-07** snapshot. Every value is **simulated**; readiness is a fictional proxy. Source tables and fields remain unchanged. These three derived CSVs are generated locally under `data/processed/dashboard/`, with a successful `export_manifest.json` as the refresh precondition. No database connection driver or new Python dependency is required.
 
@@ -49,7 +49,7 @@ Shared fields: `data_classification`, `as_of_date`, `unit_id`, `unit_name`, `qua
 | `is_fragile` | 1 when holders = required and required > 0 |
 | `is_single_holder_dependency` | 1 when holders = required = 1 |
 
-Holder counts across different qualifications may count the same person several times. This is correct for qualification-slot coverage but does not give unique people or simultaneous assignment capacity. Projected horizon holder/gap fields are not present; they remain Day 10.
+Holder counts across different qualifications may count the same person several times. This is correct for qualification-slot coverage but does not give unique people or simultaneous assignment capacity. Projected fields are absent from this unchanged original CSV; Day 10 uses the separate scenario fact below.
 
 ## Expiration detail fields
 
@@ -69,7 +69,7 @@ Count rows for certificates and distinct `person_id` for affected people after s
 
 The manifest requires `status = passed`, `exit_code = 0`, `exports_ready = true`, the expected fixed date, and matching hashes for the three CSVs. It also records source-table reconciliation and the logical data digest. A failed rerun disables the manifest; old CSVs alone are not refresh authorization. A power interruption can leave replacement incomplete, so rerun after resolving the error.
 
-Day 6/7 executive displayed reconciliation and prototype acceptance are verified from screenshots and user explanation; actual PBIX/installed definitions remain uninspected. Day 8 uses these existing detail exports through three new queries and shared unit/qualification filters in `docs/day08_windows_handoff.md`. Counts/grains/schemas are unchanged. Run `src/check_powerbi_input.py` before every import/refresh; M checks manifest/shape/date/types/grain/value consistency but does not hash. The qualification/expiration page is accepted from October 17 evidence. Its original CSV fields remain unchanged; process outputs use the separate bundle below, and no-renewal fields remain Day 10.
+Day 6/7 executive displayed reconciliation and prototype acceptance are verified from screenshots and user explanation; actual PBIX/installed definitions remain uninspected. Day 8 uses these existing detail exports through three new queries and shared unit/qualification filters in `docs/day08_windows_handoff.md`. Counts/grains/schemas are unchanged. Run `src/check_powerbi_input.py` before every import/refresh; M checks manifest/shape/date/types/grain/value consistency but does not hash. The qualification/expiration page is accepted from October 17 evidence. Its original CSV fields remain unchanged; process outputs use the separate bundle below, and no-renewal fields use the separate Day 10 bundle below.
 
 ## Day 9 separate process bundle
 
@@ -100,3 +100,39 @@ Case detail fields in exact order:
 The summary starts data_classification, as_of_date, period_start, unit_id, unit_name, followed by known_case_count, opened_case_count, completed_case_count, correction_case_count, discrepancy_rate, median_completed_cycle_days, open_case_count, median_open_age_days, max_open_age_days. Counts sum over disjoint units; known_case_count counts all cases opened by D and is a reconciliation field rather than the opening-volume denominator. Rates and medians must be recomputed from the case population for selections. The median can be fractional even though every case duration is an integer. Zero denominators/no observations are blank; counts are zero.
 
 Open outcomes are not no-correction outcomes. Older completed cases outside the completion period can retain known outcomes/status but have completed_in_period 0 and completed_cycle_days blank. Future source outcomes are masked at D. A single-date source snapshot plus administrative cases establishes process outcomes only; it does not reconstruct historical staffing/readiness.
+
+## Day 10 separate no-renewal scenario bundle
+
+Default output: data/processed/dashboard/scenario/. Its scenario_export_manifest.json requires passed/ready/exit 0, bundle_kind qualification_scenario, scenario no_renewal, fixed date, horizons 30/60/90, the declared fixed-cohort assumptions, source/database reconciliation, both file schemas/grains/hashes and per-horizon global components. A failed CLI rerun disables refresh authorization. Original and process bundles remain unchanged.
+
+| CSV | Unique grain | Reference shape | Use |
+| --- | --- | --- | --- |
+| qualification_scenario.csv | unit_id, qualification_id, horizon_days, as_of_date | 144 rows / 25 columns | Report fact: 48 requirements at each of three alternative horizons |
+| scenario_unit_summary.csv | unit_id, horizon_days, as_of_date | 18 rows / 24 columns | SQL reference only; do not import as a second fact |
+
+Shared metadata in exact detail order: data_classification (Text, synthetic_only); scenario (Text, no_renewal); as_of_date (Date); horizon_days (Whole Number 30/60/90); horizon_date (Date, D+N); unit_id, unit_name, qualification_id, qualification_name (Text). Remaining fields in exact order:
+
+| Field | Type / rule |
+| --- | --- |
+| required_holder_count | Whole Number; fixed pair requirement, repeated for each alternative horizon |
+| current_eligible_holder_count | Whole Number; distinct available/currently-valid holders at D |
+| projected_eligible_holder_count | Whole Number; only the current cohort's certificates with expiration_date > horizon_date |
+| eligible_holders_lost | Whole Number; current eligible minus projected eligible, per pair |
+| current_capped_holder_count | Whole Number; min(current eligible, required) |
+| projected_capped_holder_count | Whole Number; min(projected eligible, required) |
+| current_gap | Whole Number; max(required - current eligible, 0) |
+| projected_gap | Whole Number; max(required - projected eligible, 0) |
+| additional_gap | Whole Number; projected_gap - current_gap, never negative under these rules |
+| current_coverage_ratio | Decimal Number; current capped / required; NULL/blank if undefined |
+| projected_coverage_ratio | Decimal Number; projected capped / required; NULL/blank if undefined |
+| current_is_gap | Whole Number 0/1; current_gap > 0 |
+| projected_is_gap | Whole Number 0/1; projected_gap > 0 |
+| is_new_gap | Whole Number 0/1; current_gap = 0 and projected_gap > 0; an existing gap worsening is not new |
+| current_is_fragile | Whole Number 0/1; current holders = required > 0 |
+| projected_is_fragile | Whole Number 0/1; projected holders = required > 0 |
+
+A holder can contribute to several qualification pairs. Summed eligible losses are holder slots, not unique people, and need not equal missing required slots. Staffing, units, demand and availability are fixed; renewals and future-start activations are excluded. November 6/day 30 is invalid at that horizon and removed. No predicted renewal probability or actual future staffing outcome is present.
+
+Summary metadata is data_classification, scenario, as_of_date, horizon_days, horizon_date, unit_id, unit_name, followed by qualification_pair_count, required_holder_slots, current_eligible_holder_slots, projected_eligible_holder_slots, eligible_holder_slots_lost, current_capped_holder_slots, projected_capped_holder_slots, current_gap, projected_gap, additional_gap, current_pairs_with_gap, projected_pairs_with_gap, new_gap_pairs, current_fragile_pairs, projected_fragile_pairs, current_coverage_ratio, projected_coverage_ratio. Counts sum over disjoint pairs within one selected horizon; divide summed capped/required slots for coverage. **Never sum alternative horizons**, which repeat demand/current components.
+
+scenario_horizon is a derived three-row/two-column lookup (Whole Number horizon_days, Text horizon_label), not a new operational source. The seventeen ORI S measures require one horizon; absent/ambiguous horizons show blanks and a selection prompt. With one valid horizon and no matching pairs, counts are zero and undefined ratios/dates blank. M checks the current baseline against accepted qualification_detail; Python preflight verifies SHA-256 and scenario arithmetic/grids/monotonicity without writes. Exact runtime behavior remains pending Windows/Desktop evidence; see [handoff](day10_windows_handoff.md), [reconciliation](day10_reconciliation.md) and [audit](scenario_check.json).
