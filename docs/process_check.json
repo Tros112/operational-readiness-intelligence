@@ -8,7 +8,7 @@
   "period_start": "2026-07-10",
   "data_classification": "synthetic_only",
   "readiness_classification": "fictional_proxy",
-  "milestone_status": "Windows_setup_and_core_Desktop_scopes_Open_only_empty_passed_final_restore_interactions_reopen_own_explanations_pending",
+  "milestone_status": "all_technical_report_checks_passed_denominator_and_blank_rate_explanations_accepted_own_combined_median_explanation_needs_refinement",
   "base_public_commit": "32c1535fa713ed4366f4d7cd05fdd997bc5a07d3",
   "assets": [
     "sql/process_case_detail.sql",
@@ -286,8 +286,8 @@
     "Python_SQL_and_read_only_export": "executed_verified",
     "PowerShell": "Windows_repeat_preservation_and_process_preflight_results_observed_assistant_did_not_execute_PowerShell",
     "M_DAX": "imports_types_relationships_measure_list_and_core_page_outputs_observed_exact_installed_definitions_uninspected",
-    "PowerBI_page": "global_F_other_units_two_types_unit_multi_combined_Open_only_and_empty_outputs_reconciled_final_finish_checks_pending",
-    "save_reopen": "pending"
+    "PowerBI_page": "all_requested_scopes_restoration_and_both_data_row_interactions_reconciled",
+    "save_reopen": "user_confirmed_PBIX_opens_and_functions_correctly_in_requested_new_prior_page_context"
   },
   "static_assets_review": {
     "status": "passed",
@@ -309,12 +309,12 @@
     "repeat_hashes_and_preservation": "passed_two_nonempty_repeat_manifest_comparisons_and_DB_prior_bundle_preserved_True",
     "preflight": "passed_process_checker_two_files_600_6_unique_semantics_and_zero_writes",
     "imports_types_model": "passed_600_16_and_4_1_with_visible_type_icons_and_seven_active_1_many_Single_links",
-    "global_selected_multi_clear": "global_single_and_multi_passed_final_post_temporary_filter_restore_pending",
+    "global_selected_multi_clear": "passed_including_post_temporary_filter_global_restoration",
     "open_only_denominator": "passed_158_open_0_completed_0_corrections_blank_rate_and_cycle",
-    "full_empty_and_restore": "empty_passed_equivalent_status_is_empty_filter_final_removal_and_restore_pending",
-    "both_table_interactions": "pending",
-    "save_reopen_prior_pages": "pending",
-    "own_process_explanations": "pending"
+    "full_empty_and_restore": "passed_equivalent_status_is_empty_filter_then_user_confirmed_removal_and_visible_global_restoration",
+    "both_table_interactions": "passed_Unit_C_and_C00004_selected_data_rows_leave_cards_date_other_table_global_with_user_confirmation",
+    "save_reopen_prior_pages": "passed_user_confirmation_in_requested_new_prior_page_context",
+    "own_process_explanations": "completed_denominator_and_blank_rate_accepted_combined_median_needs_refinement"
   },
   "previous_milestones": {
     "Day8": "complete",
@@ -334,12 +334,12 @@
   "specific_SQL_review": "LEFT_JOIN_and_staffing_join_multiplication_carried_separately",
   "actual_hours": null,
   "event_employer_feedback": "unreported",
-  "next_action": "remove_status_page_filter_clear_slicers_restore_global_test_each_table_row_save_reopen_and_provide_three_own_process_explanations_no_setup_or_test_rerun",
+  "next_action": "restate_only_why_combined_median_uses_eligible_individual_case_durations_instead_of_unit_medians_no_repeat_technical_checks",
   "stop_after_milestone": 9,
   "images_or_report_binaries_published": false,
   "last_review_local_date": "2026-10-19",
-  "last_review_submission_local_datetime": "2026-10-19T19:55:30-07:00",
-  "last_review_base_public_commit": "db50e4a3d728835b9ce70607e632c3d08be0b87c",
+  "last_review_submission_local_datetime": "2026-10-19T20:13:13-07:00",
+  "last_review_base_public_commit": "5f4fc6e52b7330ba43c5a5c843dcc97a497dae99",
   "latest_setup_evidence_review": {
     "review_local_date": "2026-10-19",
     "evidence_original_local_date": "2026-10-17",
@@ -401,7 +401,20 @@
     "exact_full_installed_M_DAX_inspected": false,
     "assistant_executed_PowerShell_or_operated_PBIX": false
   },
-  "latest_Desktop_review": {
+  "remaining_completion_checks": {
+    "final_temporary_filter_removal_and_global_restore": "passed",
+    "unit_comparison_and_case_table_row_tests": "passed",
+    "save_reopen_new_and_prior_pages": "passed_user_confirmed",
+    "three_own_process_explanations": "two_accepted_only_combined_median_needs_refinement"
+  },
+  "MVP_status_at_scheduled_gate": {
+    "date": "2026-10-19",
+    "status": "not_passed_as_of_this_review",
+    "release_date_or_scope_revised": false,
+    "full_release_acceptance_inferred_from_process_screenshots": false,
+    "checkpoint": "docs/checkpoints/2026-10-19_mvp_status.md"
+  },
+  "core_Desktop_review_1955_PDT": {
     "user_submission_local_datetime": "2026-10-19T19:55:30-07:00",
     "images_read_directly_from_attached_scratch_copies": true,
     "images_copied_or_published_to_repository": false,
@@ -581,17 +594,88 @@
     "assistant_operated_PowerBI": false,
     "metric_code_scope_or_source_changed": false
   },
-  "remaining_completion_checks": {
-    "final_temporary_filter_removal_and_global_restore": "pending",
-    "unit_comparison_and_case_table_row_tests": "pending",
-    "save_reopen_new_and_prior_pages": "pending",
-    "three_own_process_explanations": "pending"
+  "latest_Desktop_review": {
+    "user_submission_local_datetime": "2026-10-19T20:13:13-07:00",
+    "images_read_directly_from_attached_scratch_copies": true,
+    "images_copied_or_published_to_repository": false,
+    "global_values": {
+      "completed_case_count": 442,
+      "correction_case_count": 45,
+      "discrepancy_rate": 0.10180995475113122,
+      "known_case_count": 600,
+      "max_open_age_days": 88,
+      "median_completed_cycle_days": 7,
+      "median_open_age_days": 27,
+      "open_case_count": 158,
+      "opened_case_count": 600
+    },
+    "analysis_date": "2026-10-07",
+    "cases": [
+      {
+        "image_name": "image(20261020-031042).png",
+        "scope": "global_restored",
+        "slicers_clear": true,
+        "all_eight_metric_cards_and_date_match": true,
+        "all_six_unit_rows_and_totals_and_case_table_global": true
+      },
+      {
+        "image_name": "image(20261020-031056).png",
+        "scope": "Unit_Comparison_data_row_selected",
+        "selected_row": "Unit C",
+        "slicers_clear": true,
+        "cards_date_and_other_table_global": true,
+        "interaction_result": "passed"
+      },
+      {
+        "image_name": "image(20261020-031110).png",
+        "scope": "Case_data_row_selected",
+        "selected_row": "C00004",
+        "prior_Unit_C_row_highlight_also_visible": true,
+        "slicers_clear": true,
+        "cards_date_and_other_table_global": true,
+        "interaction_result": "passed_with_user_confirmation_of_individual_selections"
+      }
+    ],
+    "temporary_filter_removed": "user_confirmed_with_visible_global_restoration",
+    "table_selections_user_confirmation": "Card and other table remain global upon individual selections.",
+    "save_reopen_user_confirmation": "PBIX opens and functions correctly",
+    "save_reopen_accepted_for_requested_new_and_prior_pages": true,
+    "all_technical_report_checks_passed": true,
+    "assistant_operated_or_inspected_PBIX": false,
+    "exact_full_installed_definitions_inspected": false,
+    "new_operational_data_DB_access_or_write": false,
+    "new_test_pipeline_checker_or_export_run": false,
+    "metric_code_scope_or_source_changed": false
   },
-  "MVP_status_at_scheduled_gate": {
-    "date": "2026-10-19",
-    "status": "not_passed_as_of_this_review",
-    "release_date_or_scope_revised": false,
-    "full_release_acceptance_inferred_from_process_screenshots": false,
-    "checkpoint": "docs/checkpoints/2026-10-19_mvp_status.md"
+  "own_process_explanation_review": {
+    "completed_denominator": {
+      "status": "accepted",
+      "precise_definition": "eligible completed cases marked correction_required divided by all eligible completed cases; no new event-after-closure timing rule"
+    },
+    "Open_only_blank_rate": {
+      "status": "accepted",
+      "reason": "no eligible completed cases makes the denominator zero and the rate undefined"
+    },
+    "combined_median": {
+      "status": "own_explanation_needs_refinement",
+      "user_answer": "Selected case medians are specific to the case type, while the unit median cuts across all case types; different metrics",
+      "refinement": "Unit medians can respect the same type filters but lose individual case counts/distributions. Pool eligible individual case durations and select the middle observation(s).",
+      "illustrative_only_durations": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          20
+        ]
+      ],
+      "illustrative_pooled_median": 2.5,
+      "illustrative_median_of_unit_medians": 11,
+      "actual_ORI_global_median": 7,
+      "actual_ORI_median_of_six_displayed_unit_medians": 7.5,
+      "independent_corrected_explanation_supplied": false
+    },
+    "new_quiz_or_repeat_accepted_questions_required": false
   }
 }

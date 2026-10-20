@@ -23,7 +23,7 @@ The duplicate and zero-demand fixtures are isolated unconstrained in-memory data
 
 Run `python -m unittest discover -s tests -v` from the root. Run generation first on a fresh checkout because reference tests require the clean CSVs; an existing working folder reuses them. The current Day 9 full suite has **60 passing tests on Linux** (17.102 seconds, exit 0), including eleven checks in `test_process_metrics.py`. The October 17 screenshot, reviewed October 19, also shows **60 tests / OK on Windows**, 44.115 seconds. No separate process exit-code line is visible. No test rerun was performed for the screenshot review. New checks cover completion/opening boundaries, older backlog, future events/outcome masking, true odd/even/selected medians, zero denominators/empty units, safe bound filters, repeat/DB/source/legacy preservation, blocked/changed/missing inputs, protected files, interrupted export, and hash/semantic preflight errors. Tests do not execute Power BI or implement the Day 10 no-renewal scenario.
 
-The suite addresses actual failure risks; Day 9 core Power BI scopes now reconcile separately from these tests, while final page checks and the no-renewal scenario remain pending:
+The suite addresses actual failure risks; all Day 9 technical/report checks now pass separately from these tests, with reopening user-confirmed. Only the own combined-median explanation needs refinement; the no-renewal scenario remains Day 10 and unbuilt. No tests were rerun for this text/evidence update:
 
 - Same configuration/seed yields identical six-table CSV data.
 - Each injected defect is detected and accepted/rejected counts reconcile.

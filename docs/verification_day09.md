@@ -1,6 +1,6 @@
 # Day 9 verification — implementation and Windows handoff
 
-**Current October 19 status:** Windows setup and core Desktop scopes are accepted. Final filter removal/restoration, both table-row tests, reopening and own process explanations remain pending. The initial implementation record below is dated October 17; the final section records the new evidence.
+**Current October 19, 20:13 PDT status:** all technical/report checks are accepted, including restoration, both table-row tests, and user-confirmed reopening/function. The user's completed-case denominator and blank-rate explanations are accepted. Only their own combined-median explanation needs refinement. Earlier sections retain their dated evidence states; the final section records the latest review.
 
 Initial October 17 record: Day 9 started at 11:36 PDT under the user's instruction. Source schedule was October 15; dates/audience/synthetic scope remain unchanged. Day 8 is complete. **Day 9 is not complete:** Windows reproduction and the process page remain pending.
 
@@ -57,3 +57,19 @@ All nonempty dates show October 7; the full-empty analysis date is blank. The pe
 The final submitted state is still empty. No subsequent filter removal/global restoration is shown. No image shows an actual selected data row in each table; an active visual border is not sufficient. No new save/reopen or own process explanation was supplied. These four groups remain open, with the exact next steps in handoff section 6. Do not repeat setup, 60 tests, export/preflight, model/import, or accepted numeric cases solely for evidence.
 
 This follow-up does not run tests/checkers/exports/pipeline, access/write operational data/DB, change Python/SQL/M/DAX/metrics/scope, operate Power BI, infer event/employer feedback/hours, close Day 9, or start Day 10. The October 19 scheduled MVP status is recorded separately as not yet passed; dates/scope are unchanged.
+
+## October 19, 20:13 PDT — final report checks pass; median explanation needs refinement
+
+Read the three new attachments directly from their scratch copies despite the accompanying missing-file messages. No image was modified or published.
+
+| Image | Observation / acceptance |
+| --- | --- |
+| image(20261020-031042).png | Both slicers clear; restored 600 opened, 442 completed, 45 corrections, 10.18%, median cycle 7.0, open 158, median age 27.0, oldest 88, October 7 date. All six comparison rows/totals and the case table remain global. |
+| image(20261020-031056).png | Unit C data row highlighted, slicers clear; all eight cards/date and the case table retain global scope. Unit-comparison interaction passes. |
+| image(20261020-031110).png | C00004 case row highlighted; global cards/date and all six comparison rows/totals remain. Unit C's previous highlight also remains, without filtering either visual. User confirms individual table selections leave cards/other table global; accept the case-source check without a repeat image. |
+
+The user explicitly confirms filter removal/global restoration and that the PBIX opens/functions correctly. Accept reopening in the requested new/prior-page context as user evidence, not assistant operation or a supplied PBIX inspection. All Day 9 technical/report checks pass.
+
+Own answers 1 and 2 establish the completed-case denominator and undefined Open-only rate. State the precise first definition as the share of eligible completed cases marked correction_required: 45/442, not an assertion of a separately measured event after completion. Answer 3 says, "Selected case medians are specific to the case type, while the unit median cuts across all case types; different metrics." This does not establish the existing combined-median concept: a unit median can also use the same selected type filter, but replacing all its cases with one summary loses counts/distribution. Clarify pooled individual eligible durations and the middle observation(s). Illustrative durations [1,2,3] and [20] produce combined median 2.5 versus median of the two unit medians 11; this teaching example is not an ORI finding. The real global reference is 7.0 versus 7.5 for the six displayed unit medians.
+
+Only the user's own restatement of why to recompute from individual case durations remains. No repeat screenshot, setup/test/export/checker, reopening, first-two-answer, or Day 8 quiz is needed. Day 9 remains open for that existing explanation; the scheduled MVP gate is open, Day 10 is not started, and dates/scope are unchanged. This is a text-only evidence update with no operational data/DB access/write, code/metric change, new runtime test, employer feedback, attendance, or actual-hours inference.

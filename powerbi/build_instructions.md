@@ -1,15 +1,12 @@
 # Power BI build index
 
-**Current status, October 19, 2026 — Day 9:** Windows 60-test/export/preservation/preflight/import/model setup is accepted, and global/selected/Open-only/empty process displays reconcile. Final restoration, both table-row interactions, reopening and own process explanations remain pending. Executive/qualification pages and the prototype remain accepted; the scheduled MVP gate is open. The assistant has not operated an actual PBIX.
+**Current status, October 19, 2026 — Day 9:** all technical/report checks are accepted, including restoration, both table-row interactions, and user-confirmed reopening. Completed-denominator and blank-rate explanations are accepted; only the own combined-median explanation needs refinement. Executive/qualification pages and the prototype remain accepted; the scheduled MVP gate is open. The assistant has not operated an actual PBIX.
 
 ## Continue in the same Windows project
 
 Use [handoff section 6](../docs/day09_windows_handoff.md#6-remaining-completion-checks) and [reconciliation](../docs/day09_reconciliation.md). Preserve the current report/interpreter/data and all earlier pages/measures. Do not repeat passed setup, cases, or unchanged tests for evidence.
 
-1. Remove the temporary status page filter, clear slicers/selections, and restore global.
-2. Select an actual row in Unit Comparison, then an actual row in Case. Each leaves cards/date/other table at global scope; capture one result for each source table.
-3. Save/reopen and confirm Process and the prior pages function.
-4. Provide the three existing own process denominator/blank-rate/median explanations.
+Only the own combined-median explanation remains: explain why the selected total must use eligible individual case durations rather than unit medians. Both unit and total medians can respect the same case-type filter; summarizing a unit to one median loses individual case counts/distributions. No repeat screenshots, reopening, or first-two-answer checks are required.
 
 Accepted assets remain [process_case_detail.pq](process_case_detail.pq), [process_filter.pq](process_filter.pq), and [process_measures.dax](process_measures.dax): 600/16 and 4/1 imports, ten measures, and two new active 1:* Single links preserving the earlier five. The SQL unit-median summary remains reference-only.
 

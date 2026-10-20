@@ -1,6 +1,6 @@
 # Operational Readiness Intelligence
 
-**Status: Day 9 in progress October 19, 2026.** Windows tests/export/import/model evidence and process-page global, selected, Open-only, and empty results reconcile. Final filter restoration, table-row interactions, reopening, and own process explanations remain pending. Day 8 is complete; the prototype passed October 12. The October 19 MVP gate remains open, with no date/scope revision; polish remains October 30.
+**Status: Day 9 technical/report checks accepted October 19, 2026.** Windows tests/export/import/model evidence and process-page global, selected, Open-only, empty, restoration, and both table-row results reconcile; reopening is user-confirmed. The user's completed-case denominator and blank-rate explanations are accepted. Only the own explanation of recomputing the combined median from individual cases needs refinement. Day 8 is complete; the prototype passed October 12. The October 19 MVP gate remains open, with no date/scope revision; polish remains October 30.
 
 The synthetic process reference has **600 opened cases, 442 completed, 45 corrections (10.18%), median completed cycle 7 days, and 158 open cases with median age 27 days**. Rates use completed outcomes; medians use selected case durations, and open outcomes remain unknown. Repeated process exports match while the database, source/accepted files, and existing dashboard bundle retain their hashes. **60 Python tests pass on Linux and screenshot-verified Windows** (Windows: 44.115 seconds, OK). These tests do not execute M/DAX or Desktop.
 
@@ -26,7 +26,7 @@ The brainstorming chat remains the master record for priorities and major scope 
 
 Read [charter](docs/charter.md), [progress](docs/progress.md), and [decisions](docs/decisions.md) before making changes. The attached schedule is preserved in [source_execution_plan.md](docs/source_execution_plan.md).
 
-Existing Windows checkout: the Day 9 tests, repeat/preservation/preflight, imports, relationships, and core page scopes are accepted. Continue at [handoff section 6](docs/day09_windows_handoff.md#6-remaining-completion-checks): remove the temporary filter/restore global, test both table-row interactions, save/reopen all pages, and supply the three own process explanations. No setup, test, export, or accepted-case repeat is required for this documentation-only review. Keep the existing interpreter, sources/database, report, and earlier pages/measures. Run both input checkers immediately before a later import/refresh and keep files stable.
+Existing Windows checkout: all Day 9 technical/report checks are accepted, including restoration, both table-row tests, and user-confirmed reopening. Continue at [handoff section 6](docs/day09_windows_handoff.md#6-remaining-completion-checks) with only the own combined-median explanation: pool eligible individual case durations in the selected scope; unit medians discard information even within one case type. No setup, test, export, screenshot, or reopening repeat is required. Keep the existing interpreter, sources/database, report, and earlier pages/measures. Run both input checkers immediately before a later import/refresh and keep files stable.
 
 Use Python 3.11 or later from the project root:
 
@@ -47,7 +47,7 @@ python -m unittest discover -s tests -v
 
 These commands show the full fresh-checkout order, not a request to repeat working setup. The environment checker executes the schema in memory. The generator creates `data/raw/clean/`; the injector writes `data/raw/dirty/` separately. Clean validation exits 0; intentional dirty validation exits **1** and blocks loading. `load_data.py` verifies passed source/export hashes and values, then loads `data/processed/readiness.sqlite3` in one transaction. Repeating it replaces the same snapshot without duplicates. Its audit is `data/processed/load_report.json`. `export_metrics.py` re-verifies the passed source/database, executes three queries in one read transaction, and writes `data/processed/dashboard/`. Only use its CSVs when `export_manifest.json` is passed, exports_ready is true, the date is correct, and hashes match. Generated datasets, audits, and databases are excluded from Git.
 
-Current exports implement staffing, current qualification coverage/gaps/fragility, cumulative expiration inventory, and process volume/completed outcomes/current backlog. Process outputs use a separate `data/processed/dashboard/process/` bundle and `process_export_manifest.json`; old dashboard files/manifest are unchanged. Both exporters reconcile the passed source against the read-only database. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Executive and qualification/expiration pages are accepted from user evidence; core process-page results reconcile and final completion checks remain pending. The deterministic no-renewal scenario remains Day 10.
+Current exports implement staffing, current qualification coverage/gaps/fragility, cumulative expiration inventory, and process volume/completed outcomes/current backlog. Process outputs use a separate `data/processed/dashboard/process/` bundle and `process_export_manifest.json`; old dashboard files/manifest are unchanged. Both exporters reconcile the passed source against the read-only database. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Executive, qualification/expiration, and process technical/report checks are accepted from user evidence; Day 9 retains only the own combined-median explanation. The deterministic no-renewal scenario remains Day 10.
 
 ## Prototype concept
 
@@ -58,7 +58,7 @@ Current exports implement staffing, current qualification coverage/gaps/fragilit
 | Power BI executive page | Built; displayed metrics/filters/interactions verified; reopening user-confirmed |
 | Short prototype explanation | User-provided version reviewed; rehearsal duration user-reported at about one minute |
 | Qualification/expiration detail visuals | Day 8 complete; numeric, boundary, filter, empty, interaction, and user reopening evidence accepted |
-| Administrative process metrics/view | SQL/export/Windows setup and core displayed scopes accepted; final restore/interactions/reopen/explanations pending |
+| Administrative process metrics/view | Technical/report checks accepted; reopening user-confirmed; own combined-median explanation needs refinement |
 | Deterministic no-renewal qualification scenario | Planned Day 10 |
 | Machine learning | Outside this MVP |
 
