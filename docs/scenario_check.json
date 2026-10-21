@@ -7,7 +7,7 @@
   "as_of_date": "2026-10-07",
   "data_classification": "synthetic_only",
   "readiness_classification": "fictional_proxy",
-  "milestone_status": "Windows_setup_model_core_displays_verified_final_report_checks_and_own_explanations_pending",
+  "milestone_status": "all_technical_report_checks_and_D_Q04_explanation_accepted_two_own_explanation_points_pending",
   "base_public_commit": "cca5b452dcbda4a3bf832dd4225f164d13db7bd6",
   "assets": [
     "sql/qualification_scenario.sql",
@@ -623,21 +623,21 @@
     "imports_types_ten_relationships": "ten_intended_active_Single_links_verified_exact_query_shape_type_metadata_uninspected_no_new_gate",
     "global_30_60_90": "passed_eight_cards_dates_all_six_unit_rows",
     "D_Q04_C_Q06_B_Q03": "passed_original_selected_pair_criterion_no_repeat_all_horizons_required",
-    "combined_unit_qualification_selection_and_restore": "30_day_union_and_global_restoration_passed_original_90_day_union_pending",
-    "no_or_multiple_horizon_guard_and_restore": "partial_numeric_analysis_date_pair_rows_guarded_multi_horizon_date_card_failed_correction_and_final_restore_pending",
+    "combined_unit_qualification_selection_and_restore": "passed_30_and_90_union_and_restored_global_30",
+    "no_or_multiple_horizon_guard_and_restore": "passed_both_dates_numeric_status_and_pair_rows_cleared_multiple_horizons_final_single_30_restored",
     "full_empty_pair_scope_and_restore": "passed_equivalent_blank_qualification_lookup_filter_and_later_global_restore",
-    "both_table_data_row_interactions": "pending_actual_row_test_confirmation_visual_borders_do_not_establish_both",
+    "both_table_data_row_interactions": "passed_actual_U01_Q03_pair_and_Unit_C_comparison_rows_plus_user_confirmation",
     "save_reopen_new_and_prior_pages": "accepted_user_confirmation_no_repeat_reopen_for_card_label_edit",
-    "three_own_scenario_explanations": "pending_no_answers_supplied"
+    "three_own_scenario_explanations": "D_Q04_accepted_C_new_gap_and_fixed_assumptions_pending"
   },
   "findings": {
     "count": 3,
     "path": "docs/day10_findings.md",
     "SQL_evidence": "verified",
-    "scenario_Desktop_display_and_user_own_explanations": "three_findings_display_verified_own_explanations_pending",
+    "scenario_Desktop_display_and_user_own_explanations": "all_report_checks_and_D_Q04_explanation_accepted_two_own_points_pending",
     "real_operations_or_causality_or_impact_claims": false,
     "scenario_Desktop_display": "verified_global_D_Q04_C_Q06",
-    "user_own_explanations": "pending"
+    "user_own_explanations": "D_Q04_accepted_C_new_gap_and_assumptions_pending"
   },
   "predictive_extension_assessment": {
     "learned_target_or_label": "none; no empirical future-renewal outcomes or trained predictor",
@@ -659,10 +659,10 @@
   "actual_hours": null,
   "event_employer_feedback": "unreported",
   "images_generated_operational_data_or_report_binaries_published": false,
-  "next_action": "remaining_handoff_items_existing_guarded_date_card_loss_label_clear_multiple_guard_90_day_union_both_row_confirmation_final_30_default_save_three_own_explanations",
+  "next_action": "two_existing_own_explanations_C_Q06_new_gap_flag_and_fixed_scenario_assumptions_no_technical_or_D_repeat",
   "stop_after_milestone": 10,
   "last_review_local_date": "2026-10-20",
-  "review_base_public_commit": "6e2cc6f8189046148e169191ecbb2279074724b9",
+  "review_base_public_commit": "dfe99fbc9c54b93419fc4be3b236ee0c270c4500",
   "Windows_setup_evidence": {
     "repeat_rows": {
       "qualification_scenario.csv": 144,
@@ -745,11 +745,13 @@
       "expected": null,
       "other_guarded_numeric_analysis_date_and_pair_rows": "correctly_blank_or_empty",
       "repair": "use_existing_ORI_S_Horizon_Date_measure_in_card_then_verify_clear_and_multiple_scope",
-      "exact_installed_field_or_formula": "not_independently_inspected"
+      "exact_installed_field_or_formula": "not_independently_inspected",
+      "followup_status": "resolved_images_054129_054157_both_dates_blank_multiple_cleared_horizons"
     },
     "label_clarification": {
       "current": "Holder Slots",
-      "requested": "Eligible Holder Slots Lost"
+      "requested": "Eligible Holder Slots Lost",
+      "followup_status": "verified_054407_and_later"
     },
     "remaining_90_day_combined_reference": {
       "selection": "A+C/Q01+Q02",
@@ -763,12 +765,49 @@
       "eligible_holder_slots_lost": 8,
       "horizon_date": "2027-01-05"
     },
-    "table_data_row_selection_evidence": "neither_both_tests_nor_explicit_confirmation_established",
-    "final_default": "restore_filters_removed_global_Single_select_On_Select_all_Off_30_days_and_save",
+    "table_data_row_selection_evidence": "passed_actual_pair_and_unit_rows_054522_054533_and_user_confirmation",
+    "final_default": "verified_clear_unit_qualification_selectors_single_selected_30_final_images_prior_reopening_accepted",
     "PBIX_reopening": "user_confirmed_in_requested_new_prior_page_context",
     "new_quiz_recording_or_exact_formula_type_proof_gate": false,
     "assistant_operated_Desktop_or_inspected_PBIX": false,
-    "current_review_pipeline_or_test_rerun": false
+    "current_review_pipeline_or_test_rerun": false,
+    "followup_review": {
+      "local_date": "2026-10-20",
+      "images": [
+        "054129",
+        "054157",
+        "054407",
+        "054452",
+        "054522",
+        "054533"
+      ],
+      "technical_report_checks": "all_accepted",
+      "horizon_date_defect": "resolved",
+      "actual_cleared_multiple_horizon_guard": "verified_images_and_user_confirmation",
+      "A_C_Q01_Q02_90": "all_eight_cards_both_unit_rows_four_pair_rows_and_dates_match",
+      "both_actual_row_interactions": "verified_images_and_user_confirmation",
+      "global_30_default_restoration": "verified",
+      "prior_reopening": "accepted_no_repeat",
+      "new_technical_screenshots_requested": false
+    }
   },
-  "review_checkpoint": "docs/checkpoints/2026-10-20_day10_review.md"
+  "review_checkpoint": "docs/checkpoints/2026-10-20_day10_review.md",
+  "own_explanation_review": {
+    "D_Q04": {
+      "status": "accepted",
+      "reason": "two_required_slots_limit_unmet_slots_despite_six_eligible_losses"
+    },
+    "C_Q06": {
+      "status": "needs_refinement_new_gap_flag_unresolved",
+      "recognized": "two_required_one_current_holder_projected_gap_two",
+      "clarification": "current_gap_one_projected_two_additional_two_minus_one_equals_one_new_flag_zero_existing_gap",
+      "flag_rule": "one_only_if_current_gap_zero_and_projected_gap_positive"
+    },
+    "fixed_assumptions": {
+      "status": "pending_user_stumped_coaching_provided",
+      "coaching": "freeze_current_eligible_cohort_staffing_units_availability_demand_no_renewals_future_activations_or_new_holders_conditional_calculation_not_estimated_actual_future_behavior"
+    },
+    "assistant_teaching_is_user_own_understanding": false,
+    "repeat_D_or_new_quiz_required": false
+  }
 }
