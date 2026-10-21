@@ -1,6 +1,6 @@
 # Day 10 no-renewal reconciliation
 
-**SQL/reference evidence only; Windows/Desktop display checks remain pending.** Fixed D is October 7, 2026. Retain only people available with a valid certificate at D, then remove certificates expiring on/before each horizon. Staffing, unit membership, availability and demand stay fixed. No renewals, future-start activations, new qualifications, transfers or simultaneous-assignment model enter the scenario.
+**October 20: SQL references and the submitted global/selected/empty Desktop displays reconcile.** Windows setup/model and user-confirmed reopening are accepted. The multi-horizon date card needs correction; the combined 90-day selection, both active data-row interaction checks, final default restoration and three own explanations remain pending. Use only the [remaining handoff items](day10_windows_handoff.md#remaining-items-after-the-screenshot-review); prior passes stand. Fixed D is October 7, 2026. Retain only people available with a valid certificate at D, then remove certificates expiring on/before each horizon. Staffing, unit membership, availability and demand stay fixed. No renewals, future-start activations, new qualifications, transfers or simultaneous-assignment model enter the scenario.
 
 Current coverage is 88/95 = **92.63%**, with seven missing slots and seven gap pairs. Current components repeat on each horizon row for comparison. Select exactly one horizon before aggregation; never add alternative horizons.
 
@@ -51,7 +51,9 @@ Four selected pairs require eight slots. Current eligible holder slots are 14, c
 | 60 days | 9 | 8 / 8 | 100.00% | 0 / 0 | 0 | 5 |
 | 90 days | 6 | 6 / 8 | 75.00% | 2 / 2 | 2 | 8 |
 
-## Desktop acceptance checklist — pending
+## Desktop acceptance checklist — original criteria and current review
+
+Current evidence: Windows 72 tests/OK (68.347s), 144/18 repeat and manifest matches, three preflights passed (3/2/2 files, zero writes), preservation True for 46 Windows files, ten active 1:* Single relationships, and seventeen listed ORI S measures. Global 30/60/90 and all six unit rows match; D/Q04 at all horizons, C/Q06 at 30/60 and B/Q03 at 30 match. No repeat of the same invariant selected pairs at every horizon is required. A+C/Q01+Q02 at 30 matches; its required 90-day check remains. A blank qualification lookup page filter at horizon 30 gives the expected full empty result; later global restoration passes. Empty horizon page-filter cases reject the scope, but the actual multi-horizon image 052236 leaves the raw minimum horizon date visible. Replace that card's field with ORI S Horizon Date and finish the original no/multiple selection check. Reopening/function is user-confirmed. Both actual data-row tests and all three own explanations remain unconfirmed. Imported shapes/type metadata and exact installed definitions were not directly inspected; no extra proof gate is added.
 
 1. **Windows setup:** 72 tests/OK, two repeat/manifest matches (144/18), prior-file/DB preservation True, all three preflights passed without writes. Import 144/25 and 3/2; retain seven prior links and add only the three intended active 1:* Single links (ten total).
 2. **Global horizons:** clear unit and qualification slicers; select 30, 60, then 90 separately. Match all eight cards, dates, comparison rows/totals and relevant pair rows above. Current coverage/gap stay 92.63%/7.

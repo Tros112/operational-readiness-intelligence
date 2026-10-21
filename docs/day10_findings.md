@@ -1,6 +1,6 @@
 # Day 10 — first three no-renewal findings
 
-These findings describe **synthetic SQL results**, not real operations, measured impact, or predictions. Fixed analysis date: October 7, 2026. The scenario holds current availability, units and demand fixed, admits only today's eligible valid certificates, and assumes no renewals or future certificate activations. Scenario-page display and the user's own explanations remain pending. [Reconciliation](day10_reconciliation.md), [verification](verification_day10.md), and [metric contract](metric_contract.md) provide the evidence/rules.
+These findings describe **synthetic SQL results**, with matching global and selected scenario-page displays reviewed October 20. They do not establish real operations, measured impact, or predictions. Fixed analysis date: October 7, 2026. The scenario holds current availability, units and demand fixed, admits only today's eligible valid certificates, and assumes no renewals or future certificate activations. The user's own scenario explanations and remaining Day 10 report checks are pending. [Reconciliation](day10_reconciliation.md), [verification](verification_day10.md), and [metric contract](metric_contract.md) provide the evidence/rules.
 
 | Finding | Supporting counts | Fictional operational implication / proposed review | Limits |
 | --- | --- | --- | --- |

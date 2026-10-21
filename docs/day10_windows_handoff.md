@@ -2,7 +2,17 @@
 
 Started October 19, 2026 at 20:33 PDT under the user's instruction; source schedule October 16. Day 9 remains complete. Fixed analysis date is **October 7, 2026**. This milestone implements the already contracted deterministic scenario, not a forecast of actual renewals or future staffing. Release dates/scope remain unchanged; the scheduled MVP gate is open.
 
-**Prepared and verified on Linux:** 72 tests pass, including twelve new scenario checks. Two scenario exports match, all three input checkers pass without writes, and all 48 pre-existing data files retain their hashes. SQL reference results are in [reconciliation](day10_reconciliation.md); three initial simulated findings are in [findings](day10_findings.md). **Windows reproduction, M/DAX execution, scenario visuals, and Day 10 acceptance remain pending.** Start with sections 1–2 and return their results before the import/model review.
+**October 20 review:** Windows 72 tests/OK, repeat/hash checks, all three zero-write preflights, 46 protected Windows files, ten active Single relationships, and seventeen listed measures are accepted. All three global horizons, D/Q04, C/Q06, B/Q03, the 30-day A+C/Q01+Q02 selection, empty scope and global restoration match the references. PBIX reopening/function is user-confirmed. Linux's separate preservation count remains 48. See the [review checkpoint](checkpoints/2026-10-20_day10_review.md). Continue only with the remaining items below; do not rerun sections 1–3 or passed report cases for evidence.
+
+## Remaining items after the screenshot review
+
+1. **Correct the horizon date card.** In image 052236, multiple horizons are selected: status, numeric cards, Analysis Date and pair rows correctly reject that scope, but **Earliest Horizon Date still displays November 6**. Select that date card, remove the aggregated raw date field and use the existing **ORI S Horizon Date** measure from [scenario_measures.dax](../powerbi/scenario_measures.dax). Rename the displayed label **Horizon Date**. No new measure or relationship is required. Rename the **Holder Slots** card **Eligible Holder Slots Lost** so its loss count is clear.
+2. Remove the temporary page filters. With the horizon slicer's Single select temporarily Off, clear its selection, then select 30+60. Each state must show **Select one horizon**, blank numerical/date cards and no pair rows. Return **Single select On, Select all Off**.
+3. **Finish the existing combined-selection check:** A+C and Q01+Q02 at **90 days** should show current coverage **100%**, projected **75%**, current/projected/additional missing slots **0/2/2**, new/projected gap pairs **2/2**, holder slots lost **8**, and horizon date **January 5, 2027**. The 30-day version already passes.
+4. Clear unit/qualification selections and restore **30 days**. Select an actual data row in Unit Comparison, then an actual Pair Detail row separately. Cards/date/status and the other table must stay global. The submitted images show visual borders and table text but do not establish both active data-row tests. A short confirmation of both results is sufficient; no recording or formula/type proof is requested. Save the corrected report. The existing reopening confirmation remains accepted.
+5. Supply the three short own explanations in section 5: D's six losses versus two missing slots; C's total/additional/new gap distinction; and fixed assumptions versus a prediction.
+
+These are the remaining Day 10 checks. Exact imported type metadata/formula definitions were not directly inspected; no new metadata gate is added. Day 11 and the full MVP release remain separate and unstarted/unpassed respectively.
 
 Preserve the existing Windows checkout, .git, .venv, report and earlier pages/measures. No installation, source generation, validation rerun, or database reload is required for the saved passed snapshot. The continuing root is `C:\Users\dolai\OneDrive\Documents\Data Science 2027\Projects\Operational Readiness Intelligence OPI\Day 3`, not its powerbi subfolder.
 
@@ -150,6 +160,6 @@ Supply three short own explanations:
 2. Why is C/Q06 projected gap **2**, additional gap **1**, and new-gap flag **0**?
 3. Which fixed assumptions make this a conditional no-renewal scenario rather than a prediction of actual future coverage?
 
-The initial [three findings](day10_findings.md) have SQL evidence; their scenario-page display and the user's explanations remain pending. Day 10 closes only after its Windows/report/ownership checks. The broader MVP acceptance/backup-demo work stays separately open; do not start Day 11 in this milestone.
+The initial [three findings](day10_findings.md) now have matching scenario-page displays as well as SQL evidence. The user's own explanations and the remaining items at the top of this handoff are pending. Day 10 closes only after those existing checks. The broader MVP acceptance/backup-demo work stays separately open; do not start Day 11 in this milestone.
 
 Primary implementation references: [SQLite calendar date modifiers](https://www.sqlite.org/lang_datefunc.html), [DAX HASONEVALUE](https://learn.microsoft.com/en-us/dax/hasonevalue-function-dax), and [DAX DIVIDE](https://learn.microsoft.com/en-us/dax/divide-function-dax). These document functions, not the project's simulated findings or Desktop execution.

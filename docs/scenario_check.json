@@ -7,7 +7,7 @@
   "as_of_date": "2026-10-07",
   "data_classification": "synthetic_only",
   "readiness_classification": "fictional_proxy",
-  "milestone_status": "implementation_verified_Windows_Desktop_and_own_explanations_pending",
+  "milestone_status": "Windows_setup_model_core_displays_verified_final_report_checks_and_own_explanations_pending",
   "base_public_commit": "cca5b452dcbda4a3bf832dd4225f164d13db7bd6",
   "assets": [
     "sql/qualification_scenario.sql",
@@ -550,7 +550,13 @@
       "new_tests": 12,
       "targeted_seconds": 7.008
     },
-    "Windows_updated_72_tests": "pending",
+    "Windows_updated_72_tests": {
+      "status": "screenshot_verified_OK",
+      "tests": 72,
+      "seconds": 68.347,
+      "process_exit_code": "not_separately_displayed",
+      "evidence": "image(20261021-013426).png"
+    },
     "Windows_prior_60_tests": "previously_screenshot_verified_Day9",
     "executes_M_DAX_PowerShell_or_Desktop": false
   },
@@ -608,28 +614,30 @@
   },
   "runtime": {
     "Python_SQL_export_preflight": "executed_verified",
-    "PowerShell": "prepared_unexecuted",
-    "M_DAX_and_new_Desktop_page": "prepared_statically_checked_unexecuted",
-    "save_reopen": "pending_user_evidence"
+    "PowerShell": "Windows_setup_export_repeat_preservation_and_preflight_results_screenshot_verified",
+    "M_DAX_and_new_Desktop_page": "displayed_outputs_visually_verified_for_recorded_scopes_exact_installed_definitions_uninspected",
+    "save_reopen": "user_confirmed_PBIX_reopens_and_functions_correctly_2026-10-20"
   },
   "Windows_completion_checks": {
-    "updated_tests_repeat_preservation_preflights": "pending",
-    "imports_types_ten_relationships": "pending",
-    "global_30_60_90": "pending",
-    "D_Q04_C_Q06_B_Q03": "pending",
-    "combined_unit_qualification_selection_and_restore": "pending",
-    "no_or_multiple_horizon_guard_and_restore": "pending",
-    "full_empty_pair_scope_and_restore": "pending",
-    "both_table_data_row_interactions": "pending",
-    "save_reopen_new_and_prior_pages": "pending",
-    "three_own_scenario_explanations": "pending"
+    "updated_tests_repeat_preservation_preflights": "passed_screenshot_evidence_72_OK_144_18_three_zero_write_checks_46_Windows_files",
+    "imports_types_ten_relationships": "ten_intended_active_Single_links_verified_exact_query_shape_type_metadata_uninspected_no_new_gate",
+    "global_30_60_90": "passed_eight_cards_dates_all_six_unit_rows",
+    "D_Q04_C_Q06_B_Q03": "passed_original_selected_pair_criterion_no_repeat_all_horizons_required",
+    "combined_unit_qualification_selection_and_restore": "30_day_union_and_global_restoration_passed_original_90_day_union_pending",
+    "no_or_multiple_horizon_guard_and_restore": "partial_numeric_analysis_date_pair_rows_guarded_multi_horizon_date_card_failed_correction_and_final_restore_pending",
+    "full_empty_pair_scope_and_restore": "passed_equivalent_blank_qualification_lookup_filter_and_later_global_restore",
+    "both_table_data_row_interactions": "pending_actual_row_test_confirmation_visual_borders_do_not_establish_both",
+    "save_reopen_new_and_prior_pages": "accepted_user_confirmation_no_repeat_reopen_for_card_label_edit",
+    "three_own_scenario_explanations": "pending_no_answers_supplied"
   },
   "findings": {
     "count": 3,
     "path": "docs/day10_findings.md",
     "SQL_evidence": "verified",
-    "scenario_Desktop_display_and_user_own_explanations": "pending",
-    "real_operations_or_causality_or_impact_claims": false
+    "scenario_Desktop_display_and_user_own_explanations": "three_findings_display_verified_own_explanations_pending",
+    "real_operations_or_causality_or_impact_claims": false,
+    "scenario_Desktop_display": "verified_global_D_Q04_C_Q06",
+    "user_own_explanations": "pending"
   },
   "predictive_extension_assessment": {
     "learned_target_or_label": "none; no empirical future-renewal outcomes or trained predictor",
@@ -651,6 +659,116 @@
   "actual_hours": null,
   "event_employer_feedback": "unreported",
   "images_generated_operational_data_or_report_binaries_published": false,
-  "next_action": "Windows_handoff_sections_1_2_update_run_72_tests_repeat_144_18_preservation_and_three_zero_write_preflights",
-  "stop_after_milestone": 10
+  "next_action": "remaining_handoff_items_existing_guarded_date_card_loss_label_clear_multiple_guard_90_day_union_both_row_confirmation_final_30_default_save_three_own_explanations",
+  "stop_after_milestone": 10,
+  "last_review_local_date": "2026-10-20",
+  "review_base_public_commit": "6e2cc6f8189046148e169191ecbb2279074724b9",
+  "Windows_setup_evidence": {
+    "repeat_rows": {
+      "qualification_scenario.csv": 144,
+      "scenario_unit_summary.csv": 18
+    },
+    "both_Repeat_and_ManifestMatches": true,
+    "preflights": [
+      {
+        "script": "check_powerbi_input.py",
+        "status": "passed",
+        "files": 3,
+        "writes": 0
+      },
+      {
+        "script": "check_process_input.py",
+        "status": "passed",
+        "files": 2,
+        "writes": 0
+      },
+      {
+        "script": "check_scenario_input.py",
+        "status": "passed",
+        "files": 2,
+        "writes": 0
+      }
+    ],
+    "database_and_all_prior_files_preserved": true,
+    "Windows_files_checked": 46,
+    "Linux_files_previously_checked": 48,
+    "inventories_are_separate": true,
+    "relationships_count": 10,
+    "relationship_set": "seven_prior_plus_three_intended_active_1:*_Single",
+    "ORI_S_measures_listed": 17,
+    "exact_query_shapes_types_and_installed_definitions": "not_directly_inspected_no_additional_proof_gate",
+    "earlier_images_recovered_and_visually_inspected": [
+      "image(20261021-013426).png",
+      "image(20261021-013541).png",
+      "image(20261021-020323).png",
+      "image(20261021-021010).png"
+    ]
+  },
+  "Desktop_review": {
+    "local_date": "2026-10-20",
+    "timezone": "America/Los_Angeles",
+    "filename_date_uses_UTC": true,
+    "current_images_reviewed": 16,
+    "global_images": {
+      "30": "051155",
+      "60": "051506",
+      "90": "051523"
+    },
+    "selected_images": {
+      "D_Q04_30_60_90": [
+        "051219",
+        "051237",
+        "051253"
+      ],
+      "C_Q06_30_60": [
+        "051322",
+        "051356"
+      ],
+      "B_Q03_30": "051554",
+      "A_C_Q01_Q02_30": "051625"
+    },
+    "global_30_days_restored_images": [
+      "051655",
+      "052017"
+    ],
+    "zero_horizon_lookup_page_filter_images": [
+      "051754",
+      "051913"
+    ],
+    "zero_horizon_filter_is_not_unfiltered_slicer_clear_test": true,
+    "valid_horizon_full_empty_image": "051952",
+    "multi_horizon_image": "052236",
+    "observed_defect": {
+      "visual": "Earliest Horizon Date",
+      "selection": "all_three_horizons",
+      "displayed": "2026-11-06",
+      "expected": null,
+      "other_guarded_numeric_analysis_date_and_pair_rows": "correctly_blank_or_empty",
+      "repair": "use_existing_ORI_S_Horizon_Date_measure_in_card_then_verify_clear_and_multiple_scope",
+      "exact_installed_field_or_formula": "not_independently_inspected"
+    },
+    "label_clarification": {
+      "current": "Holder Slots",
+      "requested": "Eligible Holder Slots Lost"
+    },
+    "remaining_90_day_combined_reference": {
+      "selection": "A+C/Q01+Q02",
+      "current_coverage_ratio": 1,
+      "projected_coverage_ratio": 0.75,
+      "current_gap": 0,
+      "projected_gap": 2,
+      "additional_gap": 2,
+      "new_gap_pairs": 2,
+      "projected_gap_pairs": 2,
+      "eligible_holder_slots_lost": 8,
+      "horizon_date": "2027-01-05"
+    },
+    "table_data_row_selection_evidence": "neither_both_tests_nor_explicit_confirmation_established",
+    "final_default": "restore_filters_removed_global_Single_select_On_Select_all_Off_30_days_and_save",
+    "PBIX_reopening": "user_confirmed_in_requested_new_prior_page_context",
+    "new_quiz_recording_or_exact_formula_type_proof_gate": false,
+    "assistant_operated_Desktop_or_inspected_PBIX": false,
+    "current_review_pipeline_or_test_rerun": false
+  },
+  "review_checkpoint": "docs/checkpoints/2026-10-20_day10_review.md"
 }

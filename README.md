@@ -1,10 +1,10 @@
 # Operational Readiness Intelligence
 
-**Status: Day 10 implemented and Linux-verified October 19, 2026; Windows/Power BI scenario checks pending.** Day 9 and the executive, qualification/expiration, and process report checks remain complete. The no-renewal scenario has its own SQL/export/preflight and prepared report assets. The October 19 MVP gate remains open, with no date/scope revision; polish remains October 30.
+**Status: October 20, 2026 — Day 10 Windows setup/model and core scenario displays verified; final report checks and own explanations remain open.** Day 9 and the executive, qualification/expiration, and process report checks remain complete. Scenario global/selected/empty results reconcile, and PBIX reopening/function is user-confirmed. A multi-horizon date-card defect, remaining combined/interaction checks and own explanations are recorded below. The October 19 MVP gate remains open, with no date/scope revision; polish remains October 30.
 
-The synthetic process reference has **600 opened cases, 442 completed, 45 corrections (10.18%), median completed cycle 7 days, and 158 open cases with median age 27 days**. Current qualification coverage is **88/95 = 92.63%**. Under no renewals and fixed current eligibility, 30/60/90-day coverage becomes **85.26% / 82.11% / 70.53%**; total missing slots become **14 / 17 / 28**, additional to today's gap by **7 / 10 / 21**. These are SQL scenario references, not predictions or verified new Desktop displays. **72 Python tests pass on Linux** (22.720 seconds); the prior **60-test Windows pass** is accepted, while the updated Windows run is pending. Tests do not execute M/DAX or Desktop.
+The synthetic process reference has **600 opened cases, 442 completed, 45 corrections (10.18%), median completed cycle 7 days, and 158 open cases with median age 27 days**. Current qualification coverage is **88/95 = 92.63%**. Under no renewals and fixed current eligibility, 30/60/90-day coverage becomes **85.26% / 82.11% / 70.53%**; total missing slots become **14 / 17 / 28**, additional to today's gap by **7 / 10 / 21**. These conditional SQL results now match the global Desktop displays; they are not predictions. **72 Python tests pass on Linux** (22.720 seconds) and **Windows** (68.347 seconds, screenshot-verified OK). The Python suite does not execute M/DAX or Desktop.
 
-Continue at [Day 10 Windows handoff](docs/day10_windows_handoff.md) sections 1–2, then [reconcile the scenario](docs/day10_reconciliation.md). Evidence: [verification_day10.md](docs/verification_day10.md), [scenario_check.json](docs/scenario_check.json), [first three findings](docs/day10_findings.md), and [implementation checkpoint](docs/checkpoints/2026-10-19_day10.md). Prior [Day 9 completion](docs/checkpoints/2026-10-19_day09.md) remains accepted. The [October 19 MVP status](docs/checkpoints/2026-10-19_mvp_status.md) records the open release gate.
+Continue only with the [remaining Day 10 items](docs/day10_windows_handoff.md#remaining-items-after-the-screenshot-review). Evidence: [verification_day10.md](docs/verification_day10.md), [scenario_check.json](docs/scenario_check.json), [first three findings](docs/day10_findings.md), and [October 20 review checkpoint](docs/checkpoints/2026-10-20_day10_review.md). The [initial implementation checkpoint](docs/checkpoints/2026-10-19_day10.md) is historical; prior [Day 9 completion](docs/checkpoints/2026-10-19_day09.md) remains accepted. The [October 19 MVP status](docs/checkpoints/2026-10-19_mvp_status.md) records the open release gate.
 
 Windows access is confirmed by the user: Desktop **2.158.1177.0, 64-bit (September 2026)**. Day 2 staffing screenshots show matching global/Unit C slicer results and the intended relationship; populated-learning-report save/reopen is user-confirmed. Evidence: `docs/verification_day02.md`. Day 6 executive-page acceptance is complete; later detail pages and release gates remain separate milestones.
 
@@ -26,7 +26,7 @@ The brainstorming chat remains the master record for priorities and major scope 
 
 Read [charter](docs/charter.md), [progress](docs/progress.md), and [decisions](docs/decisions.md) before making changes. The attached schedule is preserved in [source_execution_plan.md](docs/source_execution_plan.md).
 
-Existing Windows checkout: preserve the interpreter, source/data/database, PBIX and every earlier page/measure. Start [Day 10 handoff](docs/day10_windows_handoff.md) sections 1–2: fast-forward update, run the changed 72-test suite, export/repeat the two scenario CSVs, verify prior-file preservation and all three zero-write preflights. Return those results before import/model review. No accepted-data regeneration or DB reload is required. Run all three input checkers immediately before import/refresh and keep files stable. Do not repeat accepted Day 8/9 report cases solely for evidence.
+Existing Windows checkout: preserve the interpreter, source/data/database, PBIX and every earlier page/measure. Windows setup/model and the submitted scenario scopes are accepted; use only the [remaining Day 10 items](docs/day10_windows_handoff.md#remaining-items-after-the-screenshot-review). Replace the raw minimum Horizon Date card with the existing guarded measure, complete the 90-day combined selection and both data-row checks, restore single-select 30 and save, then supply three own explanations. No accepted setup/test/export/report case needs repeating for this review. Run all three input checkers immediately before any actual import/refresh and keep files stable.
 
 Use Python 3.11 or later from the project root:
 
@@ -49,7 +49,7 @@ python -m unittest discover -s tests -v
 
 These commands show the full fresh-checkout order, not a request to repeat working setup. The environment checker executes the schema in memory. The generator creates `data/raw/clean/`; the injector writes `data/raw/dirty/` separately. Clean validation exits 0; intentional dirty validation exits **1** and blocks loading. `load_data.py` verifies passed source/export hashes and values, then loads `data/processed/readiness.sqlite3` in one transaction. Repeating it replaces the same snapshot without duplicates. Its audit is `data/processed/load_report.json`. `export_metrics.py` re-verifies the passed source/database, executes three queries in one read transaction, and writes `data/processed/dashboard/`. Only use its CSVs when `export_manifest.json` is passed, exports_ready is true, the date is correct, and hashes match. Generated datasets, audits, and databases are excluded from Git.
 
-Current exports implement staffing, current qualification coverage/gaps/fragility, cumulative expiration inventory, process volume/completed outcomes/current backlog, and deterministic no-renewal qualification scenarios. Process and scenario outputs have separate folders/manifests under data/processed/dashboard; the original three CSVs remain unchanged. Exporters reconcile the passed source against a read-only DB snapshot. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Prior executive/qualification/process report checks and own explanations remain accepted; the new scenario page and own scenario explanations are pending.
+Current exports implement staffing, current qualification coverage/gaps/fragility, cumulative expiration inventory, process volume/completed outcomes/current backlog, and deterministic no-renewal qualification scenarios. Process and scenario outputs have separate folders/manifests under data/processed/dashboard; the original three CSVs remain unchanged. Exporters reconcile the passed source against a read-only DB snapshot. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Prior executive/qualification/process report checks and own explanations remain accepted; core scenario displays reconcile, with final report checks and own scenario explanations pending.
 
 ## Prototype concept
 
@@ -61,7 +61,7 @@ Current exports implement staffing, current qualification coverage/gaps/fragilit
 | Short prototype explanation | User-provided version reviewed; rehearsal duration user-reported at about one minute |
 | Qualification/expiration detail visuals | Day 8 complete; numeric, boundary, filter, empty, interaction, and user reopening evidence accepted |
 | Administrative process metrics/view | Day 9 complete; metrics/filter/empty/interactions accepted, reopening user-confirmed, three own explanations accepted |
-| Deterministic no-renewal qualification scenario | Day 10 SQL/export/preflight verified; Windows/page/own explanations pending |
+| Deterministic no-renewal qualification scenario | Linux/Windows setup and core Desktop displays verified; date-card correction, remaining report checks and own explanations pending |
 | Machine learning | Outside this MVP |
 
 
@@ -73,7 +73,7 @@ flowchart TD
     D --> E["SQL metrics and CSV exports"]
     E --> F{"Passed manifest and matching files?"}
     F -->|No| G["Stop import or refresh"]
-    F -->|Yes| H["Power BI: executive, qualification and process accepted; scenario prepared"]
+    F -->|Yes| H["Power BI: prior pages accepted; scenario final checks open"]
 ```
 
 The page helps a fictional manager compare local staffing gaps and qualification coverage. Staffing and qualification slots are separate measures. Screenshots reconcile global, Unit C, zero-gap Unit A, and weighted Unit A + C selections, clear/empty behavior, and the table-row interaction fix. This executive page supports the scheduled prototype review; the release gate also requires the user’s accurate walkthrough.
@@ -84,7 +84,7 @@ All counts here are **simulated source audits**. CSV rows: 6 units, 300 people, 
 
 - Unit C: 40 available / 50 required (80%); a deliberately planted staffing shortfall.
 - Unit B/Q03: one valid available holder for one required; deliberately fragile coverage.
-- Unit D/Q04: six available holders all expiring within 30 days, including the November 6 endpoint. Day 10 SQL removes all six at the 30-day horizon, leaving two required slots uncovered; scenario Desktop display is pending.
+- Unit D/Q04: six available holders all expiring within 30 days, including the November 6 endpoint. Day 10 SQL removes all six at the 30-day horizon, leaving two required slots uncovered; the selected Desktop display matches.
 - Unit F: 27 corrections / 70 completed cases (38.6%), from a configured 30% probability; elsewhere 18/372 (4.8%) from 6%. The rates were not forced to match the probabilities.
 
 Generator verification: [verification_day02.md](docs/verification_day02.md). Day 5 SQL now reconciles global staffing **254/250 = 101.6%**, summed unit staffing gaps **10**, and qualification coverage **88/95 = 92.63%**, with **7 missing holder slots**. The 30-day inventory has **45 certificates affecting 41 distinct people**; cumulative windows overlap. Day 6 executive screenshots reconcile the displayed staffing/qualification results; Day 8 qualification/expiration displayed checks are accepted. These are simulated audits, not real-world findings. Source fields: [data_dictionary.md](docs/data_dictionary.md); export fields: [export_dictionary.md](docs/export_dictionary.md); calculation trace: [sql_walkthrough.md](docs/sql_walkthrough.md).
