@@ -1,4 +1,8 @@
-# Meaningful checks to add as implementation exists
+# Tests and boundary checks
+
+**Current Day 11 status, October 20, 2026:** the suite contains 72 existing tests, with prior full Linux/Windows passes. The [focused set](../docs/day11_boundary_checks.md) runs twelve existing metric/rollback tests: **12 tests / OK, 0.292 seconds, exit 0 on Linux**. No new test/code is added for this documentation milestone. Three preflights pass with zero writes; all 51 current data files retain hashes. Fresh-checkout execution/rehearsal remains Day 12 evidence.
+
+On a fresh clone follow [the runbook](../docs/reproduce.md): generate sources, validate/load and produce all three export bundles **before** full discovery. Several integration fixtures read these reference files. Existing accepted working folders reuse verified files; no regeneration is requested to read the docs. Historical counts below are evidence from those dates.
 
 Day 2 implements `test_generate_data.py`: eight passing clean-reference checks for keys/FKs/schema compatibility, calendars/lifecycle, the four documented scenarios, independent-run reproducibility, null serialization, seed sensitivity, and invalid configuration. Run `python -m unittest discover -s tests -v` from the root. No extra test runner is required.
 
@@ -21,9 +25,9 @@ Day 6 adds seven checks in `test_powerbi_input.py`, bringing that milestone's su
 
 The duplicate and zero-demand fixtures are isolated unconstrained in-memory databases used only to exercise defensive SQL. Production validation and schema constraints still reject those inputs. The generated reference currently has no zero-holder pair. Do not call a fixture result an observed reference finding.
 
-Run `python -m unittest discover -s tests -v` from the root. Run generation first on a fresh checkout because reference tests require the clean CSVs; an existing working folder reuses them. The Day 9 milestone suite had **60 passing tests on Linux** (17.102 seconds, exit 0), including eleven checks in `test_process_metrics.py`. The October 17 screenshot, reviewed October 19, also shows **60 tests / OK on Windows**, 44.115 seconds. No separate process exit-code line is visible. No test rerun was performed for the screenshot review. New checks cover completion/opening boundaries, older backlog, future events/outcome masking, true odd/even/selected medians, zero denominators/empty units, safe bound filters, repeat/DB/source/legacy preservation, blocked/changed/missing inputs, protected files, interrupted export, and hash/semantic preflight errors. Tests do not execute Power BI or implement the Day 10 no-renewal scenario.
+Run `python -m unittest discover -s tests -v` from the root. On a fresh checkout generate sources and all exports in the documented run order; an existing working folder reuses them. The Day 9 milestone suite had **60 passing tests on Linux** (17.102 seconds, exit 0), including eleven checks in `test_process_metrics.py`. The October 17 screenshot, reviewed October 19, also shows **60 tests / OK on Windows**, 44.115 seconds. No separate process exit-code line is visible. No test rerun was performed for the screenshot review. New checks cover completion/opening boundaries, older backlog, future events/outcome masking, true odd/even/selected medians, zero denominators/empty units, safe bound filters, repeat/DB/source/legacy preservation, blocked/changed/missing inputs, protected files, interrupted export, and hash/semantic preflight errors. Tests do not execute Power BI or implement the Day 10 no-renewal scenario.
 
-The suite addresses actual failure risks; all Day 9 technical/report checks now pass separately from these tests, with reopening user-confirmed. All three own process explanations are accepted and Day 9 is complete; Day 10 no-renewal implementation/tests are recorded below, with new Desktop acceptance pending. No tests were rerun for this text/evidence update:
+The suite addresses actual failure risks; all Day 9/10 technical/report and own-explanation checks are accepted separately, with reopening user-confirmed. The Day 11 focused invocation is recorded above; prior screenshot reviews did not rerun the suite:
 
 - Same configuration/seed yields identical six-table CSV data.
 - Each injected defect is detected and accepted/rejected counts reconcile.
@@ -38,7 +42,7 @@ Do not add tests that merely repeat implementation statements or imply unbuilt f
 
 ## Day 10 no-renewal tests
 
-The current full suite has **72 passing Linux tests** (22.720 seconds, exit 0), including twelve new tests in test_qualification_scenario.py (targeted: 7.008 seconds). The updated Windows 72-test run is pending; prior Windows 60-test evidence remains accepted. Run the normal discovery command once for this changed suite in the existing checkout; no source regeneration or DB reload is needed for its saved reference.
+The full Day 10 suite passed **72 tests on Linux** (22.720 seconds, exit 0), including twelve new tests in test_qualification_scenario.py (targeted: 7.008 seconds). Recovered Windows evidence shows **72 tests / OK, 68.347 seconds** with no separate process exit-code number displayed. Day 10 report/own-explanation acceptance is complete. These are prior full-suite results; Day 11 executes only the focused twelve existing checks, without source regeneration or accepted DB reload.
 
 New tests check exclusive expiration at D and D+30/60/90, following-day survival, activation on D versus excluded future-start certificates, unavailable holders, distinct duplicates/multiple qualifications, surplus loss without added gap, zero-holder requirements, a defensive zero-demand fixture, new versus worsening gaps, weighted selected totals, empty/bound-injection scopes, and mixed-horizon rejection. Integration checks cover independent source/current-baseline agreement, all planted pair controls, repeats and DB/source/both-prior-bundle preservation, blocked/changed/missing input, protected paths/report sentinel, interrupted replacement and no-write hash/grain/baseline/monotonicity preflight failures.
 

@@ -4,6 +4,8 @@ Version 1.0 · Finalized for Day 2 on October 7, 2026 (scheduled October 8; exec
 
 All operational measures describe a **fictional simulation**. Definitions remain v1.0; Day 5 implemented current staffing/qualification/expiration SQL on October 9 and Windows technical reproduction is confirmed. Day 6’s executive page is accepted October 11 from displayed reconciliation and user confirmations. Day 8 qualification/expiration reporting is accepted October 17. Day 9 is complete October 19: technical/report checks and three own process explanations are accepted, with reopening user-confirmed. Day 10 is complete October 20: all technical/report checks and three own scenario explanations are accepted; later release gates remain open. Exact Desktop definitions and the actual PBIX file have not been inspected by the assistant.
 
+Day 11 documentation/checks are complete October 20. [Run order](reproduce.md), [source fields](data_dictionary.md), [export aggregation](export_dictionary.md), [limitations](limitations.md), [brief](executive_brief.md) and [focused checks](day11_boundary_checks.md) explain unchanged v1.0 rules. No new metric/schema/source or prediction is added. Full fresh reproduction/rehearsal remains Day 12 evidence.
+
 ## Shared date and eligibility rules
 
 - `D = config/project.yml: as_of_date`, initially **2026-10-07**. Use this explicit value; do not use the computer's current date inside metrics.

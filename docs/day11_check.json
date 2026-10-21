@@ -1,0 +1,255 @@
+{
+  "milestone": "Day 11",
+  "milestone_status": "complete",
+  "execution_local_date": "2026-10-20",
+  "scheduled_local_date": "2026-10-17",
+  "timezone": "America/Los_Angeles",
+  "user_instruction": "commence day 11",
+  "as_of_date": "2026-10-07",
+  "data_classification": "synthetic_only",
+  "readiness_classification": "fictional_proxy",
+  "base_public_commit": "1ba82b6f2e581f576380b62430119660c4e03bea",
+  "deliverables": [
+    "docs/reproduce.md",
+    "docs/executive_brief.md",
+    "docs/limitations.md",
+    "docs/day11_boundary_checks.md",
+    "docs/data_dictionary.md",
+    "docs/export_dictionary.md",
+    "docs/verification_day11.md",
+    "docs/checkpoints/2026-10-20_day11.md"
+  ],
+  "implementation_choice": "existing_CLIs_with_documented_dependency_order_and_guarded_fresh_checkout_recipes",
+  "source_schema_metric_pipeline_dependency_or_test_code_changes": false,
+  "tests": {
+    "executed_day11": {
+      "status": "passed",
+      "existing_cases_run": 12,
+      "new_test_cases_added": 0,
+      "seconds": 0.292,
+      "exit_code": 0,
+      "test_ids": [
+        "test_export_metrics.ExportTests.test_duplicate_certificates_do_not_inflate_staffing_holders_or_inventory",
+        "test_export_metrics.ExportTests.test_expiration_windows_are_inclusive_cumulative_and_count_distinct_people",
+        "test_export_metrics.ExportTests.test_undefined_denominators_remain_null_while_empty_counts_are_zero",
+        "test_export_metrics.ExportTests.test_zero_holder_pairs_survive_and_unavailable_inventory_is_separate",
+        "test_load_data.LoaderTests.test_real_constraint_failure_after_deletion_rolls_back_the_whole_reload",
+        "test_process_metrics.ProcessSQLTests.test_actual_even_and_odd_medians_recomputed_for_selected_cases",
+        "test_process_metrics.ProcessSQLTests.test_period_boundaries_older_backlog_and_future_events",
+        "test_process_metrics.ProcessSQLTests.test_zero_completed_empty_units_and_bound_selection_values",
+        "test_qualification_scenario.ScenarioSQLTests.test_duplicates_surplus_multiple_qualifications_and_zero_demand",
+        "test_qualification_scenario.ScenarioSQLTests.test_expiration_endpoints_current_cohort_and_unavailable_people",
+        "test_qualification_scenario.ScenarioSQLTests.test_new_gap_distinguished_from_worsening_existing_gap",
+        "test_qualification_scenario.ScenarioSQLTests.test_weighted_selected_totals_empty_bound_values_and_mixed_horizon_guard"
+      ]
+    },
+    "suite_cases_present": 72,
+    "prior_full_linux": {
+      "tests": 72,
+      "seconds": 22.72,
+      "exit_code": 0
+    },
+    "prior_full_Windows": {
+      "tests": 72,
+      "seconds": 68.347,
+      "status": "screenshot_verified_OK",
+      "process_exit_code": "not_separately_displayed"
+    },
+    "new_Day11_full_suite_or_Windows_run": false
+  },
+  "input_preflights": [
+    {
+      "script": "src/check_powerbi_input.py",
+      "status": "passed",
+      "files_checked": 3,
+      "file_writes": 0,
+      "exit_code": 0,
+      "rows": {
+        "expiration_detail.csv": 193,
+        "qualification_detail.csv": 48,
+        "unit_summary.csv": 6
+      },
+      "powerbi_execution_verified": false
+    },
+    {
+      "script": "src/check_process_input.py",
+      "status": "passed",
+      "files_checked": 2,
+      "file_writes": 0,
+      "exit_code": 0,
+      "rows": {
+        "process_case_detail.csv": 600,
+        "process_unit_summary.csv": 6
+      },
+      "powerbi_execution_verified": false
+    },
+    {
+      "script": "src/check_scenario_input.py",
+      "status": "passed",
+      "files_checked": 2,
+      "file_writes": 0,
+      "exit_code": 0,
+      "rows": {
+        "qualification_scenario.csv": 144,
+        "scenario_unit_summary.csv": 18
+      },
+      "powerbi_execution_verified": false
+    }
+  ],
+  "runtime_versions": {
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "pandas": "2.2.3",
+    "numpy": "2.3.5",
+    "PyYAML": "6.0.3"
+  },
+  "data_preservation": {
+    "files_under_data_before": 51,
+    "files_under_data_after": 51,
+    "all_SHA256_values_match": true,
+    "inventory_preserved": true,
+    "working_data_regeneration_validation_or_DB_reload": false,
+    "temporary_boundary_fixtures": "separate_in_memory_or_temporary_directories"
+  },
+  "CLI_help_checks": [
+    {
+      "script": "src/generate_data.py",
+      "exit_code": 0
+    },
+    {
+      "script": "src/inject_defects.py",
+      "exit_code": 0
+    },
+    {
+      "script": "src/validate_data.py",
+      "exit_code": 0
+    },
+    {
+      "script": "src/load_data.py",
+      "exit_code": 0
+    },
+    {
+      "script": "src/export_metrics.py",
+      "exit_code": 0
+    },
+    {
+      "script": "src/export_process_metrics.py",
+      "exit_code": 0
+    },
+    {
+      "script": "src/export_qualification_scenario.py",
+      "exit_code": 0
+    },
+    {
+      "script": "src/check_powerbi_input.py",
+      "exit_code": 0
+    },
+    {
+      "script": "src/check_process_input.py",
+      "exit_code": 0
+    },
+    {
+      "script": "src/check_scenario_input.py",
+      "exit_code": 0
+    }
+  ],
+  "documentation_and_reference_checks": {
+    "Bash_syntax": "passed_not_executed",
+    "PowerShell_execution": false,
+    "PowerShell_executable_available": false,
+    "documented_step_order": "matched_source_dependencies",
+    "CLI_options": "match_source",
+    "test_cases_present": 72,
+    "source_fields_documented": 15,
+    "export_fields_documented": 88,
+    "CSV_schemas": {
+      "expiration_detail.csv": {
+        "rows": 193,
+        "columns": 14
+      },
+      "process_case_detail.csv": {
+        "rows": 600,
+        "columns": 16
+      },
+      "process_unit_summary.csv": {
+        "rows": 6,
+        "columns": 14
+      },
+      "qualification_detail.csv": {
+        "rows": 48,
+        "columns": 13
+      },
+      "qualification_scenario.csv": {
+        "rows": 144,
+        "columns": 25
+      },
+      "scenario_unit_summary.csv": {
+        "rows": 18,
+        "columns": 24
+      },
+      "unit_summary.csv": {
+        "rows": 6,
+        "columns": 24
+      }
+    },
+    "recommendations": 5,
+    "recommendation_numbers_reconciled": true,
+    "each_recommendation_has_evidence_action_and_unknowns": true
+  },
+  "recommendations": {
+    "count": 5,
+    "path": "docs/executive_brief.md",
+    "subjects": [
+      "Unit_C_staffing_40_of_50",
+      "C_Q06_current_gap_1_projected_2_additional_1_new_pair_0",
+      "D_Q04_six_lost_holders_two_missing_slots",
+      "B_Q03_one_holder_one_required_fragile_no_projected_gap",
+      "Unit_F_corrections_27_of_70_versus_18_of_372"
+    ],
+    "each_has_observed_simulated_evidence_action_and_unknowns": true,
+    "numeric_reconciliation": "passed_current_approved_exports",
+    "implemented_interventions": false,
+    "real_causality_impact_or_official_priority_ranking": false
+  },
+  "dictionaries": {
+    "source_documentation_version": "1.1",
+    "metric_contract_version": "1.0_unchanged",
+    "source_tables": 6,
+    "derived_CSVs": 7,
+    "source_field_names": 15,
+    "export_field_names": 88,
+    "all_observed_names_documented": true,
+    "schemas_and_grains_unchanged": true
+  },
+  "reproduction": {
+    "dependency_order_reviewed": true,
+    "generation_and_all_bundles_before_full_tests": true,
+    "dirty_validation_expected_exit": 1,
+    "existing_destination_guard": true,
+    "Windows_recipe": "statically_reviewed_unexecuted",
+    "Bash_recipe": "syntax_checked_unexecuted",
+    "full_fresh_clone_install_pipeline": "not_executed_Day12_pending",
+    "PowerBI_Desktop_reproduction": "not_executed_Day12_pending",
+    "actual_report_file_or_installed_definitions_inspected": false
+  },
+  "user_ownership": {
+    "prior_explanations_through_Day10": "accepted",
+    "new_recommendation_independent_user_rehearsal": "not_observed_not_inferred",
+    "new_quiz_or_repeated_Windows_acceptance_required": false,
+    "specific_SQL_join_learning": "carried"
+  },
+  "previous_milestones": {
+    "Day10": "complete",
+    "Day11": "complete",
+    "prototype_gate": "passed",
+    "Day12": "not_started",
+    "MVP_gate": "not_passed",
+    "polish_gate": "not_passed"
+  },
+  "actual_hours": null,
+  "event_employer_feedback": "unreported",
+  "release_dates_or_scope_revised": false,
+  "images_generated_operational_data_report_binaries_or_private_history_published": false,
+  "next_action": "stop_at_completed_Day11_on_user_commencement_Day12_isolated_reproduction_report_comparison_timed_rehearsals_offline_backup",
+  "stop_after_milestone": 11
+}

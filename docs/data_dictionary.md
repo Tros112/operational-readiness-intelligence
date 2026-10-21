@@ -1,6 +1,6 @@
 # Data dictionary
 
-Version 1.0 · Day 2, executed October 7, 2026. **All operational records and numbers are synthetic.** Analysis date is 2026-10-07; seed is 20261007. No official Navy requirements are represented.
+Documentation version 1.1 · Day 11 review, October 20, 2026; source schemas/rules remain unchanged from Day 2. **All operational records and numbers are synthetic.** Analysis date is 2026-10-07; seed is 20261007. No official Navy requirements are represented. Read the [runbook](reproduce.md), [export dictionary](export_dictionary.md) and [limitations](limitations.md) alongside these source fields.
 
 ## Files and grain
 
@@ -47,7 +47,7 @@ All dates use `YYYY-MM-DD`. Python checks actual calendar validity. Date eligibi
 
 The reference contains **193 currently valid certificates**, **49 expired certificates**, and **23 with a future valid-from date**. Among the 193 valid records, 172 belong to currently available people. Certificate totals are not headcounts. Availability is only the one configured snapshot; cases do not reconstruct personnel history.
 
-Open cases have both `closed_date` and `correction_required` blank. CSV has no intrinsic null type; the future validator/loader must interpret blank only in these nullable fields as NULL. Critical IDs/dates cannot be silently filled. A known no-correction outcome is the explicit value 0, not a blank.
+Open source cases have both closed_date and correction_required blank. CSV has no intrinsic null type; the implemented validator/loader interprets blank only in these nullable fields as NULL. Critical IDs/dates cannot be silently filled. A known no-correction outcome is explicit 0. The as-of process export separately masks any source completion/outcome after D; an allowed source value is not automatically an eligible current outcome.
 
 There are **442 completed and 158 open cases** in this reference. Completion dates never exceed D. Random candidate completions beyond D are left open; this increases the realized open share above the configured 20% open draw. Outcome flags are sampled only for cases completed by D.
 
@@ -63,6 +63,32 @@ Unit F's completed-case correction probability is 30%, compared with 6% elsewher
 
 ## Lineage and current limits
 
-`config/project.yml` → `src/generate_data.py` → six clean CSVs/manifest → generator checks. Day 3 adds `src/inject_defects.py` → separate dirty copy/catalog and `src/validate_data.py` → accepted records, quarantined raw cells/reasons, and a batch gate. Day 4 adds the verified, atomic six-table SQLite load. Day 5 reads that database without changing it and exports current staffing/qualification/expiration metrics with explicit grains. All 42 tests pass on Linux; Day 4's 32-test Windows suite was inspected, while Windows Day 5 remains pending. Source column definitions and metric eligibility rules are unchanged.
+config/project.yml → generator → six clean CSVs/manifest → separate dirty copy/catalog → validation accepted/quarantined records and batch gate → atomic six-table SQLite load. Read-only SQL exporters derive original, process and scenario bundles with explicit grains. Full 72-test Linux/Windows evidence and report acceptance through Day 10 are recorded; Day 11's focused twelve existing tests pass separately. Source column definitions and metric eligibility rules remain unchanged.
 
-The clean reference remains unchanged. Clean input passes with 1,227 accepted and no rejected rows. Dirty input reconciles 1,229 = 1,210 accepted + 19 rejected and is blocked; its accepted subset is diagnostic only. Rules/reasons: `docs/validation_rules.md`; exact injected records: `data/raw/dirty/defect_manifest.json`. Dashboard fields/types/aggregation rules: `docs/export_dictionary.md`. Process metrics, no-renewal projections, the production Power BI report, and SQL/Power BI reconciliation remain later milestones. No real names, military IDs, or system extracts are used.
+The clean reference remains unchanged. Clean input passes with 1,227 accepted and no rejected rows. Dirty input reconciles 1,229 = 1,210 accepted + 19 rejected and is blocked; its accepted subset is diagnostic only. Rules/reasons: [validation rules](validation_rules.md); exact injected records are generated in data/raw/dirty/defect_manifest.json. [Export fields/types/aggregation](export_dictionary.md) cover the implemented process and no-renewal bundles. User-operated report reconciliation/reopening is accepted through Day 10; exact installed definitions/PBIX remain uninspected by the assistant. No real names, military IDs, system extracts or production deployment are used.
+
+## Key relationships and history scope
+
+| Child field | Referenced key | Cardinality / meaning |
+| --- | --- | --- |
+| personnel.unit_id | units.unit_id | Many people to one current unit; no dated assignment history. |
+| personnel_qualifications.person_id | personnel.person_id | Many qualifications to one person. The person/qualification key allows one recorded certificate per pair, not successive renewal history. |
+| personnel_qualifications.qualification_id | qualification_types.qualification_id | Many person records to one qualification type. |
+| unit_qualification_requirements.unit_id | units.unit_id | Eight required qualification pairs per unit in this reference. |
+| unit_qualification_requirements.qualification_id | qualification_types.qualification_id | The unit/qualification key defines demand independently of certificate presence. |
+| admin_cases.unit_id | units.unit_id | Many cases to one owning unit; no case-to-person assignment is modeled. |
+
+Keys identify records; display names do not replace them. Source uniqueness rejects duplicate keys, while defensive SQL fixtures separately check distinct-holder behavior after joins. LEFT JOIN preserves requirements with no matched holder; it does not itself guarantee uniqueness. See [schema](../sql/schema.sql), [metric contract](metric_contract.md) and [remaining SQL learning](sql_review_backlog.md).
+
+## Files after validation and loading
+
+| Location | Meaning / authorization |
+| --- | --- |
+| data/raw/clean/ | Generated six-table synthetic reference. |
+| data/raw/dirty/ | Separate fault-injection copy; clean input is preserved. |
+| data/processed/validation_clean/accepted/ | Loader input only when the containing validation_report.json is passed, load_allowed true, and source/output hashes and values agree. |
+| data/rejected/day03_dirty/ | Runbook's diagnostic dirty bundle: accepted CSVs, rejected_rows.csv, validation_issues.csv and blocked validation_report.json. Accepted rows here grant no load permission. |
+| data/processed/readiness.sqlite3 | Verified six source tables; no extra operational source or historical readiness table. |
+| data/processed/dashboard/ | Original and separate process/scenario bundles; [export dictionary](export_dictionary.md) specifies seven CSV grains and report/reference uses. |
+
+Dates are ISO strings in CSV/SQLite and become Date in the supplied M queries. Flags/counts become Whole Number, ratios Decimal Number. Positive-demand and unique-key constraints apply to approved source data. Zero-demand/duplicate/zero-holder fixtures do not broaden that source contract. The [focused checks](day11_boundary_checks.md) make these distinctions executable.

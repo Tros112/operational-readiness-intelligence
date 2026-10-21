@@ -1,10 +1,10 @@
 # Operational Readiness Intelligence
 
-**Status: Day 10 complete October 20, 2026.** No-renewal SQL/export/preflight, Windows/report reconciliation and all three own scenario explanations are accepted. Prior executive, qualification/expiration and process pages remain accepted; PBIX reopening/function is user-confirmed. The October 19 MVP gate remains open for separate release evidence without a date/scope revision; polish remains October 30.
+**Status: Day 11 complete October 20, 2026.** The accepted Python/SQL/Power BI prototype now has reproducible run instructions, reviewed dictionaries, documented limitations and an executive brief with five evidence-based simulated recommendations. Days 8–10 report checks and own explanations remain accepted. The original October 19 MVP release gate stays open for fresh-rebuild/demo/backup acceptance; October 30 polish remains unchanged.
 
 The synthetic process reference has **600 opened cases, 442 completed, 45 corrections (10.18%), median completed cycle 7 days, and 158 open cases with median age 27 days**. Current qualification coverage is **88/95 = 92.63%**. Under no renewals and fixed current eligibility, 30/60/90-day coverage becomes **85.26% / 82.11% / 70.53%**; total missing slots become **14 / 17 / 28**, additional to today's gap by **7 / 10 / 21**. These conditional SQL results now match the global Desktop displays; they are not predictions. **72 Python tests pass on Linux** (22.720 seconds) and **Windows** (68.347 seconds, screenshot-verified OK). The Python suite does not execute M/DAX or Desktop.
 
-Day 10 is complete; [the completion checkpoint](docs/checkpoints/2026-10-20_day10.md) records the evidence and remaining project limits. [Verification](docs/verification_day10.md), [audit](docs/scenario_check.json) and [three findings](docs/day10_findings.md) retain the SQL/display trace. The [October 19 MVP status](docs/checkpoints/2026-10-19_mvp_status.md) records the separately open release gate. Stop here; Day 11 begins only when the user commences it.
+Start with the [executive brief](docs/executive_brief.md), [reproduction runbook](docs/reproduce.md) and [limitations](docs/limitations.md). The [Day 11 checkpoint](docs/checkpoints/2026-10-20_day11.md), [verification](docs/verification_day11.md) and [audit](docs/day11_check.json) record this documentation milestone. Prior [Day 10 completion](docs/checkpoints/2026-10-20_day10.md) stands. The [MVP status](docs/checkpoints/2026-10-19_mvp_status.md) remains separately open. Day 12 fresh reproduction/rehearsal has not started.
 
 Windows access is confirmed by the user: Desktop **2.158.1177.0, 64-bit (September 2026)**. Day 2 staffing screenshots show matching global/Unit C slicer results and the intended relationship; populated-learning-report save/reopen is user-confirmed. Evidence: `docs/verification_day02.md`. Day 6 executive-page acceptance is complete; later detail pages and release gates remain separate milestones.
 
@@ -26,30 +26,21 @@ The brainstorming chat remains the master record for priorities and major scope 
 
 Read [charter](docs/charter.md), [progress](docs/progress.md), and [decisions](docs/decisions.md) before making changes. The attached schedule is preserved in [source_execution_plan.md](docs/source_execution_plan.md).
 
-Existing Windows checkout: preserve the interpreter, source/data/database, PBIX and earlier pages/measures. All Day 10 setup/report checks and own explanations are accepted. Keep the saved single-select 30-day default; no more screenshots, setup, tests, exports, reopening or own-answer repeats are requested. Run all three input checkers immediately before an actual import/refresh and keep files stable. The next authorized milestone, on user commencement, is Day 11 reproducibility and evidence-based recommendations.
+Existing Windows checkout: preserve the interpreter, source/data/database, PBIX and accepted pages/measures. Day 11 adds documentation and a focused test recipe without regenerating or reloading accepted data. Twelve focused checks and three read-only preflights pass; all 51 files under data/ retain hashes. No repeated Windows screenshots/setup/reopening or new ownership quiz is required. On user commencement, Day 12 uses a separate checkout/report comparison copy for the fresh build and rehearsal.
 
-Use Python 3.11 or later from the project root:
+For fresh reproduction, use the [guarded runbook](docs/reproduce.md). It documents prerequisites, native exit codes, the deliberately blocked dirty bundle, source/load/export dependencies and separate Desktop steps. Generate source files and all export bundles before full test discovery. The accepted working checkout needs no regeneration merely to read these instructions.
 
-```bash
-python -m pip install -r requirements.txt
-python src/check_environment.py
-python src/generate_data.py
-python src/inject_defects.py
-python src/validate_data.py
-python src/load_data.py
-python src/export_metrics.py
-python src/check_powerbi_input.py
-python src/export_process_metrics.py
-python src/check_process_input.py
-python src/export_qualification_scenario.py
-python src/check_scenario_input.py
-python src/validate_data.py --input-dir data/raw/dirty --output-dir data/rejected/day03_dirty
-python -m unittest discover -s tests -v
-```
+| Reader task | Reference |
+| --- | --- |
+| Understand the business question and five proposed reviews | [Executive brief](docs/executive_brief.md) |
+| Reproduce the pipeline and interpret pass/block results | [Runbook](docs/reproduce.md) |
+| Find source keys, nullable fields and history scope | [Data dictionary](docs/data_dictionary.md) |
+| Find all seven export grains, types and aggregation rules | [Export dictionary](docs/export_dictionary.md) |
+| Assess assumptions and unproven claims | [Limitations](docs/limitations.md) |
+| Rerun key metric boundaries | [Twelve focused checks](docs/day11_boundary_checks.md), [test scope](tests/README.md) |
+| Build or inspect the Windows report | [Power BI index](powerbi/build_instructions.md) |
 
-These commands show the full fresh-checkout order, not a request to repeat working setup. The environment checker executes the schema in memory. The generator creates `data/raw/clean/`; the injector writes `data/raw/dirty/` separately. Clean validation exits 0; intentional dirty validation exits **1** and blocks loading. `load_data.py` verifies passed source/export hashes and values, then loads `data/processed/readiness.sqlite3` in one transaction. Repeating it replaces the same snapshot without duplicates. Its audit is `data/processed/load_report.json`. `export_metrics.py` re-verifies the passed source/database, executes three queries in one read transaction, and writes `data/processed/dashboard/`. Only use its CSVs when `export_manifest.json` is passed, exports_ready is true, the date is correct, and hashes match. Generated datasets, audits, and databases are excluded from Git.
-
-Current exports implement staffing, current qualification coverage/gaps/fragility, cumulative expiration inventory, process volume/completed outcomes/current backlog, and deterministic no-renewal qualification scenarios. Process and scenario outputs have separate folders/manifests under data/processed/dashboard; the original three CSVs remain unchanged. Exporters reconcile the passed source against a read-only DB snapshot. Accepted rows in a failed diagnostic bundle are not approved analytics inputs. Prior executive/qualification/process report checks and own explanations remain accepted; all scenario technical/report checks and three own explanations are accepted; Day 10 is complete.
+Current exporters implement staffing, qualification gaps/fragility, cumulative expiration inventory, process outcomes/backlog and deterministic no-renewal scenarios. Process/scenario bundles have separate folders/manifests. Each exporter reconciles approved source to a read-only SQLite snapshot. Diagnostic accepted rows from a blocked dirty validation are not authorized input. Generated data/database and PBIX are excluded from Git; the runbook distinguishes pipeline from Desktop reproduction.
 
 ## Prototype concept
 
@@ -62,6 +53,7 @@ Current exports implement staffing, current qualification coverage/gaps/fragilit
 | Qualification/expiration detail visuals | Day 8 complete; numeric, boundary, filter, empty, interaction, and user reopening evidence accepted |
 | Administrative process metrics/view | Day 9 complete; metrics/filter/empty/interactions accepted, reopening user-confirmed, three own explanations accepted |
 | Deterministic no-renewal qualification scenario | Day 10 complete; Linux/Windows/report checks and three own explanations accepted |
+| Reproduction documentation and executive brief | Day 11 complete; five supported proposed reviews, limitations, seven export schemas and focused boundary checks |
 | Machine learning | Outside this MVP |
 
 

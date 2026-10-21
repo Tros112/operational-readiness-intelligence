@@ -1,6 +1,6 @@
-# Dashboard export dictionary — Days 5, 9 and 10
+# Dashboard export dictionary — Day 11 reference
 
-Implemented for the fixed **2026-10-07** snapshot. Every value is **simulated**; readiness is a fictional proxy. Source tables and fields remain unchanged. These three derived CSVs are generated locally under `data/processed/dashboard/`, with a successful `export_manifest.json` as the refresh precondition. No database connection driver or new Python dependency is required.
+Documentation reviewed October 20, 2026 for the fixed **2026-10-07** snapshot. Every value is **simulated**; readiness is a fictional proxy. Source/output schemas and metrics are unchanged. The original three CSVs below and separate process/scenario bundles later in this dictionary are generated locally. Each bundle has its own passed manifest. [Run order](reproduce.md), [source fields](data_dictionary.md), [limitations](limitations.md) and [brief](executive_brief.md) provide context. No database connection driver or new Python dependency is required.
 
 | CSV | Unique grain | Reference rows | Purpose |
 | --- | --- | ---: | --- |
@@ -135,4 +135,22 @@ A holder can contribute to several qualification pairs. Summed eligible losses a
 
 Summary metadata is data_classification, scenario, as_of_date, horizon_days, horizon_date, unit_id, unit_name, followed by qualification_pair_count, required_holder_slots, current_eligible_holder_slots, projected_eligible_holder_slots, eligible_holder_slots_lost, current_capped_holder_slots, projected_capped_holder_slots, current_gap, projected_gap, additional_gap, current_pairs_with_gap, projected_pairs_with_gap, new_gap_pairs, current_fragile_pairs, projected_fragile_pairs, current_coverage_ratio, projected_coverage_ratio. Counts sum over disjoint pairs within one selected horizon; divide summed capped/required slots for coverage. **Never sum alternative horizons**, which repeat demand/current components.
 
-scenario_horizon is a derived three-row/two-column lookup (Whole Number horizon_days, Text horizon_label), not a new operational source. The seventeen ORI S measures require one horizon; absent/ambiguous horizons show blanks and a selection prompt. With one valid horizon and no matching pairs, counts are zero and undefined ratios/dates blank. M checks the current baseline against accepted qualification_detail; Python preflight verifies SHA-256 and scenario arithmetic/grids/monotonicity without writes. Exact runtime behavior remains pending Windows/Desktop evidence; see [handoff](day10_windows_handoff.md), [reconciliation](day10_reconciliation.md) and [audit](scenario_check.json).
+scenario_horizon is a derived three-row/two-column lookup (Whole Number horizon_days, Text horizon_label), not a new operational source. The seventeen ORI S measures require one horizon; absent/ambiguous horizons show blanks and a selection prompt. With one valid horizon and no matching pairs, counts are zero and undefined ratios/dates blank. M checks the current baseline against accepted qualification_detail; Python preflight verifies SHA-256 and scenario arithmetic/grids/monotonicity without writes. Report behavior and user-confirmed reopening are accepted through Day 10; exact installed definitions/PBIX remain uninspected by the assistant. See [handoff](day10_windows_handoff.md), [reconciliation](day10_reconciliation.md) and [audit](scenario_check.json).
+
+## Complete file and aggregation index
+
+Observed reference shapes are metadata, not extra source tables. CSVs/manifests/database are generated and ignored; a Git clone creates them using the runbook.
+
+| Bundle / file | Rows × columns | Aggregate / report use |
+| --- | --- | --- |
+| Original / unit_summary.csv | 6 × 24 | One unit/date; sum components across disjoint units and divide summed components for ratios. Its staffing metrics do not become qualification-specific merely because a qualification is selected. |
+| Original / qualification_detail.csv | 48 × 13 | One unit/qualification/date; sum capped/required/gap components and recompute ratios. A person can contribute to several qualifications. |
+| Original / expiration_detail.csv | 193 × 14 | One person/qualification/date including unavailable valid holders; affected people require distinct IDs after qualification filtering. |
+| Process / process_case_detail.csv | 600 × 16 | One case/date; eligible flags, individual durations and open ages define selected metrics. |
+| Process / process_unit_summary.csv | 6 × 14 | SQL reference only. Counts can sum; selected rates/medians require the case population. Do not import as another fact. |
+| Scenario / qualification_scenario.csv | 144 × 25 | One unit/qualification/horizon/date; aggregate pair components within one horizon and recompute coverage. |
+| Scenario / scenario_unit_summary.csv | 18 × 24 | SQL reference only, one unit/horizon/date. Never sum alternative horizons or import as a second fact. |
+
+qualification_filter (8 × 2), process_filter (4 × 1) and scenario_horizon (3 × 2) are derived lookups, not operational sources. IDs/labels are Text; horizon_days is Whole Number. They filter separate facts through active 1:* Single links, without fact-to-fact joins.
+
+Staffing gap is a local personnel shortfall; qualification gaps are holder slots; new_gap_pairs counts requirement pairs newly becoming unmet. C/Q06 can add one missing slot while its new-pair flag stays zero. Original expiration inventory and scenario losses have different availability scopes. Blank ratios/dates signify undefined or invalid scope, not measured zero. Scenario numerical cards also blank with an invalid horizon. [Boundary checks](day11_boundary_checks.md) exercise these distinctions.
