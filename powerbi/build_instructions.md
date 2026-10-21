@@ -1,12 +1,12 @@
 # Power BI build index
 
-**Current status, October 20, 2026 — all Day 10 technical/report checks accepted; two own-explanation points remain.** The horizon-date correction, 90-day union, both actual data-row interactions and final global 30-day restoration now pass. D/Q04 reasoning is accepted; C/Q06 new-gap reasoning and the scenario-assumptions explanation remain. Day 9/prior setup/reopening and the separately open MVP gate are unchanged.
+**Current status, October 20, 2026 — Day 10 complete.** All technical/report checks and three own scenario explanations are accepted. Prior pages/setup/reopening remain accepted; full MVP/polish gates remain separately open. See the [completion checkpoint](../docs/checkpoints/2026-10-20_day10.md).
 
 ## Continue in the same Windows project
 
-Use only the [two remaining own-explanation points](../docs/day10_windows_handoff.md#remaining-items-after-the-screenshot-review). No further technical screenshots, setup/test/export/reopening repeats or repeat of the D/Q04 explanation are requested. Preserve the existing report/data/environment and every prior accepted page.
+No further Day 10 screenshots, setup/test/export/reopening or own-answer repeats are requested. Preserve the existing report/data/environment and every accepted page. Stop at Day 10; Day 11 begins on user commencement.
 
-The retained build specification is 144/25 qualification_scenario and 3/2 scenario_horizon, three new active 1:* Single links (ten total), seventeen ORI S measures and one selected horizon. Relationship/measure-list and runtime value evidence are accepted; exact imported type metadata/installed definitions were not directly inspected, with no new proof gate added. Compare [exact references](../docs/day10_reconciliation.md). Only the new scenario fact/derived selector are imported; scenario_unit_summary stays SQL reference-only. Do not start Day 11 before Day 10 completion.
+The retained build specification is 144/25 qualification_scenario and 3/2 scenario_horizon, three new active 1:* Single links (ten total), seventeen ORI S measures and one selected horizon. Relationship/measure-list and runtime value evidence are accepted; exact imported type metadata/installed definitions were not directly inspected, with no new proof gate added. Compare [exact references](../docs/day10_reconciliation.md). Only the new scenario fact/derived selector are imported; scenario_unit_summary stays SQL reference-only. Day 10 is complete; Day 11 awaits user commencement.
 
 Prepared scenario assets: [qualification_scenario.pq](qualification_scenario.pq), [scenario_horizon.pq](scenario_horizon.pq), and [scenario_measures.dax](scenario_measures.dax). Default to single-select 30 days. All numerical/date results require one horizon; a valid horizon with no matching pairs gives zero counts/blank ratios-dates. Both table sources use None; slicers use Filter. Current baseline M checks refer to accepted qualification_detail without a fact-to-fact model link.
 
@@ -23,4 +23,4 @@ Run all three Python input checkers immediately before import/refresh; they veri
 - [Export dictionary](../docs/export_dictionary.md): original and separate process schemas/grains.
 - [SQL review](../docs/sql_review_backlog.md): remaining LEFT JOIN/staffing row-multiplication learning.
 
-The no-renewal scenario has passed all technical/report checks and remains pending two own-explanation points. Cloud publishing and ML remain outside this milestone. Fixed date, six operational sources, synthetic/fictional scope, and SQLite/CSV transport are unchanged.
+The no-renewal scenario has passed all technical/report and own-explanation checks; Day 10 is complete. Cloud publishing and ML remain outside this milestone. Fixed date, six operational sources, synthetic/fictional scope, and SQLite/CSV transport are unchanged.
